@@ -116,7 +116,7 @@
                     $arregloCarrito =$_SESSION['carrito'];
                     for($i=0; $i<count($arregloCarrito);$i++){
                 ?>
-                <!-- Con PHP hacemos la tabla del producto dinámica -->
+                <!-- Con PHP hacemos la tabla del carrito dinámica -->
                   <tr>
                     <td class="product-thumbnail">
                       <img src="images/<?php echo $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
@@ -139,7 +139,7 @@
                     </td>
                     <td><?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
                     <!-- Creamos un data-id haciendo uso de "data attribute" de HTML5 -->
-                    <td><a href="#" class="btn btn-primary btn-sm btnEliminar" data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
+                    <td><a href="#" class="btn btn-primary btn-sm btnEliminar btn-danger" data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
                   </tr>
                   <?php } } ?>
                 </tbody>
@@ -224,6 +224,7 @@
       $(".btnEliminar").click(function(event){
         event.preventDefault();
         var id = $(this).data('id');
+        var boton = $(this);
 
         $.ajax({
           method:'POST',
@@ -232,7 +233,7 @@
             id:id
           }
         }).done(function(respuesta){
-          
+          boton.parent('td').parent('tr').remove();
         });
       });
     });
