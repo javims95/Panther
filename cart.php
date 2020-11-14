@@ -4,6 +4,40 @@
   include './php/conexion.php';
   if (isset($_SESSION['carrito'])) {
     // Si existe buscamos si ya estaba agregado este producto
+    if(isset($_GET['id'])) {
+      $arreglo =$_SESSION['carrito'];
+      $encontro=false;
+      $numero = 0;
+      for($i=0;$i<count($arreglo);$i++) {
+        if($arreglo[$i]['Id']== $_GET['id']){
+          $encontro=true;
+          $numero=$i;
+        }
+      }
+      if($encontro == true){
+        $arreglo[$numero]['Cantidad']=$arreglo[$numero]['Cantidad']+1;
+        $_SESSION['carrito']=$arreglo;
+      }
+      else{
+        $nombre ="";
+        $precio ="";
+        $imagen ="";
+        $res = $conexion ->query('select * from productos where id='.$_GET['id'])or die($conexion->error);
+        $fila = mysqli_fetch_row($res);
+        $nombre = $fila[1];
+        $precio = $fila[3];
+        $imagen = $fila[4];
+        $arregloNuevo = array(
+          'Id'=> $_GET['id'], 
+          'Nombre'=> $nombre,
+          'Precio'=> $precio,
+          'Imagen'=> $imagen,
+          'Cantidad'=> 1
+        );
+        array_push($arreglo, $arregloNuevo);
+        $_SESSION['carrito']=$arreglo;
+      }
+    }
 
   }
   else {
@@ -77,19 +111,20 @@
 
                 <!--  -->
                 <?php 
+                // Comprobamos si existe la variable de sesion
                   if(isset($_SESSION['carrito'])){
-                    $arregloCarrito = $_SESSION['carrito'];
-                    for ($i=0;$i<count($arregloCarrito;$i++)){
-
+                    $arregloCarrito =$_SESSION['carrito'];
+                    for($i=0; $i<count($arregloCarrito);$i++){
                 ?>
+                <!-- Con PHP hacemos la tabla del producto dinámica -->
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/<?php $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
+                      <img src="images/<?php echo $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black"><?php $arregloCarrito[$i]['Nombre']; ?></h2>
+                      <h2 class="h5 text-black"><?php echo $arregloCarrito[$i]['Nombre']; ?></h2>
                     </td>
-                    <td><?php $arregloCarrito[$i]['Precio']; ?> €</td>
+                    <td><?php echo $arregloCarrito[$i]['Precio'];?> €</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -102,7 +137,7 @@
                       </div>
 
                     </td>
-                    <td>$49.00</td>
+                    <td><?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
                   <?php } } ?>
