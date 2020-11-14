@@ -130,14 +130,17 @@
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
-                        <input type="text" class="form-control text-center" value="<?php echo $arregloCarrito[$i]['Cantidad']; ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <input type="text" class="form-control text-center txtCantidad"
+                          data-precio="<?php echo $arregloCarrito[$i]['Precio'];?>"
+                          data-id="<?php echo $arregloCarrito[$i]['Id'];?>"
+                         value="<?php echo $arregloCarrito[$i]['Cantidad'];?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
                           <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
                       </div>
 
                     </td>
-                    <td><?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
+                    <td class="cant<?php echo $arregloCarrito[$i]['Id'];?>"><?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
                     <!-- Creamos un data-id haciendo uso de "data attribute" de HTML5 -->
                     <td><a href="#" class="btn btn-primary btn-sm btnEliminar btn-danger" data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
                   </tr>
@@ -152,22 +155,22 @@
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
+                <button class="btn btn-primary btn-sm btn-block">Actualizar Carrito</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                <button class="btn btn-outline-primary btn-sm btn-block">Continuar Comprando</button>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <label class="text-black h4" for="coupon">Coupon</label>
-                <p>Enter your coupon code if you have one.</p>
+                <label class="text-black h4" for="coupon">Cupón de Descuento</label>
+                <p>Inserte aquí su cupón si dispone de uno</p>
               </div>
               <div class="col-md-8 mb-3 mb-md-0">
-                <input type="text" class="form-control py-3" id="coupon" placeholder="Coupon Code">
+                <input type="text" class="form-control py-3" id="coupon" placeholder="Código de Cupón">
               </div>
               <div class="col-md-4">
-                <button class="btn btn-primary btn-sm">Apply Coupon</button>
+                <button class="btn btn-primary btn-sm">Aplicar Cupón</button>
               </div>
             </div>
           </div>
@@ -176,7 +179,7 @@
               <div class="col-md-7">
                 <div class="row">
                   <div class="col-md-12 text-right border-bottom mb-5">
-                    <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                    <h3 class="text-black h4 text-uppercase">Total Carrito</h3>
                   </div>
                 </div>
                 <div class="row mb-3">
@@ -198,7 +201,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.php'">Proceed To Checkout</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='checkout.php'">Proceder al Pago</button>
                   </div>
                 </div>
               </div>
@@ -236,6 +239,15 @@
           boton.parent('td').parent('tr').remove();
         });
       });
+
+      // Actualizar cantidades cuando se sume o reste al producto
+      $(".txtCantidad").keyup(function()){
+        car cantidad = $(this).val();
+        var precio = $(this).data('precio');
+        var id = $(this).data('id');
+        var mult = parseFloat(cantidad)*parseFloat(precio);
+        $(".cant"+id).txt(mult);
+      }
     });
   </script>
     
