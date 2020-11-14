@@ -1,3 +1,35 @@
+<?php 
+  // Creamos la variable de sesion
+  session_start();
+  include './php/conexion.php';
+  if (isset($_SESSION['carrito'])) {
+    // Si existe buscamos si ya estaba agregado este producto
+
+  }
+  else {
+    // Creamos la variable de sesion
+    if (isset($_GET['id'])){
+      $nombre ="";
+      $precio ="";
+      $imagen ="";
+      $res = $conexion ->query('select * from productos where id='.$_GET['id'])or die($conexion->error);
+      $fila = mysqli_fetch_row($res);
+      $nombre = $fila[1];
+      $precio = $fila[3];
+      $imagen = $fila[4];
+      $arreglo[] = array(
+        'Id'=> $_GET['id'], 
+        'Nombre'=> $nombre,
+        'Precio'=> $precio,
+        'Imagen'=> $imagen,
+        'Cantidad'=> 1
+      );
+      // Metemos el array en la variable de sesion "carrito"
+      $_SESSION['carrito']=$arreglo;
+    }
+  }
+?> 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,14 +74,22 @@
                   </tr>
                 </thead>
                 <tbody>
+
+                <!--  -->
+                <?php 
+                  if(isset($_SESSION['carrito'])){
+                    $arregloCarrito = $_SESSION['carrito'];
+                    for ($i=0;$i<count($arregloCarrito;$i++)){
+
+                ?>
                   <tr>
                     <td class="product-thumbnail">
-                      <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
+                      <img src="images/<?php $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
                     </td>
                     <td class="product-name">
-                      <h2 class="h5 text-black">Top Up T-Shirt</h2>
+                      <h2 class="h5 text-black"><?php $arregloCarrito[$i]['Nombre']; ?></h2>
                     </td>
-                    <td>$49.00</td>
+                    <td><?php $arregloCarrito[$i]['Precio']; ?> €</td>
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
@@ -65,30 +105,7 @@
                     <td>$49.00</td>
                     <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
                   </tr>
-
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/cloth_2.jpg" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black">Polo Shirt</h2>
-                    </td>
-                    <td>$49.00</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
-                        </div>
-                        <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-                        </div>
-                      </div>
-
-                    </td>
-                    <td>$49.00</td>
-                    <td><a href="#" class="btn btn-primary btn-sm">X</a></td>
-                  </tr>
+                  <?php } } ?>
                 </tbody>
               </table>
             </div>
