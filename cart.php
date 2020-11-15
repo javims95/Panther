@@ -109,12 +109,28 @@
                 </thead>
                 <tbody>
 
-                <!--  -->
                 <?php 
+                  // Variables para "Total del carrito"
+                  $subtotal = 0;
+                  $envio = 5.90;
+                  $iva = 0;
+                  $total = 0;
+
                 // Comprobamos si existe la variable de sesion
                   if(isset($_SESSION['carrito'])){
                     $arregloCarrito =$_SESSION['carrito'];
                     for($i=0; $i<count($arregloCarrito);$i++){
+
+                      // Calcular "Total del carrito"
+                      $subtotal = $subtotal + ($arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']);
+                      $iva = $subtotal * 0.21;
+                      $total = ($subtotal) + ($envio)+ ($iva);
+
+                      // Formato para que todos los precios tengan dos decimales
+                      $format_subtotal = number_format($subtotal, 2);
+                      $format_envio = number_format($envio, 2);
+                      $format_iva = number_format($iva, 2);
+                      $format_total = number_format($total, 2);
                 ?>
                 <!-- Con PHP hacemos la tabla del carrito dinámica -->
                   <tr>
@@ -130,6 +146,7 @@
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
                         </div>
+                        <!-- Botón para cambiar la cantidad en el carrito -->
                         <input type="text" class="form-control text-center txtCantidad"
                           data-precio="<?php echo $arregloCarrito[$i]['Precio'];?>"
                           data-id="<?php echo $arregloCarrito[$i]['Id'];?>"
@@ -140,9 +157,11 @@
                       </div>
 
                     </td>
-                    <td class="cant<?php echo $arregloCarrito[$i]['Id'];?>"><?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
+                    <td class="cant<?php echo $arregloCarrito[$i]['Id'];?>">
+                    <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
                     <!-- Creamos un data-id haciendo uso de "data attribute" de HTML5 -->
-                    <td><a href="#" class="btn btn-primary btn-sm btnEliminar btn-danger" data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
+                    <td><a href="#" class="btn btn-primary btn-sm btn-danger btnEliminar" 
+                    data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
                   </tr>
                   <?php } } ?>
                 </tbody>
@@ -174,6 +193,7 @@
               </div>
             </div>
           </div>
+          <!-- Total carrito -->
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
               <div class="col-md-7">
@@ -182,22 +202,44 @@
                     <h3 class="text-black h4 text-uppercase">Total Carrito</h3>
                   </div>
                 </div>
+                <!-- Subtotal -->
                 <div class="row mb-3">
                   <div class="col-md-6">
                     <span class="text-black">Subtotal</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black"><?php echo $format_subtotal;?> €</strong>
                   </div>
                 </div>
-                <div class="row mb-5">
+                <!-- Envío -->
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <span class="text-black">Envío GLS (24h)</span>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <strong class="text-black"><?php echo $format_envio;?> €</strong>
+                  </div>
+                </div>
+                <!-- IVA -->
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <span class="text-black">IVA 21%</span>
+                  </div>
+                  <div class="col-md-6 text-right">
+                    <strong class="text-black"><?php echo $format_iva;?> €</strong>
+                  </div>
+                  
+                  <!-- Total -->
+                </div>
+                <div class="row mb-5" style="font-weight: 600;">
                   <div class="col-md-6">
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black">$230.00</strong>
+                    <strong class="text-black"><?php echo $format_total;?> €</strong>
                   </div>
                 </div>
+                
 
                 <div class="row">
                   <div class="col-md-12">
@@ -223,7 +265,7 @@
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script>
-    $(document).ready(function(){
+    /*$(document).ready(function(){
       $(".btnEliminar").click(function(event){
         event.preventDefault();
         var id = $(this).data('id');
@@ -248,7 +290,18 @@
         var mult = parseFloat(cantidad)*parseFloat(precio);
         $(".cant"+id).txt(mult);
       }
-    });
+    });*/
+  </script>
+
+  <script>
+    // Actualizar cantidades cuando se sume o reste al producto
+    $(".txtCantidad").change(function(){
+        var cantidad = $(this).val();
+        var precio = $(this).data('precio');
+        var id = $(this).data('id');
+        var mult = parseFloat(cantidad)*parseFloat(precio);
+        $(".cant"+id).text(mult);
+      });
   </script>
     
   </body>
