@@ -71,8 +71,12 @@
 
             <?php 
               // Consulta para mostrar los resultados de búsqueda (buscador)
+              // Resultados: puede estar en el nombre, descripción, talla, color
               $resultado = $conexion ->query("select * from productos where
-               nombre like '%".$_GET['texto']."%'
+               nombre like '%".$_GET['texto']."%' or
+               descripcion like '%".$_GET['texto']."%' or
+               talla like '%".$_GET['texto']."%' or
+               color like '%".$_GET['texto']."%'
                
                order by id DESC")or die($conexion-> error);
               // En este bucle imprimimos los productos obtenidos de la consulta
