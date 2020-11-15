@@ -1,3 +1,33 @@
+<!-- Generamos una consulta para saber que productos ha pedido el cliente y lo mostramos -->
+<?php 
+  session_start();
+  include './php/conexion.php';
+  if (!isset($_SESSION['carrito'])){header("Location: ./index.php");}
+  $arreglo = $_SESSION['carrito'];
+  $total= 0;
+  for($i=0;$i<count($arreglo);$i++){
+    $total = $total+($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
+  }
+
+  // Se inserta el pedido en la table ventas
+  $fecha = date('Y-m-d h:m:s');
+  $conexion -> query("INSERT INTO ventas(id_usuario,total,fecha) VALUES(1,$total,'$fecha')")or die($conexion->error);
+  $id_venta = $conexion ->insert_id;
+
+  for($i=0;$i<count($arreglo);$i++){
+    $conexion -> query("INSERT INTO productos_venta (id_venta,id_producto,cantidad,precio,subtotal)
+    VALUES(
+      $id_venta, 
+      ".$arreglo[$i]['Id'].",
+      ".$arreglo[$i]['Cantidad'].",
+      ".$arreglo[$i]['Precio'].",
+      ".$arreglo[$i]['Cantidad'] * $arreglo[$i]['Precio']."
+      )")or die($conexion->error);
+  }
+// Borramos la variable de sesión carrito, cuando se alamacena en la BBDD
+  unset($_SESSION['carrito']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>

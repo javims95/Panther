@@ -116,6 +116,11 @@
                   $iva = 0;
                   $total = 0;
 
+                  $format_subtotal = 0;
+                  $format_envio = 0;
+                  $format_iva = 0;
+                  $format_total = 0;
+
                 // Comprobamos si existe la variable de sesion
                   if(isset($_SESSION['carrito'])){
                     $arregloCarrito =$_SESSION['carrito'];
@@ -193,6 +198,7 @@
               </div>
             </div>
           </div>
+          
           <!-- Total carrito -->
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
