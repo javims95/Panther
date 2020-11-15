@@ -1,3 +1,5 @@
+<!-- Comprobamos si existe la variable ID del producto solicitado, 
+en caso contrario lo redireccionamos a index.php -->
 <?php
   include("./php/conexion.php");
   if (isset($_GET['id'])) {
@@ -49,7 +51,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-          <!-- Con el PHP mostramos los resultados del arrya correcpondientes con el campo de la BBDD -->
+          <!-- Con el PHP mostramos los resultados del array correspondientes con el campo de la BBDD -->
             <img src="images/<?php echo $fila[4]; ?>" alt="<?php echo $fila[1]; ?>" class="img-fluid">
           </div>
           <div class="col-md-6">
