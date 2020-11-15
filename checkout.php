@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  if(!isset($_SESSION['carrito'])){
+    header('Location: ./index.php');
+
+  }
+  $arreglo = $_SESSION['carrito'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -227,25 +236,74 @@
                   <table class="table site-block-order-table mb-5">
                     <thead>
                       <th>Product</th>
+                      <th>Unidad</th>
                       <th>Total</th>
                     </thead>
                     <tbody>
+
+                    <?php 
+
+                    // Variables para "Total del carrito"
+                      $subtotal = 0;
+                      $envio = 5.90;
+                      $iva = 0;
+                      $total = 0;
+                      
+
+                    // Hacemos dinámica la tabla con el precio total en la página del "Checkout"
+                      $total = 0;
+                      for($i=0;$i<count($arreglo);$i++){
+                        //$total = $total + ($arreglo[$i]['Precio']*$arreglo[$i]['Cantidad']);
+                        $singlePrice = $arreglo[$i]['Precio'];
+                        $totalProduct = $arreglo[$i]['Precio']*$arreglo[$i]['Cantidad'];
+
+                        // Calcular "Total del carrito"
+                      $subtotal = $subtotal + ($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
+                      $iva = $subtotal * 0.21;
+                      $total = ($subtotal) + ($envio)+ ($iva);
+                        
+
+                        // Formato para que todos los precios tengan dos decimales
+                      $format_subtotal = number_format($subtotal, 2);
+                      $format_envio = number_format($envio, 2);
+                      $format_iva = number_format($iva, 2);
+                      $format_total = number_format($total, 2);
+                      
+                    ?>
                       <tr>
-                        <td>Top Up T-Shirt <strong class="mx-2">x</strong> 1</td>
-                        <td>$250.00</td>
+                        <td><?php echo $arreglo[$i]['Nombre'];?><strong class="mx-2">x</strong><?php echo $arreglo[$i]['Cantidad']?></td>
+                        <td><?php echo number_format($singlePrice, 2);?> €</td>
+                        <td><?php echo number_format($totalProduct, 2);?> €</td>
                       </tr>
+
+                    <?php } ?>
+
+                        <!-- Subtotal -->
+                      <tr style="border-top: 1.5px solid black;">
+                        <td>Subtotal</td>
+                        <td></td>
+                        <td><?php echo $format_subtotal?> €</td>
+                      </tr>
+                      <!-- IVA -->
                       <tr>
-                        <td>Polo Shirt <strong class="mx-2">x</strong>   1</td>
-                        <td>$100.00</td>
+                        <td>IVA 21%</td>
+                        <td></td>
+                        <td><?php echo $format_iva?> €</td>
                       </tr>
+                        <!-- Envio -->
                       <tr>
-                        <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>
-                        <td class="text-black">$350.00</td>
+                        <td>Envío GLS (24h)</td>
+                        <td></td>
+                        <td><?php echo $format_envio?> €</td>
                       </tr>
-                      <tr>
-                        <td class="text-black font-weight-bold"><strong>Order Total</strong></td>
-                        <td class="text-black font-weight-bold"><strong>$350.00</strong></td>
+                      <!-- Total -->
+                      <tr style="font-weight: 600">
+                        <td>Total</td>
+                        <td></td>
+                        <td><?php echo $format_total?> €</td>
                       </tr>
+                      
+                     
                     </tbody>
                   </table>
 
@@ -280,7 +338,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.html'">Place Order</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.php'">Place Order</button>
                   </div>
 
                 </div>
