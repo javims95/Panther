@@ -79,6 +79,10 @@
                color like '%".$_GET['texto']."%'
                
                order by id DESC")or die($conexion-> error);
+
+               if(mysqli_num_rows($resultado) > 0){
+
+               
               // En este bucle imprimimos los productos obtenidos de la consulta
               while($fila = mysqli_fetch_array($resultado)) {
                 
@@ -98,7 +102,12 @@
                   </div>
                 </div>
             
-            <?php } ?>
+            <?php } } 
+                    else {
+                        echo '<h2>Sin resultados</h2>';
+
+                    } 
+                    ?>
 
             </div>
             <div class="row" data-aos="fade-up">
