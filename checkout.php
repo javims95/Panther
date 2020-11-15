@@ -33,93 +33,89 @@
   
   <div class="site-wrap">
     <?php include("./layouts/header.php"); ?> 
-
+    <form action="./thankyou.php" method="POST">
     <div class="site-section">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12">
             <div class="border p-4 rounded" role="alert">
-              Returning customer? <a href="#">Click here</a> to login
+              ¿Ya eres cliente? <a href="#">Click aquí</a> para iniciar sesion
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 mb-5 mb-md-0">
-            <h2 class="h3 mb-3 text-black">Billing Details</h2>
+            <h2 class="h3 mb-3 text-black">Detalles de Facturación</h2>
             <div class="p-3 p-lg-5 border">
               <div class="form-group">
-                <label for="c_country" class="text-black">Country <span class="text-danger">*</span></label>
-                <select id="c_country" class="form-control">
-                  <option value="1">Select a country</option>    
-                  <option value="2">bangladesh</option>    
-                  <option value="3">Algeria</option>    
-                  <option value="4">Afghanistan</option>    
-                  <option value="5">Ghana</option>    
-                  <option value="6">Albania</option>    
-                  <option value="7">Bahrain</option>    
-                  <option value="8">Colombia</option>    
-                  <option value="9">Dominican Republic</option>    
+                <label for="c_country" class="text-black">País <span class="text-danger">*</span></label>
+                <select id="c_country" class="form-control" name="country">
+                  <option value="1">Seleccione un país</option>    
+                  <option value="2">España</option>    
+                  <option value="3">Alemania</option>    
+                  <option value="4">Paises Bajos</option>    
+                  <option value="5">Portugal</option>    
+                  <option value="6">Suecia</option>    
+                  <option value="7">Bélgica</option>    
+                  <option value="8">Francia</option>    
+                  <option value="9">Finlandia</option>    
                 </select>
               </div>
               <div class="form-group row">
                 <div class="col-md-6">
-                  <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
+                  <label for="c_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="c_fname" name="c_fname">
                 </div>
                 <div class="col-md-6">
-                  <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
+                  <label for="c_lname" class="text-black">Apellidos <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="c_lname" name="c_lname">
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="c_companyname" class="text-black">Company Name </label>
+                  <label for="c_companyname" class="text-black">Nombre de la empresa </label>
                   <input type="text" class="form-control" id="c_companyname" name="c_companyname">
                 </div>
               </div>
 
               <div class="form-group row">
                 <div class="col-md-12">
-                  <label for="c_address" class="text-black">Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_address" name="c_address" placeholder="Street address">
+                  <label for="c_address" class="text-black">Dirección <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="c_address" name="c_address" >
                 </div>
-              </div>
-
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
               </div>
 
               <div class="form-group row">
                 <div class="col-md-6">
-                  <label for="c_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
+                  <label for="c_state_country" class="text-black">País / Estado <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="c_state_country" name="c_state_country">
                 </div>
                 <div class="col-md-6">
-                  <label for="c_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip">
+                  <label for="c_postal_zip" class="text-black">Código postal <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="c_postal_zip" name="c_postal_zip" placeholder="29000">
                 </div>
               </div>
 
               <div class="form-group row mb-5">
                 <div class="col-md-6">
-                  <label for="c_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_email_address" name="c_email_address">
+                  <label for="c_email_address" class="text-black">Correo electrónico <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="c_email_address" name="c_email_address">
                 </div>
                 <div class="col-md-6">
-                  <label for="c_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-                  <input type="text" class="form-control" id="c_phone" name="c_phone" placeholder="Phone Number">
+                  <label for="c_phone" class="text-black">Teléfono <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="c_phone" name="c_phone">
                 </div>
               </div>
 
               <div class="form-group">
-                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> Create an account?</label>
+                <label for="c_create_account" class="text-black" data-toggle="collapse" href="#create_an_account" role="button" aria-expanded="false" aria-controls="create_an_account"><input type="checkbox" value="1" id="c_create_account"> ¿Aún no eres cliente?</label>
                 <div class="collapse" id="create_an_account">
                   <div class="py-2">
-                    <p class="mb-3">Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+                    <p class="mb-3">Cree una cuenta ingresando la información anterior y su nueva contraseña a continuación. Si ya eres cliente, inicie sesión en la parte superior de la página.</p>
                     <div class="form-group">
-                      <label for="c_account_password" class="text-black">Account Password</label>
-                      <input type="email" class="form-control" id="c_account_password" name="c_account_password" placeholder="">
+                      <label for="c_account_password" class="text-black">Contraseña</label>
+                      <input type="password" class="form-control" id="c_account_password" name="c_account_password">
                     </div>
                   </div>
                 </div>
@@ -132,69 +128,65 @@
                   <div class="py-2">
 
                     <div class="form-group">
-                      <label for="c_diff_country" class="text-black">Country <span class="text-danger">*</span></label>
+                      <label for="c_diff_country" class="text-black">País <span class="text-danger">*</span></label>
                       <select id="c_diff_country" class="form-control">
-                        <option value="1">Select a country</option>    
-                        <option value="2">bangladesh</option>    
-                        <option value="3">Algeria</option>    
-                        <option value="4">Afghanistan</option>    
-                        <option value="5">Ghana</option>    
-                        <option value="6">Albania</option>    
-                        <option value="7">Bahrain</option>    
-                        <option value="8">Colombia</option>    
-                        <option value="9">Dominican Republic</option>    
+                      <option value="1">Seleccione un país</option>    
+                      <option value="2">España</option>    
+                      <option value="3">Alemania</option>    
+                      <option value="4">Paises Bajos</option>    
+                      <option value="5">Portugal</option>    
+                      <option value="6">Suecia</option>    
+                      <option value="7">Bélgica</option>    
+                      <option value="8">Francia</option>    
+                      <option value="9">Finlandia</option>     
                       </select>
                     </div>
 
 
                     <div class="form-group row">
                       <div class="col-md-6">
-                        <label for="c_diff_fname" class="text-black">First Name <span class="text-danger">*</span></label>
+                        <label for="c_diff_fname" class="text-black">Nombre <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_fname" name="c_diff_fname">
                       </div>
                       <div class="col-md-6">
-                        <label for="c_diff_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
+                        <label for="c_diff_lname" class="text-black">Apellidos <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_lname" name="c_diff_lname">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <div class="col-md-12">
-                        <label for="c_diff_companyname" class="text-black">Company Name </label>
+                        <label for="c_diff_companyname" class="text-black">Nombre de la empresa </label>
                         <input type="text" class="form-control" id="c_diff_companyname" name="c_diff_companyname">
                       </div>
                     </div>
 
                     <div class="form-group row">
                       <div class="col-md-12">
-                        <label for="c_diff_address" class="text-black">Address <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="c_diff_address" name="c_diff_address" placeholder="Street address">
+                        <label for="c_diff_address" class="text-black">Dirección <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="c_diff_address" name="c_diff_address">
                       </div>
-                    </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Apartment, suite, unit etc. (optional)">
                     </div>
 
                     <div class="form-group row">
                       <div class="col-md-6">
-                        <label for="c_diff_state_country" class="text-black">State / Country <span class="text-danger">*</span></label>
+                        <label for="c_diff_state_country" class="text-black">País / Estado <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_state_country" name="c_diff_state_country">
                       </div>
                       <div class="col-md-6">
-                        <label for="c_diff_postal_zip" class="text-black">Posta / Zip <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip">
+                        <label for="c_diff_postal_zip" class="text-black">Código Postal <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="c_diff_postal_zip" name="c_diff_postal_zip" placeholder="29000">
                       </div>
                     </div>
 
                     <div class="form-group row mb-5">
                       <div class="col-md-6">
-                        <label for="c_diff_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
+                        <label for="c_diff_email_address" class="text-black">Correo electrónico <span class="text-danger">*</span></label>
                         <input type="text" class="form-control" id="c_diff_email_address" name="c_diff_email_address">
                       </div>
                       <div class="col-md-6">
-                        <label for="c_diff_phone" class="text-black">Phone <span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone" placeholder="Phone Number">
+                        <label for="c_diff_phone" class="text-black">Teléfono <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="c_diff_phone" name="c_diff_phone">
                       </div>
                     </div>
 
@@ -204,8 +196,8 @@
               </div>
 
               <div class="form-group">
-                <label for="c_order_notes" class="text-black">Order Notes</label>
-                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="Write your notes here..."></textarea>
+                <label for="c_order_notes" class="text-black">Nota de pedido</label>
+                <textarea name="c_order_notes" id="c_order_notes" cols="30" rows="5" class="form-control" placeholder="El porterillo no funciona, la clave de acceso al portal es 0000..."></textarea>
               </div>
 
             </div>
@@ -338,19 +330,18 @@
                   </div>
 
                   <div class="form-group">
-                    <button class="btn btn-primary btn-lg py-3 btn-block" onclick="window.location='thankyou.php'">Place Order</button>
+                    <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Place Order</button>
                   </div>
 
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!-- </form> -->
       </div>
     </div>
-
+  </form>
     <?php include("./layouts/footer.php"); ?> 
   </div>
 

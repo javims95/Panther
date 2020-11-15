@@ -105,8 +105,6 @@ CREATE TABLE `usuario` (
 CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `envio` double NOT NULL,
-  `iva` double NOT NULL,
   `total` double NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -9,11 +9,30 @@
     $total = $total+($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
   }
 
+  // Comprobamos si se ha introducido una contraseña. 
+  $password = "";
+  if (isset($_POST['c_account_password'])){
+    if ($_POST['c_account_password'] != ""){
+        $password = $_POST['c_account_password'];
+    }
+  }
+  // Introducimos los datos en la tabla usuario. La contraseña se almacena encriptada. 
+  $conexion->query("INSERT INTO usuario (nombre, telefono, email, password) 
+  VALUES(
+    '".$_POST['c_fname']." ".$_POST['c_lname']."', 
+    '".$_POST['c_phone']."',
+    '".$_POST['c_email_address']."',
+    '".sha1($password)."'
+  )")or die($conexion->error);
+  // Creamos el id del cliente.
+  $id_usuario = $conexion-> insert_id;
+
   // Se inserta el pedido en la table ventas
   $fecha = date('Y-m-d h:m:s');
-  $conexion -> query("INSERT INTO ventas(id_usuario,total,fecha) VALUES(1,$total,'$fecha')")or die($conexion->error);
+  $conexion -> query("INSERT INTO ventas(id_usuario,total,fecha) VALUES($id_usuario,$total,'$fecha')")or die($conexion->error);
   $id_venta = $conexion ->insert_id;
 
+  // Insertamos los productos vendidos en la tabla "productos_venta"
   for($i=0;$i<count($arreglo);$i++){
     $conexion -> query("INSERT INTO productos_venta (id_venta,id_producto,cantidad,precio,subtotal)
     VALUES(
@@ -24,6 +43,18 @@
       ".$arreglo[$i]['Cantidad'] * $arreglo[$i]['Precio']."
       )")or die($conexion->error);
   }
+
+  // Insertar los datos en la tabla envíos.
+  $conexion->query("INSERT INTO envios(pais, company, direccion, estado, cp, id_venta) VALUES
+  (
+    '".$_POST['country']."',
+    '".$_POST['c_companyname']."',
+    '".$_POST['c_address']."',
+    '".$_POST['c_state_country']."',
+    '".$_POST['c_postal_zip']."',
+    $id_venta
+  )")or die($conexion->error);
+
 // Borramos la variable de sesión carrito, cuando se alamacena en la BBDD
   unset($_SESSION['carrito']);
 ?>
@@ -57,9 +88,9 @@
         <div class="row">
           <div class="col-md-12 text-center">
             <span class="icon-check_circle display-3 text-success"></span>
-            <h2 class="display-3 text-black">Thank you!</h2>
-            <p class="lead mb-5">You order was successfuly completed.</p>
-            <p><a href="shop.html" class="btn btn-sm btn-primary">Back to shop</a></p>
+            <h2 class="display-3 text-black">Gracias por su confianza</h2>
+            <p class="lead mb-5">Su pedido ha sido completado con éxito.</p>
+            <p><a href="shop.html" class="btn btn-sm btn-primary">Volver a Tienda</a></p>
           </div>
         </div>
       </div>
