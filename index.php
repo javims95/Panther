@@ -221,7 +221,7 @@
 
                     <?php 
                     // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
-                    if(isset($_GET['limite'])){// Solo mostramos el paginador "<" si hay productos antes de esa página
+                    if(isset($_GET['limite'])){// Solo mostramos el paginador "<" si hay 10 productos mas que mostrar
                       if($_GET['limite']>0){
                         echo '<li><a href="index.php?limite='.($_GET['limite']-$limite).'">&lt;</a></li>';
                       }
@@ -244,7 +244,7 @@
               </div>
             </div>
           </div>
-          
+
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
