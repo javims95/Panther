@@ -1,54 +1,44 @@
 <?php
 
     // Incluimos la librería que hemos descargado para enviar los correos.
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
     include('php/Mailer/src/PHPMailer.php');
     include('php/Mailer/src/SMTP.php');
     include('php/Mailer/src/Exception.php');
 
-    $mail = new PHPMailer\PHPMailer\PHPMailer();
     try {
-
-        // Datos del destinatario
-        $emailTo = $_POST["f_email"];
-        $subject = $_POST["f_subject"];
-        $bodyEmail = $_POST["f_messaje"];
-
-        // Datos del correo remitente
-        $fromemail = "ventas@jamusa.es";
-        $fromname = "Panther";
-        $host = "mail.jamusa.es";
-        $port = "25";
-        $SMTPAuth = "login";
-        $SMTPSecure = "tls";
-        $password = "Prueba1234";
-
-        $mail->isSMTP();
+        // Datos SMTP
         $mail->SMTPDebug = 1;
-        $mail->Host = $host;
-        $mail->Port = $port;
-        $mail->SMTPAuth = $SMTPAuth;
-        $mail->SMTPSecure = $SMTPSecure;
-        $mail->Username = $fromemail;
-        $mail->Password = $password;
+        $mail->isSMTP();
+        $mail->Host       = 'jamusa.es';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'ventas@jamusa.es';
+        $mail->Password   = 'Prueba1234';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 110;
 
-        $mail->setFrom($fromemail, $fromname);
-        $mail->addAddress($emailTo);
-
-        // Asunto
-        $mail->isHTML(true);
-        $mail->Subjet = $subject;
-        // Cuerpo del correo
-        $mail->Body = $bodyEmail;
-
-        if (!$mail->send()) {
-            echo ("MAILER: No se pudo enviar el correo !");
-        }
-        return true;
-
-
-    }
-    catch (Exception $e) {
-
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+    
+        //Destinatario
+        $mail->setFrom('ventas@jamusa.es', 'Panther');// Remitente
+        $mail->addAddress('javier_ms95@hotmail.com');     // Add a recipient
+    
+        // Archivos adjuntos
+        //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+        //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+    
+        // Contenido del correo
+        $mail->isHTML(true);// Envía el correo en formato HTML
+        $mail->Subject = 'Here is the subject';
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    
+        $mail->send();
+        echo 'Message has been sent';
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 
 ?>

@@ -1,6 +1,6 @@
 <?php
     $servidor="localhost";
-    $nombreBD="bootland";
+    $nombreBD="panther";
     $usuario="root";
     $pass="";
     $conexion = new mysqli($servidor,$usuario,$pass,$nombreBD);
