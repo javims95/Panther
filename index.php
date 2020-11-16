@@ -196,7 +196,7 @@
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                   <div class="block-4 text-center border">
                     <figure class="block-4-image">
-                    <!-- Añadimos un poco de PHP a la URL para ver los detalles del producto -->
+                    <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
                       <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
                       <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a>
                     </figure>
