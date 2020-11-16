@@ -25,7 +25,7 @@
     '".sha1($password)."'
   )")or die($conexion->error);
   // Creamos el id del cliente.
-  $id_usuario = $conexion-> insert_id;
+  $id_usuario = $conexion->insert_id;
 
   // Se inserta el pedido en la table ventas
   $fecha = date('Y-m-d h:m:s');
@@ -42,6 +42,10 @@
       ".$arreglo[$i]['Precio'].",
       ".$arreglo[$i]['Cantidad'] * $arreglo[$i]['Precio']."
       )")or die($conexion->error);
+
+      // Con este Update, se resta las unidades compradas del inventario.
+    $conexion->query("UPDATE productos SET inventario = inventario - 
+    ".$arreglo[$i]['Cantidad']." WHERE id =".$arreglo[$i]['Id'])or die($conexion->error);
   }
 
   // Insertar los datos en la tabla envíos.
