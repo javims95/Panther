@@ -150,8 +150,44 @@
             <!-- Incluimos la conexion a la base de datos -->
             <?php 
               include ('./php/conexion.php');
-              // Consulta para mostrar los productos
-              $resultado = $conexion ->query("select * from productos order by id DESC")or die($conexion-> error);
+
+              // Con este bucle creamos 50 productos, para hacer las pruebas.
+              /*for ($i=0;$i<50;$i++){
+                $conexion->query("INSERT INTO productos 
+                (nombre, descripcion, precio, imagen, inventario, id_categoria, talla, color) VALUES (
+                  'Producto $i',
+                  'Esta es la descripción para el producto nº$i',
+                  ".rand(10,250).",
+                  'shoe.png',
+                  ".rand(1,95).",
+                  '1',
+                  'L',
+                  'Blue'
+                )")or die($conexion->error);
+              }*/
+              
+
+
+              // Paginador de productos PHP
+              $limite = 10; // Productos por página
+              // Esta consulta devuelve cuantos productos hay en total.
+              $totalQuery = $conexion->query('SELECT COUNT(*) FROM productos')or die($conexion->error);
+              $totalProductos = mysqli_fetch_row($totalQuery);
+              $totalBotones = round($totalProductos[0] /$limite);
+              
+              if(isset($_GET['limite'])){
+                // Consulta para mostrar el rango de productos que se envia por parametro en la URL
+                $resultado = $conexion ->query("select * from productos order by id DESC limit ".$_GET['limite'].",".$limite)or die($conexion-> error);
+              }
+              else {
+                // Consulta para buscar y mostrar los 10 primeros productos
+                $resultado = $conexion ->query("select * from productos order by id DESC limit ".$limite)or die($conexion-> error);
+              }
+              //die ($totalProductos[0]);
+
+
+
+
               // En este bucle imprimimos los productos
               while($fila = mysqli_fetch_array($resultado)) {
                 
@@ -173,26 +209,42 @@
                     </div>
                   </div>
                 </div>
-            
             <?php } ?>
-
             </div>
+
+
+            <!-- Paginador de productos HTML -->
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
                 <div class="site-block-27">
                   <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
+
+                    <?php 
+                    // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
+                    if(isset($_GET['limite'])){// Solo mostramos el paginador "<" si hay productos antes de esa página
+                      if($_GET['limite']>0){
+                        echo '<li><a href="index.php?limite='.($_GET['limite']-$limite).'">&lt;</a></li>';
+                      }
+                    }
+                      for ($k=0;$k<$totalBotones;$k++){
+                        echo '<li><a href="index.php?limite='.($k*10).'">'.($k+1).'</a></li>';
+                      }
+                      // Solo mostramos el paginador ">" si hay 10 productos más que mostrar
+                      if(isset($_GET['limite'])){
+                        if($_GET['limite']+$limite < $totalBotones*$limite){
+                          echo '<li><a href="index.php?limite='.($_GET['limite']+$limite).'">&gt;</a></li>';
+                        }
+                      }
+                      else {
+                        echo '<li><a href="index.php?limite='.$limite.'">&gt;</a></li>';
+                      }
+                    ?>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
+          
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
