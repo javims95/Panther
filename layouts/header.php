@@ -12,7 +12,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="index.php" class="js-logo-clone">BootLand</a>
+                <a href="index.php" class="js-logo-clone">Panther</a>
               </div>
             </div>
 
@@ -49,17 +49,17 @@
         <div class="container">
           <ul class="site-menu js-clone-nav d-none d-md-block">
             <li>
-              <a href="index.php">Home</a>
+              <a href="index.php">Inicio</a>
             
             </li>
             <li>
-              <a href="about.php">About</a>
+              <a href="about.php">Sobre Nosotros</a>
             
             </li>
           
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="contact.php">Contact</a></li>
+            <li><a href="#">Catálogo</a></li>
+            <li><a href="#">Novedades</a></li>
+            <li><a href="contact.php">Contacto</a></li>
           </ul>
         </div>
       </nav>

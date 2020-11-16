@@ -169,7 +169,7 @@
 
 
               // Paginador de productos PHP
-              $limite = 10; // Productos por página
+              $limite = 9; // Productos por página
               // Esta consulta devuelve cuantos productos hay en total.
               $totalQuery = $conexion->query('SELECT COUNT(*) FROM productos')or die($conexion->error);
               $totalProductos = mysqli_fetch_row($totalQuery);

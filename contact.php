@@ -33,36 +33,36 @@
           </div>
           <div class="col-md-7">
 
-            <form action="#" method="post">
+            <form action="enviarMail.php" method="post">
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_fname" name="c_fname">
+                    <input type="text" class="form-control" id="form_name" name="c_fname">
                   </div>
                   <div class="col-md-6">
                     <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="c_lname" name="c_lname">
+                    <input type="text" class="form-control" id="form_last_name" name="form_last_name">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="c_email" name="c_email" placeholder="">
+                    <input type="email" class="form-control" id="f_email" name="form_email" placeholder="">
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_subject" class="text-black">Subject </label>
-                    <input type="text" class="form-control" id="c_subject" name="c_subject">
+                    <input type="text" class="form-control" id="f_subject" name="f_subject">
                   </div>
                 </div>
 
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_message" class="text-black">Message </label>
-                    <textarea name="c_message" id="c_message" cols="30" rows="7" class="form-control"></textarea>
+                    <textarea name="f_messaje" id="f_messaje" cols="30" rows="7" class="form-control"></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
