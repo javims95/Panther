@@ -1,7 +1,37 @@
+<!-- Se almacenan los datos del formulario de contacto en una tabla en la BBDD -->
+<?php
+
+  session_start();
+  include './php/conexion.php';
+
+  // Comprobamos que existan las variables y no estén vacías.
+  if((isset($_POST['form_name']) && !empty($_POST['form_name']))
+  && (isset($_POST['f_email']) && !empty($_POST['f_email']))
+  && (isset($_POST['f_subject']) && !empty($_POST['f_subject']))){
+
+  $name = $_POST['form_name'];
+  $lastName = $_POST['form_last_name'];
+	$email = $_POST['f_email'];
+	$subject = $_POST['f_subject'];
+	$message = $_POST['f_messaje'];
+	
+  // Introducimos los datos en la BBDD
+  $conexion->query("INSERT INTO contacto (id, name, email, subject, message) 
+  VALUES(
+    '',
+    '".$_POST['form_name']." ".$_POST['form_last_name']."', 
+    '".$_POST['f_email']."',
+    '".$_POST['f_subject']."',
+    '".$_POST['f_messaje']."'
+    )")or die($conexion->error);
+
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
+    <title>Contacto</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -33,7 +63,7 @@
           </div>
           <div class="col-md-7">
 
-            <form action="enviarMail.php" method="post">
+            <form method="post">
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
@@ -68,7 +98,7 @@
                 <div class="form-group row">
                   <div class="col-lg-12">
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
-                    <h6><? $result;?></h6>
+                    <h6><?php "Gracias ".$_POST['form_name']. ", su mensaje se ha enviado correctamente";?></h6>
                   </div>
                 </div>
               </div>
