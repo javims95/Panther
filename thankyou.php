@@ -94,7 +94,7 @@
             <span class="icon-check_circle display-3 text-success"></span>
             <h2 class="display-3 text-black">Gracias por su confianza</h2>
             <p class="lead mb-5">Su pedido ha sido completado con éxito.</p>
-            <p><a href="verPedido.php?id_venta=<?php echo $id_venta;?>" class="btn btn-sm btn-primary">Ver Pedido</a></p>
+            <p><a href="mispedidos.php?id_venta=<?php echo $id_venta;?>" class="btn btn-sm btn-primary">Ver Pedido</a></p>
           </div>
         </div>
       </div>

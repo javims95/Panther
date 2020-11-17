@@ -289,13 +289,13 @@
       });
 
       // Actualizar cantidades cuando se sume o reste al producto
-      $(".txtCantidad").keyup(function()){
-        car cantidad = $(this).val();
+      /*$(".txtCantidad").keyup(function()){
+        var cantidad = $(this).val();
         var precio = $(this).data('precio');
         var id = $(this).data('id');
         var mult = parseFloat(cantidad)*parseFloat(precio);
         $(".cant"+id).txt(mult);
-      }
+      }*/
     });
   </script>
     
