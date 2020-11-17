@@ -6,7 +6,7 @@
             <div class="col-6 col-md-4 order-2 order-md-1 site-search-icon text-left">
               <form action="./busqueda.php" class="site-block-top-search" method="GET">
                 <span class="icon icon-search2"></span>
-                <input type="text" class="form-control border-0" placeholder="Buscar..." name="texto">
+                <input type="text" class="form-control" placeholder="Buscar..." name="texto">
               </form>
             </div>
 
@@ -59,7 +59,7 @@
           
             <li><a href="#">Catálogo</a></li>
             <li><a href="#">Novedades</a></li>
-            <li><a href="contact.php">Contacto</a></li>
+            <li><a href="contacto.php">Contacto</a></li>
           </ul>
         </div>
       </nav>
