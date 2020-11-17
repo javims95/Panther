@@ -32,13 +32,14 @@ $datos3 = $conexion->query("SELECT productos_venta.*,
 <html lang="en">
 
 <head>
+
   <title>Mis Pedidos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
-
+  <link rel=”stylesheet” href="C:/xampp/htdocs/panther/fonts/fontawesome/css/fontawesome.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/magnific-popup.css">
   <link rel="stylesheet" href="css/jquery-ui.css">
@@ -84,10 +85,11 @@ $datos3 = $conexion->query("SELECT productos_venta.*,
                         <th scope="col">Teléfono</th>
                         <th scope="col">Email</th>
                         <th scope="col">Provincia</th>
+                        <th scope="col">Estado del pedido</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr style="border-bottom: 1px solid #dee2e6;">
+                      <tr style="border-bottom: 1px solid #dee2e6; color: #212529">
                         <th scope="row"><?php echo $_GET['id_venta']; ?></th>
                         <td><?php echo $datosUsuario[4]; ?></td>
                         <td><?php echo $datosEnvio[2]; ?></td>
@@ -95,6 +97,7 @@ $datos3 = $conexion->query("SELECT productos_venta.*,
                         <td><?php echo $datosUsuario[5]; ?></td>
                         <td><?php echo $datosUsuario[6]; ?></td>
                         <td><?php echo $datosEnvio[4]; ?></td>
+                        <td><i style="color: #008f39 ;" class="icon-credit-card"></i> Pagado</td>
                       </tr>
                     </tbody>
                   </table>
