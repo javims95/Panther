@@ -98,25 +98,48 @@
               </div>
             </form>
           </div>
-          <div class="col-md-5 ml-auto">
-          <?php 
-            while ($f = mysqli_fetch_array($datos3)){
-
-            
-          ?>
-            <div class="p-4 border mb-3">
-            <img src="./images/<?php echo $f['imagen'];?>" width="100px">
-              <span class="d-block text-primary h6 text-uppercase"><?php echo $f['nombre_producto'];?></span><br>
-              <span class="d-block text-primary h6 text-uppercase">Cantidad: <?php echo $f['cantidad'];?></span>
-              <span class="d-block text-primary h6 text-uppercase">Precio: <?php echo $f['precio'];?></span>
-              <span class="d-block text-primary h6 text-uppercase">Subtotal: <?php echo $f['subtotal'];?></span>
-            </div>
-            <?php } ?>
-            <h4>Total: <?php echo $datosUsuario[2];?></h4>
-          </div>
         </div>
       </div>
     </div>
+    
+    <!-- Tabla dinámica de los productos comprados -->
+    <form class="col-md-12" method="post">
+            <div class="site-blocks-table">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Imagen</th>
+                    <th class="product-name">Nombre</th>
+                    <th class="product-name">Cantidad</th>
+                    <th class="product-price">Precio Unidad</th>
+                    <th class="product-quantity">Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <?php while ($f = mysqli_fetch_array($datos3)){ ?>
+                <!-- Con PHP hacemos la tabla del carrito dinámica -->
+                <tr>
+                    <td class="product-thumbnail">
+                      <img src="images/<?php echo $f['imagen'];?>" class="img-fluid">
+                    </td>
+                    <td class="product-name">
+                      <h2 class="h5 text-black"><?php echo $f['nombre_producto'];?></h2>
+                    </td>
+                    <td>
+                      x<?php echo $f['cantidad'];?>
+                    </td>
+                    <td>
+                      <?php echo ($f['subtotal'])/($f['cantidad']);?> €
+                    </td>
+                    <td>
+                      <?php echo $f['subtotal'];?> €
+                    </td>
+                  </tr>
+                  <?php } ?>
+                </tbody>
+              </table>
+            </div>
+          </form>
 
     <?php include("./layouts/footer.php"); ?> 
   </div>
