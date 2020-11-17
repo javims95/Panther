@@ -67,38 +67,52 @@
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
+                <!-- Nombre, mínimo 3, máximo 20 -->
                   <div class="col-md-6">
-                    <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="form_name" name="form_name">
+                    <label for="c_fname" class="text-black">Nombre<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="form_name" name="form_name" 
+                    minlength="3" maxlength="20" required> 
                   </div>
+                  <!-- Apellidos, mínimo 5, máximo 25 -->
                   <div class="col-md-6">
-                    <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="form_last_name" name="form_last_name">
+                    <label for="c_lname" class="text-black">Apellidos<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="form_last_name" name="form_last_name"
+                    minlength="5" maxlength="25" required>
                   </div>
                 </div>
+                <!-- Email -->
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="f_email" name="f_email" placeholder="">
+                    <label for="c_email" class="text-black">Correo electrónico<span class="text-danger">*</span></label>
+                    <input type="email" class="form-control" id="f_email" name="f_email" required>
                   </div>
                 </div>
+                <!-- Asunto, mínimo 5, máximo 30 -->
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label for="c_subject" class="text-black">Subject </label>
-                    <input type="text" class="form-control" id="f_subject" name="f_subject">
+                    <label for="c_subject" class="text-black">Asunto<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="f_subject" name="f_subject"
+                    minlength="5" maxlength="30" required>
                   </div>
                 </div>
-
+                <!-- Mensaje, mínimo 10, máximo 350 -->
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <label for="c_message" class="text-black">Message </label>
-                    <textarea name="f_messaje" id="f_messaje" cols="30" rows="7" class="form-control"></textarea>
+                    <label for="c_message" class="text-black">Mensaje<span class="text-danger">*</span></label>
+                    <textarea name="f_messaje" id="f_messaje" cols="30" rows="7" class="form-control"
+                    minlength="10" maxlength="350" required ></textarea>
                   </div>
                 </div>
                 <div class="form-group row">
                   <div class="col-lg-12">
-                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
-                    <h6><?php "Gracias ".$_POST['form_name']. ", su mensaje se ha enviado correctamente";?></h6>
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Enviar mensaje">
+                    <?php 
+                    // Si la variable nombre no está vacía, mostramos el mensaje "Recibido"
+                      if(isset($_POST['form_name'])){
+                    ?>
+                    <br>
+                    <h6><?php echo "<center>Gracias ".$_POST['form_name']. ", su mensaje se ha enviado correctamente</center>";?></h6>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
