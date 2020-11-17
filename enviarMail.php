@@ -1,5 +1,42 @@
 <?php
 
+  /*$result ="";
+  if(isset($_POST['submit'])){
+
+    require 'PHPMailer/PHPMailerAutoload.php';
+
+    $mail = new PHPMailer;
+
+    // Datos SMTP
+    $mail->isSMTP();
+    $mail->Host='mail.jamusa.es';
+    $mail->Port=110;
+    $mail->SMTPAuth=true;
+    $mail->SMTPSecure='ssl';
+    $mail->Username='ventas@jamusa.es';
+    $mail->Password='Prueba1234';
+
+    $mail->setFrom($_POST['f_email'], $_POST['form_name']);
+    $mail->addAddress('javier_ms95@hotmail.com');
+    $mail->addReplyTo($_POST['f_email'], $_POST['form_name']);
+
+    $mail->isHTML(true);
+    $mail->Subject='Enviado por '.$_POST['form_name'];
+    $mail->Body='<h1 align=center>Nombre: '.$_POST['form_name'].
+    '<br>Email: '.$_POST['f_email'].'<br>Mensaje: '.$_POST['f_messaje'].'</h1>';
+
+    if(!$mail->send()){
+      $result= "Algo salió mal";
+    }
+    else {
+      $result= "Gracias ".$_POST['form_name']." por contactarnos";
+    }
+
+  }
+
+
+
+
     // Incluimos la librería que hemos descargado para enviar los correos.
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -12,12 +49,12 @@
         // Datos SMTP
         $mail->SMTPDebug = 1;
         $mail->isSMTP();
-        $mail->Host       = 'jamusa.es';
+        $mail->Host       = 'mail.jamusa.es';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'ventas@jamusa.es';
         $mail->Password   = 'Prueba1234';
         $mail->SMTPSecure = 'tls';
-        $mail->Port       = 110;
+        $mail->Port       = 993;
 
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
     
@@ -39,6 +76,6 @@
         echo 'Message has been sent';
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-    }
+    }*/
 
 ?>

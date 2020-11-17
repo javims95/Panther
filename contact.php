@@ -39,7 +39,7 @@
                 <div class="form-group row">
                   <div class="col-md-6">
                     <label for="c_fname" class="text-black">First Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="form_name" name="c_fname">
+                    <input type="text" class="form-control" id="form_name" name="form_name">
                   </div>
                   <div class="col-md-6">
                     <label for="c_lname" class="text-black">Last Name <span class="text-danger">*</span></label>
@@ -49,7 +49,7 @@
                 <div class="form-group row">
                   <div class="col-md-12">
                     <label for="c_email" class="text-black">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" id="f_email" name="form_email" placeholder="">
+                    <input type="email" class="form-control" id="f_email" name="f_email" placeholder="">
                   </div>
                 </div>
                 <div class="form-group row">
@@ -68,6 +68,7 @@
                 <div class="form-group row">
                   <div class="col-lg-12">
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="Send Message">
+                    <h6><? $result;?></h6>
                   </div>
                 </div>
               </div>
