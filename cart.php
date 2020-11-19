@@ -149,7 +149,7 @@
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                          <button class="btn btn-outline-primary js-btn-minus btnIncrementar" type="button">&minus;</button>
                         </div>
                         <!-- Botón para cambiar la cantidad en el carrito -->
                         <input type="text" class="form-control text-center txtCantidad"
@@ -157,7 +157,7 @@
                           data-id="<?php echo $arregloCarrito[$i]['Id'];?>"
                          value="<?php echo $arregloCarrito[$i]['Cantidad'];?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          <button class="btn btn-outline-primary js-btn-plus btnIncrementar" type="button">&plus;</button>
                         </div>
                       </div>
 
@@ -279,7 +279,7 @@
         var boton = $(this);
         $.ajax({
           method: 'POST',
-          url: 'eliminarCarrito.php',
+          url: 'php/eliminarCarrito.php',
           data: {
             id:id
           }
@@ -287,15 +287,37 @@
           boton.parent('td').parent('tr').remove();
         });
       });
-      // Actualizar cantidad del producto + -
+      // Actualizar cantidad del producto en el input
       $(".txtCantidad").keyup(function(){
-
         var cantidad = $(this).val();
         var precio = $(this).data('precio');
         var id = $(this).data('id');
-        var mult = parseFloat(cantidad) * parseFloat(precio);
-        $(".cant"+id).text(mult+"€");
+        incrementar(cantidad, precio, id);
+        
       });
+      // Actualizar cantidad del producto en los botones + -
+      $(".btnIncrementar").click(function(){
+        var precio = $(this).parent('div').parent('div').find('input').data('precio');
+        var id = $(this).parent('div').parent('div').find('input').data('id');
+        var cantidad = $(this).parent('div').parent('div').find('input').val();
+        incrementar(cantidad, precio, id);
+      });
+      function incrementar(cantidad, precio, id){
+        
+        var mult = parseFloat(cantidad) * parseFloat(precio);
+        $(".cant"+id).text(mult+" €");
+
+        $.ajax({
+          method: 'POST',
+          url: 'php/actualizar.php',
+          data: {
+            id:id,
+            cantidad:cantidad
+          }
+        }).done(function(respuesta){
+          
+        });
+      }
       });
     
   </script>
