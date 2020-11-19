@@ -271,6 +271,7 @@
   <script src="js/aos.js"></script>
   <script src="js/main.js"></script>
   <script>
+    // Script Jquery para eliminar los productos del carrito, mediante una petición ajax.
     $(document).ready(function(){
       $(".btnEliminar").click(function(event){
         event.preventDefault();
@@ -286,13 +287,14 @@
           boton.parent('td').parent('tr').remove();
         });
       });
-      $(".txtCantidad").change(function(){
+      // Actualizar cantidad del producto + -
+      $(".txtCantidad").keyup(function(){
 
         var cantidad = $(this).val();
         var precio = $(this).data('precio');
         var id = $(this).data('id');
         var mult = parseFloat(cantidad) * parseFloat(precio);
-        $(".cant"+id).text(mult);
+        $(".cant"+id).text(mult+"€");
       });
       });
     
