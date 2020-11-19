@@ -276,27 +276,26 @@
         event.preventDefault();
         var id = $(this).data('id');
         var boton = $(this);
-
         $.ajax({
-          method:'POST',
-          url:'./php/eliminarCarrito.php',
-          data:{
+          method: 'POST',
+          url: 'eliminarCarrito.php',
+          data: {
             id:id
           }
         }).done(function(respuesta){
           boton.parent('td').parent('tr').remove();
         });
       });
+      $(".txtCantidad").change(function(){
 
-      // Actualizar cantidades cuando se sume o reste al producto
-      /*$(".txtCantidad").keyup(function()){
         var cantidad = $(this).val();
         var precio = $(this).data('precio');
         var id = $(this).data('id');
-        var mult = parseFloat(cantidad)*parseFloat(precio);
-        $(".cant"+id).txt(mult);
-      }*/
-    });
+        var mult = parseFloat(cantidad) * parseFloat(precio);
+        $(".cant"+id).text(mult);
+      });
+      });
+    
   </script>
     
   </body>
