@@ -1,9 +1,28 @@
+<?php
+session_start();
+include "../php/conexion.php";
+
+if (!isset($_SESSION['datos_login'])) {
+  header("Location: ../index.php");
+}
+$arregloUsuario = $_SESSION['datos_login'];
+
+if ($arregloUsuario['nivel'] != 'admin') {
+  header("Location: ../index.php");
+}
+
+$resultado = $conexion->query("
+SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
+
+?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 3 | Dashboard</title>
+  <title>Productos | Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -27,75 +46,111 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <?php include "./layouts/header.php";?>
+    <?php include "./layouts/header.php"; ?>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Productos</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">Productos</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <!-- Insertar producto -->
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+              </button>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard v1</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Inventario</th>
+                <th>Talla</th>
+                <th>Color</th>
+              <tr></tr>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              while ($f = mysqli_fetch_array($resultado)) {
+              ?>
+                <tr>
+                  <td>#<?php echo $f['id']; ?></td>
+                  <td><img src="../images/<?php echo $f['imagen']; ?>" width="100px" height="70px" alt=""></td>
+                  <td><?php echo $f['nombre']; ?></td>
+                  <td><?php echo $f['descripcion']; ?></td>
+                  <td><?php echo $f['inventario']; ?></td>
+                  <td><?php echo $f['talla']; ?></td>
+                  <td><?php echo $f['color']; ?></td>
+                  <td></td>
+                </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
     </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-      </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+    <?php include "./layouts/footer.php"; ?>
   </div>
-  <?php include "./layouts/footer.php";?>
-</div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="./dashboard/plugins/jquery/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="./dashboard/plugins/jquery-ui/jquery-ui.min.js"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="./dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- ChartJS -->
-<script src="./dashboard/plugins/chart.js/Chart.min.js"></script>
-<!-- Sparkline -->
-<script src="./dashboard/plugins/sparklines/sparkline.js"></script>
-<!-- JQVMap -->
-<script src="./dashboard/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="./dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-<!-- jQuery Knob Chart -->
-<script src="./dashboard/plugins/jquery-knob/jquery.knob.min.js"></script>
-<!-- daterangepicker -->
-<script src="./dashboard/plugins/moment/moment.min.js"></script>
-<script src="./dashboard/plugins/daterangepicker/daterangepicker.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="./dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Summernote -->
-<script src="./dashboard/plugins/summernote/summernote-bs4.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="./dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="./dashboard/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="./dashboard/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="./dashboard/dist/js/demo.js"></script>
+  <!-- jQuery -->
+  <script src="./dashboard/plugins/jquery/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="./dashboard/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="./dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- ChartJS -->
+  <script src="./dashboard/plugins/chart.js/Chart.min.js"></script>
+  <!-- Sparkline -->
+  <script src="./dashboard/plugins/sparklines/sparkline.js"></script>
+  <!-- JQVMap -->
+  <script src="./dashboard/plugins/jqvmap/jquery.vmap.min.js"></script>
+  <script src="./dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="./dashboard/plugins/jquery-knob/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="./dashboard/plugins/moment/moment.min.js"></script>
+  <script src="./dashboard/plugins/daterangepicker/daterangepicker.js"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="./dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Summernote -->
+  <script src="./dashboard/plugins/summernote/summernote-bs4.min.js"></script>
+  <!-- overlayScrollbars -->
+  <script src="./dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="./dashboard/dist/js/adminlte.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="./dashboard/dist/js/pages/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="./dashboard/dist/js/demo.js"></script>
 </body>
+
 </html>
