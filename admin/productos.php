@@ -122,7 +122,13 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
                   <td><?php echo $f['inventario']; ?></td>
                   <td><?php echo $f['talla']; ?></td>
                   <td><?php echo $f['color']; ?></td>
-                  <td></td>
+                  <td>
+                    <button class="btn btn-danger btn-small btnEliminar" 
+                    data-id="<?php echo $f['id']; ?>"
+                    data-toggle="modal" data-target="#modalEliminar">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </td>
                 </tr>
               <?php } ?>
             </tbody>
@@ -131,6 +137,28 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
       </section>
       <!-- /.content -->
     </div>
+
+    <!-- Modal eliminar -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalEliminarLabel">Eliminar Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ¿Desea eliminar el producto?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-danger eliminar" data-dismiss="modal">Eliminar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <?php include "./layouts/footer.php"; ?>
   </div>
   <!-- ./wrapper -->
@@ -169,6 +197,51 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
   <script src="./dashboard/dist/js/pages/dashboard.js"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="./dashboard/dist/js/demo.js"></script>
+
+  <script>
+    // Script para eliminar los productos con el botón danger
+    $(document).ready(function(){
+    var idEliminar= -1;
+    var idEditar=-1;
+    var fila;
+    $(".btnEliminar").click(function(){
+      idEliminar= $(this).data('id');
+      fila=$(this).parent('td').parent('tr');
+    });
+    $(".eliminar").click(function(){
+      $.ajax({
+        url: '../php/eliminarProducto.php',
+        method:'POST',
+        data:{
+          id:idEliminar
+        }
+      }).done(function(res){
+
+        $(fila).fadeOut(1000);
+      });
+     
+    });
+    /*$(".btnEditar").click(function(){
+      idEditar=$(this).data('id');
+      var nombre=$(this).data('nombre');
+      var descripcion=$(this).data('descripcion');
+      var inventario=$(this).data('inventario');
+      var categoria=$(this).data('categoria');
+      var talla=$(this).data('talla');
+      var color=$(this).data('color');
+      var precio=$(this).data('precio');
+      $("#nombreEdit").val(nombre);
+      $("#descripcionEdit").val(descripcion);
+      $("#inventarioEdit").val(inventario);
+      $("#categoriaEdit").val(categoria);
+      $("#tallaEdit").val(talla);
+      $("#colorEdit").val(color);
+      $("#precioEdit").val(precio);
+      $("#idEdit").val(idEditar);
+    });*/
+  });
+
+  </script>
 </body>
 
 </html>
