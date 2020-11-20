@@ -170,13 +170,28 @@
         ?>
 
           <!-- Productos -->
-          <li class="nav-item">
-            <a href="./productos.php" class="nav-link">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
                 Productos
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="./productos.php" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p>Ver Todos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/compose.html" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Añadir Nuevo</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- Cupones -->
