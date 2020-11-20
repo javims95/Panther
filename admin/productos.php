@@ -59,21 +59,24 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
         <div class="container-fluid">
 
           <!-- Modal error -->
-          <?php 
-            if(isset($_GET['error'])){
+          <?php
+          if (isset($_GET['error'])) {
           ?>
-          <div class="alert alert-danger" role="alert">
-          <?php echo $_GET['error'];?>
-          </div>
+            <div class="alert alert-danger" role="alert">
+              <?php echo $_GET['error']; ?>
+            </div>
           <?php } ?>
 
           <!-- Modal succes -->
-          <?php 
-            if(isset($_GET['success'])){
+          <?php
+          if (isset($_GET['success'])) {
           ?>
-          <div class="alert alert-success" role="alert">
-         Producto publicado correctamente
-          </div>
+            <div style="background: #28A745; border: 0px" class="alert alert-warning alert-dismissible fade show" role="alert">
+              Producto publicado correctamente
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           <?php } ?>
 
           <div class="row mb-2">
