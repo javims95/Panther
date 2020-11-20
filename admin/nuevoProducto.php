@@ -57,34 +57,13 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
-
-          <!-- Modal error -->
-          <?php 
-            if(isset($_GET['error'])){
-          ?>
-          <div class="alert alert-danger" role="alert">
-          <?php echo $_GET['error'];?>
-          </div>
-          <?php } ?>
-
-          <!-- Modal succes -->
-          <?php 
-            if(isset($_GET['success'])){
-          ?>
-          <div class="alert alert-success" role="alert">
-         Producto publicado correctamente
-          </div>
-          <?php } ?>
-
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Productos</h1>
+              <h1 class="m-0 text-dark">Insertar Nuevo producto</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
-              </ol>
+              <!-- Insertar producto -->
+
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -94,36 +73,69 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Inventario</th>
-                <th>Talla</th>
-                <th>Color</th>
-              <tr></tr>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              while ($f = mysqli_fetch_array($resultado)) {
-              ?>
-                <tr>
-                  <td>#<?php echo $f['id']; ?></td>
-                  <td><img src="../images/<?php echo $f['imagen']; ?>" width="100px" height="70px" alt=""></td>
-                  <td><?php echo $f['nombre']; ?></td>
-                  <td><?php echo $f['descripcion']; ?></td>
-                  <td><?php echo $f['inventario']; ?></td>
-                  <td><?php echo $f['talla']; ?></td>
-                  <td><?php echo $f['color']; ?></td>
-                  <td></td>
-                </tr>
-              <?php } ?>
-            </tbody>
-          </table>
+          <form action="../php/insertarProducto.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="new_nombre">Nombre</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Camiseta para niño" required>
+            </div>
+            <div class="form-group">
+              <label for="new_descripcion">Descripción</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Camiseta roja. Buena calidad. Fabricada en España" required></textarea>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="new_precio">Precio</label>
+                  <input type="number" min="0" class="form-control" id="precio" name="precio" placeholder="20.50" required>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="new_inventario">Inventario</label>
+                  <input type="number" min="0" class="form-control" id="inventario" name="inventario" placeholder="20" required>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="new_categoria">Categoría</label>
+              <select multiple class="form-control" id="categoria" name="categoria" required>
+                <?php
+                $res = $conexion->query("select * from categorias");
+                while ($f = mysqli_fetch_array($res)) {
+                  echo '<option value="' . $f['id'] . '" >' . $f['nombre'] . '</option>';
+                }
+                ?>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="new_talla">Talla</label>
+                  <input type="text" class="form-control" id="talla" name="talla" placeholder="XL" required>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="new_color">Color</label>
+                  <input type="text" class="form-control" id="color" name="color" placeholder="Rojo" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <label for="new_imagen">Imagen</label>
+                  <input type="file"  class="form-control-file" id="imagen" name="imagen" placeholder="XL" required>
+                </div>
+              </div>
+              
+            </div>
+            <center>
+              <button class="btn btn-success" type="submit"><i class="fas fa-plus"></i> Añadir Producto</button>
+              <button class="btn btn-warning" type="reset"><i class="fas fa-broom"></i> Limpiar</button>
+              <button class="btn btn-danger" onclick="location='index.php'" type="submit"><i class="fas fa-trash-alt"></i> Cancelar</button>
+            </center>
+          </form>
         </div><!-- /.container-fluid -->
       </section>
       <!-- /.content -->

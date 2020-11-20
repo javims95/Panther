@@ -186,7 +186,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="nuevoProducto.php" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Añadir Nuevo</p>
                 </a>
