@@ -87,7 +87,7 @@ $resultado = $conexion->query("
 
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Productos</h1>
+                            <h1 class="m-0 text-dark">Pedidos</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -118,6 +118,10 @@ $resultado = $conexion->query("
 
                                 <div id="collapse<?php echo $f['id']; ?>" class="collapse" aria-labelledby="heading<?php echo $f['id']; ?>" data-parent="#accordion">
                                     <div class="card-body">
+
+                                        <div class="col-12 text-center">
+                                            <h4 class="btn btn-secondary btn-lg btn-block">Cliente</h4>
+                                        </div>
                                         <!-- Tabla con los datos del cliente -->
                                         <table class="table tablaAlinear">
                                             <thead>
@@ -140,25 +144,26 @@ $resultado = $conexion->query("
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <br>
-                                        <div class="col-12 text-center">
-                                            <h4>Datos de envío</h4>
-                                        </div>
+                                        <br><br>
 
                                         <?php
-                                        $re = $conexion->query("SELECT * FROM envios WHERE id_venta=".$f['id']) or die($conexion->error);
+                                        $re = $conexion->query("SELECT * FROM envios WHERE id_venta=" . $f['id']) or die($conexion->error);
                                         $fila = mysqli_fetch_row($re);
+                                        $seguimiento = 'NCX' . rand(0, 999999999);
                                         ?>
 
+                                        <div class="col-12 text-center">
+                                            <h4 class="btn btn-secondary btn-lg btn-block">Datos de envío</h4>
+                                        </div>
                                         <!-- Datos del envio -->
                                         <table class="table tablaAlinear">
                                             <thead>
                                                 <tr>
                                                     <th>Compañía</th>
                                                     <th>Dirección</th>
-                                                    <th>País</th>
                                                     <th>Estado</th>
                                                     <th>Código Postal</th>
+                                                    <th>Nº Seguimiento</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -166,14 +171,49 @@ $resultado = $conexion->query("
                                                 <tr>
                                                     <td><?php echo $fila[2]; ?></td>
                                                     <td><?php echo $fila[3]; ?></td>
-                                                    <td><?php echo $fila[1]; ?></td>
                                                     <td><?php echo $fila[4]; ?></td>
                                                     <td><?php echo $fila[5]; ?></td>
+                                                    <td><a href="https://www.nacex.es/seguimientoDetalle.do?agencia_origen=4616&numero_albaran=12924111">
+                                                            <?php echo $seguimiento; ?></a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
 
-                                        
+                                        <!-- Tabla de los productos adquiridos en ese pedido -->
+                                        <table class="table tablaAlinear">
+                                            <thead>
+                                                <tr>
+                                                    <th>Id</th>
+                                                    <th>Nombre</th>
+                                                    <th>Precio</th>
+                                                    <th>Talla</th>
+                                                    <th>Color</th>
+                                                    <th>Cantidad</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                $re=$conexion->query("SELECT 
+                                                select productos_venta.*, productos.nombre, productos.talla, productos.color
+                                                from productos_venta inner join productos on productos_venta.id_producto =
+                                                productos.id where productos_venta.id_producto = productos.id
+                                               ")or die($conexion->error);
+                                                while ($f2 = mysqli_fetch_array($re)) {
+                                                ?>
+                                                    <tr>
+                                                        <td>#<?php echo $f2['id']; ?></td>
+                                                        <td><?php echo $f2['nombre']; ?></td>
+                                                        <td><?php echo number_format($k['precio'], 2, ',', ''); ?> €</td>
+                                                        <td><?php echo $f2['talla']; ?></td>
+                                                        <td><?php echo $f2['color']; ?></td>
+                                                        <td><?php echo $f2['cantidad']; ?></td>
+                                                        <td><?php echo $f2['subtotal']; ?></td>
+                                                    </tr>
+                                                <?php } ?>
+                                            </tbody>
+                                        </table>
+
 
                                     </div>
                                 </div>
