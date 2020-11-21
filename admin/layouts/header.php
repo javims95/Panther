@@ -134,17 +134,17 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="./dashboard/dist/img/<?php echo $arregloUsuario['imagen'];?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre'];?>">
+        <img src="./dashboard/dist/img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
       </div>
       <div class="info">
-        <a href="#" class="d-block"><?php echo $arregloUsuario['nombre'];?></a>
+        <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
       </div>
     </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        
+
         <!-- Inicio -->
         <li class="nav-item">
           <a href="./index.php" class="nav-link">
@@ -158,7 +158,7 @@
         <!-- Pedidos -->
         <li class="nav-item">
           <a href="./pedidos.php" class="nav-link">
-            <i class="nav-icon fas fa-archive"></i>
+            <i class="nav-icon fas fa-clipboard"></i>
             <p>
               Pedidos
             </p>
@@ -172,7 +172,7 @@
           <!-- Productos -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+              <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Productos
                 <i class="fas fa-angle-left right"></i>
@@ -197,7 +197,7 @@
           <!-- Cupones -->
           <li class="nav-item">
             <a href="./cupones.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+              <i class="nav-icon fas fa-percent"></i>
               <p>
                 Cupones
               </p>
@@ -206,18 +206,33 @@
 
           <!-- Usuarios -->
           <li class="nav-item">
-            <a href="./usuarios.php" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Usuarios
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p>Ver  todos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/compose.html" class="nav-link">
+                  <i class="fas fa-user-plus nav-icon"></i>
+                  <p>Añadir Usuario</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- Exportar -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+              <i class="nav-icon fas fa-file-export"></i>
               <p>
                 Exportar
                 <i class="fas fa-angle-left right"></i>
@@ -250,7 +265,7 @@
         <!-- Cerrar sesión -->
         <li class="nav-item">
           <a href="../php/cerrarSesion.php" class="nav-link">
-            <i class="nav-icon far fa-image"></i>
+            <i class="nav-icon fas fa-sign-out-alt"></i>
             <p>
               Cerrar Sesión
             </p>
