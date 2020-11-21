@@ -1,57 +1,54 @@
 <!-- Comprobamos si existe la variable ID del producto solicitado, 
 en caso contrario lo redireccionamos a index.php -->
 <?php
-  include("./php/conexion.php");
-  if (isset($_GET['id'])) {
-    $resultado = $conexion ->query("select * from productos where id=".$_GET['id'])or die($conexion->error);
-    if(mysqli_num_rows($resultado) > 0){
-      $fila = mysqli_fetch_row($resultado);
-
-    }
-    else {
-      // Redireccionamos
-    header("Location: ./index.php");
-
-    }
-
-  }
-  else {
+session_start();
+include("./php/conexion.php");
+if (isset($_GET['id'])) {
+  $resultado = $conexion->query("select * from productos where id=" . $_GET['id']) or die($conexion->error);
+  if (mysqli_num_rows($resultado) > 0) {
+    $fila = mysqli_fetch_row($resultado);
+  } else {
     // Redireccionamos
     header("Location: ./index.php");
-
   }
+} else {
+  // Redireccionamos
+  header("Location: ./index.php");
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Tienda</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>Tienda</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
-    <?php include("./layouts/header.php"); ?> 
+    <?php include("./layouts/header.php"); ?>
 
     <div class="site-section">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-          <!-- Con el PHP mostramos los resultados del array correspondientes con el campo de la BBDD -->
+            <!-- Con el PHP mostramos los resultados del array correspondientes con el campo de la BBDD -->
             <img src="images/<?php echo $fila[4]; ?>" alt="<?php echo $fila[1]; ?>" class="img-fluid">
           </div>
           <div class="col-md-6">
@@ -74,14 +71,14 @@ en caso contrario lo redireccionamos a index.php -->
             </div>
             <div class="mb-5">
               <div class="input-group mb-3" style="max-width: 120px;">
-              <div class="input-group-prepend">
-                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                </div>
+                <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                </div>
               </div>
-              <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-              <div class="input-group-append">
-                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
-              </div>
-            </div>
 
             </div>
             <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary">Añadir al Carrito</a></p>
@@ -166,7 +163,7 @@ en caso contrario lo redireccionamos a index.php -->
         </div>
       </div>
     </div>
-    <?php include("./layouts/footer.php"); ?> 
+    <?php include("./layouts/footer.php"); ?>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -178,6 +175,7 @@ en caso contrario lo redireccionamos a index.php -->
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
-  </body>
+
+</body>
+
 </html>

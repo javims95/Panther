@@ -39,5 +39,3 @@ if(isset($_POST['nombre']) &&  isset($_POST['descripcion'])   &&  isset($_POST['
 }else{
     header("Location: ../admin/productos.php?error=Por favor rellene todos los campos");
 }
-
-?>

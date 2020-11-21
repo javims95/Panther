@@ -1,95 +1,94 @@
-<?php 
-  // Creamos la variable de sesion
-  session_start();
-  include './php/conexion.php';
-  if (isset($_SESSION['carrito'])) {
-    // Si existe buscamos si ya estaba agregado este producto
-    if(isset($_GET['id'])) {
-      $arreglo =$_SESSION['carrito'];
-      $encontro=false;
-      $numero = 0;
-      for($i=0;$i<count($arreglo);$i++) {
-        if($arreglo[$i]['Id']== $_GET['id']){
-          $encontro=true;
-          $numero=$i;
-        }
-      }
-      if($encontro == true){
-        $arreglo[$numero]['Cantidad']=$arreglo[$numero]['Cantidad']+1;
-        $_SESSION['carrito']=$arreglo;
-      }
-      else{
-        $nombre ="";
-        $precio ="";
-        $imagen ="";
-        $res = $conexion ->query('select * from productos where id='.$_GET['id'])or die($conexion->error);
-        $fila = mysqli_fetch_row($res);
-        $nombre = $fila[1];
-        $precio = $fila[3];
-        $imagen = $fila[4];
-        $arregloNuevo = array(
-          'Id'=> $_GET['id'], 
-          'Nombre'=> $nombre,
-          'Precio'=> $precio,
-          'Imagen'=> $imagen,
-          'Cantidad'=> 1
-        );
-        array_push($arreglo, $arregloNuevo);
-        $_SESSION['carrito']=$arreglo;
+<?php
+// Creamos la variable de sesion
+session_start();
+include './php/conexion.php';
+if (isset($_SESSION['carrito'])) {
+  // Si existe buscamos si ya estaba agregado este producto
+  if (isset($_GET['id'])) {
+    $arreglo = $_SESSION['carrito'];
+    $encontro = false;
+    $numero = 0;
+    for ($i = 0; $i < count($arreglo); $i++) {
+      if ($arreglo[$i]['Id'] == $_GET['id']) {
+        $encontro = true;
+        $numero = $i;
       }
     }
-
-  }
-  else {
-    // Creamos la variable de sesion
-    if (isset($_GET['id'])){
-      $nombre ="";
-      $precio ="";
-      $imagen ="";
-      $res = $conexion ->query('select * from productos where id='.$_GET['id'])or die($conexion->error);
+    if ($encontro == true) {
+      $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
+      $_SESSION['carrito'] = $arreglo;
+    } else {
+      $nombre = "";
+      $precio = "";
+      $imagen = "";
+      $res = $conexion->query('select * from productos where id=' . $_GET['id']) or die($conexion->error);
       $fila = mysqli_fetch_row($res);
       $nombre = $fila[1];
       $precio = $fila[3];
       $imagen = $fila[4];
-      $arreglo[] = array(
-        'Id'=> $_GET['id'], 
-        'Nombre'=> $nombre,
-        'Precio'=> $precio,
-        'Imagen'=> $imagen,
-        'Cantidad'=> 1
+      $arregloNuevo = array(
+        'Id' => $_GET['id'],
+        'Nombre' => $nombre,
+        'Precio' => $precio,
+        'Imagen' => $imagen,
+        'Cantidad' => 1
       );
-      // Metemos el array en la variable de sesion "carrito"
-      $_SESSION['carrito']=$arreglo;
+      array_push($arreglo, $arregloNuevo);
+      $_SESSION['carrito'] = $arreglo;
     }
   }
-?> 
+} else {
+  // Creamos la variable de sesion
+  if (isset($_GET['id'])) {
+    $nombre = "";
+    $precio = "";
+    $imagen = "";
+    $res = $conexion->query('select * from productos where id=' . $_GET['id']) or die($conexion->error);
+    $fila = mysqli_fetch_row($res);
+    $nombre = $fila[1];
+    $precio = $fila[3];
+    $imagen = $fila[4];
+    $arreglo[] = array(
+      'Id' => $_GET['id'],
+      'Nombre' => $nombre,
+      'Precio' => $precio,
+      'Imagen' => $imagen,
+      'Cantidad' => 1
+    );
+    // Metemos el array en la variable de sesion "carrito"
+    $_SESSION['carrito'] = $arreglo;
+  }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Tienda </title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
+<head>
+  <title>Tienda </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/magnific-popup.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 
-    <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/aos.css">
 
-    <link rel="stylesheet" href="css/style.css">
-    
-  </head>
-  <body>
-  
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
   <div class="site-wrap">
-  <?php include("./layouts/header.php"); ?> 
+    <?php include("./layouts/header.php"); ?>
 
     <div class="site-section">
       <div class="container">
@@ -109,7 +108,7 @@
                 </thead>
                 <tbody>
 
-                <?php 
+                  <?php
                   // Variables para "Total del carrito"
                   $subtotal = 0;
                   $envio = 5.90;
@@ -121,54 +120,51 @@
                   $format_iva = 0;
                   $format_total = 0;
 
-                // Comprobamos si existe la variable de sesion
-                  if(isset($_SESSION['carrito'])){
-                    $arregloCarrito =$_SESSION['carrito'];
-                    for($i=0; $i<count($arregloCarrito);$i++){
+                  // Comprobamos si existe la variable de sesion
+                  if (isset($_SESSION['carrito'])) {
+                    $arregloCarrito = $_SESSION['carrito'];
+                    for ($i = 0; $i < count($arregloCarrito); $i++) {
 
                       // Calcular "Total del carrito"
                       $subtotal = $subtotal + ($arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']);
                       $iva = $subtotal * 0.21;
-                      $total = ($subtotal) + ($envio)+ ($iva);
+                      $total = ($subtotal) + ($envio) + ($iva);
 
                       // Formato para que todos los precios tengan dos decimales
                       $format_subtotal = number_format($subtotal, 2);
                       $format_envio = number_format($envio, 2);
                       $format_iva = number_format($iva, 2);
                       $format_total = number_format($total, 2);
-                ?>
-                <!-- Con PHP hacemos la tabla del carrito dinámica -->
-                  <tr>
-                    <td class="product-thumbnail">
-                      <img src="images/<?php echo $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
-                    </td>
-                    <td class="product-name">
-                      <h2 class="h5 text-black"><?php echo $arregloCarrito[$i]['Nombre']; ?></h2>
-                    </td>
-                    <td><?php echo $arregloCarrito[$i]['Precio'];?> €</td>
-                    <td>
-                      <div class="input-group mb-3" style="max-width: 120px;">
-                        <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus btnIncrementar" type="button">&minus;</button>
-                        </div>
-                        <!-- Botón para cambiar la cantidad en el carrito -->
-                        <input type="text" class="form-control text-center txtCantidad"
-                          data-precio="<?php echo $arregloCarrito[$i]['Precio'];?>"
-                          data-id="<?php echo $arregloCarrito[$i]['Id'];?>"
-                         value="<?php echo $arregloCarrito[$i]['Cantidad'];?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus btnIncrementar" type="button">&plus;</button>
-                        </div>
-                      </div>
+                  ?>
+                      <!-- Con PHP hacemos la tabla del carrito dinámica -->
+                      <tr>
+                        <td class="product-thumbnail">
+                          <img src="images/<?php echo $arregloCarrito[$i]['Imagen']; ?>" alt="Image" class="img-fluid">
+                        </td>
+                        <td class="product-name">
+                          <h2 class="h5 text-black"><?php echo $arregloCarrito[$i]['Nombre']; ?></h2>
+                        </td>
+                        <td><?php echo $arregloCarrito[$i]['Precio']; ?> €</td>
+                        <td>
+                          <div class="input-group mb-3" style="max-width: 120px;">
+                            <div class="input-group-prepend">
+                              <button class="btn btn-outline-primary js-btn-minus btnIncrementar" type="button">&minus;</button>
+                            </div>
+                            <!-- Botón para cambiar la cantidad en el carrito -->
+                            <input type="text" class="form-control text-center txtCantidad" data-precio="<?php echo $arregloCarrito[$i]['Precio']; ?>" data-id="<?php echo $arregloCarrito[$i]['Id']; ?>" value="<?php echo $arregloCarrito[$i]['Cantidad']; ?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary js-btn-plus btnIncrementar" type="button">&plus;</button>
+                            </div>
+                          </div>
 
-                    </td>
-                    <td class="cant<?php echo $arregloCarrito[$i]['Id'];?>">
-                    <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad'];?> €</td>
-                    <!-- Creamos un data-id haciendo uso de "data attribute" de HTML5 -->
-                    <td><a href="#" class="btn btn-primary btn-sm btn-danger btnEliminar" 
-                    data-id="<?php echo $arregloCarrito[$i]['Id'];?>">X</a></td>
-                  </tr>
-                  <?php } } ?>
+                        </td>
+                        <td class="cant<?php echo $arregloCarrito[$i]['Id']; ?>">
+                          <?php echo $arregloCarrito[$i]['Precio'] * $arregloCarrito[$i]['Cantidad']; ?> €</td>
+                        <!-- Creamos un data-id haciendo uso de "data attribute" de HTML5 -->
+                        <td><a href="#" class="btn btn-primary btn-sm btn-danger btnEliminar" data-id="<?php echo $arregloCarrito[$i]['Id']; ?>">X</a></td>
+                      </tr>
+                  <?php }
+                  } ?>
                 </tbody>
               </table>
             </div>
@@ -198,7 +194,7 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Total carrito -->
           <div class="col-md-6 pl-5">
             <div class="row justify-content-end">
@@ -214,7 +210,7 @@
                     <span class="text-black">Subtotal</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black"><?php echo $format_subtotal;?> €</strong>
+                    <strong class="text-black"><?php echo $format_subtotal; ?> €</strong>
                   </div>
                 </div>
                 <!-- Envío -->
@@ -223,7 +219,7 @@
                     <span class="text-black">Envío GLS (24h)</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black"><?php echo $format_envio;?> €</strong>
+                    <strong class="text-black"><?php echo $format_envio; ?> €</strong>
                   </div>
                 </div>
                 <!-- IVA -->
@@ -232,9 +228,9 @@
                     <span class="text-black">IVA 21%</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black"><?php echo $format_iva;?> €</strong>
+                    <strong class="text-black"><?php echo $format_iva; ?> €</strong>
                   </div>
-                  
+
                   <!-- Total -->
                 </div>
                 <div class="row mb-5" style="font-weight: 600;">
@@ -242,10 +238,10 @@
                     <span class="text-black">Total</span>
                   </div>
                   <div class="col-md-6 text-right">
-                    <strong class="text-black"><?php echo $format_total;?> €</strong>
+                    <strong class="text-black"><?php echo $format_total; ?> €</strong>
                   </div>
                 </div>
-                
+
 
                 <div class="row">
                   <div class="col-md-12">
@@ -259,7 +255,7 @@
       </div>
     </div>
 
-    <?php include("./layouts/footer.php"); ?> 
+    <?php include("./layouts/footer.php"); ?>
   </div>
 
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -272,8 +268,8 @@
   <script src="js/main.js"></script>
   <script>
     // Script Jquery para eliminar los productos del carrito, mediante una petición ajax.
-    $(document).ready(function(){
-      $(".btnEliminar").click(function(event){
+    $(document).ready(function() {
+      $(".btnEliminar").click(function(event) {
         event.preventDefault();
         var id = $(this).data('id');
         var boton = $(this);
@@ -281,46 +277,47 @@
           method: 'POST',
           url: 'php/eliminarCarrito.php',
           data: {
-            id:id
+            id: id
           }
-        }).done(function(respuesta){
+        }).done(function(respuesta) {
           boton.parent('td').parent('tr').remove();
         });
       });
       // Actualizar cantidad del producto en el input
-      $(".txtCantidad").keyup(function(){
+      $(".txtCantidad").keyup(function() {
         var cantidad = $(this).val();
         var precio = $(this).data('precio');
         var id = $(this).data('id');
         incrementar(cantidad, precio, id);
-        
+
       });
       // Actualizar cantidad del producto en los botones + -
-      $(".btnIncrementar").click(function(){
+      $(".btnIncrementar").click(function() {
         var precio = $(this).parent('div').parent('div').find('input').data('precio');
         var id = $(this).parent('div').parent('div').find('input').data('id');
         var cantidad = $(this).parent('div').parent('div').find('input').val();
         incrementar(cantidad, precio, id);
       });
-      function incrementar(cantidad, precio, id){
-        
+
+      function incrementar(cantidad, precio, id) {
+
         var mult = parseFloat(cantidad) * parseFloat(precio);
-        $(".cant"+id).text(mult+" €");
+        $(".cant" + id).text(mult + " €");
 
         $.ajax({
           method: 'POST',
           url: 'php/actualizar.php',
           data: {
-            id:id,
-            cantidad:cantidad
+            id: id,
+            cantidad: cantidad
           }
-        }).done(function(respuesta){
-          
+        }).done(function(respuesta) {
+
         });
       }
-      });
-    
+    });
   </script>
-    
-  </body>
+
+</body>
+
 </html>

@@ -97,17 +97,18 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <table class="table">
+          <table class="table tablaAlinear">
             <thead>
               <tr>
                 <th>Id</th>
                 <th>Imagen</th>
                 <th>Nombre</th>
                 <th>Descripcion</th>
+                <th>Precio</th>
                 <th>Inventario</th>
                 <th>Talla</th>
                 <th>Color</th>
-              <tr></tr>
+                <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
@@ -118,13 +119,29 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
                   <td>#<?php echo $f['id']; ?></td>
                   <td><img src="../images/<?php echo $f['imagen']; ?>" width="100px" height="70px" alt=""></td>
                   <td><?php echo $f['nombre']; ?></td>
-                  <td><?php echo $f['descripcion']; ?></td>
+                  <td style="width: 20%;"><?php echo $f['descripcion']; ?></td>
+                  <td><?php echo number_format($f['precio'],2,',',''); ?> €</td>
                   <td><?php echo $f['inventario']; ?></td>
                   <td><?php echo $f['talla']; ?></td>
                   <td><?php echo $f['color']; ?></td>
                   <td>
+                    <!-- Botón editar -->
+                    <button class="btn btn-primary btn-small btnEditar" 
+                    data-id="<?php echo $f['id']; ?>" 
+                    data-nombre="<?php echo $f['nombre']; ?>" 
+                    data-descripcion="<?php echo $f['descripcion']; ?>" 
+                    data-precio="<?php echo $f['precio']; ?>" 
+                    data-inventario="<?php echo $f['inventario']; ?>" 
+                    data-categoria="<?php echo $f['id_categoria']; ?>" 
+                    data-talla="<?php echo $f['talla']; ?>" 
+                    data-color="<?php echo $f['color']; ?>" 
+                    data-toggle="modal" data-target="#modalEditar">
+                      <i class="fa fa-pen-square"></i>
+                    </button>
+
+                    <!-- Botón eliminar -->
                     <button class="btn btn-danger btn-small btnEliminar" 
-                    data-id="<?php echo $f['id']; ?>"
+                    data-id="<?php echo $f['id']; ?>" 
                     data-toggle="modal" data-target="#modalEliminar">
                       <i class="fa fa-trash"></i>
                     </button>
@@ -160,6 +177,69 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
     </div>
 
     <?php include "./layouts/footer.php"; ?>
+  </div>
+
+  <!-- Modal Editar -->
+  <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditar" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="../php/editarproducto.php" method="POST" enctype="multipart/form-data">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalEditar">Editar Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="idEdit" name="id">
+
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="nombreEdit" name="nombre" placeholder="nombre" id="nombreEdit" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="descripcionEdit">Descripcion</label>
+              <textarea type="text" name="descripcion" placeholder="descripcion" id="descripcionEdit" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="precioEdit">Precio</label>
+              <input type="number" min="0" name="precio" placeholder="precio" id="precioEdit" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="inventarioEdit">Inventario</label>
+              <input type="number" min="0" name="inventario" placeholder="inventarioEdit" id="inventarioEdit" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="categoriaEdit">Categoria</label>
+              <select multiple name="categoria" id="categoriaEdit" class="form-control" required>
+                <?php
+                $res = $conexion->query("select * from categorias");
+                while ($f = mysqli_fetch_array($res)) {
+                  echo '<option value="' . $f['id'] . '" >' . $f['nombre'] . '</option>';
+                }
+                ?>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tallaEdit">Talla</label>
+              <input type="text" name="talla" placeholder="talla" id="tallaEdit" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="tallaEdit">Color</label>
+              <input type="text" name="color" placeholder="color" id="colorEdit" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="imagen">Imagen</label>
+              <input type="file" name="imagen" id="imagen" class="form-control">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary editar">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <!-- ./wrapper -->
 
@@ -199,48 +279,48 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
   <script src="./dashboard/dist/js/demo.js"></script>
 
   <script>
-    // Script para eliminar los productos con el botón danger
-    $(document).ready(function(){
-    var idEliminar= -1;
-    var idEditar=-1;
-    var fila;
-    $(".btnEliminar").click(function(){
-      idEliminar= $(this).data('id');
-      fila=$(this).parent('td').parent('tr');
-    });
-    $(".eliminar").click(function(){
-      $.ajax({
-        url: '../php/eliminarProducto.php',
-        method:'POST',
-        data:{
-          id:idEliminar
-        }
-      }).done(function(res){
-
-        $(fila).fadeOut(1000);
+    // Script para eliminar los productos con el botón en la tabla
+    $(document).ready(function() {
+      var idEliminar = -1;
+      var idEditar = -1;
+      var fila;
+      $(".btnEliminar").click(function() {
+        idEliminar = $(this).data('id');
+        fila = $(this).parent('td').parent('tr');
       });
-     
-    });
-    /*$(".btnEditar").click(function(){
-      idEditar=$(this).data('id');
-      var nombre=$(this).data('nombre');
-      var descripcion=$(this).data('descripcion');
-      var inventario=$(this).data('inventario');
-      var categoria=$(this).data('categoria');
-      var talla=$(this).data('talla');
-      var color=$(this).data('color');
-      var precio=$(this).data('precio');
-      $("#nombreEdit").val(nombre);
-      $("#descripcionEdit").val(descripcion);
-      $("#inventarioEdit").val(inventario);
-      $("#categoriaEdit").val(categoria);
-      $("#tallaEdit").val(talla);
-      $("#colorEdit").val(color);
-      $("#precioEdit").val(precio);
-      $("#idEdit").val(idEditar);
-    });*/
-  });
+      $(".eliminar").click(function() {
+        $.ajax({
+          url: '../php/eliminarProducto.php',
+          method: 'POST',
+          data: {
+            id: idEliminar
+          }
+        }).done(function(res) {
 
+          $(fila).fadeOut(1000);
+        });
+
+      });
+      // Script para editar los productos con el botón en la tabla
+      $(".btnEditar").click(function() {
+        idEditar = $(this).data('id');
+        var nombre = $(this).data('nombre');
+        var descripcion = $(this).data('descripcion');
+        var inventario = $(this).data('inventario');
+        var categoria = $(this).data('categoria');
+        var talla = $(this).data('talla');
+        var color = $(this).data('color');
+        var precio = $(this).data('precio');
+        $("#nombreEdit").val(nombre);
+        $("#descripcionEdit").val(descripcion);
+        $("#inventarioEdit").val(inventario);
+        $("#categoriaEdit").val(categoria);
+        $("#tallaEdit").val(talla);
+        $("#colorEdit").val(color);
+        $("#precioEdit").val(precio);
+        $("#idEdit").val(idEditar);
+      });
+    });
   </script>
 </body>
 
