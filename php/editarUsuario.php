@@ -1,13 +1,13 @@
 <?php 
 include "conexion.php";
+echo $_POST['email'];
 if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefono'])
     &&  isset($_POST['nivel'])){
     
-   
     
-    if($_FILES['img_perfil']['name'] !='' ){
+    if($_FILES['imagen']['name'] !='' ){
         $carpeta="../images/";
-        $nombre = $_FILES['img_perfil']['name'];
+        $nombre = $_FILES['imagen']['name'];
             //imagen.casa.jpg
         $temp= explode( '.' ,$nombre);
         $extension= end($temp);
@@ -15,8 +15,8 @@ if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefo
         $nombreFinal = time().'.'.$extension;
     
         if($extension=='jpg' || $extension == 'png'){
-            if(move_uploaded_file($_FILES['img_perfil']['tmp_name'], $carpeta.$nombreFinal)){
-                $fila = $conexion->query('select imagen from usuario where id='.$_POST['id']);
+            if(move_uploaded_file($_FILES['imagen']['tmp_name'], $carpeta.$nombreFinal)){
+                $fila = $conexion->query('select imagen  from usuario where id='.$_POST['id']);
                 $id = mysqli_fetch_row($fila);
 
                 // Si existe la imagen, eliminamos la anterior
@@ -29,12 +29,12 @@ if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefo
         }
     } 
 
-    // Con esta consulta, actualizamos en la BBDD los datos del usuario que estamos editando
+    // Con esta consulta, actualizamos en la BBDD los datos del producto que estamos editando
     $conexion->query("update usuario set 
                         nombre='".$_POST['nombre']."',
-                        telefono=".$_POST['telefono'].",
-                        email='".$_POST['email']."',
-                        nivel=".$_POST['nivel'].",
+                        telefono='".$_POST['telefono']."',
+                        email=".$_POST['email'].",
+                        nivel=".$_POST['nivel']."
                         where id=".$_POST['id']);
     echo "se actualizo";
 }   
