@@ -7,10 +7,6 @@ if (!isset($_SESSION['datos_login'])) {
 }
 $arregloUsuario = $_SESSION['datos_login'];
 
-/*if ($arregloUsuario['nivel'] != 'admin') {
-    header("Location: ../index.php");
-}*/
-
 $resultado = $conexion->query("
 SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
 
@@ -136,6 +132,7 @@ SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
                                     <li class="nav-item">
                                         <a href="#" class="nav-link">
                                             <i class="far fa-trash-alt"></i> Eliminados
+                                            <span class="badge bg-danger float-right">4</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -222,24 +219,22 @@ SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
                                     <table class="table table-hover table-striped">
                                         <tbody>
                                             <?php
-                                            while ($f = mysqli_fetch_array($resultado)) {
+                                                while ($f = mysqli_fetch_array($resultado)) {
                                             ?>
-                                                <tr>
-                                                    <td>
-                                                        <div class="icheck-primary">
-                                                            <input type="checkbox" value="" id="check1">
-                                                            <label for="check1"></label>
-                                                        </div>
-                                                    </td>
-                                                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                                    <td class="mailbox-name"><a href="read-mail.html"><?php echo $f['name'];?></a></td>
-                                                    <td class="mailbox-subject"><b><?php echo $f['subject'];?></b> - <p style="white-space: nowrap;"><?php echo $f['message'];?>...</p>
-                                                    </td>
-                                                    <td class="mailbox-date"><?php echo rand(1, 30).'/'.rand(1, 12).'/'.'2020';?></td>
-                                                </tr>
-                                            <?php
-                                            }
-                                            ?>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="icheck-primary">
+                                                                <input type="checkbox" value="" id="check1">
+                                                                <label for="check1"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                                        <td class="mailbox-name"><a href="read-mail.html"><?php echo $f['name']; ?></a></td>
+                                                        <td class="mailbox-subject"><b><?php echo $f['subject']; ?></b> - <p style="white-space: nowrap;"><?php echo $f['message']; ?>...</p>
+                                                        </td>
+                                                        <td class="mailbox-date"><?php echo rand(1, 30) . '/' . rand(1, 12) . '/' . '2020'; ?></td>
+                                                    </tr>
+                                                <?php } ?>
                                         </tbody>
                                     </table>
                                     <!-- /.table -->
