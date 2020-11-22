@@ -122,13 +122,13 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
                   <td><?php echo $f['nivel']; ?></td>
                   <td>
                     <!-- Botón editar -->
-                    <button class="btn btn-primary btn-small btnEditar" 
+                    <button class="btn btn-primary btn-small btnEditarUser" 
                     data-id="<?php echo $f['id']; ?>" 
                     data-nombre="<?php echo $f['nombre']; ?>" 
                     data-email="<?php echo $f['email']; ?>" 
                     data-telefono="<?php echo $f['telefono']; ?>" 
                     data-nivel="<?php echo $f['nivel']; ?>" 
-                    data-toggle="modal" data-target="#modalEditar">
+                    data-toggle="modal" data-target="#modalEditarUser">
                       <i class="fa fa-pen-square"></i>
                     </button>
 
@@ -173,18 +173,18 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
   </div>
 
   <!-- Modal Editar -->
-  <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditar" aria-hidden="true">
+  <div class="modal fade" id="modalEditarUser" tabindex="-1" role="dialog" aria-labelledby="modalEditarUser" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <form action="../php/editarUsuario.php" method="POST" enctype="multipart/form-data">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalEditar">Editar Producto</h5>
+            <h5 class="modal-title" id="modalEditarUser">Editar Usuario</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <input type="hidden" id="idEdit" name="id">
+            <input type="hidden" id="idEditUser" name="id">
 
             <div class="form-group">
               <label for="nombre">Nombre</label>
@@ -192,7 +192,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
             </div>
             <div class="form-group">
               <label for="descripcionEdit">Teléfono</label>
-              <textarea type="tel" name="telefonoEditUser" placeholder="descripcion" id="telefonoEditUser" class="form-control" required></textarea>
+              <input type="tel" name="telefonoEditUser" placeholder="descripcion" id="telefonoEditUser" class="form-control" required></input>
             </div>
             <div class="form-group">
               <label for="precioEdit">Email</label>
@@ -279,7 +279,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
 
       });
       // Script para editar los productos con el botón en la tabla
-      $(".btnEditar").click(function() {
+      $(".btnEditarUser").click(function() {
         idEditar = $(this).data('id');
         var nombre = $(this).data('nombre');
         var email = $(this).data('email');
@@ -289,7 +289,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
         $("#telefonoEditUser").val(telefono);
         $("#emailEditUser").val(email);
         $("#nivelEditUser").val(nivel);
-        $("#idEdit").val(idEditar);
+        $("#idEditUser").val(idEditar);
       });
     });
   </script>

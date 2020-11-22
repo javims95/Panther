@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include "conexion.php";
 echo $_POST['email'];
 if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefono'])
