@@ -229,8 +229,8 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
               <input type="text" name="color" placeholder="color" id="colorEdit" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="imagen">Imagen</label>
-              <input type="file" name="imagen" id="imagen" class="form-control">
+              <label for="imagen">Imagen</label><br>
+              <input type="file" name="imagen" id="imagen">
             </div>
           </div>
           <div class="modal-footer">
