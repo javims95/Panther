@@ -27,8 +27,8 @@ if(isset($_POST['nombre']) &&  isset($_POST['descripcion'])   &&  isset($_POST['
                 $conexion->query("update productos set imagen='".$nombreFinal."' where id=".$_POST['id']);
             }
 
-        }//llave tipo archivo
-    }    //llave si no esta vacio
+        }
+    } 
 
     // Con esta consulta, actualizamos en la BBDD los datos del producto que estamos editando
     $conexion->query("update productos set 
