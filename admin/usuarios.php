@@ -188,26 +188,26 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
 
             <div class="form-group">
               <label for="nombre">Nombre</label>
-              <input type="text" name="nombreEditUser" placeholder="nombre" id="nombreEditUser" class="form-control" required>
+              <input type="text" name="nombre" placeholder="nombre" id="nombreEditUser" class="form-control" required>
             </div>
             <div class="form-group">
               <label for="descripcionEdit">Teléfono</label>
-              <input type="tel" name="telefonoEditUser" placeholder="descripcion" id="telefonoEditUser" class="form-control" required></input>
+              <input type="tel" name="telefono" placeholder="descripcion" id="telefonoEditUser" class="form-control" required></input>
             </div>
             <div class="form-group">
               <label for="precioEdit">Email</label>
-              <input type="text"  name="emailEditUser" placeholder="precio" id="emailEditUser" class="form-control" required readonly>
+              <input type="text"  name="email" placeholder="precio" id="emailEditUser" class="form-control" required readonly>
             </div>
             <div class="form-group">
               <label for="inventarioEdit">Rol de Usuario</label>
-              <select type="number" name="nivelEditUser" placeholder="inventarioEdit" id="nivelEditUser" class="form-control" required>
+              <select type="number" name="nivel" placeholder="inventarioEdit" id="nivelEditUser" class="form-control" required>
                   <option value="cliente">cliente</option>
                   <option value="admin">admin</option>
               </select>
             </div>
             <div class="form-group">
               <label for="imagen">Imagen</label><br>
-              <input type="file" name="imagen" id="imagen">
+              <input type="file" name="imagen" id="imagenEditUser">
             </div>
           </div>
           <div class="modal-footer">
@@ -280,7 +280,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
       });
       // Script para editar los productos con el botón en la tabla
       $(".btnEditarUser").click(function() {
-        idEditar = $(this).data('id');
+        idEditarUser = $(this).data('id');
         var nombre = $(this).data('nombre');
         var email = $(this).data('email');
         var telefono = $(this).data('telefono');

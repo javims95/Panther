@@ -12,3 +12,6 @@
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
+
+  <!-- Contador de visitas -->
+    <script src="../../php/visitas.php"></script>
