@@ -229,6 +229,16 @@
             </ul>
           </li>
 
+          <!-- Mail box -->
+          <li class="nav-item">
+            <a href="./mailBox.php" class="nav-link">
+              <i class="nav-icon fas fa-percent"></i>
+              <p>
+                Mensajes
+              </p>
+            </a>
+          </li>
+
           <!-- Exportar -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

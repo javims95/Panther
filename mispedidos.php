@@ -1,4 +1,5 @@
-<!-- Se almacenan los datos del formulario de contacto en una tabla en la BBDD -->
+<!-- Se comprueba si existe un pedido para ese usuario, en caso afirmativo solo se muestra el último, 
+en caso negativo, se redirecciona a home  -->
 <?php
 
 session_start();

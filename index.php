@@ -190,9 +190,6 @@ session_start();
                 // Consulta para buscar y mostrar los 10 primeros productos
                 $resultado = $conexion->query("select * from productos order by id DESC limit " . $limite) or die($conexion->error);
               }
-              //die ($totalProductos[0]);
-
-
 
 
               // En este bucle imprimimos los productos
