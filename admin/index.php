@@ -37,6 +37,11 @@ $arregloUsuario = $_SESSION['datos_login'];
   <link rel="stylesheet" href="./dashboard/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+    .bg-danger {
+    background-color: #9C27B0!important;
+}
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -46,13 +51,13 @@ $arregloUsuario = $_SESSION['datos_login'];
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
+      <!-- Cabecera -->
       <div class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Dashboard</h1>
-            </div><!-- /.col -->
+              <h1 class="m-0 text-dark">Panel de Administración</h1>
+            </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -64,17 +69,16 @@ $arregloUsuario = $_SESSION['datos_login'];
       </div>
       <!-- /.content-header -->
 
-      <!-- Main content -->
+      <!-- Contenido principal -->
       <section class="content">
         <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
           <div class="row">
+
+            <!-- Nuevos Pedidos -->
             <div class="col-lg-3 col-6">
-              <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
                   <h3>15</h3>
-
                   <p>Nuevos Pedidos</p>
                 </div>
                 <div class="icon">
@@ -83,57 +87,64 @@ $arregloUsuario = $_SESSION['datos_login'];
                 <a href="pedidos.php" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
+
+            <!-- Usuarios Registrados -->
             <div class="col-lg-3 col-6">
-              <!-- small box -->
               <div class="small-box bg-warning">
                 <div class="inner">
+                  <!-- Consulta para obtener el numero de usuarios registrados -->
                   <?php
                   include '../php/conexion.php';
-
                   $consultaUsuario = $conexion->query('SELECT COUNT(*) FROM usuario') or die($conexion->error);
                   $totalUsuarios = mysqli_fetch_row($consultaUsuario);
-
-                    
                   ?>
                   <h3><?php echo $totalUsuarios[0] ?></h3>
-
                   <p>Usuarios Registrados</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-person-add"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
             <!-- ./col -->
+
+            <!-- Visitas -->
             <div class="col-lg-3 col-6">
-              <!-- small box -->
               <div class="small-box bg-success">
                 <div class="inner">
-                  <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                  <p>Bounce Rate</p>
+                  <?php
+                  $consultaVisitas = $conexion->query('SELECT COUNT(*) FROM visitas') or die($conexion->error);
+                  $totalVisitas = mysqli_fetch_row($consultaVisitas);
+                  ?>
+                  <h3><?php echo $totalVisitas[0] ?></h3>
+                  <p>Visitas</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-stats-bars"></i>
+                  <i class="fas fa-eye"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
+
+            <!-- Mensajes -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-danger">
                 <div class="inner">
-                  <h3>65</h3>
-
-                  <p>Unique Visitors</p>
+                  <?php
+                  $consultaMensajes = $conexion->query('SELECT COUNT(*) FROM contacto') or die($conexion->error);
+                  $totalMensajes = mysqli_fetch_row($consultaMensajes);
+                  ?>
+                  <h3><?php echo $totalMensajes[0] ?></h3>
+                  <p>Mensajes</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-pie-graph"></i>
+                  <i class="fas fa-envelope"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer">Ver más <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -143,20 +154,22 @@ $arregloUsuario = $_SESSION['datos_login'];
           <div class="row">
             <!-- Left col -->
             <section class="col-lg-7 connectedSortable">
+
+
               <!-- Custom tabs (Charts with tabs)-->
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="fas fa-chart-pie mr-1"></i>
-                    Sales
+                    Ventas
                   </h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
+                        <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Gráfica</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
+                        <a class="nav-link" href="#sales-chart" data-toggle="tab">Circular</a>
                       </li>
                     </ul>
                   </div>
@@ -175,10 +188,11 @@ $arregloUsuario = $_SESSION['datos_login'];
               </div>
               <!-- /.card -->
 
-              <!-- DIRECT CHAT -->
+
+              <!-- Chat en directo -->
               <div class="card direct-chat direct-chat-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Direct Chat</h3>
+                  <h3 class="card-title">Chat en directo</h3>
 
                   <div class="card-tools">
                     <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
@@ -199,14 +213,14 @@ $arregloUsuario = $_SESSION['datos_login'];
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
+                        <span class="direct-chat-name float-left">Javier Muñoz</span>
+                        <span class="direct-chat-timestamp float-right">23 Noviembre 20:00 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
                       <img class="direct-chat-img" src="./dashboard/dist/img/user1-128x128.jpg" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
+                        Su pedido ya ha salido de nuestras instalaciones. Prepárate para recibirlo pronto !
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
@@ -215,14 +229,14 @@ $arregloUsuario = $_SESSION['datos_login'];
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
+                        <span class="direct-chat-name float-right">Sara García</span>
+                        <span class="direct-chat-timestamp float-left">23 Noviembre 20:05 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
                       <img class="direct-chat-img" src="./dashboard/dist/img/user3-128x128.jpg" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        You better believe it!
+                        Esto es increíble. Lo he pagado hace una hora
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
@@ -231,14 +245,14 @@ $arregloUsuario = $_SESSION['datos_login'];
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
+                        <span class="direct-chat-name float-left">Javier Muñoz</span>
+                        <span class="direct-chat-timestamp float-right">23 Noviembre 20:12 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
                       <img class="direct-chat-img" src="./dashboard/dist/img/user1-128x128.jpg" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
+                        Así funciona Panther. Nuestro compromiso con el cliente
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
@@ -247,127 +261,29 @@ $arregloUsuario = $_SESSION['datos_login'];
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
-                        <span class="direct-chat-name float-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
+                        <span class="direct-chat-name float-right">Sara García</span>
+                        <span class="direct-chat-timestamp float-left">23 Noviembre 20:26 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
                       <img class="direct-chat-img" src="./dashboard/dist/img/user3-128x128.jpg" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        I would love to.
+                        Muchas gracias. Sin duda repetiré
                       </div>
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
 
-                  </div>
-                  <!--/.direct-chat-messages-->
-
-                  <!-- Contacts are loaded here -->
-                  <div class="direct-chat-contacts">
-                    <ul class="contacts-list">
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user1-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date float-right">2/28/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">How have you been? I was...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user7-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Sarah Doe
-                              <small class="contacts-list-date float-right">2/23/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">I will be waiting for...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user3-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Nadia Jolie
-                              <small class="contacts-list-date float-right">2/20/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">I'll call you back at...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user5-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Nora S. Vans
-                              <small class="contacts-list-date float-right">2/10/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">Where is your new...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user6-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              John K.
-                              <small class="contacts-list-date float-right">1/27/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">Can I take a look at...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="./dashboard/dist/img/user8-128x128.jpg">
-
-                          <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Kenneth M.
-                              <small class="contacts-list-date float-right">1/4/2015</small>
-                            </span>
-                            <span class="contacts-list-msg">Never mind I found...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                    </ul>
-                    <!-- /.contacts-list -->
-                  </div>
+                 
                   <!-- /.direct-chat-pane -->
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <form action="#" method="post">
                     <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                      <input type="text" name="message" placeholder="Escribir un nuevo mensaje" class="form-control">
                       <span class="input-group-append">
-                        <button type="button" class="btn btn-primary">Send</button>
+                        <button type="button" class="btn btn-primary">Enviar</button>
                       </span>
                     </div>
                   </form>
@@ -376,14 +292,14 @@ $arregloUsuario = $_SESSION['datos_login'];
               </div>
               <!--/.direct-chat -->
 
-              <!-- TO DO List -->
+
+              <!-- Tareas Pendientes -->
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">
                     <i class="ion ion-clipboard mr-1"></i>
-                    To Do List
+                    Tareas Pendientes
                   </h3>
-
                   <div class="card-tools">
                     <ul class="pagination pagination-sm">
                       <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
@@ -394,25 +310,19 @@ $arregloUsuario = $_SESSION['datos_login'];
                     </ul>
                   </div>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body">
                   <ul class="todo-list" data-widget="todo-list">
                     <li>
-                      <!-- drag handle -->
                       <span class="handle">
                         <i class="fas fa-ellipsis-v"></i>
                         <i class="fas fa-ellipsis-v"></i>
                       </span>
-                      <!-- checkbox -->
                       <div class="icheck-primary d-inline ml-2">
                         <input type="checkbox" value="" name="todo1" id="todoCheck1">
                         <label for="todoCheck1"></label>
                       </div>
-                      <!-- todo text -->
-                      <span class="text">Design a nice theme</span>
-                      <!-- Emphasis label -->
+                      <span class="text">Añadir nuevos productos</span>
                       <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
-                      <!-- General tools such as edit or delete-->
                       <div class="tools">
                         <i class="fas fa-edit"></i>
                         <i class="fas fa-trash-o"></i>
@@ -427,7 +337,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <input type="checkbox" value="" name="todo2" id="todoCheck2" checked>
                         <label for="todoCheck2"></label>
                       </div>
-                      <span class="text">Make the theme responsive</span>
+                      <span class="text">Pagar trimestre Abril</span>
                       <small class="badge badge-info"><i class="far fa-clock"></i> 4 hours</small>
                       <div class="tools">
                         <i class="fas fa-edit"></i>
@@ -443,7 +353,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <input type="checkbox" value="" name="todo3" id="todoCheck3">
                         <label for="todoCheck3"></label>
                       </div>
-                      <span class="text">Let theme shine like a star</span>
+                      <span class="text">Entregar facturas a la asesora</span>
                       <small class="badge badge-warning"><i class="far fa-clock"></i> 1 day</small>
                       <div class="tools">
                         <i class="fas fa-edit"></i>
@@ -459,7 +369,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <input type="checkbox" value="" name="todo4" id="todoCheck4">
                         <label for="todoCheck4"></label>
                       </div>
-                      <span class="text">Let theme shine like a star</span>
+                      <span class="text">Solucionar problema pedido #25</span>
                       <small class="badge badge-success"><i class="far fa-clock"></i> 3 days</small>
                       <div class="tools">
                         <i class="fas fa-edit"></i>
@@ -475,7 +385,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <input type="checkbox" value="" name="todo5" id="todoCheck5">
                         <label for="todoCheck5"></label>
                       </div>
-                      <span class="text">Check your messages and notifications</span>
+                      <span class="text">Llamar Eva</span>
                       <small class="badge badge-primary"><i class="far fa-clock"></i> 1 week</small>
                       <div class="tools">
                         <i class="fas fa-edit"></i>
@@ -491,7 +401,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <input type="checkbox" value="" name="todo6" id="todoCheck6">
                         <label for="todoCheck6"></label>
                       </div>
-                      <span class="text">Let theme shine like a star</span>
+                      <span class="text">Revisar stock</span>
                       <small class="badge badge-secondary"><i class="far fa-clock"></i> 1 month</small>
                       <div class="tools">
                         <i class="fas fa-edit"></i>
@@ -500,25 +410,21 @@ $arregloUsuario = $_SESSION['datos_login'];
                     </li>
                   </ul>
                 </div>
-                <!-- /.card-body -->
                 <div class="card-footer clearfix">
                   <button type="button" class="btn btn-info float-right"><i class="fas fa-plus"></i> Add item</button>
                 </div>
               </div>
-              <!-- /.card -->
             </section>
-            <!-- /.Left col -->
-            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            
+            
+            <!-- Visitantes -->
             <section class="col-lg-5 connectedSortable">
-
-              <!-- Map card -->
               <div class="card bg-gradient-primary">
                 <div class="card-header border-0">
                   <h3 class="card-title">
                     <i class="fas fa-map-marker-alt mr-1"></i>
-                    Visitors
+                    Visitantes
                   </h3>
-                  <!-- card tools -->
                   <div class="card-tools">
                     <button type="button" class="btn btn-primary btn-sm daterange" data-toggle="tooltip" title="Date range">
                       <i class="far fa-calendar-alt"></i>
@@ -527,27 +433,24 @@ $arregloUsuario = $_SESSION['datos_login'];
                       <i class="fas fa-minus"></i>
                     </button>
                   </div>
-                  <!-- /.card-tools -->
                 </div>
                 <div class="card-body">
                   <div id="world-map" style="height: 250px; width: 100%;"></div>
                 </div>
-                <!-- /.card-body-->
                 <div class="card-footer bg-transparent">
                   <div class="row">
                     <div class="col-4 text-center">
                       <div id="sparkline-1"></div>
-                      <div class="text-white">Visitors</div>
+                      <div class="text-white">Visitantes</div>
                     </div>
-                    <!-- ./col -->
                     <div class="col-4 text-center">
                       <div id="sparkline-2"></div>
-                      <div class="text-white">Online</div>
+                      <div class="text-white">En línea</div>
                     </div>
                     <!-- ./col -->
                     <div class="col-4 text-center">
                       <div id="sparkline-3"></div>
-                      <div class="text-white">Sales</div>
+                      <div class="text-white">Ventas</div>
                     </div>
                     <!-- ./col -->
                   </div>
@@ -556,12 +459,13 @@ $arregloUsuario = $_SESSION['datos_login'];
               </div>
               <!-- /.card -->
 
-              <!-- solid sales graph -->
+
+              <!-- Gráfica de ventas -->
               <div class="card bg-gradient-info">
                 <div class="card-header border-0">
                   <h3 class="card-title">
                     <i class="fas fa-th mr-1"></i>
-                    Sales Graph
+                    Gráfico de Ventas
                   </h3>
 
                   <div class="card-tools">
@@ -576,25 +480,23 @@ $arregloUsuario = $_SESSION['datos_login'];
                 <div class="card-body">
                   <canvas class="chart" id="line-chart" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
                 </div>
-                <!-- /.card-body -->
                 <div class="card-footer bg-transparent">
                   <div class="row">
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                      <div class="text-white">Mail-Orders</div>
+                      <div class="text-white">Pedidos Mail</div>
                     </div>
-                    <!-- ./col -->
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                      <div class="text-white">Online</div>
+                      <div class="text-white">En línea</div>
                     </div>
                     <!-- ./col -->
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60" data-fgColor="#39CCCC">
 
-                      <div class="text-white">In-Store</div>
+                      <div class="text-white">En tienda</div>
                     </div>
                     <!-- ./col -->
                   </div>
@@ -604,25 +506,24 @@ $arregloUsuario = $_SESSION['datos_login'];
               </div>
               <!-- /.card -->
 
-              <!-- Calendar -->
+
+              <!-- Calendario -->
               <div class="card bg-gradient-success">
                 <div class="card-header border-0">
 
                   <h3 class="card-title">
                     <i class="far fa-calendar-alt"></i>
-                    Calendar
+                    Calendario
                   </h3>
-                  <!-- tools card -->
                   <div class="card-tools">
-                    <!-- button with a dropdown -->
                     <div class="btn-group">
                       <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" data-offset="-52">
                         <i class="fas fa-bars"></i></button>
                       <div class="dropdown-menu" role="menu">
-                        <a href="#" class="dropdown-item">Add new event</a>
-                        <a href="#" class="dropdown-item">Clear events</a>
+                        <a href="#" class="dropdown-item">Añadir nuevo evento</a>
+                        <a href="#" class="dropdown-item">Eliminar eventos</a>
                         <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">View calendar</a>
+                        <a href="#" class="dropdown-item">Ver calendario</a>
                       </div>
                     </div>
                     <button type="button" class="btn btn-success btn-sm" data-card-widget="collapse">
@@ -632,18 +533,12 @@ $arregloUsuario = $_SESSION['datos_login'];
                       <i class="fas fa-times"></i>
                     </button>
                   </div>
-                  <!-- /. tools -->
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body pt-0">
-                  <!--The calendar -->
                   <div id="calendar" style="width: 100%"></div>
                 </div>
-                <!-- /.card-body -->
               </div>
-              <!-- /.card -->
             </section>
-            <!-- right col -->
           </div>
           <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
@@ -653,6 +548,7 @@ $arregloUsuario = $_SESSION['datos_login'];
     <?php include "./layouts/footer.php"; ?>
   </div>
   <!-- ./wrapper -->
+
 
   <!-- jQuery -->
   <script src="./dashboard/plugins/jquery/jquery.min.js"></script>
