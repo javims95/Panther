@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2020 a las 22:03:26
+-- Tiempo de generación: 23-11-2020 a las 07:36:06
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.3.24
 
@@ -46,6 +46,13 @@ CREATE TABLE `categorias` (
   `descripcion` varchar(400) NOT NULL,
   `imagen` varchar(400) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `imagen`) VALUES
+(1, 'Mujer', 'Ropa de mujer', '');
 
 -- --------------------------------------------------------
 
@@ -103,7 +110,12 @@ CREATE TABLE `envios` (
 
 INSERT INTO `envios` (`id_envio`, `pais`, `company`, `direccion`, `estado`, `cp`, `id_venta`) VALUES
 (1, '2', 'Jamusa', 'Calle Burguillos, 26', 'Málaga', '29190', 2),
-(2, '2', 'Vaporlibre', 'C/ Abetos 18', 'MÁLAGA', '29190', 3);
+(2, '2', 'Vaporlibre', 'C/ Abetos 18', 'MÁLAGA', '29190', 3),
+(3, '1', '', '', '', '', 4),
+(4, '1', '', '', '', '', 5),
+(5, '1', '', '', '', '', 6),
+(6, '1', '', '', '', '', 7),
+(7, '1', '', '', '', '', 8);
 
 -- --------------------------------------------------------
 
@@ -135,7 +147,6 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `inv
 (5, 'Producto 4', 'Esta es la descripción para el producto nº4', 54, 'shoe.png', 81, 1, 'L', 'Blue'),
 (6, 'Producto 5', 'Esta es la descripción para el producto nº5', 244, 'shoe.png', 3, 1, 'L', 'Blue'),
 (7, 'Producto 6', 'Esta es la descripción para el producto nº6', 222, 'shoe.png', 75, 1, 'L', 'Blue'),
-(8, 'Producto 7', 'Esta es la descripción para el producto nº7', 189, 'shoe.png', 89, 1, 'L', 'Blue'),
 (9, 'Producto 8', 'Esta es la descripción para el producto nº8', 38, 'shoe.png', 47, 1, 'L', 'Blue'),
 (10, 'Producto 9', 'Esta es la descripción para el producto nº9', 148, 'shoe.png', 78, 1, 'L', 'Blue'),
 (11, 'Producto 10', 'Esta es la descripción para el producto nº10', 64, 'shoe.png', 47, 1, 'L', 'Blue'),
@@ -176,8 +187,7 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `inv
 (46, 'Producto 45', 'Esta es la descripción para el producto nº45', 122, 'shoe.png', 60, 1, 'L', 'Blue'),
 (47, 'Producto 46', 'Esta es la descripción para el producto nº46', 243, 'shoe.png', 17, 1, 'L', 'Blue'),
 (48, 'Producto 47', 'Esta es la descripción para el producto nº47', 82, 'shoe.png', 80, 1, 'L', 'Blue'),
-(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 77, 1, 'L', 'Blue'),
-(50, 'Producto 49', 'Esta es la descripción para el producto nº49', 84, 'shoe.png', 87, 1, 'L', 'Blue');
+(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 75, 1, 'L', 'Blue');
 
 -- --------------------------------------------------------
 
@@ -205,7 +215,11 @@ INSERT INTO `productos_venta` (`id`, `id_venta`, `id_producto`, `cantidad`, `pre
 (4, 2, 46, 1, 122, 122),
 (5, 3, 49, 4, 35, 140),
 (6, 3, 50, 1, 84, 84),
-(7, 3, 44, 1, 119, 119);
+(7, 3, 44, 1, 119, 119),
+(8, 4, 50, 1, 84, 84),
+(9, 5, 49, 1, 35, 35),
+(10, 6, 49, 1, 35, 35),
+(11, 8, 55, 1, 45, 45);
 
 -- --------------------------------------------------------
 
@@ -228,31 +242,22 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `email`, `password`, `img_perfil`, `nivel`) VALUES
-(1, 'Javier Sánchez', '+34633822820', 'javier_ms95@hotmail.com', '01b63560db0dd6152ffead0cf34f60a4740cdfb2', '', ''),
-(2, 'Javier Sánchez', '+34633822820', 'javier_ms95@hotmail.com', '01b63560db0dd6152ffead0cf34f60a4740cdfb2', '', ''),
-(3, 'Adrián Carrasco', '633863859', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
+(3, 'Adrián Carrasco', '633863859', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'user7-128x128.jpg', 'admin'),
+(4, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_3.jpg', 'cliente'),
+(5, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_2.jpg', ''),
+(6, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ventas`
+-- Estructura de tabla para la tabla `visitas`
 --
 
-CREATE TABLE `ventas` (
-  `id` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `total` double NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp()
+CREATE TABLE `visitas` (
+  `idvisitas` int(7) NOT NULL,
+  `enlace` varchar(300) NOT NULL,
+  `visitas` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`id`, `id_usuario`, `total`, `fecha`) VALUES
-(1, 1, 206, '2020-11-17 04:11:04'),
-(2, 2, 206, '2020-11-17 04:11:09'),
-(3, 3, 343, '2020-11-17 05:11:08');
 
 --
 -- Índices para tablas volcadas
@@ -301,10 +306,10 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `ventas`
+-- Indices de la tabla `visitas`
 --
-ALTER TABLE `ventas`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `visitas`
+  ADD PRIMARY KEY (`idvisitas`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -320,7 +325,7 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `contacto`
@@ -332,31 +337,31 @@ ALTER TABLE `contacto`
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `productos_venta`
 --
 ALTER TABLE `productos_venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `ventas`
+-- AUTO_INCREMENT de la tabla `visitas`
 --
-ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `visitas`
+  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

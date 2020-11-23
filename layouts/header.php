@@ -1,3 +1,7 @@
+<?php 
+  include 'php\visitas.php';
+?>
+
 <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
         <div class="container">
