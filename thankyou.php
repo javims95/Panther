@@ -59,6 +59,12 @@
     $id_venta
   )")or die($conexion->error);
 
+  if(isset($_POST['id_cupon'])){
+    if($_POST['id_cupon']!= ""){
+      $conexion->query("UPDATE cupones SET status ='usado' WHERE id=".$_POST['id_cupon'])or die($conexion->error);
+    }
+  }
+
 // Borramos la variable de sesión carrito, cuando se alamacena en la BBDD
   unset($_SESSION['carrito']);
 ?>

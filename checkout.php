@@ -227,6 +227,7 @@ $arreglo = $_SESSION['carrito'];
                       </div>
                     </div>
                   </div>
+                  <input type="hidden" name="id_cupon" id="id_cupon">
                 </div>
               </div>
 
@@ -379,7 +380,7 @@ $arreglo = $_SESSION['carrito'];
           // Si cumple la condición muestra el alert de bootstrap
           if (respuesta == "cupon no valido" || respuesta == "error") {
             $("#msg_error").show();
-            //alert('respuesta');
+            $("#id_cupon").val("");
           }
           else {
             var arreglo = JSON.parse(respuesta);
@@ -394,6 +395,7 @@ $arreglo = $_SESSION['carrito'];
             $("#formCupon").hide();
             $("#pEliminar").hide();
             $("#datosCupon").show();
+            $("#id_cupon").val(arreglo.id);
           }
         })
       });
