@@ -207,17 +207,25 @@ $arreglo = $_SESSION['carrito'];
 
               <div class="row mb-5">
                 <div class="col-md-12">
-                  <h2 class="h3 mb-3 text-black">Coupon Code</h2>
+                  <h2 class="h3 mb-3 text-black">Cupón de Descuento</h2>
                   <div class="p-3 p-lg-5 border">
-
-                    <label for="c_code" class="text-black mb-3">Enter your coupon code if you have one</label>
-                    <div class="input-group w-75">
-                      <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
+                  <div class="input-group w-75" id="datosCupon" style="display: none;">
+                      <div class="alert alert-success" role="alert">
+                        <h4 class="alert-heading">Cupón válido</h4>
+                        <p id="textoCupon"></p>
+                        <p id="textoCupon2"></p>
+                      </div>
+                    </div>
+                    <div id="msg_error" style="display: none;" class="alert alert-danger" role="alert">
+                      Cupón no válido
+                    </div>
+                    <label id="pEliminar" for="c_code2" class="text-black mb-3">Introduzca aquí su cupón de descuento, si dispone de alguno</label>
+                    <div class="input-group w-75" id="formCupon">
+                      <input type="text" class="form-control" id="c_code2" placeholder="Código del cupón" aria-label="Coupon Code" aria-describedby="button-addon2">
                       <div class="input-group-append">
                         <button class="btn btn-primary btn-sm" type="button" id="button-addon2">Aplicar</button>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </div>
@@ -357,7 +365,45 @@ $arreglo = $_SESSION['carrito'];
   <script src="js/main.js"></script>
 
   <script>
-    $(document).ready(function(){
+    // Script para validar los cupones, mediante una peticion ajax.
+    $(document).ready(function() {
+      $("#button-addon2").click(function() {
+        var codigo = $("#c_code2").val();
+        $.ajax({
+          url: "./php/validarCodigo.php",
+          data: {
+            codigo: codigo
+          },
+          method: 'POST'
+        }).done(function(respuesta) {
+          // Si cumple la condición muestra el alert de bootstrap
+          if (respuesta == "cupon no valido" || respuesta == "error") {
+            $("#msg_error").show();
+            //alert('respuesta');
+          }
+          else {
+            var arreglo = JSON.parse(respuesta);
+            if (arreglo.tipo == "moneda"){
+              $("#textoCupon").text("Su cupón es de: "+arreglo.valor+" €");
+              $("#textoCupon2").text("Válido hasta el : "+arreglo.fecha_vencimiento);
+            }
+            else {
+              $("#textoCupon").text("Su cupón es del: "+arreglo.valor+" %");
+              $("#textoCupon2").text("Válido hasta el : "+arreglo.fecha_vencimiento);
+            }
+            $("#formCupon").hide();
+            $("#pEliminar").hide();
+            $("#datosCupon").show();
+          }
+        })
+      });
+      // Cuando se escribe de nuevo se oculta el alert-danger de bootstrap
+      $("#c_code2").keyup(function() {
+        $("#msg_error").hide();
+      });
+    });
+
+    /*$(document).ready(function(){
       $("#button-addon2").click(function(){
         var codigo = $("#c_code").val();
         $.ajax({
@@ -370,7 +416,7 @@ $arreglo = $_SESSION['carrito'];
           alert('respuesta');
         })
       });
-    });
+    });*/
   </script>
 
 </body>

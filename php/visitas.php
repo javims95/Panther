@@ -6,7 +6,7 @@ $fecha = date('Y-m-d h:m:s');
 
 if (isset($_COOKIE['visitas'])) {
     
-    $visitas = $_COOKIE['visitas'];
+    return '';
 }
 
 else {

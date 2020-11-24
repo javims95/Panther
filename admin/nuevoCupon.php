@@ -162,49 +162,10 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
 
     <script>
              $(document).ready(function() {
-      var idEliminar = -1;
-      var idEditar = -1;
-      var fila;
       // Script para generar numero de cupon aleatorio (string+mathRandom)
       $("#generar").click(function(){
-          var numero = 'PNT' + Math.floor(Math.random()*900)+100;
+          var numero = 'PNT' + Math.floor(Math.random()*90000);
         $("#codigo").val(numero);
-      });
-      $(".btnEliminar").click(function() {
-        idEliminar = $(this).data('id');
-        fila = $(this).parent('td').parent('tr');
-      });
-      $(".eliminar").click(function() {
-        $.ajax({
-          url: '../php/eliminarProducto.php',
-          method: 'POST',
-          data: {
-            id: idEliminar
-          }
-        }).done(function(res) {
-
-          $(fila).fadeOut(1000);
-        });
-
-      });
-      // Script para editar los productos con el botón en la tabla
-      $(".btnEditar").click(function() {
-        idEditar = $(this).data('id');
-        var nombre = $(this).data('nombre');
-        var descripcion = $(this).data('descripcion');
-        var inventario = $(this).data('inventario');
-        var categoria = $(this).data('categoria');
-        var talla = $(this).data('talla');
-        var color = $(this).data('color');
-        var precio = $(this).data('precio');
-        $("#nombreEdit").val(nombre);
-        $("#descripcionEdit").val(descripcion);
-        $("#inventarioEdit").val(inventario);
-        $("#categoriaEdit").val(categoria);
-        $("#tallaEdit").val(talla);
-        $("#colorEdit").val(color);
-        $("#precioEdit").val(precio);
-        $("#idEdit").val(idEditar);
       });
     });
     </script>

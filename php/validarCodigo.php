@@ -5,7 +5,7 @@
 
         $respuesta = $conexion->query("SELECT * FROM cupones WHERE codigo = '".$_POST['codigo']."'");
         if(mysqli_num_rows($respuesta)==0){
-            echo 'Codigo no válido';
+            echo "cupon no valido";
         }
         else {
             $datos = mysqli_fetch_row($respuesta);
