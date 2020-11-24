@@ -196,12 +196,27 @@
 
           <!-- Cupones -->
           <li class="nav-item">
-            <a href="./cupones.php" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-percent"></i>
               <p>
                 Cupones
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="cupones.php" class="nav-link">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p>Ver  todos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="nuevoCupon.php" class="nav-link">
+                  <i class="fas fa-user-plus nav-icon"></i>
+                  <p>Añadir Cupón</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- Usuarios -->

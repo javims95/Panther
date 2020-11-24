@@ -214,7 +214,7 @@ $arreglo = $_SESSION['carrito'];
                     <div class="input-group w-75">
                       <input type="text" class="form-control" id="c_code" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="button-addon2">
                       <div class="input-group-append">
-                        <button class="btn btn-primary btn-sm" type="button" id="button-addon2">Apply</button>
+                        <button class="btn btn-primary btn-sm" type="button" id="button-addon2">Aplicar</button>
                       </div>
                     </div>
 
@@ -355,6 +355,23 @@ $arreglo = $_SESSION['carrito'];
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $("#button-addon2").click(function(){
+        var codigo = $("#c_code").val();
+        $.ajax({
+          url: '.php/validarCodigo.php',
+          data:{
+            codigo:codigo
+          },
+          method: 'POST'
+        }).done(function(respuesta){
+          alert('respuesta');
+        })
+      });
+    });
+  </script>
 
 </body>
 

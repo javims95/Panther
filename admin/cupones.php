@@ -11,8 +11,7 @@ if ($arregloUsuario['nivel'] != 'admin') {
   header("Location: ../index.php");
 }
 
-$resultado = $conexion->query("
-SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
+$resultado = $conexion->query("SELECT * FROM cupones ORDER BY id DESC") or die($conexion->error);
 
 ?>
 
@@ -81,11 +80,11 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
 
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Productos</h1>
+              <h1 class="m-0 text-dark">Cupones</h1>
             </div><!-- /.col -->
-            <div class="col-sm-6" style="text-align: end;">
-            <button class="btn btn-primary"><i class="fas fa-plus"></i> <a style="color: white" href="nuevoProducto.php">Nuevo Producto</a></button>
-            </div><!-- /.col -->
+            <div class="col-sm-6 " style="text-align: end;">
+              <button class="btn btn-primary"><i class="fas fa-plus"></i> <a style="color: white" href="nuevoCupon.php">Crear Cupón</a></button>
+            </div>
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
@@ -98,14 +97,11 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Precio</th>
-                <th>Inventario</th>
-                <th>Talla</th>
-                <th>Color</th>
-                <th>Acciones</th>
+                <th>Código</th>
+                <th>Estado</th>
+                <th>Tipo</th>
+                <th>Valor</th>
+                <th>Fecha de Vencimiento</th>
               </tr>
             </thead>
             <tbody>
@@ -114,28 +110,12 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
               ?>
                 <tr>
                   <td>#<?php echo $f['id']; ?></td>
-                  <td><img src="../images/<?php echo $f['imagen']; ?>" width="100px" height="70px" alt=""></td>
-                  <td><?php echo $f['nombre']; ?></td>
-                  <td style="width: 20%;"><?php echo $f['descripcion']; ?></td>
-                  <td><?php echo number_format($f['precio'],2,',',''); ?> €</td>
-                  <td><?php echo $f['inventario']; ?></td>
-                  <td><?php echo $f['talla']; ?></td>
-                  <td><?php echo $f['color']; ?></td>
+                  <td><?php echo $f['codigo']; ?></td>
+                  <td><?php echo $f['status']; ?></td>
+                  <td><?php echo $f['tipo']; ?></td>
+                  <td><?php echo $f['valor']; ?></td>
+                  <td><?php echo $f['fecha_vencimiento']; ?></td>
                   <td>
-                    <!-- Botón editar -->
-                    <button class="btn btn-primary btn-small btnEditar" 
-                    data-id="<?php echo $f['id']; ?>" 
-                    data-nombre="<?php echo $f['nombre']; ?>" 
-                    data-descripcion="<?php echo $f['descripcion']; ?>" 
-                    data-precio="<?php echo $f['precio']; ?>" 
-                    data-inventario="<?php echo $f['inventario']; ?>" 
-                    data-categoria="<?php echo $f['id_categoria']; ?>" 
-                    data-talla="<?php echo $f['talla']; ?>" 
-                    data-color="<?php echo $f['color']; ?>" 
-                    data-toggle="modal" data-target="#modalEditar">
-                      <i class="fa fa-pen-square"></i>
-                    </button>
-
                     <!-- Botón eliminar -->
                     <button class="btn btn-danger btn-small btnEliminar" 
                     data-id="<?php echo $f['id']; ?>" 
