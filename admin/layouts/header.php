@@ -236,7 +236,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
+                <a href="nuevoUsuario.php" class="nav-link">
                   <i class="fas fa-user-plus nav-icon"></i>
                   <p>Añadir Usuario</p>
                 </a>

@@ -84,7 +84,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
               <h1 class="m-0 text-dark">Productos</h1>
             </div><!-- /.col -->
             <div class="col-sm-6" style="text-align: end;">
-            <button class="btn btn-primary"><i class="fas fa-plus"></i> <a style="color: white" href="nuevoProducto.php">Nuevo Producto</a></button>
+            <button class="btn btn-primary"><i class="fas fa-plus"></i> <a style="color: white" href="nuevoProducto.php">Nuevo producto</a></button>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->

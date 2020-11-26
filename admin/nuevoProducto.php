@@ -12,7 +12,7 @@ if ($arregloUsuario['nivel'] != 'admin') {
 }
 
 $resultado = $conexion->query("
-SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
+SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
 
 ?>
 
@@ -22,7 +22,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Productos | Dashboard</title>
+  <title>Nuevo producto</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->

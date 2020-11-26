@@ -72,7 +72,7 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
           if (isset($_GET['success'])) {
           ?>
             <div style="background: #28A745; border: 0px" class="alert alert-warning alert-dismissible fade show" role="alert">
-              Producto publicado correctamente
+              Usuario creado correctamente
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -81,13 +81,10 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
 
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Productos</h1>
+              <h1 class="m-0 text-dark">Usuarios</h1>
             </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
-              </ol>
+            <div class="col-sm-6" style="text-align: end;">
+              <button class="btn btn-primary"><i class="fas fa-plus"></i> <a style="color: white" href="nuevoUsuario.php">Nuevo usuario</a></button>
             </div><!-- /.col -->
           </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -122,20 +119,12 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
                   <td><?php echo $f['nivel']; ?></td>
                   <td>
                     <!-- Botón editar -->
-                    <button class="btn btn-primary btn-small btnEditarUser" 
-                    data-id="<?php echo $f['id']; ?>" 
-                    data-nombre="<?php echo $f['nombre']; ?>" 
-                    data-email="<?php echo $f['email']; ?>" 
-                    data-telefono="<?php echo $f['telefono']; ?>" 
-                    data-nivel="<?php echo $f['nivel']; ?>" 
-                    data-toggle="modal" data-target="#modalEditarUser">
+                    <button class="btn btn-primary btn-small btnEditarUser" data-id="<?php echo $f['id']; ?>" data-nombre="<?php echo $f['nombre']; ?>" data-email="<?php echo $f['email']; ?>" data-telefono="<?php echo $f['telefono']; ?>" data-nivel="<?php echo $f['nivel']; ?>" data-toggle="modal" data-target="#modalEditarUser">
                       <i class="fa fa-pen-square"></i>
                     </button>
 
                     <!-- Botón eliminar -->
-                    <button class="btn btn-danger btn-small btnEliminar" 
-                    data-id="<?php echo $f['id']; ?>" 
-                    data-toggle="modal" data-target="#modalEliminar">
+                    <button class="btn btn-danger btn-small btnEliminar" data-id="<?php echo $f['id']; ?>" data-toggle="modal" data-target="#modalEliminar">
                       <i class="fa fa-trash"></i>
                     </button>
                   </td>
@@ -196,13 +185,13 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
             </div>
             <div class="form-group">
               <label for="precioEdit">Email</label>
-              <input type="text"  name="email" placeholder="precio" id="emailEditUser" class="form-control" required readonly>
+              <input type="text" name="email" placeholder="precio" id="emailEditUser" class="form-control" required readonly>
             </div>
             <div class="form-group">
               <label for="inventarioEdit">Rol de Usuario</label>
               <select type="number" name="nivel" placeholder="inventarioEdit" id="nivelEditUser" class="form-control" required>
-                  <option value="cliente">cliente</option>
-                  <option value="admin">admin</option>
+                <option value="cliente">cliente</option>
+                <option value="admin">admin</option>
               </select>
             </div>
             <div class="form-group">
