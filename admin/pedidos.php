@@ -28,7 +28,7 @@ $resultado = $conexion->query("
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pedidos | Dashboard</title>
+    <title>Pedidos</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -120,7 +120,7 @@ $resultado = $conexion->query("
                                     <div class="card-body">
 
                                         <div class="col-12 text-center">
-                                            <h4 class="btn btn-secondary btn-lg btn-block">Cliente</h4>
+                                            <h4 class="btn btn-secondary btn-lg btn-block">Datos del cliente</h4>
                                         </div>
                                         <!-- Tabla con los datos del cliente -->
                                         <table class="table tablaAlinear">
@@ -156,7 +156,7 @@ $resultado = $conexion->query("
                                             <h4 class="btn btn-secondary btn-lg btn-block">Datos de envío</h4>
                                         </div>
                                         <!-- Datos del envio -->
-                                        <table class="table tablaAlinear">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Compañía</th>
@@ -179,36 +179,38 @@ $resultado = $conexion->query("
                                             </tbody>
                                         </table>
 
+                                        <div class="col-12 text-center">
+                                            <h4 class="btn btn-secondary btn-lg btn-block">Resumen de la compra</h4>
+                                        </div>
                                         <!-- Tabla de los productos adquiridos en ese pedido -->
                                         <table class="table tablaAlinear">
                                             <thead>
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Precio</th>
+                                                    <th>Precio/und</th>
                                                     <th>Talla</th>
                                                     <th>Color</th>
                                                     <th>Cantidad</th>
-                                                    <th>Subtotal</th>
+                                                    <th>Total</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $re=$conexion->query("SELECT 
-                                                select productos_venta.*, productos.nombre, productos.talla, productos.color
+                                                $re = $conexion->query("SELECT 
+                                                productos_venta.*, productos.nombre, productos.talla, productos.color
                                                 from productos_venta inner join productos on productos_venta.id_producto =
-                                                productos.id where productos_venta.id_producto = productos.id
-                                               ")or die($conexion->error);
+                                                productos.id where productos_venta.id_producto = productos.id") or die($conexion->error);
                                                 while ($f2 = mysqli_fetch_array($re)) {
                                                 ?>
                                                     <tr>
                                                         <td>#<?php echo $f2['id']; ?></td>
                                                         <td><?php echo $f2['nombre']; ?></td>
-                                                        <td><?php echo number_format($k['precio'], 2, ',', ''); ?> €</td>
+                                                        <td><?php echo number_format($f2['precio'], 2, ',', ''); ?> €</td>
                                                         <td><?php echo $f2['talla']; ?></td>
                                                         <td><?php echo $f2['color']; ?></td>
                                                         <td><?php echo $f2['cantidad']; ?></td>
-                                                        <td><?php echo $f2['subtotal']; ?></td>
+                                                        <td><?php echo number_format($f2['subtotal'], 2, ',', ''); ?> €</td>
                                                     </tr>
                                                 <?php } ?>
                                             </tbody>
