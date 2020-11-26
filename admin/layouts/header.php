@@ -244,12 +244,22 @@
             </ul>
           </li>
 
-          <!-- Mail box -->
+          <!-- Mensajes -->
           <li class="nav-item">
             <a href="./mailBox.php" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Mensajes
+              </p>
+            </a>
+          </li>
+
+          <!-- Galeria -->
+          <li class="nav-item">
+            <a href="./galeria.php" class="nav-link">
+              <i class="nav-icon fas fa-image"></i>
+              <p>
+                Galería
               </p>
             </a>
           </li>

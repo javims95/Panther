@@ -175,10 +175,10 @@ if (isset($_SESSION['carrito'])) {
           <div class="col-md-6">
             <div class="row mb-5">
               <div class="col-md-6 mb-3 mb-md-0">
-                <button class="btn btn-primary btn-sm btn-block">Actualizar Carrito</button>
+                <button onclick="location.reload()" class="btn btn-primary btn-sm btn-block">Actualizar Carrito</button>
               </div>
-              <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continuar Comprando</button>
+              <div class="col-md-6"> <!-- Regresa a la página donde se encontraba el usuario -->
+                <button onclick="history.back();" class="btn btn-outline-primary btn-sm btn-block">Continuar Comprando</button>
               </div>
             </div>
             <div class="row">

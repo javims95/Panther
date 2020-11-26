@@ -111,7 +111,7 @@ $resultado = $conexion->query("
                                 <div class="card-header" id="heading<?php echo $f['id']; ?>">
                                     <h5 class="mb-0">
                                         <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse<?php echo $f['id']; ?>" aria-expanded="true" aria-controls="collapse">
-                                            Pedido #<?php echo $f['id'] . ' | ' . $f['nombre'] . ' | ' . $f['fecha'];; ?>
+                                            Pedido #<?php echo $f['id'] . ' | ' .'Nombre: '. $f['nombre'] . ' | ' .'Fecha: '. $f['fecha'];; ?>
                                         </button>
                                     </h5>
                                 </div>
@@ -120,10 +120,10 @@ $resultado = $conexion->query("
                                     <div class="card-body">
 
                                         <div class="col-12 text-center">
-                                            <h4 class="btn btn-secondary btn-lg btn-block">Datos del cliente</h4>
+                                            <h4 class="btn btn-primary btn-lg btn-block">Datos del cliente</h4>
                                         </div>
                                         <!-- Tabla con los datos del cliente -->
-                                        <table class="table tablaAlinear">
+                                        <table class="table">
                                             <thead>
                                                 <tr>
                                                     <th>Nombre</th>
@@ -144,7 +144,7 @@ $resultado = $conexion->query("
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <br><br>
+                                        <br>
 
                                         <?php
                                         $re = $conexion->query("SELECT * FROM envios WHERE id_venta=" . $f['id']) or die($conexion->error);
@@ -153,7 +153,7 @@ $resultado = $conexion->query("
                                         ?>
 
                                         <div class="col-12 text-center">
-                                            <h4 class="btn btn-secondary btn-lg btn-block">Datos de envío</h4>
+                                            <h4 class="btn btn-primary btn-lg btn-block">Datos de envío</h4>
                                         </div>
                                         <!-- Datos del envio -->
                                         <table class="table">
@@ -178,9 +178,10 @@ $resultado = $conexion->query("
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <br>
 
                                         <div class="col-12 text-center">
-                                            <h4 class="btn btn-secondary btn-lg btn-block">Resumen de la compra</h4>
+                                            <h4 class="btn btn-primary btn-lg btn-block">Resumen de la compra</h4>
                                         </div>
                                         <!-- Tabla de los productos adquiridos en ese pedido -->
                                         <table class="table tablaAlinear">
@@ -188,10 +189,10 @@ $resultado = $conexion->query("
                                                 <tr>
                                                     <th>Id</th>
                                                     <th>Nombre</th>
-                                                    <th>Precio/und</th>
                                                     <th>Talla</th>
                                                     <th>Color</th>
                                                     <th>Cantidad</th>
+                                                    <th>Precio/und</th>
                                                     <th>Total</th>
                                                 </tr>
                                             </thead>
@@ -206,10 +207,10 @@ $resultado = $conexion->query("
                                                     <tr>
                                                         <td>#<?php echo $f2['id']; ?></td>
                                                         <td><?php echo $f2['nombre']; ?></td>
-                                                        <td><?php echo number_format($f2['precio'], 2, ',', ''); ?> €</td>
                                                         <td><?php echo $f2['talla']; ?></td>
                                                         <td><?php echo $f2['color']; ?></td>
                                                         <td><?php echo $f2['cantidad']; ?></td>
+                                                        <td><?php echo number_format($f2['precio'], 2, ',', ''); ?> €</td>
                                                         <td><?php echo number_format($f2['subtotal'], 2, ',', ''); ?> €</td>
                                                     </tr>
                                                 <?php } ?>
