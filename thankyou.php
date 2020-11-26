@@ -9,7 +9,7 @@
     $total = $total+($arreglo[$i]['Precio'] * $arreglo[$i]['Cantidad']);
   }
 
-  // Comprobamos si se ha introducido una contraseña. 
+  // Comprobamos si se ha introducido una contraseña, en caso afirmativo creamos un nuevo usuario.
   $password = "";
   if (isset($_POST['c_account_password'])){
     if ($_POST['c_account_password'] != ""){
@@ -27,7 +27,7 @@
   // Creamos el id del cliente.
   $id_usuario = $conexion->insert_id;
 
-  // Se inserta el pedido en la table ventas
+  // Se inserta el pedido en la tabla ventas
   $fecha = date('Y-m-d h:m:s');
   $conexion -> query("INSERT INTO ventas(id_usuario,total,fecha) VALUES($id_usuario,$total,'$fecha')")or die($conexion->error);
   $id_venta = $conexion ->insert_id;

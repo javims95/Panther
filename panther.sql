@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2020 a las 07:36:06
+-- Tiempo de generación: 25-11-2020 a las 20:51:41
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.3.24
 
@@ -68,25 +68,28 @@ CREATE TABLE `contacto` (
   `message` varchar(350) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Volcado de datos para la tabla `contacto`
+-- Estructura de tabla para la tabla `cupones`
 --
 
-INSERT INTO `contacto` (`id`, `name`, `email`, `subject`, `message`) VALUES
-(1, 'Jose David Talavera Ruby', 'josedavidtalaveraruby.jdt@gmail.com', 'Botas', 'Necesito unas nuevas botas de piel.'),
-(2, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'Precio', 'Necesito unas nuevas botas de piel de la talla 47.'),
-(3, 'Adrián Carrasco', 'info@vaporlibre.com', 'fggfg', ' dfg sfdg ddfsgyj tuujt fgzart t gdfgh gh '),
-(4, 'EVA YEBRA', 'josedavidtalaveraruby.jdt@gmail.com', 'Precio', 'Lorem ipsum dolor'),
-(5, 'EVA YEBRA', 'josedavidtalaveraruby.jdt@gmail.com', 'Precio', 'Lorem ipsum dolor'),
-(6, 'EVA YEBRA', 'josedavidtalaveraruby.jdt@gmail.com', 'Precio', 'Lorem ipsum dolor'),
-(7, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'Hola', 'gff dgsdf jdfg yjuhfsdafgdhj rwterfdsg dhrjrte rfasghjtyrs rg'),
-(8, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'Hola', 'gff dgsdf jdfg yjuhfsdafgdhj rwterfdsg dhrjrte rfasghjtyrs rg'),
-(9, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'bgdfdfgf', ''),
-(10, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'bgdfdfgf', ''),
-(11, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'bgdfdfgf', ''),
-(12, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'bgdfdfgf', ''),
-(13, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'bgdfdfgf', ''),
-(14, 'Javier Sánchez', 'javier_ms95@hotmail.com', 'holapre ', 'sd ad d asd sfsd fsdaf f ');
+CREATE TABLE `cupones` (
+  `id` int(11) NOT NULL,
+  `codigo` varchar(50) NOT NULL,
+  `status` varchar(50) NOT NULL,
+  `tipo` varchar(50) NOT NULL,
+  `valor` varchar(50) NOT NULL,
+  `fecha_vencimiento` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `cupones`
+--
+
+INSERT INTO `cupones` (`id`, `codigo`, `status`, `tipo`, `valor`, `fecha_vencimiento`) VALUES
+(1, 'PNT293100', 'activo', 'moneda', '10', '2020-11-25'),
+(2, 'PNT65102', 'activo', 'moneda', '30', '2020-11-29');
 
 -- --------------------------------------------------------
 
@@ -115,7 +118,8 @@ INSERT INTO `envios` (`id_envio`, `pais`, `company`, `direccion`, `estado`, `cp`
 (4, '1', '', '', '', '', 5),
 (5, '1', '', '', '', '', 6),
 (6, '1', '', '', '', '', 7),
-(7, '1', '', '', '', '', 8);
+(7, '1', '', '', '', '', 8),
+(8, '', '', '', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -245,7 +249,29 @@ INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `email`, `password`, `img_per
 (3, 'Adrián Carrasco', '633863859', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'user7-128x128.jpg', 'admin'),
 (4, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_3.jpg', 'cliente'),
 (5, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_2.jpg', ''),
-(6, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
+(6, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
+(9, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
+(10, ' ', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `total` double NOT NULL,
+  `fecha` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `ventas`
+--
+
+INSERT INTO `ventas` (`id`, `id_usuario`, `total`, `fecha`) VALUES
+(1, 10, 0, '2020-11-25 08:11:07');
 
 -- --------------------------------------------------------
 
@@ -256,8 +282,15 @@ INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `email`, `password`, `img_per
 CREATE TABLE `visitas` (
   `idvisitas` int(7) NOT NULL,
   `enlace` varchar(300) NOT NULL,
-  `visitas` int(7) NOT NULL
+  `fecha` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `visitas`
+--
+
+INSERT INTO `visitas` (`idvisitas`, `enlace`, `fecha`) VALUES
+(1, 'localhost/panther/', '2020-11-25 08:11:52');
 
 --
 -- Índices para tablas volcadas
@@ -282,6 +315,12 @@ ALTER TABLE `contacto`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `cupones`
+--
+ALTER TABLE `cupones`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `envios`
 --
 ALTER TABLE `envios`
@@ -303,6 +342,12 @@ ALTER TABLE `productos_venta`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -331,13 +376,19 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `contacto`
 --
 ALTER TABLE `contacto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `cupones`
+--
+ALTER TABLE `cupones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -355,13 +406,19 @@ ALTER TABLE `productos_venta`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `visitas`
 --
 ALTER TABLE `visitas`
-  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT;
+  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
