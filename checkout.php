@@ -366,10 +366,11 @@ $arreglo = $_SESSION['carrito'];
   <script src="js/main.js"></script>
 
   <script>
-    // Script para validar los cupones, mediante una peticion ajax.
+    // Script JQuery para validar los cupones, mediante una peticion ajax.
     $(document).ready(function() {
       $("#button-addon2").click(function() {
         var codigo = $("#c_code2").val();
+        // Ajax
         $.ajax({
           url: "./php/validarCodigo.php",
           data: {

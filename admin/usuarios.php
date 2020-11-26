@@ -12,7 +12,7 @@ if ($arregloUsuario['nivel'] != 'admin') {
 }
 
 $resultado = $conexion->query("
-SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
+SELECT * FROM usuario ORDER BY id") or die($conexion->error);
 
 ?>
 
@@ -256,7 +256,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
   <script src="./dashboard/dist/js/demo.js"></script>
 
   <script>
-    // Script para eliminar los productos con el botón en la tabla
+    // Con JQuery eliminamos los productos con el botón eliminar en la tabla
     $(document).ready(function() {
       var idEliminar = -1;
       var idEditar = -1;
@@ -265,6 +265,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
         idEliminar = $(this).data('id');
         fila = $(this).parent('td').parent('tr');
       });
+      // Petición ajax para eliminar los usuarios.
       $(".eliminar").click(function() {
         $.ajax({
           url: '../php/eliminarUsuario.php',
@@ -278,7 +279,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
         });
 
       });
-      // Script para editar los productos con el botón en la tabla
+      // Con JQuery cogemos los datos de los Data de HTML, y después los cargamos en el formulario para editar.
       $(".btnEditarUser").click(function() {
         idEditarUser = $(this).data('id');
         var nombre = $(this).data('nombre');
@@ -289,7 +290,7 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
         $("#telefonoEditUser").val(telefono);
         $("#emailEditUser").val(email);
         $("#nivelEditUser").val(nivel);
-        $("#idEditUser").val(idEditar);
+        $("#idEditUser").val(idEditarUser);
       });
     });
   </script>

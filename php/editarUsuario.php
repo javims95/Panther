@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "conexion.php";
-echo $_POST['email'];
+echo $_POST['id'];
 if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefono'])
     &&  isset($_POST['nivel'])){
     
@@ -34,9 +34,9 @@ if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefo
     $conexion->query("update usuario set 
                         nombre='".$_POST['nombre']."',
                         telefono='".$_POST['telefono']."',
-                        email=".$_POST['email'].",
-                        nivel=".$_POST['nivel']."
-                        where id=".$_POST['id']);
+                        email='".$_POST['email']."',
+                        nivel='".$_POST['nivel']."'
+                        where id=".$_POST['id'])or die($conexion->error);
     echo "se actualizo";
 }   
 ?>
