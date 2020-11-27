@@ -14,9 +14,12 @@ if (isset($_SESSION['carrito'])) {
         $numero = $i;
       }
     }
+    // Sumamos 1 a la cantidad
     if ($encontro == true) {
       $arreglo[$numero]['Cantidad'] = $arreglo[$numero]['Cantidad'] + 1;
       $_SESSION['carrito'] = $arreglo;
+      header("Location: ./cart.php");
+      // Lo agregamos al arreglo carrito
     } else {
       $nombre = "";
       $precio = "";
@@ -35,6 +38,7 @@ if (isset($_SESSION['carrito'])) {
       );
       array_push($arreglo, $arregloNuevo);
       $_SESSION['carrito'] = $arreglo;
+      header("Location: ./cart.php");
     }
   }
 } else {
