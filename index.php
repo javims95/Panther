@@ -252,7 +252,7 @@ session_start();
             </div>
           </div>
 
-
+          <!-- Barra de categorías -->
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
               <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorías</h3>
@@ -265,7 +265,7 @@ session_start();
                 ?>
                   <!-- Categorías barra de filtrado izquierda -->
                   <li class="mb-1">
-                    <a href="categoria.php?id=<?php echo $fila3['nombre']; ?>" class="d-flex">
+                    <a href="categoria.php?id=<?php echo $fila3['id']; ?>" class="d-flex">
                       <span><?php echo $fila3['nombre']; ?></span>
                       <span class="text-black ml-auto">
                         (<?php $re2 = $conexion->query("SELECT COUNT(*) FROM productos WHERE id_categoria=" . $fila3['id']);
