@@ -24,6 +24,8 @@ session_start();
 
   <link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="star-rating\src\css\star-rating-svg.css">
+
 </head>
 
 <body>
@@ -207,10 +209,9 @@ session_start();
                     <div class="block-4-text p-4">
                       <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
                       <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
-                      <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
-
-                      
-
+                      <p style="margin-bottom: 0px;" class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
+                      <!-- Valoración con estrellas -->
+                      <div style="width: 80%; display: inline-flex;" class="my-rating-10"></div>
                       <!-- Incluimos un botón para poder comprar el producto sin tener que visualizarlo -->
                       <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
                     </div>
@@ -290,16 +291,16 @@ session_start();
               <!-- Tallas -->
               <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Tallas</h3>
-                
-              <!-- Con una consulta con distinct muestra las tallas sin repetir, 
+
+                <!-- Con una consulta con distinct muestra las tallas sin repetir, 
               y crea el enlace que lo pasa por parámetro al buscador -->
                 <?php
                 $re6 = $conexion->query("SELECT DISTINCT talla FROM productos");
                 while ($p = mysqli_fetch_array($re6)) {
                 ?>
-                  <a href="./busqueda.php?texto=<?php echo $p['talla'];?>">
+                  <a href="./busqueda.php?texto=<?php echo $p['talla']; ?>">
                     <input type="radio" id="s_sm" class="mr-2 mt-1">
-                    <span class="text-black"><?php echo $p['talla'];?></span>
+                    <span class="text-black"><?php echo $p['talla']; ?></span>
                   </a><br>
                 <?php } ?>
               </div>
@@ -313,9 +314,9 @@ session_start();
                 $re5 = $conexion->query("SELECT * FROM colores");
                 while ($j = mysqli_fetch_array($re5)) {
                 ?>
-                  <a href="./busqueda.php?text=<?php echo $j['color'];?>" class="d-flex color-item align-items-center">
-                    <span style="background: <?php echo $j['codigo'];?> ;" class="color d-inline-block rounded-circle mr-2">
-                  </span> <span class="text-black"><?php echo $j['color'];?></span>
+                  <a href="./busqueda.php?text=<?php echo $j['color']; ?>" class="d-flex color-item align-items-center">
+                    <span style="background: <?php echo $j['codigo']; ?> ;" class="color d-inline-block rounded-circle mr-2">
+                    </span> <span class="text-black"><?php echo $j['color']; ?></span>
                   </a>
                 <?php } ?>
               </div>
@@ -388,6 +389,19 @@ session_start();
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script src="star-rating\src\jquery.star-rating-svg.js"></script>
+
+  <script>
+    // specify the color per rating level
+    $(".my-rating-10").starRating({
+      starSize: 80,
+      strokeWidth: 9,
+      strokeColor: 'black',
+      ratedColors: ['#e2c181', '#ffa700', '#c4573e', '#9a321a', '#5e1e0f'],
+      initialRating: Math.floor(Math.random() * 9.5) + 2.5
+    });
+  </script>
 
 </body>
 

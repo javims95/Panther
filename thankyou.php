@@ -16,7 +16,17 @@
         $password = $_POST['c_account_password'];
     }
   }
-  // Introducimos los datos en la tabla usuario. La contraseña se almacena encriptada. 
+
+  // Comprobamos si existe un email como el del formulario, en caso de que afirmativo no se inserta un nuevo cliente.
+  $re = $conexion->query("SELECT id, email FROM usuario WHERE email='".$_POST['c_email_address']."'")or die($conexion->error);
+  $id_usuario = 0;
+  if (mysqli_num_rows($re) > 0) {
+    $fila = mysqli_fetch_row($re);
+    $id_usuario =  $fila[0];
+  }
+  // Insertamos un nuevo cliente
+  else {
+     // Introduce los datos en la tabla usuario. La contraseña se almacena encriptada. 
   $conexion->query("INSERT INTO usuario (nombre, telefono, email, password) 
   VALUES(
     '".$_POST['c_fname']." ".$_POST['c_lname']."', 
@@ -27,6 +37,8 @@
   // Creamos el id del cliente.
   $id_usuario = $conexion->insert_id;
 
+  }
+ 
   // Se inserta el pedido en la tabla ventas
   $fecha = date('Y-m-d h:m:s');
   $conexion -> query("INSERT INTO ventas(id_usuario,total,fecha) VALUES($id_usuario,$total,'$fecha')")or die($conexion->error);
