@@ -71,29 +71,23 @@ if (mysqli_num_rows($resultado3) > 0) {
               <div class="float-md-left mb-4">
                 <h2 class="text-black h3"><?php echo $fila3[1] ?></h2>
               </div>
-              <div class="d-flex">
-                <div class="dropdown mr-1 ml-md-auto">
-                  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Latest
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                    <a class="dropdown-item" href="#">Men</a>
-                    <a class="dropdown-item" href="#">Women</a>
-                    <a class="dropdown-item" href="#">Children</a>
+              <form action="">
+                <div class="d-flex">
+                  <div class="dropdown mr-1 ml-md-auto">
+                    <div class="btn-group">
+                      <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="fechaN">Fecha: mas recientes primero</option>
+                        <option value="fechaO">Fecha: mas antiguos primero</option>
+                        <option value="precioL">Por precio: mas baratos primero</option>
+                        <option value="precioH">Por precio: mas caro primero</option>
+                        <option value="nombreA">Por nombre: de A-Z</option>
+                        <option value="nombreZ">Por nombre: de Z-A</option>
+                      </select>
+                      <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
+                    </div>
                   </div>
                 </div>
-                <div class="btn-group">
-                  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                    <a class="dropdown-item" href="#">Relevance</a>
-                    <a class="dropdown-item" href="#">Name, A to Z</a>
-                    <a class="dropdown-item" href="#">Name, Z to A</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Price, low to high</a>
-                    <a class="dropdown-item" href="#">Price, high to low</a>
-                  </div>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
           <div class="row mb-5">

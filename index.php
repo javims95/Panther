@@ -208,6 +208,9 @@ session_start();
                       <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
                       <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
                       <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
+
+                      
+
                       <!-- Incluimos un botón para poder comprar el producto sin tener que visualizarlo -->
                       <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
                     </div>
@@ -251,53 +254,70 @@ session_start();
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
             <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorías</h3>
               <ul class="list-unstyled mb-0">
                 <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
-              <?php
-                      $res3 = $conexion->query("select * from categorias") or die($conexion->error);
+                <?php
+                $res3 = $conexion->query("select * from categorias") or die($conexion->error);
 
-                      while ($fila3 = mysqli_fetch_array($res3)) {
-                        ?>                      
-                <li class="mb-1"><a href="categoria.php?id=<?php echo $fila3['id']; ?>" class="d-flex"><span><?php echo $fila3['nombre'];?></span></a></li>
+                while ($fila3 = mysqli_fetch_array($res3)) {
+                ?>
+                  <!-- Categorías barra de filtrado izquierda -->
+                  <li class="mb-1">
+                    <a href="categoria.php?id=<?php echo $fila3['nombre']; ?>" class="d-flex">
+                      <span><?php echo $fila3['nombre']; ?></span>
+                      <span class="text-black ml-auto">
+                        (<?php $re2 = $conexion->query("SELECT COUNT(*) FROM productos WHERE id_categoria=" . $fila3['id']);
+                          $fila4 = mysqli_fetch_row($re2);
+                          echo $fila4[0];
+                          ?>)
+                      </span>
+
+                    </a></li>
                 <?php } ?>
               </ul>
             </div>
 
+            <!-- Barra de filtros -->
             <div class="border p-4 rounded mb-4">
               <div class="mb-4">
+                <!-- Precio -->
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
                 <div id="slider-range" class="border-primary"></div>
                 <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
               </div>
 
+              <!-- Tallas -->
               <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                </label>
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Tallas</h3>
+                
+              <!-- Con una consulta con distinct muestra las tallas sin repetir, 
+              y crea el enlace que lo pasa por parámetro al buscador -->
+                <?php
+                $re6 = $conexion->query("SELECT DISTINCT talla FROM productos");
+                while ($p = mysqli_fetch_array($re6)) {
+                ?>
+                  <a href="./busqueda.php?texto=<?php echo $p['talla'];?>">
+                    <input type="radio" id="s_sm" class="mr-2 mt-1">
+                    <span class="text-black"><?php echo $p['talla'];?></span>
+                  </a><br>
+                <?php } ?>
               </div>
 
+              <!-- Colores -->
               <div class="mb-4">
                 <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-                </a>
+
+                <!-- Con una consulta a la tabla colores, se pinta el color con el valor hexadecimal de la BBDD -->
+                <?php
+                $re5 = $conexion->query("SELECT * FROM colores");
+                while ($j = mysqli_fetch_array($re5)) {
+                ?>
+                  <a href="./busqueda.php?text=<?php echo $j['color'];?>" class="d-flex color-item align-items-center">
+                    <span style="background: <?php echo $j['codigo'];?> ;" class="color d-inline-block rounded-circle mr-2">
+                  </span> <span class="text-black"><?php echo $j['color'];?></span>
+                  </a>
+                <?php } ?>
               </div>
 
             </div>

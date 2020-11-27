@@ -132,12 +132,28 @@ if (!isset($_GET['texto'])) {
           </div>
 
           <div class="col-md-3 order-1 mb-5 mb-md-0">
-            <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
+          <div class="border p-4 rounded mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorías</h3>
               <ul class="list-unstyled mb-0">
-                <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
-                <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
+                <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
+                <?php
+                $res3 = $conexion->query("select * from categorias") or die($conexion->error);
+
+                while ($fila3 = mysqli_fetch_array($res3)) {
+                ?>
+                  <!-- Categorías barra de filtrado izquierda -->
+                  <li class="mb-1">
+                    <a href="categoria.php?id=<?php echo $fila3['nombre']; ?>" class="d-flex">
+                      <span><?php echo $fila3['nombre']; ?></span>
+                      <span class="text-black ml-auto">
+                        (<?php $re2 = $conexion->query("SELECT COUNT(*) FROM productos WHERE id_categoria=" . $fila3['id']);
+                          $fila4 = mysqli_fetch_row($re2);
+                          echo $fila4[0];
+                          ?>)
+                      </span>
+
+                    </a></li>
+                <?php } ?>
               </ul>
             </div>
 
