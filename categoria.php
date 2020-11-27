@@ -170,43 +170,49 @@ if (mysqli_num_rows($resultado3) > 0) {
         <div class="col-md-3 order-1 mb-5 mb-md-0">
 
 
+          <!-- Barra de filtros -->
           <div class="border p-4 rounded mb-4">
-            <div class="mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Filtrar por precio</h3>
-              <div id="slider-range" class="border-primary"></div>
-              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-            </div>
+              <div class="mb-4">
+                <!-- Precio -->
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+                <div id="slider-range" class="border-primary"></div>
+                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+              </div>
 
-            <div class="mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Talla</h3>
-              <label for="s_sm" class="d-flex">
-                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-              </label>
-              <label for="s_md" class="d-flex">
-                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-              </label>
-              <label for="s_lg" class="d-flex">
-                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-              </label>
-            </div>
+              <!-- Tallas -->
+              <div class="mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Tallas</h3>
 
-            <div class="mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-              <a href="#" class="d-flex color-item align-items-center">
-                <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center">
-                <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center">
-                <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-              </a>
-              <a href="#" class="d-flex color-item align-items-center">
-                <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-              </a>
-            </div>
+                <!-- Con una consulta con distinct muestra las tallas sin repetir, 
+              y crea el enlace que lo pasa por parámetro al buscador -->
+                <?php
+                $re6 = $conexion->query("SELECT DISTINCT talla FROM productos");
+                while ($p = mysqli_fetch_array($re6)) {
+                ?>
+                  <a href="./busqueda.php?texto=<?php echo $p['talla']; ?>">
+                    <input type="radio" id="s_sm" class="mr-2 mt-1">
+                    <span class="text-black"><?php echo $p['talla']; ?></span>
+                  </a><br>
+                <?php } ?>
+              </div>
 
-          </div>
+              <!-- Colores -->
+              <div class="mb-4">
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
+
+                <!-- Con una consulta a la tabla colores, se pinta el color con el valor hexadecimal de la BBDD -->
+                <?php
+                $re5 = $conexion->query("SELECT * FROM colores");
+                while ($j = mysqli_fetch_array($re5)) {
+                ?>
+                  <a href="./busqueda.php?text=<?php echo $j['color']; ?>" class="d-flex color-item align-items-center">
+                    <span style="background: <?php echo $j['codigo']; ?> ;" class="color d-inline-block rounded-circle mr-2">
+                    </span> <span class="text-black"><?php echo $j['color']; ?></span>
+                  </a>
+                <?php } ?>
+              </div>
+
+            </div>
         </div>
       </div>
 

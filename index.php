@@ -128,30 +128,13 @@ session_start();
             <div class="row">
               <div class="col-md-12 mb-5">
                 <div class="float-md-left mb-4">
-                  <h2 class="text-black h5">Novedades</h2>
+                  <h2 class="text-black h3">Novedades</h2>
                 </div>
                 <div class="d-flex">
                   <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
+                    <!-- Botón al final de novedades -->
                   </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
+
                 </div>
               </div>
             </div>
@@ -189,7 +172,7 @@ session_start();
                 // Consulta para mostrar el rango de productos que se envia por parametro en la URL
                 $resultado = $conexion->query("select * from productos order by id DESC limit " . $_GET['limite'] . "," . $limite) or die($conexion->error);
               } else {
-                // Consulta para buscar y mostrar los 10 primeros productos
+                // Consulta para buscar y mostrar los 10 primeros productos (si no hay parámetros en la URL)
                 $resultado = $conexion->query("select * from productos order by id DESC limit " . $limite) or die($conexion->error);
               }
 
@@ -390,10 +373,8 @@ session_start();
 
   <script src="js/main.js"></script>
 
-  <script src="star-rating\src\jquery.star-rating-svg.js"></script>
-
+    <!-- Valoraciones -->
   <script>
-    // specify the color per rating level
     $(".my-rating-10").starRating({
       starSize: 80,
       strokeWidth: 9,

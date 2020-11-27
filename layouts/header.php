@@ -4,17 +4,8 @@ include 'php\visitas.php';
 
 <head>
 
-  <style>
-    @media only screen and (max-width: 992px) {
-      .ocultarMenuAdmin {
-        display: none;
-      }
-    }
+<link rel="stylesheet" href="css/style.css">
 
-    a.gear-nav {
-      color: white !important;
-    }
-  </style>
 </head>
 <header class="site-navbar" role="banner">
 
@@ -89,7 +80,7 @@ include 'php\visitas.php';
   <?php } // Cierre de los if
   } ?>
 
-  <!-- Menú Principal -->
+  <!-- Cabecera (buscador, logo y iconos) -->
   <div class="site-navbar-top">
     <div class="container">
       <div class="row align-items-center">
@@ -135,7 +126,9 @@ include 'php\visitas.php';
       </div>
     </div>
   </div>
-  <nav class="site-navigation text-right text-md-center" role="navigation">
+
+  <!-- Menú principal -->
+  <!--<nav class="site-navigation text-right text-md-center" role="navigation">
     <div class="container">
       <ul class="site-menu js-clone-nav d-none d-md-block">
         <li>
@@ -152,5 +145,47 @@ include 'php\visitas.php';
         <li><a href="contacto.php">Contacto</a></li>
       </ul>
     </div>
+  </nav>-->
+
+  <!-- Menú principal (en proceso) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info">
+
+    <a class="navbar-brand" href="#">Brand</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+
+      <ul class="navbar-nav">
+        <li class="nav-item active"> <a class="nav-link" href="index.php">Inicio </a> </li>
+        <li class="nav-item"><a class="nav-link" href="#"> Tienda </a></li>
+        <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
+        <li class="nav-item"><a class="nav-link" href="contacto.php"> Contacto </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> More items </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+            <li><a class="dropdown-item" href="#"> Submenu item 3</a></li>
+            <li><a class="dropdown-item" href="#"> Submenu item 4 </a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Dropdown right </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+    </div> <!-- navbar-collapse.// -->
+
   </nav>
 </header>
