@@ -9,13 +9,18 @@ if (isset($_GET['id'])) {
     $fila = mysqli_fetch_row($resultado);
   } else {
     // Redireccionamos
-    header("Location: ./index.php");
+    echo 'No hay productos en esta categoría';
   }
 } else {
   // Redireccionamos
   header("Location: ./index.php");
 }
 
+// Consulta para obtener los datos de las categorías
+$resultado3 = $conexion->query("select * from categorias where id=" . $_GET['id']) or die($conexion->error);
+if (mysqli_num_rows($resultado3) > 0) {
+  $fila3 = mysqli_fetch_row($resultado3);
+}
 
 ?>
 
@@ -47,224 +52,170 @@ if (isset($_GET['id'])) {
 
   <div class="site-wrap">
     <?php include("./layouts/header.php"); ?>
-    
-    <!-- Incluir un banner con la fotografía de la categoría -->
 
-    <div class="site-section">
+    <!-- Banner con el nombre y la descripción de cada categoría -->
+    <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <div class="row mb-5">
-          <div class="col-md-9 order-2">
-            <div class="row">
-              <div class="col-md-12 mb-5">
-                <div class="float-md-left mb-4">
-                  <h2 class="text-black h5">Novedades</h2>
-                </div>
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Latest
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                      <a class="dropdown-item" href="#">Men</a>
-                      <a class="dropdown-item" href="#">Women</a>
-                      <a class="dropdown-item" href="#">Children</a>
-                    </div>
-                  </div>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                      <a class="dropdown-item" href="#">Relevance</a>
-                      <a class="dropdown-item" href="#">Name, A to Z</a>
-                      <a class="dropdown-item" href="#">Name, Z to A</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Price, low to high</a>
-                      <a class="dropdown-item" href="#">Price, high to low</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row mb-5">
-
-              <!-- Incluimos la conexion a la base de datos -->
-              <?php
-              // Paginador de productos PHP
-              $limite = 9; // Productos por página
-              // Esta consulta devuelve cuantos productos hay en total.
-              $totalQuery = $conexion->query('SELECT COUNT(*) FROM productos') or die($conexion->error);
-              $totalProductos = mysqli_fetch_row($totalQuery);
-              $totalBotones = round($totalProductos[0] / $limite);
-
-              if (isset($_GET['limite'])) {
-                // Consulta para mostrar el rango de productos que se envia por parametro en la URL
-                $resultado = $conexion->query("select * from productos order by id DESC limit " . $_GET['limite'] . "," . $limite) or die($conexion->error);
-              } else {
-                // Consulta para buscar y mostrar los 10 primeros productos
-                $resultado = $conexion->query("select * from productos order by id DESC limit " . $limite) or die($conexion->error);
-              }
-
-
-              // En este bucle imprimimos los productos
-              while ($fila = mysqli_fetch_array($resultado)) {
-
-              ?>
-                <!-- Aqui imprimimos los productos, añadiendo un poco de PHP lo hacemos dinámico -->
-                <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                  <div class="block-4 text-center border">
-                    <figure class="block-4-image">
-                      <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
-                      <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
-                        <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a>
-                    </figure>
-                    <div class="block-4-text p-4">
-                      <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
-                      <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
-                      <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
-                      <!-- Incluimos un botón para poder comprar el producto sin tener que visualizarlo -->
-                      <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
-                    </div>
-                  </div>
-                </div>
-              <?php } ?>
-            </div>
-
-
-            <!-- Paginador de productos HTML -->
-            <div class="row" data-aos="fade-up">
-              <div class="col-md-12 text-center">
-                <div class="site-block-27">
-                  <ul>
-
-                    <?php
-                    // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
-                    if (isset($_GET['limite'])) { // Solo mostramos el paginador "<" si hay 10 productos mas que mostrar
-                      if ($_GET['limite'] > 0) {
-                        echo '<li><a href="index.php?limite=' . ($_GET['limite'] - $limite) . '">&lt;</a></li>';
-                      }
-                    }
-                    for ($k = 0; $k < $totalBotones; $k++) {
-                      echo '<li><a href="index.php?limite=' . ($k * 10) . '">' . ($k + 1) . '</a></li>';
-                    }
-                    // Solo mostramos el paginador ">" si hay 10 productos más que mostrar
-                    if (isset($_GET['limite'])) {
-                      if ($_GET['limite'] + $limite < $totalBotones * $limite) {
-                        echo '<li><a href="index.php?limite=' . ($_GET['limite'] + $limite) . '">&gt;</a></li>';
-                      }
-                    } else {
-                      echo '<li><a href="index.php?limite=' . $limite . '">&gt;</a></li>';
-                    }
-                    ?>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
-          <div class="col-md-3 order-1 mb-5 mb-md-0">
-            <div class="border p-4 rounded mb-4">
-              <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
-              <ul class="list-unstyled mb-0">
-                <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
-              <?php
-                      $res3 = $conexion->query("select * from categorias") or die($conexion->error);
-
-                      while ($fila3 = mysqli_fetch_array($res3)) {
-                        ?>                      
-                <li class="mb-1"><a href="categoria.php/<?php echo $fila3['nombre'];?>" class="d-flex"><span><?php echo $fila3['nombre'];?></span></a></li>
-                <?php } ?>
-              </ul>
-            </div>
-
-            <div class="border p-4 rounded mb-4">
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
-                <div id="slider-range" class="border-primary"></div>
-                <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
-              </div>
-
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Size</h3>
-                <label for="s_sm" class="d-flex">
-                  <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
-                </label>
-                <label for="s_md" class="d-flex">
-                  <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
-                </label>
-                <label for="s_lg" class="d-flex">
-                  <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
-                </label>
-              </div>
-
-              <div class="mb-4">
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
-                </a>
-                <a href="#" class="d-flex color-item align-items-center">
-                  <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
-                </a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="site-section site-blocks-2">
-              <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4">
-                  <h2>Categories</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/women.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Women</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/children.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Children</h3>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                  <a class="block-2-item" href="#">
-                    <figure class="image">
-                      <img src="images/men.jpg" alt="" class="img-fluid">
-                    </figure>
-                    <div class="text">
-                      <span class="text-uppercase">Collections</span>
-                      <h3>Men</h3>
-                    </div>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
+        <center>
+          <h1 class="display-4 text-black"><?php echo $fila3[1] ?></h1>
+          <p class="lead text-black"><?php echo $fila3[2] ?></p>
+        </center>
       </div>
+    </div>
+
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-9 order-2">
+          <div class="row">
+            <div class="col-md-12 mb-5">
+              <div class="float-md-left mb-4">
+                <h2 class="text-black h3"><?php echo $fila3[1] ?></h2>
+              </div>
+              <div class="d-flex">
+                <div class="dropdown mr-1 ml-md-auto">
+                  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Latest
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <a class="dropdown-item" href="#">Men</a>
+                    <a class="dropdown-item" href="#">Women</a>
+                    <a class="dropdown-item" href="#">Children</a>
+                  </div>
+                </div>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" id="dropdownMenuReference" data-toggle="dropdown">Reference</button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                    <a class="dropdown-item" href="#">Relevance</a>
+                    <a class="dropdown-item" href="#">Name, A to Z</a>
+                    <a class="dropdown-item" href="#">Name, Z to A</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Price, low to high</a>
+                    <a class="dropdown-item" href="#">Price, high to low</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-5">
+
+            <!-- Incluimos la conexion a la base de datos -->
+            <?php
+            // Paginador de productos PHP
+            $limite = 9; // Productos por página
+            // Esta consulta devuelve cuantos productos hay en total.
+            $totalQuery = $conexion->query('SELECT COUNT(*) FROM productos') or die($conexion->error);
+            $totalProductos = mysqli_fetch_row($totalQuery);
+            $totalBotones = round($totalProductos[0] / $limite);
+
+            if (isset($_GET['limite'])) {
+              // Consulta para mostrar el rango de productos que se envia por parametro en la URL
+              $resultado = $conexion->query("select * from productos order by id DESC limit " . $_GET['limite'] . "," . $limite) or die($conexion->error);
+            } else {
+              // Consulta para buscar y mostrar los 10 primeros productos
+              $resultado = $conexion->query("select * from productos where id_categoria=" . $_GET['id'] . " order by id DESC limit " . $limite) or die($conexion->error);
+            }
+
+
+            // En este bucle imprimimos los productos
+            while ($fila = mysqli_fetch_array($resultado)) {
+
+            ?>
+              <!-- Aqui imprimimos los productos, añadiendo un poco de PHP lo hacemos dinámico -->
+              <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                <div class="block-4 text-center border">
+                  <figure class="block-4-image">
+                    <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
+                    <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
+                      <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a>
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
+                    <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
+                    <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
+                    <!-- Incluimos un botón para poder comprar el producto sin tener que visualizarlo -->
+                    <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
+          </div>
+
+
+          <!-- Paginador de productos HTML -->
+          <div class="row" data-aos="fade-up">
+            <div class="col-md-12 text-center">
+              <div class="site-block-27">
+                <ul>
+
+                  <?php
+                  // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
+                  if (isset($_GET['limite'])) { // Solo mostramos el paginador "<" si hay 10 productos mas que mostrar
+                    if ($_GET['limite'] > 0) {
+                      echo '<li><a href="index.php?limite=' . ($_GET['limite'] - $limite) . '">&lt;</a></li>';
+                    }
+                  }
+                  for ($k = 0; $k < $totalBotones; $k++) {
+                    echo '<li><a href="index.php?limite=' . ($k * 10) . '">' . ($k + 1) . '</a></li>';
+                  }
+                  // Solo mostramos el paginador ">" si hay 10 productos más que mostrar
+                  if (isset($_GET['limite'])) {
+                    if ($_GET['limite'] + $limite < $totalBotones * $limite) {
+                      echo '<li><a href="index.php?limite=' . ($_GET['limite'] + $limite) . '">&gt;</a></li>';
+                    }
+                  } else {
+                    echo '<li><a href="index.php?limite=' . $limite . '">&gt;</a></li>';
+                  }
+                  ?>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 order-1 mb-5 mb-md-0">
+
+
+          <div class="border p-4 rounded mb-4">
+            <div class="mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Filtrar por precio</h3>
+              <div id="slider-range" class="border-primary"></div>
+              <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+            </div>
+
+            <div class="mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Talla</h3>
+              <label for="s_sm" class="d-flex">
+                <input type="checkbox" id="s_sm" class="mr-2 mt-1"> <span class="text-black">Small (2,319)</span>
+              </label>
+              <label for="s_md" class="d-flex">
+                <input type="checkbox" id="s_md" class="mr-2 mt-1"> <span class="text-black">Medium (1,282)</span>
+              </label>
+              <label for="s_lg" class="d-flex">
+                <input type="checkbox" id="s_lg" class="mr-2 mt-1"> <span class="text-black">Large (1,392)</span>
+              </label>
+            </div>
+
+            <div class="mb-4">
+              <h3 class="mb-3 h6 text-uppercase text-black d-block">Color</h3>
+              <a href="#" class="d-flex color-item align-items-center">
+                <span class="bg-danger color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Red (2,429)</span>
+              </a>
+              <a href="#" class="d-flex color-item align-items-center">
+                <span class="bg-success color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Green (2,298)</span>
+              </a>
+              <a href="#" class="d-flex color-item align-items-center">
+                <span class="bg-info color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Blue (1,075)</span>
+              </a>
+              <a href="#" class="d-flex color-item align-items-center">
+                <span class="bg-primary color d-inline-block rounded-circle mr-2"></span> <span class="text-black">Purple (1,075)</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
     <?php include("./layouts/footer.php"); ?>
 

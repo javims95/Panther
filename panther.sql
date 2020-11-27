@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2020 a las 20:51:41
+-- Tiempo de generación: 26-11-2020 a las 22:21:14
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.3.24
 
@@ -52,7 +52,8 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `imagen`) VALUES
-(1, 'Mujer', 'Ropa de mujer', '');
+(1, 'Mujer', 'Ropa de mujer', ''),
+(2, 'Caballeros', 'sdfsdfsf', '');
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,9 @@ INSERT INTO `envios` (`id_envio`, `pais`, `company`, `direccion`, `estado`, `cp`
 (5, '1', '', '', '', '', 6),
 (6, '1', '', '', '', '', 7),
 (7, '1', '', '', '', '', 8),
-(8, '', '', '', '', '', 1);
+(8, '', '', '', '', '', 1),
+(9, '1', '', '', '', '', 2),
+(10, '1', '', '', '', '', 3);
 
 -- --------------------------------------------------------
 
@@ -187,11 +190,11 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `inv
 (42, 'Producto 41', 'Esta es la descripción para el producto nº41', 185, 'shoe.png', 77, 1, 'L', 'Blue'),
 (43, 'Producto 42', 'Esta es la descripción para el producto nº42', 82, 'shoe.png', 16, 1, 'L', 'Blue'),
 (44, 'Producto 43', 'Esta es la descripción para el producto nº43', 119, 'shoe.png', 29, 1, 'L', 'Blue'),
-(45, 'Producto 44', 'Esta es la descripción para el producto nº44', 152, 'shoe.png', 41, 1, 'L', 'Blue'),
-(46, 'Producto 45', 'Esta es la descripción para el producto nº45', 122, 'shoe.png', 60, 1, 'L', 'Blue'),
+(45, 'Producto 44', 'Esta es la descripción para el producto nº44', 152, 'shoe.png', 40, 1, 'L', 'Blue'),
+(46, 'Producto 45', 'Esta es la descripción para el producto nº45', 122, 'shoe.png', 59, 1, 'L', 'Blue'),
 (47, 'Producto 46', 'Esta es la descripción para el producto nº46', 243, 'shoe.png', 17, 1, 'L', 'Blue'),
 (48, 'Producto 47', 'Esta es la descripción para el producto nº47', 82, 'shoe.png', 80, 1, 'L', 'Blue'),
-(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 75, 1, 'L', 'Blue');
+(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 72, 1, 'L', 'Blue');
 
 -- --------------------------------------------------------
 
@@ -223,7 +226,10 @@ INSERT INTO `productos_venta` (`id`, `id_venta`, `id_producto`, `cantidad`, `pre
 (8, 4, 50, 1, 84, 84),
 (9, 5, 49, 1, 35, 35),
 (10, 6, 49, 1, 35, 35),
-(11, 8, 55, 1, 45, 45);
+(11, 8, 55, 1, 45, 45),
+(12, 2, 49, 3, 35, 105),
+(13, 3, 45, 1, 152, 152),
+(14, 3, 46, 1, 122, 122);
 
 -- --------------------------------------------------------
 
@@ -246,12 +252,14 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `email`, `password`, `img_perfil`, `nivel`) VALUES
-(3, 'Adrián Carrasco', '633863859', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'user7-128x128.jpg', 'admin'),
+(3, 'Adrián Carrascoooo', '633863859', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'user7-128x128.jpg', 'admin'),
 (4, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_3.jpg', 'cliente'),
 (5, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', 'person_2.jpg', ''),
 (6, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
 (9, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
-(10, ' ', '', '', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', '', '');
+(11, 'fgdsfg', '693216252', 'javier_ms95@hotmail.com', '506da6907f960f50cad09ca45512519f91515237', '1606407772.jpg', 'cliente'),
+(12, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
+(13, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
 
 -- --------------------------------------------------------
 
@@ -263,15 +271,19 @@ CREATE TABLE `ventas` (
   `id` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `total` double NOT NULL,
-  `fecha` datetime NOT NULL
+  `fecha` datetime NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `id_pago` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id`, `id_usuario`, `total`, `fecha`) VALUES
-(1, 10, 0, '2020-11-25 08:11:07');
+INSERT INTO `ventas` (`id`, `id_usuario`, `total`, `fecha`, `status`, `id_pago`) VALUES
+(1, 10, 0, '2020-11-25 08:11:07', 'Pagado', 0),
+(2, 12, 105, '2020-11-26 05:11:25', 'Pagado', 0),
+(3, 13, 274, '2020-11-26 06:11:11', '', 0);
 
 -- --------------------------------------------------------
 
@@ -290,7 +302,8 @@ CREATE TABLE `visitas` (
 --
 
 INSERT INTO `visitas` (`idvisitas`, `enlace`, `fecha`) VALUES
-(1, 'localhost/panther/', '2020-11-25 08:11:52');
+(1, 'localhost/panther/', '2020-11-25 08:11:52'),
+(2, 'localhost/panther/index.php', '2020-11-26 08:11:33');
 
 --
 -- Índices para tablas volcadas
@@ -370,7 +383,7 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `contacto`
@@ -388,7 +401,7 @@ ALTER TABLE `cupones`
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -400,25 +413,25 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `productos_venta`
 --
 ALTER TABLE `productos_venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `visitas`
 --
 ALTER TABLE `visitas`
-  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
