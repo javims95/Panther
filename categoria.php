@@ -51,14 +51,22 @@ if (mysqli_num_rows($resultado3) > 0) {
 <body>
 
   <div class="site-wrap">
-    <?php include("./layouts/header.php"); ?>
+    <?php include("./layouts/header.php"); 
+    
+    
+    // Consulta para obtener los datos de la categoría solicitada
+$resultado4 = $conexion->query("select * from categorias where id=" . $_GET['id']) or die($conexion->error);
+if (mysqli_num_rows($resultado4) > 0) {
+  $fila4 = mysqli_fetch_row($resultado4);
+}
 
+?>
     <!-- Banner con el nombre y la descripción de cada categoría -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <center>
-          <h1 class="display-4 text-black"><?php echo $fila3[1] ?></h1>
-          <p class="lead text-black"><?php echo $fila3[2] ?></p>
+          <h1 class="display-4 text-black"><?php echo $fila4[1] ?></h1>
+          <p class="lead text-black"><?php echo $fila4[2] ?></p>
         </center>
       </div>
     </div>
@@ -67,28 +75,6 @@ if (mysqli_num_rows($resultado3) > 0) {
       <div class="row mb-5">
         <div class="col-md-9 order-2">
           <div class="row">
-            <div class="col-md-12 mb-5">
-              <div class="float-md-left mb-4">
-                <h2 class="text-black h3"><?php echo $fila3[1] ?></h2>
-              </div>
-              <form action="">
-                <div class="d-flex">
-                  <div class="dropdown mr-1 ml-md-auto">
-                    <div class="btn-group">
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option value="fechaN">Fecha: mas recientes primero</option>
-                        <option value="fechaO">Fecha: mas antiguos primero</option>
-                        <option value="precioL">Por precio: mas baratos primero</option>
-                        <option value="precioH">Por precio: mas caro primero</option>
-                        <option value="nombreA">Por nombre: de A-Z</option>
-                        <option value="nombreZ">Por nombre: de Z-A</option>
-                      </select>
-                      <button type="submit" class="btn btn-primary btn-sm">Filtrar</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
           </div>
           <div class="row mb-5">
 

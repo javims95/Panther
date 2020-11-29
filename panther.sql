@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2020 a las 22:21:14
+-- Tiempo de generación: 29-11-2020 a las 09:46:27
 -- Versión del servidor: 10.4.16-MariaDB
 -- Versión de PHP: 7.3.24
 
@@ -53,7 +53,28 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id`, `nombre`, `descripcion`, `imagen`) VALUES
 (1, 'Mujer', 'Ropa de mujer', ''),
-(2, 'Caballeros', 'sdfsdfsf', '');
+(2, 'Caballeros', 'La ropa de caballeros para este invierno 2020/2021, con las mejores ofertas.', ''),
+(3, 'Niños', 'Ropa para niños de 4 a 12 años', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `colores`
+--
+
+CREATE TABLE `colores` (
+  `id` int(11) NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `codigo` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `colores`
+--
+
+INSERT INTO `colores` (`id`, `color`, `codigo`) VALUES
+(1, 'rojo', '#F00'),
+(2, 'azul', '#00F');
 
 -- --------------------------------------------------------
 
@@ -122,7 +143,11 @@ INSERT INTO `envios` (`id_envio`, `pais`, `company`, `direccion`, `estado`, `cp`
 (7, '1', '', '', '', '', 8),
 (8, '', '', '', '', '', 1),
 (9, '1', '', '', '', '', 2),
-(10, '1', '', '', '', '', 3);
+(10, '1', '', '', '', '', 3),
+(11, '1', '', '', '', '', 4),
+(12, '1', '', '', '', '', 5),
+(13, '1', '', '', '', '', 6),
+(14, '2', '', 'Calle Burguillos, 26', 'Málaga', '29190', 7);
 
 -- --------------------------------------------------------
 
@@ -147,8 +172,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `inventario`, `id_categoria`, `talla`, `color`) VALUES
-(1, 'Producto 0', 'Esta es la descripción para el producto nº0', 223, 'shoe.png', 30, 1, 'L', 'Blue'),
-(2, 'Producto 1', 'Esta es la descripción para el producto nº1', 10, 'shoe.png', 82, 1, 'L', 'Blue'),
+(1, 'Producto 0', 'Esta es la descripción para el producto nº0', 223, 'shoe.png', 30, 1, 'XL', 'Blue'),
+(2, 'Producto 1', 'Esta es la descripción para el producto nº1', 10, 'shoe.png', 82, 1, 'L', 'Rojo'),
 (3, 'Producto 2', 'Esta es la descripción para el producto nº2', 43, 'shoe.png', 89, 1, 'L', 'Blue'),
 (4, 'Producto 3', 'Esta es la descripción para el producto nº3', 211, 'shoe.png', 50, 1, 'L', 'Blue'),
 (5, 'Producto 4', 'Esta es la descripción para el producto nº4', 54, 'shoe.png', 81, 1, 'L', 'Blue'),
@@ -179,22 +204,22 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `imagen`, `inv
 (31, 'Producto 30', 'Esta es la descripción para el producto nº30', 195, 'shoe.png', 45, 1, 'L', 'Blue'),
 (32, 'Producto 31', 'Esta es la descripción para el producto nº31', 234, 'shoe.png', 49, 1, 'L', 'Blue'),
 (33, 'Producto 32', 'Esta es la descripción para el producto nº32', 195, 'shoe.png', 82, 1, 'L', 'Blue'),
-(34, 'Producto 33', 'Esta es la descripción para el producto nº33', 150, 'shoe.png', 13, 1, 'L', 'Blue'),
+(34, 'Producto 33', 'Esta es la descripción para el producto nº33', 150, 'shoe.png', 13, 1, 'S', 'Blue'),
 (35, 'Producto 34', 'Esta es la descripción para el producto nº34', 132, 'shoe.png', 1, 1, 'L', 'Blue'),
 (36, 'Producto 35', 'Esta es la descripción para el producto nº35', 183, 'shoe.png', 10, 1, 'L', 'Blue'),
 (37, 'Producto 36', 'Esta es la descripción para el producto nº36', 103, 'shoe.png', 49, 1, 'L', 'Blue'),
-(38, 'Producto 37', 'Esta es la descripción para el producto nº37', 40, 'shoe.png', 64, 1, 'L', 'Blue'),
+(38, 'Producto 37', 'Esta es la descripción para el producto nº37', 40, 'shoe.png', 64, 1, 'M', 'Blue'),
 (39, 'Producto 38', 'Esta es la descripción para el producto nº38', 187, 'shoe.png', 71, 1, 'L', 'Blue'),
 (40, 'Producto 39', 'Esta es la descripción para el producto nº39', 63, 'shoe.png', 69, 1, 'L', 'Blue'),
-(41, 'Producto 40', 'Esta es la descripción para el producto nº40', 118, 'shoe.png', 62, 1, 'L', 'Blue'),
-(42, 'Producto 41', 'Esta es la descripción para el producto nº41', 185, 'shoe.png', 77, 1, 'L', 'Blue'),
-(43, 'Producto 42', 'Esta es la descripción para el producto nº42', 82, 'shoe.png', 16, 1, 'L', 'Blue'),
-(44, 'Producto 43', 'Esta es la descripción para el producto nº43', 119, 'shoe.png', 29, 1, 'L', 'Blue'),
-(45, 'Producto 44', 'Esta es la descripción para el producto nº44', 152, 'shoe.png', 40, 1, 'L', 'Blue'),
-(46, 'Producto 45', 'Esta es la descripción para el producto nº45', 122, 'shoe.png', 59, 1, 'L', 'Blue'),
-(47, 'Producto 46', 'Esta es la descripción para el producto nº46', 243, 'shoe.png', 17, 1, 'L', 'Blue'),
-(48, 'Producto 47', 'Esta es la descripción para el producto nº47', 82, 'shoe.png', 80, 1, 'L', 'Blue'),
-(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 72, 1, 'L', 'Blue');
+(41, 'Producto 40', 'Esta es la descripción para el producto nº40', 118, 'shoe.png', 62, 2, 'L', 'Blue'),
+(42, 'Producto 41', 'Esta es la descripción para el producto nº41', 185, 'shoe.png', 77, 2, 'L', 'Blue'),
+(43, 'Producto 42', 'Esta es la descripción para el producto nº42', 82, 'shoe.png', 15, 2, 'L', 'Blue'),
+(44, 'Producto 43', 'Esta es la descripción para el producto nº43', 119, 'shoe.png', 29, 2, 'L', 'Blue'),
+(45, 'Producto 44', 'Esta es la descripción para el producto nº44', 152, 'shoe.png', 40, 2, 'L', 'Blue'),
+(46, 'Producto 45', 'Esta es la descripción para el producto nº45', 122, 'shoe.png', 59, 2, 'L', 'Blue'),
+(47, 'Producto 46', 'Esta es la descripción para el producto nº46', 243, 'shoe.png', 17, 2, 'L', 'Blue'),
+(48, 'Producto 47', 'Esta es la descripción para el producto nº47', 82, 'shoe.png', 79, 2, 'L', 'Blue'),
+(49, 'Producto 48', 'Esta es la descripción para el producto nº48', 35, 'shoe.png', 68, 2, 'L', 'Blue');
 
 -- --------------------------------------------------------
 
@@ -229,7 +254,12 @@ INSERT INTO `productos_venta` (`id`, `id_venta`, `id_producto`, `cantidad`, `pre
 (11, 8, 55, 1, 45, 45),
 (12, 2, 49, 3, 35, 105),
 (13, 3, 45, 1, 152, 152),
-(14, 3, 46, 1, 122, 122);
+(14, 3, 46, 1, 122, 122),
+(15, 4, 49, 2, 35, 70),
+(16, 4, 48, 1, 82, 82),
+(17, 4, 43, 1, 82, 82),
+(18, 6, 49, 1, 35, 35),
+(19, 7, 49, 1, 35, 35);
 
 -- --------------------------------------------------------
 
@@ -259,7 +289,8 @@ INSERT INTO `usuario` (`id`, `nombre`, `telefono`, `email`, `password`, `img_per
 (9, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
 (11, 'fgdsfg', '693216252', 'javier_ms95@hotmail.com', '506da6907f960f50cad09ca45512519f91515237', '1606407772.jpg', 'cliente'),
 (12, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
-(13, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
+(13, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', ''),
+(14, ' ', '', 'javier_ms95@hotmail.com', '395a0f552e5739f8be17ed988bf73688b3720c89', '', '');
 
 -- --------------------------------------------------------
 
@@ -283,7 +314,11 @@ CREATE TABLE `ventas` (
 INSERT INTO `ventas` (`id`, `id_usuario`, `total`, `fecha`, `status`, `id_pago`) VALUES
 (1, 10, 0, '2020-11-25 08:11:07', 'Pagado', 0),
 (2, 12, 105, '2020-11-26 05:11:25', 'Pagado', 0),
-(3, 13, 274, '2020-11-26 06:11:11', '', 0);
+(3, 13, 274, '2020-11-26 06:11:11', '', 0),
+(4, 14, 234, '2020-11-27 12:11:40', '', 0),
+(5, 3, 0, '2020-11-27 12:11:55', '', 0),
+(6, 3, 35, '2020-11-27 12:11:03', '', 0),
+(7, 3, 35, '2020-11-27 12:11:00', '', 0);
 
 -- --------------------------------------------------------
 
@@ -303,7 +338,8 @@ CREATE TABLE `visitas` (
 
 INSERT INTO `visitas` (`idvisitas`, `enlace`, `fecha`) VALUES
 (1, 'localhost/panther/', '2020-11-25 08:11:52'),
-(2, 'localhost/panther/index.php', '2020-11-26 08:11:33');
+(2, 'localhost/panther/index.php', '2020-11-26 08:11:33'),
+(3, 'localhost/panther/', '2020-11-28 08:11:19');
 
 --
 -- Índices para tablas volcadas
@@ -319,6 +355,12 @@ ALTER TABLE `carrito`
 -- Indices de la tabla `categorias`
 --
 ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `colores`
+--
+ALTER TABLE `colores`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -383,6 +425,12 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `colores`
+--
+ALTER TABLE `colores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
@@ -401,7 +449,7 @@ ALTER TABLE `cupones`
 -- AUTO_INCREMENT de la tabla `envios`
 --
 ALTER TABLE `envios`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -413,25 +461,25 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `productos_venta`
 --
 ALTER TABLE `productos_venta`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `visitas`
 --
 ALTER TABLE `visitas`
-  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idvisitas` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
