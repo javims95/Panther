@@ -312,8 +312,8 @@ session_start();
           <div class="col-md-12">
             <div class="site-section site-blocks-2">
               <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4">
-                  <h2>Categories</h2>
+                <div class="col-md-7 site-section-heading pt-4 nav">
+                  <h2>Categorías</h2>
                 </div>
               </div>
               <div class="row">

@@ -4,7 +4,7 @@ include 'php\visitas.php';
 
 <head>
 
-<link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 
 </head>
 <header class="site-navbar" role="banner">
@@ -148,10 +148,10 @@ include 'php\visitas.php';
   </nav>-->
 
   <!-- Menú principal (en proceso) -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="collapse navbar-collapse" id="main_nav">
       <ul class="navbar-nav">
-        <li class="nav-item active"> <a class="nav-link" href="index.php">Inicio </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index.php">Inicio </a> </li>
         <li class="nav-item"><a class="nav-link" href="#"> Tienda </a></li>
         <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
         <li class="nav-item"><a class="nav-link" href="contacto.php"> Contacto </a></li>
@@ -159,13 +159,13 @@ include 'php\visitas.php';
           <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Categorías </a>
           <ul class="dropdown-menu">
 
-          <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
-          <?php
-                $res3 = $conexion->query("select * from categorias") or die($conexion->error);
+            <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
+            <?php
+            $res3 = $conexion->query("select * from categorias") or die($conexion->error);
 
-                while ($fila3 = mysqli_fetch_array($res3)) {
-                ?>
-            <li><a class="dropdown-item" href="categoria.php?id=<?php echo $fila3['id'];?>"> <?php echo $fila3['nombre']; ?></a></li>
+            while ($fila3 = mysqli_fetch_array($res3)) {
+            ?>
+              <li><a class="dropdown-item" href="categoria.php?id=<?php echo $fila3['id']; ?>"> <?php echo $fila3['nombre']; ?></a></li>
             <?php } ?>
           </ul>
         </li>
