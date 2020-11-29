@@ -35,7 +35,7 @@ session_start();
       <header class="videoP">
         <div class="overlay"></div>
         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-          <source src="images\Gato-2.mp4" type="video/mp4">
+          <source src="images\Gato.mp4" type="video/mp4">
         </video>
         <div class="container h-100">
           <div class="d-flex h-100 text-center align-items-center">
@@ -72,22 +72,22 @@ session_start();
               <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                 <a class="block-2-item" href="#">
                   <figure class="image">
-                    <img src="images/children.jpg" alt="" class="img-fluid">
+                    <img src="images/categorias/golden-retriever.jpg" alt="" class="img-fluid">
                   </figure>
                   <div class="text">
-                    <span class="text-uppercase">Collections</span>
-                    <h3>Children</h3>
+                    <span class="text-uppercase">Accesorios</span>
+                    <h3>Perros</h3>
                   </div>
                 </a>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
                 <a class="block-2-item" href="#">
                   <figure class="image">
-                    <img src="images/men.jpg" alt="" class="img-fluid">
+                    <img src="images/categorias/roedores.jpg" alt="" class="img-fluid">
                   </figure>
                   <div class="text">
-                    <span class="text-uppercase">Collections</span>
-                    <h3>Men</h3>
+                    <span class="text-uppercase">Comida y Accesorios</span>
+                    <h3>Roedores</h3>
                   </div>
                 </a>
               </div>
