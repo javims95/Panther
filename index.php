@@ -373,6 +373,8 @@ session_start();
 
   <script src="js/main.js"></script>
 
+  <script src="star-rating\src\jquery.star-rating-svg.js"></script>
+
     <!-- Valoraciones -->
   <script>
     $(".my-rating-10").starRating({
