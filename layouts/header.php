@@ -127,39 +127,20 @@ include 'php\visitas.php';
     </div>
   </div>
 
+
   <!-- Menú principal -->
-  <!--<nav class="site-navigation text-right text-md-center" role="navigation">
-    <div class="container">
-      <ul class="site-menu js-clone-nav d-none d-md-block">
-        <li>
-          <a href="index.php">Inicio</a>
-
-        </li>
-        <li>
-          <a href="about.php">Sobre Nosotros</a>
-
-        </li>
-
-        <li><a href="#">Catálogo</a></li>
-        <li><a href="#">Novedades</a></li>
-        <li><a href="contacto.php">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>-->
-
-  <!-- Menú principal (en proceso) -->
   <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="collapse navbar-collapse" id="main_nav">
+    <div class="collapse navbar-collapse justify-content-center" id="main_nav">
       <ul class="navbar-nav">
         <li class="nav-item"> <a class="nav-link" href="index.php">Inicio </a> </li>
-        <li class="nav-item"><a class="nav-link" href="#"> Tienda </a></li>
+        <li class="nav-item"><a class="nav-link" href="tienda.php"> Tienda </a></li>
         <li class="nav-item"><a class="nav-link" href="#"> Services </a></li>
         <li class="nav-item"><a class="nav-link" href="contacto.php"> Contacto </a></li>
         <li class="nav-item dropdown">
           <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Categorías </a>
           <ul class="dropdown-menu">
 
-            <!-- Imprimo las categorías existentes y le creo un enlace con su nombre -->
+            <!-- Imprimo las categorías existentes y crea un enlace de forma dinámica -->
             <?php
             $res3 = $conexion->query("select * from categorias") or die($conexion->error);
 
@@ -170,20 +151,6 @@ include 'php\visitas.php';
           </ul>
         </li>
       </ul>
-
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-        <li class="nav-item"><a class="nav-link" href="#"> Menu item </a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> Dropdown right </a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
-            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
-          </ul>
-        </li>
-
-      </ul>
-
     </div> <!-- navbar-collapse.// -->
 
   </nav>
