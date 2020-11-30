@@ -285,7 +285,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                <a href="json.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>JSON</p>
                 </a>
