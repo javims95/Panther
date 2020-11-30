@@ -111,7 +111,9 @@ if (mysqli_num_rows($resultado4) > 0) {
                   <div class="block-4-text p-4">
                     <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
                     <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
+                    <div style="margin-top: 10px !important;">
                     <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
+                    </div>
                     <!-- Incluimos un botón para poder comprar el producto sin tener que visualizarlo -->
                     <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
                   </div>
