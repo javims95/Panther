@@ -183,7 +183,7 @@ session_start();
               ?>
                 <!-- Aqui imprimimos los productos, añadiendo un poco de PHP lo hacemos dinámico -->
                 <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
-                  <div class="block-4 text-center border">
+                  <div class="block-4 text-center box_productos">
                     <figure class="block-4-image">
                       <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
                       <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
@@ -214,19 +214,19 @@ session_start();
                     // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
                     if (isset($_GET['limite'])) { // Solo mostramos el paginador "<" si hay 10 productos mas que mostrar
                       if ($_GET['limite'] > 0) {
-                        echo '<li><a href="index.php?limite=' . ($_GET['limite'] - $limite) . '">&lt;</a></li>';
+                        echo '<li><a href="tienda.php?limite=' . ($_GET['limite'] - $limite) . '">&lt;</a></li>';
                       }
                     }
                     for ($k = 0; $k < $totalBotones; $k++) {
-                      echo '<li><a href="index.php?limite=' . ($k * 10) . '">' . ($k + 1) . '</a></li>';
+                      echo '<li><a href="tienda.php?limite=' . ($k * 10) . '">' . ($k + 1) . '</a></li>';
                     }
                     // Solo mostramos el paginador ">" si hay 10 productos más que mostrar
                     if (isset($_GET['limite'])) {
                       if ($_GET['limite'] + $limite < $totalBotones * $limite) {
-                        echo '<li><a href="index.php?limite=' . ($_GET['limite'] + $limite) . '">&gt;</a></li>';
+                        echo '<li><a href="tienda.php?limite=' . ($_GET['limite'] + $limite) . '">&gt;</a></li>';
                       }
                     } else {
-                      echo '<li><a href="index.php?limite=' . $limite . '">&gt;</a></li>';
+                      echo '<li><a href="tienda.php?limite=' . $limite . '">&gt;</a></li>';
                     }
                     ?>
                   </ul>

@@ -53,7 +53,7 @@ session_start();
         <div class="col-md-12">
           <div class="site-section site-blocks-2">
             <div class="row justify-content-center text-center mb-5">
-              <div class="col-md-7 site-section-heading pt-4 nav">
+              <div class="col-md-7 site-section-heading pt-4">
                 <h2>Categorías destacadas</h2>
               </div>
             </div>
@@ -102,7 +102,7 @@ session_start();
           <div class="row blog">
             <div class="col-md-12">
               <div class="row justify-content-center text-center mb-5">
-                <div class="col-md-7 site-section-heading pt-4 nav">
+                <div style="margin-bottom: 1rem;" class="col-md-7 site-section-heading pt-4">
                   <h2>Ofertas</h2>
                 </div>
               </div>
@@ -122,7 +122,7 @@ session_start();
                       while ($fila = mysqli_fetch_array($resultado)) {
                       ?>
                         <div class="col-md-3">
-                          <div class="item-box-blog">
+                          <div class="item-box-blog box_productos">
                             <div class="item-box-blog-image">
                               <!-- Label -->
                               <div style="background: red !important;border-radius: 3px;padding: 5px;width: 100px;margin-bottom: 10px;" class="item-box-blog-date bg-blue-ui white labelSale">
@@ -158,7 +158,7 @@ session_start();
                       while ($fila2 = mysqli_fetch_array($resultado2)) {
                       ?>
                         <div class="col-md-3">
-                          <div class="item-box-blog">
+                          <div class="item-box-blog box_productos">
                             <div class="item-box-blog-image">
                               <!-- Label -->
                               <div style="background: red !important;border-radius: 3px;padding: 5px;width: 100px;margin-bottom: 10px;" class="item-box-blog-date bg-blue-ui white labelSale">

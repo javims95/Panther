@@ -103,6 +103,7 @@ if (!isset($_GET['texto'])) {
                         <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
                         <p class="mb-0"><?php echo $fila['descripcion']; ?></p>
                         <p class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
+                        <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
                       </div>
                     </div>
                   </div>

@@ -80,20 +80,8 @@ if (mysqli_num_rows($resultado4) > 0) {
 
             <!-- Incluimos la conexion a la base de datos -->
             <?php
-            // Paginador de productos PHP
-            $limite = 9; // Productos por página
-            // Esta consulta devuelve cuantos productos hay en total.
-            $totalQuery = $conexion->query('SELECT COUNT(*) FROM productos') or die($conexion->error);
-            $totalProductos = mysqli_fetch_row($totalQuery);
-            $totalBotones = round($totalProductos[0] / $limite);
-
-            if (isset($_GET['limite'])) {
-              // Consulta para mostrar el rango de productos que se envia por parametro en la URL
-              $resultado = $conexion->query("select * from productos order by id DESC limit " . $_GET['limite'] . "," . $limite) or die($conexion->error);
-            } else {
               // Consulta para buscar y mostrar los 10 primeros productos
-              $resultado = $conexion->query("select * from productos where id_categoria=" . $_GET['id'] . " order by id DESC limit " . $limite) or die($conexion->error);
-            }
+              $resultado = $conexion->query("select * from productos where id_categoria=" . $_GET['id'] . " order by id DESC") or die($conexion->error);
 
 
             // En este bucle imprimimos los productos
@@ -121,48 +109,15 @@ if (mysqli_num_rows($resultado4) > 0) {
               </div>
             <?php } ?>
           </div>
-
-
-          <!-- Paginador de productos HTML -->
-          <div class="row" data-aos="fade-up">
-            <div class="col-md-12 text-center">
-              <div class="site-block-27">
-                <ul>
-
-                  <?php
-                  // Imprime los botones de la paginación, dependiendo de los productos existentes y el límite de productos definido arriba.
-                  if (isset($_GET['limite'])) { // Solo mostramos el paginador "<" si hay 10 productos mas que mostrar
-                    if ($_GET['limite'] > 0) {
-                      echo '<li><a href="index.php?limite=' . ($_GET['limite'] - $limite) . '">&lt;</a></li>';
-                    }
-                  }
-                  for ($k = 0; $k < $totalBotones; $k++) {
-                    echo '<li><a href="index.php?limite=' . ($k * 10) . '">' . ($k + 1) . '</a></li>';
-                  }
-                  // Solo mostramos el paginador ">" si hay 10 productos más que mostrar
-                  if (isset($_GET['limite'])) {
-                    if ($_GET['limite'] + $limite < $totalBotones * $limite) {
-                      echo '<li><a href="index.php?limite=' . ($_GET['limite'] + $limite) . '">&gt;</a></li>';
-                    }
-                  } else {
-                    echo '<li><a href="index.php?limite=' . $limite . '">&gt;</a></li>';
-                  }
-                  ?>
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
 
 
         <div class="col-md-3 order-1 mb-5 mb-md-0">
-
-
           <!-- Barra de filtros -->
           <div class="border p-4 rounded mb-4">
               <div class="mb-4">
                 <!-- Precio -->
-                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+                <h3 class="mb-3 h6 text-uppercase text-black d-block">Filtrar por precio</h3>
                 <div id="slider-range" class="border-primary"></div>
                 <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
               </div>
