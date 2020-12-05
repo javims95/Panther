@@ -22,7 +22,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Productos | Dashboard</title>
+    <title>Galería</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
@@ -45,6 +45,9 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
     <link rel="stylesheet" href="./dashboard/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    
+    <link rel="stylesheet" href="..\css\style.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -53,13 +56,13 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
         <?php include "./layouts/header.php"; ?>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" style="background: rgb(62 62 62);">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Galería</h1>
+                            <h1 class="m-0" style="color: #fff">Galería</h1>
                         </div><!-- /.col -->
                         <!-- /.col -->
                     </div><!-- /.row -->
@@ -87,7 +90,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
                                 if ($extension == 'jpg' || $extension == 'png' || $extension == 'gif' || $extension == 'bmp') {
                         ?>
                                     <!-- Grid column -->
-                                    <div class="col-lg-4 col-md-12 mb-4">
+                                    <div class="col-lg-4 col-md-12 mb-4 container_gallery">
                                         <a><img class="img-fluid z-depth-1" src="<?php echo $file_path; ?>" data-toggle="modal" data-target="#modal1"></a>
                                     </div>
                         <?php

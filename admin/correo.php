@@ -53,20 +53,6 @@ SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
-
-
-
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Productos</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
@@ -82,8 +68,8 @@ SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Inbox</li>
+                                <li class="breadcrumb-item"><a href="#">Correo</a></li>
+                                <li class="breadcrumb-item active">Bandeja de entrada</li>
                             </ol>
                         </div>
                     </div>
@@ -108,7 +94,7 @@ SELECT * FROM contacto ORDER BY id DESC") or die($conexion->error);
                             <div class="card-body p-0">
                                 <ul class="nav nav-pills flex-column">
                                     <li class="nav-item active">
-                                        <a href="#" class="nav-link">
+                                        <a href="#" class="nav-link" style="color: #007bff">
                                             <i class="fas fa-inbox"></i> Bandeja de entrada
                                             <span class="badge bg-primary float-right">12</span>
                                         </a>

@@ -246,7 +246,7 @@
 
           <!-- Mensajes -->
           <li class="nav-item">
-            <a href="./mailBox.php" class="nav-link">
+            <a href="./correo.php" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Mensajes
