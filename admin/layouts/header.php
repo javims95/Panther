@@ -291,13 +291,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="csv.php" class="nav-link">
+                <a href="xml.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>XML</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                <a href="csv.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>CSV</p>
                 </a>
