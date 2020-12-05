@@ -11,8 +11,6 @@ if ($arregloUsuario['nivel'] != 'admin') {
     header("Location: ../index.php");
 }
 
-$resultado = $conexion->query("
-SELECT * FROM usuario ORDER BY id") or die($conexion->error);
 
 ?>
 
@@ -47,6 +45,7 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -62,7 +61,11 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
 
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Registro de visitas y enlaces</h1>
+                            <h1 class="m-0 text-dark">Exportar a CSV</h1>
+                        </div>
+                        <br><br>
+                        <div class="col-sm-12">
+                            <h5 class="m-0 text-dark">Se exportan todos los datos de la tabla productos en un archivo .csv <b>separado por comas</b></h5>
                         </div><!-- /.col -->
                         <!-- /.col -->
                     </div><!-- /.row -->
@@ -74,35 +77,52 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <table id="visitas" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Enlace visitado</th>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                            </tr>
-                        </thead>
 
-                        <?php
-                        $resultado = $conexion->query("SELECT * FROM visitas") or die($conexion->error);
-                        while ($f = mysqli_fetch_array($resultado)) {
+                    <?php
+                    $query = $conexion->query("SELECT * FROM productos");
 
-                            // Separar la fecha de la hora
-                            $fecha = $f['fecha'];
-                            $separar = (explode(" ", $fecha));
-                        ?>
+                    $arreglo = array();
 
-                            <tbody>
-                                <tr>
-                                    <td>#<?php echo $f['idvisitas']; ?></td>
-                                    <td><a href="<?php echo $f['enlace']; ?>"><?php echo $f['enlace']; ?></a></td>
-                                    <td><?php echo $separar[0]; ?></td>
-                                    <td><?php echo $separar[1]; ?></td>
-                                </tr>
-                            </tbody>
-                        <?php } ?>
-                    </table>
+                    while ($rows = $query->fetch_array()) {
+
+                        $arreglo[] = array(
+                            'id' => $rows['id'],
+                            'nombre' => $rows['nombre'],
+                            'descripcion' => $rows['descripcion'],
+                            'precio' => $rows['precio'],
+                            'imagen' => $rows['imagen'],
+                            'inventario' => $rows['inventario'],
+                            'id_categoria' => $rows['id_categoria'],
+                            'talla' => $rows['talla'],
+                            'color' => $rows['color']
+                        );
+                    }
+
+                    $file = rand(1, 9999) . ' Productos.csv';
+                    $ruta = '../images\downloads/' . $file;
+                    generarCSV($arreglo, $ruta, $delimitador = ';', $encapsulador = '"');
+
+                    function generarCSV($arreglo, $ruta, $delimitador, $encapsulador)
+                    {
+                        $file_handle = fopen($ruta, 'w');
+                        foreach ($arreglo as $linea) {
+                            fputcsv($file_handle, $linea, $delimitador, $encapsulador);
+                        }
+                        rewind($file_handle);
+                        fclose($file_handle);
+                    }
+                    ?>
+
+                    <!-- Generar la descarga -->
+                    <div class="generar">
+                        <button class="btn btn-primary btn-lg btn-block"> Generar CSV</button>
+                    </div>
+
+                    <!-- Botón de descarga -->
+                    <div class="downloadJson" style="display: none;">
+                        <a href="<?php echo $ruta; ?>" download> <button class="btn btn-success btn-lg btn-block"> Descargar CSV</button></a>
+                    </div>
+
 
                 </div><!-- /.container-fluid -->
             </section>
@@ -147,6 +167,15 @@ SELECT * FROM usuario ORDER BY id") or die($conexion->error);
     <script src="./dashboard/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="./dashboard/dist/js/demo.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".generar").click(function() {
+                $(".generar").hide();
+                $(".downloadJson").show();
+            });
+        });
+    </script>
 
 </body>
 

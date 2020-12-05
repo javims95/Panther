@@ -61,7 +61,11 @@ if ($arregloUsuario['nivel'] != 'admin') {
 
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Registro de visitas y enlaces</h1>
+                            <h1 class="m-0 text-dark">Exportar a JSON</h1>
+                        </div>
+                        <br><br>
+                        <div class="col-sm-12">
+                            <h5 class="m-0 text-dark">Se exportan todos los datos de la tabla productos en un archivo .json</h5>
                         </div><!-- /.col -->
                         <!-- /.col -->
                     </div><!-- /.row -->
@@ -97,41 +101,20 @@ if ($arregloUsuario['nivel'] != 'admin') {
                     // Se crea el archivo
                     $json = json_encode($arreglo);
                     $file = rand(1, 9999) . ' Productos.json';
-                    $rutaAbsoluta = 'C:\xampp\htdocs\panther\images\downloads' . $file;
+                    $rutaAbsoluta = '../images\downloads/' . $file;
                     file_put_contents('../images/downloads/' . $file, $json);
 
-
-                    // Generamos la descarga
-                    $fichero_local = __DIR__ . '/mi-imagen.jpg'; //ruta al fichero en los directorios locales
-                    $nombre_fichero = 'imagen-aprender-a-programar-php.jpg'; //nombre del fichero que se descargará el usuario
-                    $fileSize = filesize($rutaAbsoluta);
-
-                    if (file_exists($rutaAbsoluta) && is_file($rutaAbsoluta)) { //compruebo, por si acaso, que el fichero exista en el sistema
-
-                        header('Cache-control: private');
-                        header('Content-Type: application/octet-stream');
-                        header('Content-Length: ' . filesize($fileSize));
-                        header('Content-Disposition: filename=' . $file);
-
-                        // flush content
-                        flush();
-
-                        //abrimos el fichero
-                        $file = fopen($rutaAbsoluta, "rb");
-
-                        //imprimimos el contenido del fichero al navegador
-                        print fread($file, filesize($rutaAbsoluta));
-
-                        //cerramos el fichero abierto
-                        fclose($file);
-                    } else {
-
-                        die('Error:  El fichero  ' . $rutaAbsoluta . ' no existe!');  //termino la ejecución de código por que el fichero no existe.
-
-                    }
-
-
                     ?>
+
+                    <!-- Generar la descarga -->
+                    <div class="generar">
+                        <button class="btn btn-primary btn-lg btn-block"> Generar JSON</button>
+                    </div>
+
+                    <!-- Botón de descarga -->
+                    <div class="downloadJson" style="display: none;">
+                        <a href="<?php echo $rutaAbsoluta; ?>" download> <button class="btn btn-success btn-lg btn-block"> Descargar JSON</button></a>
+                    </div>
 
 
                 </div><!-- /.container-fluid -->
@@ -178,7 +161,14 @@ if ($arregloUsuario['nivel'] != 'admin') {
     <!-- AdminLTE for demo purposes -->
     <script src="./dashboard/dist/js/demo.js"></script>
 
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".generar").click(function() {
+                $(".generar").hide();
+                $(".downloadJson").show();
+            });
+        });
+    </script>
 
 </body>
 
