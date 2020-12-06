@@ -88,6 +88,32 @@ if (isset($_GET['id'])) {
       </div>
     </div>
 
+    <center>
+    <div class="site-section block-3 site-blocks-2 bg-light">
+      <div class="col-8">
+    <form>
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
+      <div class="image">
+        <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
+        <span>Este contenido será público</span>
+      </div>
+    </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Nombre">
+        </div>
+        <div class="col">
+          <input type="email" class="form-control" placeholder="Email">
+        </div>
+      </div>
+    </form>
+    </div>
+    </div>
+    </center>
+
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
         <div class="row justify-content-center">
