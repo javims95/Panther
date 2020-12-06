@@ -87,191 +87,205 @@ if (isset($_GET['id'])) {
 
           </div>
         </div>
-      </div>
-    </div>
 
 
-    <!-- Publicar un comentario para el producto -->
-    <center>
-      <div class="site-section block-3 site-blocks-2 bg-light">
-        <div class="row justify-content-center">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Comentarios</h2>
-            <br>
-          </div>
-        </div>
-        <div class="col-6">
+
+        <!-- Publicar un comentario para el producto -->
+        <center>
+          <div class="site-section block-3 site-blocks-2">
+            <div class="row justify-content-center">
+              <div class="col-md-7 site-section-heading text-center pt-4">
+                <h2>Comentarios</h2>
+              </div>
+            </div>
+            <div class="col-6">
+          <!-- Modal succes -->
           <?php
-          if (isset($_SESSION['datos_login'])) {
+          if (isset($_GET['success'])) {
           ?>
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
-              <div class="image">
-                <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
-              </div>
-              <div class="info">
-                <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
-                <span>Este contenido será público</span>
-              </div>
+            <div class="alert alert-dismissible fade show alert alert-success" role="alert">
+              Producto publicado correctamente
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-          <?php } ?>
-          <form action="comentarios\añadir_comentario.php" method="POST">
-            <input id="comment_product_id" name="comment_product_id" type="hidden">
-            <div class="rating">
-              <label>
-                <input type="radio" name="stars" value="1" />
-                <span class="icon">★</span>
-              </label>
-              <label>
-                <input type="radio" name="stars" value="2" />
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-              </label>
-              <label>
-                <input type="radio" name="stars" value="3" />
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-              </label>
-              <label>
-                <input type="radio" name="stars" value="4" />
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-              </label>
-              <label>
-                <input type="radio" name="stars" value="5" />
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-                <span class="icon">★</span>
-              </label>
+          <?php } 
+
+              if (isset($_SESSION['datos_login'])) {
+              ?>
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
+                  <div class="image">
+                    <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
+                  </div>
+                  <div class="info">
+                    <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
+                    <span>Este contenido será público</span>
+                  </div>
+                </div>
+              <?php } ?>
+              <form action="comentarios\añadir_comentario.php" method="POST">
+                <input id="comment_product_id" name="comment_product_id" type="hidden">
+                <div class="rating">
+                  <label>
+                    <input type="radio" name="stars" value="1" />
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="2" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="3" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="4" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="stars" value="5" />
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                    <span class="icon">★</span>
+                  </label>
+                </div>
+                <input id="comment_rating" name="comment_rating" type="hidden">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <input id="comment_name" name="comment_name" type="text" class="form-control" placeholder="Nombre">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input id="comment_email" name="comment_email" type="email" class="form-control" placeholder="Email">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <textarea id="comment_comment" name="comment_comment" type="text" class="form-control" placeholder="Comentario"></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary">Publicar comentario</button>
+                </div>
+              </form>
             </div>
-            <input id="comment_rating" name="comment_rating" type="hidden">
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input id="comment_name" name="comment_name" type="text" class="form-control" placeholder="Nombre">
-              </div>
-              <div class="form-group col-md-6">
-                <input id="comment_email" name="comment_email" type="email" class="form-control" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group">
-              <textarea id="comment_comment" name="comment_comment" type="text" class="form-control" placeholder="Comentario"></textarea>
-            </div>
-            <div>
-              <button type="submit" class="btn btn-primary">Publicar comentario</button>
-            </div>
-          </form>
-        </div>
 
 
 
-        <!-- Visualizar los comentarios -->
-        <div style="margin-top: 2rem;" class="col-9">
-          <div class="btn btn-secondary btn-lg btn-block">
-            Opiniones
-          </div>
-          <br>
-          <table class="table">
-            <tbody>
+            <!-- Visualizar los comentarios -->
+            <div style="margin-top: 2rem;" class="col-9">
+              <div class="btn btn-secondary btn-lg btn-block">
+                Opiniones
+              </div>
+              <br>
               <?php
               $resultado = $conexion->query("select * from comentarios where producto_id=" . $_GET['id']) or die($conexion->error);
 
               if (mysqli_num_rows($resultado) > 0) {
-
-                // En este bucle imprimimos los productos obtenidos de la consulta
-                while ($fila = mysqli_fetch_array($resultado)) {
               ?>
-                  <tr>
-                    <td>
-                      <div>
-                        <?php
-                      // Switch para pintar las estrellas
-                  $variable = $fila['valoracion'];
+                <table class="table table-striped">
+                  <tbody>
+                    <?php
+                    // En este bucle imprimimos los productos obtenidos de la consulta
+                    while ($fila = mysqli_fetch_array($resultado)) {
+                    ?>
+                      <tr>
+                        <td>
+                          <div>
+                            <?php
+                            // Switch para pintar las estrellas
+                            $variable = $fila['valoracion'];
 
-                  switch ($variable) {
+                            switch ($variable) {
 
-                    case 1:
+                              case 1:
 
-                      echo '
+                                echo '
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>';
 
-                      break;
+                                break;
 
-                    case 2:
+                              case 2:
 
-                      echo '
+                                echo '
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>';
 
-                      break;
+                                break;
 
-                    case 3:
+                              case 3:
 
-                      echo '
+                                echo '
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>';
 
-                      break;
+                                break;
 
-                    case 4:
+                              case 4:
 
-                      echo '
+                                echo '
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>';
-  
-                      break;
 
-                    case 5:
+                                break;
 
-                      echo '
+                              case 5:
+
+                                echo '
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>';
-  
-                      break;
 
-                    default:
+                                break;
 
-                      echo 'Valoración no disponible';
-                  }
-                  ?>
-                        
-                      </div>
-                      <span><?php echo $fila['nombre']; ?></span>
-                      <br>
-                      <span><?php echo $fila['email']; ?></span>
-                      <br>
-                      <span><?php echo $fila['fecha']; ?></span>
-                      <span><?php echo $fila['hora']; ?></span>
-                    </td>
+                              default:
 
-                    <td><?php echo $fila['comentario']; ?></td>
-                  </tr>
-              <?php }
-              } ?>
-            </tbody>
-          </table>
-        </div>
+                                echo 'Valoración no disponible';
+                            }
+                            ?>
+                          </div>
+                          <span><?php echo $fila['nombre']; ?></span>
+                          <br>
+                          <span><?php echo $fila['email']; ?></span>
+                          <br>
+                          <span><?php echo $fila['fecha']; ?></span>
+                          <span><?php echo $fila['hora']; ?></span>
+                        </td>
 
+                        <td><?php echo $fila['comentario']; ?></td>
+                      </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              <?php } else {
+                echo '<h4>Todavía no hay ningún comentario. ¡Sé el primero!</h4>';
+              }
+              ?>
+            </div>
+
+          </div>
       </div>
+    </div>
     </center>
 
 

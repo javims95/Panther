@@ -21,8 +21,8 @@ if (
       '$hora',
       " . $_POST['comment_rating'] . "
     )") or die($conexion->error);
-    header("Location: URL");
+    header('Location:' . getenv('HTTP_REFERER').'&success');
 
 } else {
-    var_dump('No existe');
+    header('Location:' . getenv('HTTP_REFERER').'&error=Asegurese de haber marcado la valoracion con estrellas');
 }
