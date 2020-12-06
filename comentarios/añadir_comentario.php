@@ -1,17 +1,26 @@
 <?php
-require_once ("./php/conexion.php");
+include "../php/conexion.php";
 
-$commentId = isset($_POST['comment_id']) ? $_POST['comment_id'] : "";
-$comment = isset($_POST['comment']) ? $_POST['comment'] : "";
-$commentSenderName = isset($_POST['name']) ? $_POST['name'] : "";
-$date = date('Y-m-d H:i:s');
+if (
+    isset($_POST['comment_product_id']) && isset($_POST['comment_rating']) &&
+    isset($_POST['comment_name'])   &&  isset($_POST['comment_email'])
+    && isset($_POST['comment_comment'])
+) {
 
-$sql = "INSERT INTO comentarios (parent_comment_id,comment,comment_sender_name,date) VALUES ('" . $commentId . "','" . $comment . "','" . $commentSenderName . "','" . $date . "')";
+    $fecha = date('Y-m-d');
 
-$result = mysqli_query($conexion, $sql);
+    $conexion->query("INSERT INTO comentarios(id,nombre,email,comentario,producto_id,fecha,valoracion) VALUES
+    (
+        '',
+      '" . $_POST['comment_name'] . "',
+      '" . $_POST['comment_email'] . "',
+      '" . $_POST['comment_comment'] . "',
+      '" . $_POST['comment_product_id'] . "',
+      '$fecha',
+      '" . $_POST['comment_rating'] . "'
+    )") or die($conexion->error);
+    header("Location: URL");
 
-if (! $result) {
-    $result = mysqli_error($conexion);
+} else {
+    var_dump('No existe');
 }
-echo $result;
-?>

@@ -81,38 +81,110 @@ if (isset($_GET['id'])) {
               </div>
 
             </div>
-            <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary">Añadir al Carrito</a></p>
+            <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary" id="addToCart_comment" data-id="<?php echo $fila[0]; ?>">Añadir al Carrito</a></p>
 
           </div>
         </div>
       </div>
     </div>
 
+
+    <!-- Publicar un comentario para el producto -->
     <center>
-    <div class="site-section block-3 site-blocks-2 bg-light">
-      <div class="col-8">
-    <form>
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
-      <div class="image">
-        <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
-        <span>Este contenido será público</span>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col">
-          <input type="text" class="form-control" placeholder="Nombre">
+      <div class="site-section block-3 site-blocks-2 bg-light">
+        <div class="row justify-content-center">
+          <div class="col-md-7 site-section-heading text-center pt-4">
+            <h2>Comentarios</h2>
+            <br>
+          </div>
         </div>
-        <div class="col">
-          <input type="email" class="form-control" placeholder="Email">
+        <div class="col-6">
+          <?php
+          if (isset($_SESSION['datos_login'])) {
+          ?>
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
+              <div class="image">
+                <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
+              </div>
+              <div class="info">
+                <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
+                <span>Este contenido será público</span>
+              </div>
+            </div>
+          <?php } ?>
+          <form action="comentarios\añadir_comentario.php" method="POST">
+          <input id="comment_product_id" name="comment_product_id" type="hidden">
+            <div class="rating">
+              <label>
+                <input type="radio" name="stars" value="1" />
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="2" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="3" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="4" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+              <label>
+                <input type="radio" name="stars" value="5" />
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+                <span class="icon">★</span>
+              </label>
+            </div>
+            <input id="comment_rating" name="comment_rating" type="hidden">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input id="comment_name" name="comment_name" type="text" class="form-control" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-6">
+                <input id="comment_email" name="comment_email" type="email" class="form-control" placeholder="Email">
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea id="comment_comment" name="comment_comment" type="text" class="form-control" placeholder="Comentario"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Publicar comentario</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Publicar un comentario para el producto -->
+        <div style="margin-top: 2rem;" class="col-6">
+        <div class="btn btn-secondary btn-lg btn-block">
+            Opiniones
+        </div>
+        <br>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input type="text" class="form-control" placeholder="Nombre" required>
+            </div>
+            <div class="form-group col-md-6">
+              <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea type="text" class="form-control" placeholder="Comentario" required></textarea>
+          </div>
         </div>
       </div>
-    </form>
-    </div>
-    </div>
     </center>
+
 
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
@@ -201,6 +273,17 @@ if (isset($_GET['id'])) {
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    $('.rating :radio').change(function() {
+      console.log('New star rating: ' + this.value);
+      var rating = this.value;
+      var id = $("#addToCart_comment").data('id');
+      $("#comment_product_id").val(id);
+      $("#comment_rating").val(rating);
+      
+    });
+  </script>
 
 </body>
 
