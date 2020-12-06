@@ -12,7 +12,7 @@ if (!isset($_COOKIE['visitas'])) {
     $nombre = 'visitas';
     $valor = 'contador';
     // El tiempo de expiración es en 30 minutos. PHP traduce la fecha al formato adecuado
-    $expiracion = time() + 86400;
+    $expiracion = time() + 7200;
 
     setcookie($nombre, $valor, $expiracion);
 

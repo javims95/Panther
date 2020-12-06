@@ -1012,10 +1012,6 @@ a {
 /* ADMIN */
 
 /* Galería */
-body {
-  background-color:#1d1d1d !important;
-}
-
 .container_gallery {
   position: relative;
     overflow: hidden;
@@ -1032,4 +1028,15 @@ body {
 
 .container_gallery:hover a img {
   transform: scale(1.2);
+}
+
+/* Menú izquierda */
+.nav-sidebar .nav-item>.nav-link {
+  font-weight: 500;
+}
+
+/* Menú superior */
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+  font-weight: 400;
 }

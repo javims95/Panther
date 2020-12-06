@@ -1,0 +1,31 @@
+/* ADMIN */
+
+/* Galería */
+.container_gallery {
+  position: relative;
+    overflow: hidden;
+}
+
+.container_gallery a img {
+  max-width: 100%;
+    transition: all 0.3s;
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+}
+
+.container_gallery:hover a img {
+  transform: scale(1.2);
+}
+
+/* Menú izquierda */
+.nav-sidebar .nav-item>.nav-link {
+  font-weight: 500;
+}
+
+/* Menú superior */
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(0 0 0);
+  font-weight: 400;
+}

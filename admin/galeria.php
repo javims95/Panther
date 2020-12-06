@@ -56,13 +56,13 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
         <?php include "./layouts/header.php"; ?>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="background: rgb(62 62 62);">
+        <div class="content-wrapper" style="background: rgb(218 218 218);">
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0" style="color: #fff">Galería</h1>
+                            <h1 class="m-0" style="color: #000">Galería</h1>
                         </div><!-- /.col -->
                         <!-- /.col -->
                     </div><!-- /.row -->
