@@ -8,8 +8,9 @@ if (
 ) {
 
     $fecha = date('Y-m-d');
+    $hora = date('H:i:s');
 
-    $conexion->query("INSERT INTO comentarios(id,nombre,email,comentario,producto_id,fecha,valoracion) VALUES
+    $conexion->query("INSERT INTO comentarios(id,nombre,email,comentario,producto_id,fecha,hora,valoracion) VALUES
     (
         '',
       '" . $_POST['comment_name'] . "',
@@ -17,7 +18,8 @@ if (
       '" . $_POST['comment_comment'] . "',
       '" . $_POST['comment_product_id'] . "',
       '$fecha',
-      '" . $_POST['comment_rating'] . "'
+      '$hora',
+      " . $_POST['comment_rating'] . "
     )") or die($conexion->error);
     header("Location: URL");
 
