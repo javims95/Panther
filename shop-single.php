@@ -35,6 +35,8 @@ if (isset($_GET['id'])) {
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/aos.css">
 
+  <link rel="stylesheet" href="admin/dashboard/plugins/fontawesome-free/css/all.min.css">
+
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -113,7 +115,7 @@ if (isset($_GET['id'])) {
             </div>
           <?php } ?>
           <form action="comentarios\añadir_comentario.php" method="POST">
-          <input id="comment_product_id" name="comment_product_id" type="hidden">
+            <input id="comment_product_id" name="comment_product_id" type="hidden">
             <div class="rating">
               <label>
                 <input type="radio" name="stars" value="1" />
@@ -164,24 +166,111 @@ if (isset($_GET['id'])) {
           </form>
         </div>
 
-        <!-- Publicar un comentario para el producto -->
-        <div style="margin-top: 2rem;" class="col-6">
-        <div class="btn btn-secondary btn-lg btn-block">
+
+
+        <!-- Visualizar los comentarios -->
+        <div style="margin-top: 2rem;" class="col-9">
+          <div class="btn btn-secondary btn-lg btn-block">
             Opiniones
-        </div>
-        <br>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <input type="text" class="form-control" placeholder="Nombre" required>
-            </div>
-            <div class="form-group col-md-6">
-              <input type="email" class="form-control" placeholder="Email" required>
-            </div>
           </div>
-          <div class="form-group">
-            <textarea type="text" class="form-control" placeholder="Comentario" required></textarea>
-          </div>
+          <br>
+          <table class="table">
+            <tbody>
+              <?php
+              $resultado = $conexion->query("select * from comentarios where producto_id=" . $_GET['id']) or die($conexion->error);
+
+              if (mysqli_num_rows($resultado) > 0) {
+
+                // En este bucle imprimimos los productos obtenidos de la consulta
+                while ($fila = mysqli_fetch_array($resultado)) {
+              ?>
+                  <tr>
+                    <td>
+                      <div>
+                        <?php
+                      // Switch para pintar las estrellas
+                  $variable = $fila['valoracion'];
+
+                  switch ($variable) {
+
+                    case 1:
+
+                      echo '
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>';
+
+                      break;
+
+                    case 2:
+
+                      echo '
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>';
+
+                      break;
+
+                    case 3:
+
+                      echo '
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>';
+
+                      break;
+
+                    case 4:
+
+                      echo '
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i class="fas fa-star"></i>';
+  
+                      break;
+
+                    case 5:
+
+                      echo '
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      <i style="color: #efbf0d" class="fas fa-star"></i>';
+  
+                      break;
+
+                    default:
+
+                      echo 'Valoración no disponible';
+                  }
+                  ?>
+                        
+                      </div>
+                      <span><?php echo $fila['nombre']; ?></span>
+                      <br>
+                      <span><?php echo $fila['email']; ?></span>
+                      <br>
+                      <span><?php echo $fila['fecha']; ?></span>
+                      <span><?php echo $fila['hora']; ?></span>
+                    </td>
+
+                    <td><?php echo $fila['comentario']; ?></td>
+                  </tr>
+              <?php }
+              } ?>
+            </tbody>
+          </table>
         </div>
+
       </div>
     </center>
 
@@ -281,7 +370,7 @@ if (isset($_GET['id'])) {
       var id = $("#addToCart_comment").data('id');
       $("#comment_product_id").val(id);
       $("#comment_rating").val(rating);
-      
+
     });
   </script>
 
