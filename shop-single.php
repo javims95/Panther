@@ -179,7 +179,7 @@ if (isset($_GET['id'])) {
 
             <!-- Visualizar los comentarios -->
             <div style="margin-top: 2rem;" class="col-9">
-              <div class="btn btn-secondary btn-lg btn-block">
+              <div class="btn-secondary btn-lg btn-block">
                 Opiniones
               </div>
               <br>
@@ -210,7 +210,8 @@ if (isset($_GET['id'])) {
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>';
+                      <i class="fas fa-star"></i> 
+                      (1)';
 
                                 break;
 
@@ -221,7 +222,8 @@ if (isset($_GET['id'])) {
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>';
+                      <i class="fas fa-star"></i>
+                      (2)';
 
                                 break;
 
@@ -232,7 +234,8 @@ if (isset($_GET['id'])) {
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>';
+                      <i class="fas fa-star"></i>
+                      (3)';
 
                                 break;
 
@@ -243,7 +246,8 @@ if (isset($_GET['id'])) {
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
-                      <i class="fas fa-star"></i>';
+                      <i class="fas fa-star"></i>
+                      (4)';
 
                                 break;
 
@@ -254,7 +258,8 @@ if (isset($_GET['id'])) {
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
                       <i style="color: #efbf0d" class="fas fa-star"></i>
-                      <i style="color: #efbf0d" class="fas fa-star"></i>';
+                      <i style="color: #efbf0d" class="fas fa-star"></i>
+                      (5)';
 
                                 break;
 

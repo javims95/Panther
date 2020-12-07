@@ -128,7 +128,7 @@ session_start();
                               <div style="background: red !important;border-radius: 3px;padding: 5px;width: 100px;margin-bottom: 10px;" class="item-box-blog-date bg-blue-ui white labelSale">
                                 <span class="mon">Oferta</span> </div>
                               <!-- Imagen -->
-                              <figure> <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a></figure>
+                              <figure> <a href="shop-single.php?id=<?php echo $fila['id']; ?>"><img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a></figure>
                             </div>
                             <div class="item-box-blog-body">
                               <!--Heading-->
