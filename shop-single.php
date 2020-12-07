@@ -278,6 +278,9 @@ if (isset($_GET['id'])) {
                         </td>
 
                         <td><?php echo $fila['comentario']; ?></td>
+                        <td><i id="up" class="fa fa-thumbs-up"></i>
+                           <i id="down" class="fa fa-thumbs-down"></i>
+                          </td>
                       </tr>
                     <?php } ?>
                   </tbody>
@@ -294,76 +297,40 @@ if (isset($_GET['id'])) {
     </center>
 
 
+    <?php
+              $res = $conexion->query("select * from productos ORDER BY RAND() limit 6") or die($conexion->error);
+
+              if (mysqli_num_rows($res) > 0) {
+
+                    ?>
+    <!-- Productos relacionados -->
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Featured Products</h2>
+            <h2>Producto relacionados</h2>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
+              <?php
+            // En este bucle imprimimos los productos obtenidos de la consulta
+                    while ($fila2 = mysqli_fetch_array($res)) {
+                    ?>
               <div class="item">
                 <div class="block-4 text-center">
                   <figure class="block-4-image">
-                    <img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
+                    <img src="images/<?php echo $fila2['imagen']; ?>" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Tank Top</a></h3>
-                    <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3><a href="shop-single.php?id=<?php echo $fila2['id']; ?>"><?php echo $fila2['nombre']; ?></a></h3>
+                    <p class="mb-0 textoTwoLines"><?php echo $fila2['descripcion']; ?></p>
+                    <p class="text-primary font-weight-bold"><?php echo $fila2['precio']; ?> €</p>
                   </div>
                 </div>
               </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Polo Shirt</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/cloth_3.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">T-Shirt Mockup</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
-                    <p class="mb-0">Finding perfect products</p>
-                    <p class="text-primary font-weight-bold">$50</p>
-                  </div>
-                </div>
-              </div>
+                    <?php } } ?>
             </div>
           </div>
         </div>
@@ -384,13 +351,36 @@ if (isset($_GET['id'])) {
 
   <script>
     $('.rating :radio').change(function() {
-      console.log('New star rating: ' + this.value);
+      //console.log('New star rating: ' + this.value);
       var rating = this.value;
       var id = $("#addToCart_comment").data('id');
       $("#comment_product_id").val(id);
       $("#comment_rating").val(rating);
 
     });
+  </script>
+
+  <script>
+    var x;
+    x = $(document);
+    x.ready(inicializarEventos);
+
+    function inicializarEventos() {
+        $("#up").click(colorVerde);
+        $("#down").click(colorRojo);
+
+    }
+
+    function colorVerde() {
+        $("#up").css("color", "green");
+        $("#down").css("color", "#333");
+    }
+
+    function colorRojo() {
+        $("#down").css("color", "red");
+        $("#up").css("color", "#333");
+    }
+
   </script>
 
 </body>

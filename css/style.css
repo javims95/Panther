@@ -1,7 +1,7 @@
 /* Base */
 body {
   line-height: 1.7;
-  color: #8c92a0;
+  color: #333;
   font-weight: 300;
   font-size: 16px; }
 
@@ -998,7 +998,7 @@ a {
 }
 
 /* El texto en dos líneas */
-.descripcionCarrousel{
+.descripcionCarrousel, .textoTwoLines{
   display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
