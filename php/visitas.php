@@ -11,12 +11,12 @@ if (!isset($_COOKIE['visitas'])) {
 
     $nombre = 'visitas';
     $valor = 'contador';
-    // El tiempo de expiración es en 30 minutos. PHP traduce la fecha al formato adecuado
+    // El tiempo de expiración son 2 horas.
     $expiracion = time() + 7200;
 
     setcookie($nombre, $valor, $expiracion);
 
-    // Con esta consulta, actualizamos en la BBDD los datos del producto que estamos editando
+    // Inserto los datos en la tabla visitas
     $conexion->query("INSERT INTO visitas (enlace, fecha) values ('$enlace', '$fecha')") or die($conexion->error);
 }
 ?>

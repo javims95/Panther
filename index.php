@@ -118,7 +118,7 @@ session_start();
 
                       <?php
                       $resultado = $conexion->query("SELECT * FROM productos  WHERE id> 3 LIMIT 4") or die($conexion->error);
-                      // En este bucle imprimimos los productos 1, 2 y 3
+                      // En este bucle imprimimos los 3 primeros productos
                       while ($fila = mysqli_fetch_array($resultado)) {
                       ?>
                         <div class="col-md-3">
@@ -154,7 +154,7 @@ session_start();
                     <div class="row">
                       <?php
                       $resultado2 = $conexion->query("SELECT * FROM productos  WHERE id> 7 LIMIT 4") or die($conexion->error);
-                      // En este bucle imprimimos los productos 1, 2 y 3
+                      // En este bucle imprimimos los otros 3 productos
                       while ($fila2 = mysqli_fetch_array($resultado2)) {
                       ?>
                         <div class="col-md-3">

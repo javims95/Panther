@@ -14,7 +14,7 @@ $arregloUsuario = $_SESSION['datos_login'];
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin | Dashboard</title>
+  <title>Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -38,7 +38,7 @@ $arregloUsuario = $_SESSION['datos_login'];
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
-    .bg-danger {
+    #admin_messagge {
     background-color: #9C27B0!important;
 }
   </style>
@@ -79,7 +79,7 @@ $arregloUsuario = $_SESSION['datos_login'];
               <div class="small-box bg-info">
                 <div class="inner">
                   <h3>15</h3>
-                  <p>Nuevos Pedidos</p>
+                  <p>Pedidos</p>
                 </div>
                 <div class="icon">
                   <i class="ion ion-bag"></i>
@@ -132,8 +132,8 @@ $arregloUsuario = $_SESSION['datos_login'];
             <!-- Mensajes -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-danger">
-                <div class="inner">
+              <div id="admin_messagge" class="small-box">
+                <div style="color: white" class="inner">
                   <?php
                   $consultaMensajes = $conexion->query('SELECT COUNT(*) FROM contacto') or die($conexion->error);
                   $totalMensajes = mysqli_fetch_row($consultaMensajes);
@@ -217,7 +217,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <span class="direct-chat-timestamp float-right">23 Noviembre 20:00 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="./dashboard/dist/img/user1-128x128.jpg" alt="message user image">
+                      <img class="direct-chat-img" src="dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         Su pedido ya ha salido de nuestras instalaciones. Prepárate para recibirlo pronto !
@@ -249,7 +249,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         <span class="direct-chat-timestamp float-right">23 Noviembre 20:12 pm</span>
                       </div>
                       <!-- /.direct-chat-infos -->
-                      <img class="direct-chat-img" src="./dashboard/dist/img/user1-128x128.jpg" alt="message user image">
+                      <img class="direct-chat-img" src="dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" alt="message user image">
                       <!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                         Así funciona Panther. Nuestro compromiso con el cliente
