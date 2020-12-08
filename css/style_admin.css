@@ -50,5 +50,14 @@ li ul li.nav-item {
 }
 .note-editor.note-frame .note-editing-area, .note-editor.note-airframe .note-editing-area {
   overflow: hidden;
-  min-height: 100px;
+  min-height: 200px;
+}
+
+/* Cuerpo del mensaje (leer) */
+textarea.note-codable {
+  display: none;
+}
+.mailbox-attachment-icon.has-img>img {
+  height: auto;
+  max-width: 70%;
 }

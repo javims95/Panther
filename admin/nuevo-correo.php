@@ -136,7 +136,7 @@ $arregloUsuario = $_SESSION['datos_login'];
                         </div>
                         <!-- /.col -->
                         <div class="col-md-9">
-                            <form action="./insertar-correo.php" method="POST" enctype="multipart/form-data">
+                            <form action="../php/insertar-correo.php" method="POST" enctype="multipart/form-data">
                                 <div class="card card-primary card-outline">
                                     <div class="card-header">
                                         <h3 class="card-title">Nuevo mensaje</h3>
@@ -144,14 +144,17 @@ $arregloUsuario = $_SESSION['datos_login'];
                                     <!-- /.card-header -->
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <input id="destinatario" name="destinatario" class="form-control" placeholder="Destinatario:">
+                                            <input id="name" name="name" class="form-control" placeholder="Nombre:" required>
                                         </div>
                                         <div class="form-group">
-                                            <input id="asunto" name="asunto" class="form-control" placeholder="Asunto:">
+                                            <input id="messagge" name="messagge" type="hidden">
+                                            <input id="email" name="email" class="form-control" placeholder="tucorreo@tudominio.es" required>
                                         </div>
                                         <div class="form-group">
-                                            <textarea id="compose-textarea" class="form-control" style="min-height: 300px !important"></textarea>
-                                            <input id="messagge" name="messagge" id="messageHTML" type="hidden">
+                                            <input id="subject" name="subject" class="form-control" placeholder="Asunto:" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea id="compose-textarea" class="form-control" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <div class="btn btn-default btn-file">
@@ -206,7 +209,7 @@ $arregloUsuario = $_SESSION['datos_login'];
         $(document).ready(function() {
             $(".note-editing-area").keyup(function() {
                 var mensaje = $(".note-editing-area").html();
-                $("#messageHTML").val(mensaje);
+                $("#messagge").val(mensaje);
 
 
             });

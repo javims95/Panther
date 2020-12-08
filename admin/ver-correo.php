@@ -173,7 +173,7 @@ if (isset($_GET['id'])) {
               <div class="mailbox-read-info">
                 <h5>Asunto: <?php echo $fila[3]; ?></h5>
                 <h6>Remitente: <a href="mailto:<?php echo $fila[2];?>"><?php echo $fila[2]; ?></a>
-                  <span class="mailbox-read-time float-right">15 Feb. 2015 11:03 PM</span></h6>
+                  <span style="font-size: 16px;" class="mailbox-read-time float-right"><?php echo $fila[5]; ?> <?php echo $fila[6]; ?></span></h6>
               </div>
               <!-- /.mailbox-read-info -->
               <div class="mailbox-controls with-border text-center">
@@ -199,13 +199,13 @@ if (isset($_GET['id'])) {
             <div class="card-footer bg-white">
               <ul class="mailbox-attachments d-flex align-items-stretch clearfix">
                 <li>
-                  <span class="mailbox-attachment-icon has-img"><img src="../images/shoe.jpg" alt="Attachment"></span>
+                  <span class="mailbox-attachment-icon has-img"><img src="../images/correos/<?php echo $fila[7]; ?>" alt="Attachment"></span>
 
                   <div class="mailbox-attachment-info">
-                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> photo2.png</a>
+                    <a href="#" class="mailbox-attachment-name"><i class="fas fa-camera"></i> <?php echo $fila[7]; ?></a>
                         <span class="mailbox-attachment-size clearfix mt-1">
                           <span>1.9 MB</span>
-                          <a href="#" class="btn btn-default btn-sm float-right"><i class="fas fa-cloud-download-alt"></i></a>
+                          <a href="../images/correos/<?php echo $fila[7]; ?>" class="btn btn-default btn-sm float-right" download=""><i class="fas fa-cloud-download-alt"></i></a>
                         </span>
                   </div>
                 </li>

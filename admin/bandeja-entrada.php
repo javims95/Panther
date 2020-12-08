@@ -81,9 +81,29 @@ SELECT * FROM correos ORDER BY id DESC") or die($conexion->error);
 
             <!-- Main content -->
             <section class="content">
+                <!-- Modal error -->
+                <?php
+                    if (isset($_GET['error'])) {
+                    ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?php echo $_GET['error']; ?>
+                        </div>
+                    <?php } ?>
+
+                    <!-- Modal succes -->
+                    <?php
+                    if (isset($_GET['success'])) {
+                    ?>
+                        <div style="background: #28A745; border: 0px" class="alert alert-warning alert-dismissible fade show" role="alert">
+                            Correo enviado correctamente
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php } ?>
                 <div class="row">
                     <div class="col-md-3">
-                        <a href="compose.html" class="btn btn-primary btn-block mb-3">Nuevo</a>
+                        <a href="nuevo-correo.php" class="btn btn-primary btn-block mb-3">Nuevo</a>
 
                         <div class="card">
                             <div class="card-header">
@@ -208,22 +228,22 @@ SELECT * FROM correos ORDER BY id DESC") or die($conexion->error);
                                     <table class="table table-hover table-striped">
                                         <tbody>
                                             <?php
-                                                while ($f = mysqli_fetch_array($resultado)) {
+                                            while ($f = mysqli_fetch_array($resultado)) {
                                             ?>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="icheck-primary">
-                                                                <input type="checkbox" value="" id="check1">
-                                                                <label for="check1"></label>
-                                                            </div>
-                                                        </td>
-                                                        <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                                                        <td class="mailbox-name"><a href="ver-correo.php?id=<?php echo $f[0]; ?>"><?php echo $f['name']; ?></a></td>
-                                                        <td class="mailbox-subject"><b><?php echo $f['subject']; ?></b></p>
-                                                        </td>
-                                                        <td class="mailbox-date"><?php echo rand(1, 30) . '/' . rand(1, 12) . '/' . '2020'; ?></td>
-                                                    </tr>
-                                                <?php } ?>
+                                                <tr>
+                                                    <td>
+                                                        <div class="icheck-primary">
+                                                            <input type="checkbox" value="" id="check1">
+                                                            <label for="check1"></label>
+                                                        </div>
+                                                    </td>
+                                                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
+                                                    <td class="mailbox-name"><a href="ver-correo.php?id=<?php echo $f[0]; ?>"><?php echo $f['name']; ?></a></td>
+                                                    <td class="mailbox-subject"><b><?php echo $f['subject']; ?></b></p>
+                                                    </td>
+                                                    <td class="mailbox-date"><?php echo rand(1, 30) . '/' . rand(1, 12) . '/' . '2020'; ?></td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                     <!-- /.table -->
