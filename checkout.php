@@ -265,17 +265,11 @@ $arreglo = $_SESSION['carrito'];
                           $total = ($subtotal) + ($envio) + ($iva);
 
 
-                          // Formato para que todos los precios tengan dos decimales
-                          $format_subtotal = number_format($subtotal, 2);
-                          $format_envio = number_format($envio, 2);
-                          $format_iva = number_format($iva, 2);
-                          $format_total = number_format($total, 2);
-
                         ?>
                           <tr>
                             <td><?php echo $arreglo[$i]['Nombre']; ?><strong class="mx-2">x</strong><?php echo $arreglo[$i]['Cantidad'] ?></td>
-                            <td><?php echo number_format($singlePrice, 2); ?> €</td>
-                            <td><?php echo number_format($totalProduct, 2); ?> €</td>
+                            <td><?php echo number_format($singlePrice,2,',',''); ?> €</td>
+                            <td><?php echo number_format($totalProduct,2,',',''); ?> €</td>
                           </tr>
 
                         <?php } ?>
@@ -284,26 +278,33 @@ $arreglo = $_SESSION['carrito'];
                         <tr style="border-top: 2px solid gray;">
                           <td>Subtotal</td>
                           <td></td>
-                          <td><?php echo $format_subtotal ?> €</td>
+                          <td><?php echo number_format($subtotal,2,',',''); ?> €</td>
                         </tr>
                         <!-- IVA -->
                         <tr>
                           <td>IVA 21%</td>
                           <td></td>
-                          <td><?php echo $format_iva ?> €</td>
+                          <td><?php echo number_format($iva,2,',',''); ?> €</td>
                         </tr>
                         <!-- Envio -->
                         <tr>
                           <td>Envío GLS (24h)</td>
                           <td></td>
-                          <td><?php echo $format_envio ?> €</td>
+                          <td><?php echo number_format($envio,2,',',''); ?> €</td>
+                        </tr>
+                        <!-- Descuento -->
+                        <tr>
+                        <td class="text-success">Descuento</td>
+                        <td></td>
+                        <td class="text-success" id="disccount"></td>
                         </tr>
                         <!-- Total -->
                         <tr style="font-weight: 600">
                           <td>Total</td>
                           <td></td>
-                          <td><?php echo $format_total ?> €</td>
+                          <td id="td_total" data-total="<?php echo $total ?>" ><?php echo number_format($total,2,',',''); ?> €</td>
                         </tr>
+
 
 
                       </tbody>
@@ -322,7 +323,7 @@ $arreglo = $_SESSION['carrito'];
                     </div>
 
                     <div class="form-group">
-                      <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Place Order</button>
+                      <button class="btn btn-primary btn-lg py-3 btn-block" type="submit">Finalizar compra</button>
                     </div>
 
                   </div>
@@ -370,10 +371,16 @@ $arreglo = $_SESSION['carrito'];
             if (arreglo.tipo == "moneda"){
               $("#textoCupon").text("Su cupón es de: "+arreglo.valor+" €");
               $("#textoCupon2").text("Válido hasta el : "+arreglo.fecha_vencimiento);
+              $("#disccount").text(arreglo.valor + ' €');
+              var total = parseFloat($("#td_total").data('total')) - arreglo.valor;
+              $("#td_total").text(total.toFixed(2));
             }
             else {
               $("#textoCupon").text("Su cupón es del: "+arreglo.valor+" %");
               $("#textoCupon2").text("Válido hasta el : "+arreglo.fecha_vencimiento);
+              $("#disccount").text(arreglo.valor + ' %');
+              var total = parseFloat($("#td_total").data('total')) - ((arreglo.valor/100) * (parseFloat($("#td_total").data('total'))));
+              $("#td_total").text(total.toFixed(2));
             }
             $("#formCupon").hide();
             $("#pEliminar").hide();
@@ -388,20 +395,6 @@ $arreglo = $_SESSION['carrito'];
       });
     });
 
-    /*$(document).ready(function(){
-      $("#button-addon2").click(function(){
-        var codigo = $("#c_code").val();
-        $.ajax({
-          url: '.php/validarCodigo.php',
-          data:{
-            codigo:codigo
-          },
-          method: 'POST'
-        }).done(function(respuesta){
-          alert('respuesta');
-        })
-      });
-    });*/
   </script>
 
 </body>

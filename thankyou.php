@@ -71,9 +71,11 @@
     $id_venta
   )")or die($conexion->error);
 
+  // Si llega un id cupon, cambio su estado a "usado"
   if(isset($_POST['id_cupon'])){
     if($_POST['id_cupon']!= ""){
       $conexion->query("UPDATE cupones SET status ='usado' WHERE id=".$_POST['id_cupon'])or die($conexion->error);
+      $conexion->query("UPDATE ventas SET id_cupon =".$_POST['id_cupon']." WHERE id=".$id_venta)or die($conexion->error);
     }
   }
 
