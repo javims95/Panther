@@ -43,3 +43,12 @@ li ul li.nav-item {
     overflow: hidden;
     margin: auto;
 }
+
+/* Altura mínima para ver-correo.php */
+.mailbox-read-message {
+  min-height: 200px;
+}
+.note-editor.note-frame .note-editing-area, .note-editor.note-airframe .note-editing-area {
+  overflow: hidden;
+  min-height: 100px;
+}
