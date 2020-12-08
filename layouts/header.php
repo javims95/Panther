@@ -58,7 +58,7 @@ include 'php\visitas.php';
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin\correo.php">Mensajes</a>
+              <a class="nav-link" href="admin\mensajes.php">Mensajes</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

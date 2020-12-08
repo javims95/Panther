@@ -45,7 +45,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
     <link rel="stylesheet" href="./dashboard/plugins/summernote/summernote-bs4.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-    
+    <!-- Site stylesheet -->
     <link rel="stylesheet" href="..\css\style.css">
 
 </head>
@@ -211,50 +211,6 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
     <!-- AdminLTE for demo purposes -->
     <script src="./dashboard/dist/js/demo.js"></script>
 
-    <script>
-        // Script para eliminar los productos con el botón en la tabla
-        $(document).ready(function() {
-            var idEliminar = -1;
-            var idEditar = -1;
-            var fila;
-            $(".btnEliminar").click(function() {
-                idEliminar = $(this).data('id');
-                fila = $(this).parent('td').parent('tr');
-            });
-            $(".eliminar").click(function() {
-                $.ajax({
-                    url: '../php/eliminarProducto.php',
-                    method: 'POST',
-                    data: {
-                        id: idEliminar
-                    }
-                }).done(function(res) {
-
-                    $(fila).fadeOut(1000);
-                });
-
-            });
-            // Script para editar los productos con el botón en la tabla
-            $(".btnEditar").click(function() {
-                idEditar = $(this).data('id');
-                var nombre = $(this).data('nombre');
-                var descripcion = $(this).data('descripcion');
-                var inventario = $(this).data('inventario');
-                var categoria = $(this).data('categoria');
-                var talla = $(this).data('talla');
-                var color = $(this).data('color');
-                var precio = $(this).data('precio');
-                $("#nombreEdit").val(nombre);
-                $("#descripcionEdit").val(descripcion);
-                $("#inventarioEdit").val(inventario);
-                $("#categoriaEdit").val(categoria);
-                $("#tallaEdit").val(talla);
-                $("#colorEdit").val(color);
-                $("#precioEdit").val(precio);
-                $("#idEdit").val(idEditar);
-            });
-        });
-    </script>
 </body>
 
 </html>

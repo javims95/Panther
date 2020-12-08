@@ -212,7 +212,7 @@
               </li>
               <li class="nav-item">
                 <a href="nuevoCupon.php" class="nav-link">
-                  <i class="fas fa-user-plus nav-icon"></i>
+                  <i class="fas fa-plus nav-icon"></i>
                   <p>Añadir Cupón</p>
                 </a>
               </li>
@@ -246,12 +246,37 @@
 
           <!-- Mensajes -->
           <li class="nav-item">
-            <a href="./correo.php" class="nav-link">
+            <a href="./mensajes.php" class="nav-link">
               <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Mensajes
               </p>
             </a>
+          </li>
+
+          <!-- Correo -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-file-export"></i>
+              <p>
+                Correo
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="json.php" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Crear nuevo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="bandeja-entrada.php" class="nav-link">
+                  <i class="far fa-folder-open nav-icon"></i>
+                  <p>Bandeja de entrada</p>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- Galeria -->
