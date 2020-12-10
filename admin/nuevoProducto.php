@@ -121,14 +121,19 @@ SELECT * FROM usuario ORDER BY id DESC") or die($conexion->error);
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-bottom: 1rem;">
               <div class="col-6">
                 <div class="form-group">
                   <label for="new_imagen">Imagen</label>
-                  <input type="file"  class="form-control-file" id="imagen" name="imagen" placeholder="XL" required>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="imagen" name="imagen">
+                      <label class="custom-file-label" for="imagen">Seleccionar archivo</label>
+                    </div>
+                  </div>
                 </div>
               </div>
-              
+
             </div>
             <center>
               <button class="btn btn-success" type="submit"><i class="fas fa-plus"></i> Añadir Producto</button>

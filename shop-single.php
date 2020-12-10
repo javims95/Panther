@@ -88,101 +88,23 @@ if (isset($_GET['id'])) {
           </div>
         </div>
 
-
-
-        <!-- Publicar un comentario para el producto -->
-        <center>
-          <div class="site-section block-3 site-blocks-2">
-            <div class="row justify-content-center">
-              <div class="col-md-7 site-section-heading text-center pt-4">
-                <h2>Comentarios</h2>
-              </div>
+        <!-- Tabs producto -->
+        <div class="row mt-4">
+          <nav class="w-100">
+            <div class="nav nav-tabs" id="product-tab" role="tablist">
+              <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc" role="tab" aria-controls="product-desc" aria-selected="true">Descripción</a>
+              <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments" role="tab" aria-controls="product-comments" aria-selected="false">Opiniones</a>
+              <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating" role="tab" aria-controls="product-rating" aria-selected="false">Escribir mi opinión</a>
             </div>
-            <div class="col-6">
-          <!-- Modal succes -->
-          <?php
-          if (isset($_GET['success'])) {
-          ?>
-            <div class="alert alert-dismissible fade show alert alert-success" role="alert">
-              Producto publicado correctamente
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          <?php } 
+          </nav>
+          <div class="tab-content p-3" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
+              <!-- Descripción larga -->
 
-              if (isset($_SESSION['datos_login'])) {
-              ?>
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
-                  <div class="image">
-                    <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
-                  </div>
-                  <div class="info">
-                    <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
-                    <span>Este contenido será público</span>
-                  </div>
-                </div>
-              <?php } ?>
-              <form action="comentarios\añadir_comentario.php" method="POST">
-                <input id="comment_product_id" name="comment_product_id" type="hidden">
-                <div class="rating">
-                  <label>
-                    <input type="radio" name="stars" value="1" />
-                    <span class="icon">★</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="stars" value="2" />
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="stars" value="3" />
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="stars" value="4" />
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="stars" value="5" />
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                    <span class="icon">★</span>
-                  </label>
-                </div>
-                <input id="comment_rating" name="comment_rating" type="hidden">
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <input id="comment_name" name="comment_name" type="text" class="form-control" placeholder="Nombre">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input id="comment_email" name="comment_email" type="email" class="form-control" placeholder="Email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <textarea id="comment_comment" name="comment_comment" type="text" class="form-control" placeholder="Comentario"></textarea>
-                </div>
-                <div>
-                  <button type="submit" class="btn btn-primary">Publicar comentario</button>
-                </div>
-              </form>
             </div>
 
-
-
-            <!-- Visualizar los comentarios -->
-            <div style="margin-top: 2rem;" class="col-9">
-              <div class="btn-secondary btn-lg btn-block">
-                Opiniones
-              </div>
-              <br>
+            <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
+              <!-- Comentarios -->
               <?php
               $resultado = $conexion->query("select * from comentarios where producto_id=" . $_GET['id']) or die($conexion->error);
 
@@ -279,8 +201,8 @@ if (isset($_GET['id'])) {
 
                         <td><?php echo $fila['comentario']; ?></td>
                         <td><i id="up" class="fa fa-thumbs-up"></i>
-                           <i id="down" class="fa fa-thumbs-down"></i>
-                          </td>
+                          <i id="down" class="fa fa-thumbs-down"></i>
+                        </td>
                       </tr>
                     <?php } ?>
                   </tbody>
@@ -291,97 +213,173 @@ if (isset($_GET['id'])) {
               ?>
             </div>
 
-          </div>
-      </div>
-    </div>
-    </center>
-
-
-    <?php
-              $res = $conexion->query("select * from productos ORDER BY RAND() limit 6") or die($conexion->error);
-
-              if (mysqli_num_rows($res) > 0) {
-
-                    ?>
-    <!-- Productos relacionados -->
-    <div class="site-section block-3 site-blocks-2 bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Producto relacionados</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="nonloop-block-3 owl-carousel">
-              <?php
-            // En este bucle imprimimos los productos obtenidos de la consulta
-                    while ($fila2 = mysqli_fetch_array($res)) {
-                    ?>
-              <div class="item">
-                <div class="block-4 text-center">
-                  <figure class="block-4-image">
-                    <img src="images/<?php echo $fila2['imagen']; ?>" alt="Image placeholder" class="img-fluid">
-                  </figure>
-                  <div class="block-4-text p-4">
-                    <h3><a href="shop-single.php?id=<?php echo $fila2['id']; ?>"><?php echo $fila2['nombre']; ?></a></h3>
-                    <p class="mb-0 textoTwoLines"><?php echo $fila2['descripcion']; ?></p>
-                    <p class="text-primary font-weight-bold"><?php echo $fila2['precio']; ?> €</p>
+            <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+              <!-- Escribir un comentario -->
+              <div style="margin: auto;" class="col-8">
+                <!-- Modal succes -->
+                <?php
+                if (isset($_GET['success'])) {
+                ?>
+                  <div class="alert alert-dismissible fade show alert alert-success" role="alert">
+                    Su opinión ha sido publicada correctamente
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
                   </div>
-                </div>
+                <?php }
+
+                if (isset($_SESSION['datos_login'])) {
+                ?>
+                  <div class="user-panel mt-3 pb-3 mb-3 d-flex row justify-content-center">
+                    <div class="image">
+                      <img style="border-radius: 50%;width: 70%;" src="admin\dashboard\dist\img/<?php echo $arregloUsuario['imagen']; ?>" class="img-circle elevation-2" alt="<?php echo $arregloUsuario['nombre']; ?>">
+                    </div>
+                    <div class="info">
+                      <a href="#" class="d-block"><?php echo $arregloUsuario['nombre']; ?></a>
+                      <span>Este contenido será público</span>
+                    </div>
+                  </div>
+                <?php } ?>
+                <form action="comentarios\añadir_comentario.php" method="POST">
+                  <input id="comment_product_id" name="comment_product_id" type="hidden">
+                  <div class="rating">
+                    <label>
+                      <input type="radio" name="stars" value="1" />
+                      <span class="icon">★</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="stars" value="2" />
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="stars" value="3" />
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="stars" value="4" />
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                    </label>
+                    <label>
+                      <input type="radio" name="stars" value="5" />
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                      <span class="icon">★</span>
+                    </label>
+                  </div>
+                  <input id="comment_rating" name="comment_rating" type="hidden">
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input id="comment_name" name="comment_name" type="text" class="form-control" placeholder="Nombre">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input id="comment_email" name="comment_email" type="email" class="form-control" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea id="comment_comment" name="comment_comment" type="text" class="form-control" placeholder="Comentario"></textarea>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-primary">Publicar comentario</button>
+                  </div>
+                </form>
               </div>
-                    <?php } } ?>
             </div>
           </div>
         </div>
+
+        <!-- Productos relacionados -->
+        <?php
+        $res = $conexion->query("select * from productos ORDER BY RAND() limit 6") or die($conexion->error);
+
+        if (mysqli_num_rows($res) > 0) {
+
+        ?>
+          <div class="site-section block-3 site-blocks-2 bg-light">
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-md-7 site-section-heading text-center pt-4">
+                  <h2>Producto relacionados</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="nonloop-block-3 owl-carousel">
+                    <?php
+                    // En este bucle imprimimos los productos obtenidos de la consulta
+                    while ($fila2 = mysqli_fetch_array($res)) {
+                    ?>
+                      <div class="item">
+                        <div class="block-4 text-center">
+                          <figure class="block-4-image">
+                            <img src="images/<?php echo $fila2['imagen']; ?>" alt="Image placeholder" class="img-fluid">
+                          </figure>
+                          <div class="block-4-text p-4">
+                            <h3><a href="shop-single.php?id=<?php echo $fila2['id']; ?>"><?php echo $fila2['nombre']; ?></a></h3>
+                            <p class="mb-0 textoTwoLines"><?php echo $fila2['descripcion']; ?></p>
+                            <p class="text-primary font-weight-bold"><?php echo $fila2['precio']; ?> €</p>
+                          </div>
+                        </div>
+                      </div>
+                  <?php }
+                  } ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php include("./layouts/footer.php"); ?>
       </div>
-    </div>
-    <?php include("./layouts/footer.php"); ?>
-  </div>
 
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
+      <script src="js/jquery-3.3.1.min.js"></script>
+      <script src="js/jquery-ui.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="js/owl.carousel.min.js"></script>
+      <script src="js/jquery.magnific-popup.min.js"></script>
+      <script src="js/aos.js"></script>
 
-  <script src="js/main.js"></script>
+      <script src="js/main.js"></script>
 
-  <script>
-    $('.rating :radio').change(function() {
-      //console.log('New star rating: ' + this.value);
-      var rating = this.value;
-      var id = $("#addToCart_comment").data('id');
-      $("#comment_product_id").val(id);
-      $("#comment_rating").val(rating);
+      <script>
+        $('.rating :radio').change(function() {
+          //console.log('New star rating: ' + this.value);
+          var rating = this.value;
+          var id = $("#addToCart_comment").data('id');
+          $("#comment_product_id").val(id);
+          $("#comment_rating").val(rating);
 
-    });
-  </script>
+        });
+      </script>
 
-  <script>
-    var x;
-    x = $(document);
-    x.ready(inicializarEventos);
+      <script>
+        var x;
+        x = $(document);
+        x.ready(inicializarEventos);
 
-    function inicializarEventos() {
-        $("#up").click(colorVerde);
-        $("#down").click(colorRojo);
+        function inicializarEventos() {
+          $("#up").click(colorVerde);
+          $("#down").click(colorRojo);
 
-    }
+        }
 
-    function colorVerde() {
-        $("#up").css("color", "green");
-        $("#down").css("color", "#333");
-    }
+        function colorVerde() {
+          $("#up").css("color", "green");
+          $("#down").css("color", "#333");
+        }
 
-    function colorRojo() {
-        $("#down").css("color", "red");
-        $("#up").css("color", "#333");
-    }
-
-  </script>
+        function colorRojo() {
+          $("#down").css("color", "red");
+          $("#up").css("color", "#333");
+        }
+      </script>
 
 </body>
 

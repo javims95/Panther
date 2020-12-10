@@ -1076,6 +1076,11 @@ a {
 }
 
 
+/* Tabs del producto */
+.p-3 {
+  padding: 1rem!important;
+    width: 100% !important;
+}
 
 
 /* ADMIN */
