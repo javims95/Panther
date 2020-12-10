@@ -45,6 +45,9 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
   <link rel="stylesheet" href="./dashboard/plugins/summernote/summernote-bs4.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/toastr.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -76,7 +79,7 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
+            </div> 
           <?php } ?>
 
           <div class="row mb-2">
@@ -275,6 +278,17 @@ SELECT * FROM productos ORDER BY id DESC") or die($conexion->error);
   <!-- AdminLTE for demo purposes -->
   <script src="./dashboard/dist/js/demo.js"></script>
 
+  <script src="..\js\toastr.min.js"></script>
+
+  <script>
+    /*
+    $(document).Toasts('create', {
+        class: 'bg-success', 
+        title: 'Toast Title',
+        subtitle: 'Subtitle',
+        body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+      })*/
+  </script>
   <script>
     // Script para eliminar los productos con el botón en la tabla
     $(document).ready(function() {
