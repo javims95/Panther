@@ -24,6 +24,64 @@ session_start();
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    .ribbon-wrapper2 {
+      width: 85px;
+      height: 88px;
+      overflow: hidden;
+      position: absolute;
+      top: 5px;
+      right: 20px;
+    }
+    .ribbon2 {
+  font-size: 12px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-family: 'Montserrat Bold', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: .05em;
+  line-height: 15px;
+  text-align: center;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  right: -11px;
+  top: 10px;
+  width: 100px;
+  height: 28px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  background-color: #dedede;
+  background-image: -webkit-linear-gradient(top, #ffffff 45%, #dedede 100%);
+  background-image: -o-linear-gradient(top, #ffffff 45%, #dedede 100%);
+  background-image: linear-gradient(to bottom, #ff0000 45%, #ea7e7e 100%);
+  background-repeat: repeat-x;
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffdedede', GradientType=0)
+}
+
+.ribbon2:before,
+.ribbon2:after {
+  content: "";
+  border-top: 3px solid #9e9e9e;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  bottom: -3px
+}
+
+.ribbon2:before {
+  left: 0
+}
+
+.ribbon2:after {
+  right: 0
+}
+  </style>
+
 </head>
 
 <body>
@@ -123,13 +181,14 @@ session_start();
                       ?>
                         <div class="col-md-3">
                           <div class="item-box-blog box_productos">
-                            <div class="item-box-blog-image">
-                              <!-- Label -->
-                              <div style="background: red !important;border-radius: 3px;padding: 5px;width: 100px;margin-bottom: 10px;" class="item-box-blog-date bg-blue-ui white labelSale">
-                                <span class="mon">Oferta</span> </div>
-                              <!-- Imagen -->
-                              <figure> <a href="shop-single.php?id=<?php echo $fila['id']; ?>"><img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a></figure>
-                            </div>
+                            <figure class="block-4-image">
+                              <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
+                              <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
+                                <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a>
+                              <div class="ribbon-wrapper2">
+                                <div class="ribbon2">Oferta</div>
+                              </div>
+                            </figure>
                             <div class="item-box-blog-body">
                               <!--Heading-->
                               <div class="item-box-blog-heading">
@@ -141,7 +200,6 @@ session_start();
                               </div>
                               <p style="font-size: 20px;" class="text-primary font-weight-bold"><?php echo $fila['precio']; ?> €</p>
                               <p><a href="cart.php?id=<?php echo $fila[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
-                              <!--Read More Button-->
                             </div>
                           </div>
                         </div>
@@ -159,13 +217,14 @@ session_start();
                       ?>
                         <div class="col-md-3">
                           <div class="item-box-blog box_productos">
-                            <div class="item-box-blog-image">
-                              <!-- Label -->
-                              <div style="background: red !important;border-radius: 3px;padding: 5px;width: 100px;margin-bottom: 10px;" class="item-box-blog-date bg-blue-ui white labelSale">
-                                <span class="mon">Oferta</span> </div>
-                              <!-- Imagen -->
-                              <figure> <img src="images/<?php echo $fila2['imagen']; ?>" alt="<?php echo $fila2['nombre']; ?>" class="img-fluid"></a></figure>
-                            </div>
+                            <figure class="block-4-image">
+                              <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
+                              <a href="shop-single.php?id=<?php echo $fila2['id']; ?>">
+                                <img src="images/<?php echo $fila2['imagen']; ?>" alt="<?php echo $fila2['nombre']; ?>" class="img-fluid"></a>
+                              <div class="ribbon-wrapper2">
+                                <div class="ribbon2">Oferta</div>
+                              </div>
+                            </figure>
                             <div class="item-box-blog-body">
                               <!--Heading-->
                               <div class="item-box-blog-heading">
@@ -177,7 +236,6 @@ session_start();
                               </div>
                               <p style="font-size: 20px;" class="text-primary font-weight-bold"><?php echo $fila2['precio']; ?> €</p>
                               <p><a href="cart.php?id=<?php echo $fila2[0]; ?>" class="buy-now btn btn-sm btn-primary bntComprar">Añadir al Carrito</a></p>
-                              <!--Read More Button-->
                             </div>
                           </div>
                         </div>

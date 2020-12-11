@@ -188,6 +188,9 @@ session_start();
                       <!-- Añadimos un poco de PHP a la URL para que cada producto tenga su página -->
                       <a href="shop-single.php?id=<?php echo $fila['id']; ?>">
                         <img src="images/<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" class="img-fluid"></a>
+                      <div class="ribbon-wrapper">
+                        <div class="ribbon">New</div>
+                      </div>
                     </figure>
                     <div class="block-4-text p-4">
                       <h3><a href="shop-single.php?id=<?php echo $fila['id']; ?>"><?php echo $fila['nombre']; ?></a></h3>
@@ -375,7 +378,7 @@ session_start();
 
   <script src="star-rating\src\jquery.star-rating-svg.js"></script>
 
-    <!-- Valoraciones -->
+  <!-- Valoraciones -->
   <script>
     $(".my-rating-10").starRating({
       starSize: 80,
