@@ -37,6 +37,7 @@ session_start();
     C A R O U S E L
     ####################################################
     -->
+    <center>
     <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
       <ol class="carousel-indicators">
         <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -119,6 +120,7 @@ session_start();
         <span class="sr-only">Next</span>
       </a>
     </div>
+    </center>
     <!-- Fin del carousel -->
 
     <div class="site-section">

@@ -143,7 +143,7 @@
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
-      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+      <ul class="nav nav-pills nav-sidebar nav-legacy nav-child-indent flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <!-- Inicio -->
         <li class="nav-item">
@@ -151,6 +151,16 @@
             <i class="nav-icon fas fa-home"></i>
             <p>
               Inicio
+            </p>
+          </a>
+        </li>
+
+        <!-- Mi cuenta -->
+        <li class="nav-item">
+          <a href="./mi-cuenta.php" class="nav-link">
+            <i class="nav-icon fas fa-user-circle"></i>
+            <p>
+              Mi cuenta
             </p>
           </a>
         </li>
@@ -247,7 +257,7 @@
           <!-- Mensajes -->
           <li class="nav-item">
             <a href="./mensajes.php" class="nav-link">
-              <i class="nav-icon fas fa-envelope"></i>
+              <i class="nav-icon fas fa-comment-dots"></i>
               <p>
                 Mensajes
               </p>
@@ -257,7 +267,7 @@
           <!-- Correo -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-file-export"></i>
+              <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Correo
                 <i class="fas fa-angle-left right"></i>
@@ -265,7 +275,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="json.php" class="nav-link">
+                <a href="nuevo-correo.php" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Crear nuevo</p>
                 </a>

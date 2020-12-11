@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include "conexion.php";
-echo $_POST['id'];
+//echo $_POST['id'];
 if(isset($_POST['nombre']) &&  isset($_POST['email'])   &&  isset($_POST['telefono'])
     &&  isset($_POST['nivel'])){
     

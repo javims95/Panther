@@ -1,10 +1,5 @@
 /* ADMIN */
 
-/* Menú header */
-li ul li.nav-item {
-  margin-left: .7rem;
-}
-
 /* Galería */
 .container_gallery {
   position: relative;
