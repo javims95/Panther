@@ -125,6 +125,11 @@ class PANTHER_Admin {
          */	
         wp_enqueue_style( 'panther_material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' , array(), $this->version, 'all' );
         wp_enqueue_style( 'panther_materialize_css', PANTHER_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0.0-rc.1', 'all' );
+
+        /**
+         * Font Awesome 5.0.6
+         */
+        wp_enqueue_style( 'panther_fontawesome_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
         
         /**
          * panther-admin.css
