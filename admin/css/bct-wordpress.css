@@ -1,0 +1,3 @@
+.dashicons-panther{background:url(../img/bezier-20-wp.svg) 50% 50% no-repeat}
+a:hover>.dashicons-panther{background-image:url(../img/bezier-20-wp-hover.svg)}
+a.current>.dashicons-panther{background-image:url(../img/bezier-20-wp-active.svg)}
