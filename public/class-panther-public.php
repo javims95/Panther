@@ -86,7 +86,7 @@ class PANTHER_Public {
      * Material Icons Google
      * https://material.io/resources/icons/ 
      */	
-    wp_enqueue_style( 'panther_material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' , array(), $this->version, 'all' );
+    wp_enqueue_style( 'panther_material_icons', PANTHER_DIR_URI. 'helpers/material-icons/css/material-icons.css' , array(), $this->version, 'all' );
 
     /**
      * Font Awesome 5.0.6

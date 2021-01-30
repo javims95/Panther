@@ -123,7 +123,7 @@ class PANTHER_Admin {
          * Material Icons Google
          * https://material.io/resources/icons/ 
          */	
-        wp_enqueue_style( 'panther_material_icons', 'https://fonts.googleapis.com/icon?family=Material+Icons' , array(), $this->version, 'all' );
+        wp_enqueue_style( 'panther_material_icons', PANTHER_DIR_URI. 'helpers/material-icons/css/material-icons.css' , array(), $this->version, 'all' );
         wp_enqueue_style( 'panther_materialize_css', PANTHER_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0.0-rc.1', 'all' );
 
         /**
