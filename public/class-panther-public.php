@@ -81,18 +81,15 @@ class PANTHER_Public {
     public function enqueue_styles() {
                 
     /**
-     * Framework Materialize CSS
-     * https://materializecss.com/getting-started.html
-     * Material Icons Google
-     * https://material.io/resources/icons/ 
-     */	
-    wp_enqueue_style( 'panther_material_icons', PANTHER_DIR_URI. 'helpers/material-icons/css/material-icons.css' , array(), $this->version, 'all' );
+     * Framework Bootstrap
+     * https://getbootstrap.com/docs/4.6/getting-started/download/
+     */		
+    wp_enqueue_style( 'panther_bootstrap_public_css', PANTHER_DIR_URI. 'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
 
     /**
      * Font Awesome 5.0.6
      */
-    wp_enqueue_style( 'panther_fontawesome_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
-    wp_enqueue_style( 'panther_materialize_public_css', PANTHER_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0.0-rc.1', 'all' );
+    wp_enqueue_style( 'panther_fontawesome_public_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
     wp_enqueue_style( $this->theme_name, PANTHER_DIR_URI . 'public/css/panther-public.css', array(), $this->version, 'all' );
         
     }    
@@ -106,11 +103,10 @@ class PANTHER_Public {
     public function enqueue_scripts() {
         
         /**
-         * Framework Materialize CSS
-         * https://materializecss.com/getting-started.html
-         * Material Icons Google
+         * Framework Bootstrap
+         * https://getbootstrap.com/docs/4.6/getting-started/download/
          */	               
-        wp_enqueue_script( 'panther_materialize_public_js', PANTHER_DIR_URI . 'helpers/materialize/js/materialize.min.js', ['jquery'], '1.0.0-rc.1', true );
+        wp_enqueue_script( 'panther_bootstrap_public_js', PANTHER_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
         wp_enqueue_script( $this->theme_name, PANTHER_DIR_URI . 'public/js/panther-public.js', array( 'jquery' ), $this->version, true );
         
     }
