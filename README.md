@@ -1,2 +1,2 @@
 # bootland
- Proyecto final de 2º DAW de una tienda online
+ Proyecto final de 2º DAW. Desarrollo de un tema para Wordpress
