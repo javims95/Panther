@@ -12,20 +12,79 @@
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
+
+/**=================
+* Estilos Generales
+====================**/
+
+
+
 /* Header */
 .panther-header {
     background-blend-mode: soft-light !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-} 
+}
 
 .panther-header .panther-port {
-    display: flex;
-    justify-content: center;
+    display:  -webkit-box;
+    display:  -ms-flexbox;
+    display:  flex;
+    -webkit-box-pack:  center;
+    -ms-flex-pack:  center;
+    justify-content:  center;
 }
 
 .panther-header .panther-port img {
-    width: 80px;
+    width:  100px;
+    color:  white;
+    position:  relative;
+}
+
+.panther-header-title {
+    background: rgba(0, 0, 0, 0.29);
+    text-align:  center;
+    padding:  9px 0;
+}
+
+.panther-header-title h4 {
+    color:  white;
+    margin:  0;
+}
+
+/* Boton de guardar, solo si se coloca encima del degradado */
+.btn-panther {
+    border: 0;
+    color: white;
+    width: auto;
+    height: 41px;
+    padding: 0 14px 0 17px;
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    z-index: 99;
+}
+
+/* Elementos menu navegacion opciones tema */
+ul.panther-menu {
+    margin: 0;
+    padding: 0;
+    background: #293b3f;
+}
+
+ul.panther-menu li {
     color: #fff;
-    position: relative;
+}
+
+ul.panther-menu li a {
+    color: #fff;
+    padding: 12px 11px;
+    display: flex;
+    align-items: center;
+    border-left: 7px solid transparent;
+}
+
+ul.panther-menu li a:hover, ul.panther-menu li a.active {
+    border-left: 7px solid rgba(255,255,255,0.6);
+    background: #161e21;
 }
