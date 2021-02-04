@@ -11,3 +11,21 @@
 /* Rules for using icons as white on a dark background. */
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
+/* Header */
+.panther-header {
+    background-blend-mode: soft-light !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+} 
+
+.panther-header .panther-port {
+    display: flex;
+    justify-content: center;
+}
+
+.panther-header .panther-port img {
+    width: 80px;
+    color: #fff;
+    position: relative;
+}
