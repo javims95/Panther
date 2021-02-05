@@ -17,6 +17,9 @@
 * Estilos Generales
 ====================**/
 
+body {
+    background: #eee;
+}
 
 
 /* Header */
@@ -87,4 +90,32 @@ ul.panther-menu li a {
 ul.panther-menu li a:hover, ul.panther-menu li a.active {
     border-left: 7px solid rgba(255,255,255,0.6);
     background: #161e21;
+}
+
+/* Columna derecha - Opciones del tema */
+.panther-sec-title {
+    background: #007eff;
+    padding: 8px 16px;
+    border-left: 6px solid rgba(0, 0, 0, 0.30);
+    border-right: 6px solid rgba(0, 0, 0, 0.30);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.panther-sec-title h5 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.panther-sec-configs {
+    padding: 20px;
+    border: 1px solid #ababab;
+    border-top-width: 4px;
+}
+
+.form-control {
+    border: 1px solid #7e8993;
 }
