@@ -47,9 +47,10 @@
             <div class="row mb-3">
                 <div class="col-md-4"></div>
                 <div class="col-md-8 panther-media-preview panther-image">
-                    <img style="width: 200px" src="" alt="">
+                    <img class="img-thumbnail" style="width: 200px" src="" alt="">
                 </div>
             </div>
+            
         </div>
     </section>
 </div>

@@ -179,6 +179,11 @@ class PANTHER_Admin {
         wp_enqueue_script( 'panther_bootstrap_admin_js', PANTHER_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
         
         /**
+         * Scripts globales         
+         */
+        wp_enqueue_script( 'panther-global', PANTHER_DIR_URI . 'admin/js/panther-global.js', [ 'jquery' ], '1.0.0', true );
+
+        /**
          * panther-admin.js
          * Archivo Javascript principal
          * de la administración

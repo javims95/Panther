@@ -3,7 +3,7 @@ jQuery(document).ready(function($){
     // Panther input media
 
     var $pantherMediaInputBtn   = $( '.panther-input-media button' ),
-        $pantherRemoveMedia     = $( '.panther-remove-media' );
+        $pantherRemoveMedia     = $( '.panther-media-remove' );
     
     $pantherMediaInputBtn.on( 'click', function(){
         
@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
         marcoMedia.on('select', function(){
 
             var attach  = marcoMedia.state().get('selection').first().toJSON(),
-                url     = attach.url;
+                url     = Panther.limpiarEnlace(attach.url);
 
             $pantherMediaInput.val(url);
             $pantherMediaPreviewImg.attr('src', url);
@@ -50,6 +50,21 @@ jQuery(document).ready(function($){
 
         marcoMedia.open();
 
+    });
+
+    // Remove media
+    $pantherRemoveMedia.on( 'click', function(){
+        
+        var $this               = $( this ),
+            dataMedia           = $this.attr( 'data-media-remove' ),
+            $pantherMediaInput      = $( '.panther-input-media #' + dataMedia ),
+            $pantherMediaPreview    = $( '.panther-media-preview.' + dataMedia ),
+            $pantherMediaPreviewImg = $( '.panther-media-preview.' + dataMedia + ' img' );
+        
+        $pantherMediaInput.val('');
+        $pantherMediaPreview.hide();
+        $pantherMediaPreviewImg.attr( 'src', '' );
+        $this.hide();
     });
 
 });
