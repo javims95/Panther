@@ -126,12 +126,7 @@ class PANTHER_Admin {
         /**
          * Font Awesome 5.0.6
          */
-        wp_enqueue_style( 'panther_fontawesome_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
-        
-        /**
-         * Material-Icons
-         */
-        wp_enqueue_style( 'panther_material_icons', PANTHER_DIR_URI. 'helpers/material-icons/css/material-icons.css' , array(), $this->version, 'all' );
+        wp_enqueue_style( 'panther_fontawesome_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );        
 
         /**
          * panther-admin.css

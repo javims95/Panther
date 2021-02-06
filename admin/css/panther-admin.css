@@ -55,6 +55,10 @@ body {
     margin:  0;
 }
 
+.panther-header-title i {
+    margin-right: 7px;
+}
+
 /* Boton de guardar, solo si se coloca encima del degradado */
 .btn-panther {
     border: 0;
@@ -68,7 +72,7 @@ body {
     z-index: 99;
 }
 
-/* Elementos menu navegacion opciones tema */
+/* Elementos menu navegacion izquierdo opciones tema */
 ul.panther-menu {
     margin: 0;
     padding: 0;
@@ -98,6 +102,11 @@ ul.panther-menu li a:hover {
     border-left: 7px solid rgba(255,255,255,0.6);
     background: #161e21;
     text-decoration: none;
+}
+
+.panther-menu i {
+    margin-right: .6rem;
+    font-size: 1.5rem;
 }
 
 /* Columna derecha - Opciones del tema */

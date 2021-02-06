@@ -5,7 +5,7 @@ jQuery(document).ready(function($){
      */
     var $panther_tabs           = $('.panther-menu li a'),
         $panther_content        = $('.panther-content'),
-        $panther_content_title  = $('.panther-sec-title h4 span strong'),
+        $panther_header_title  = $('.panther-header-title h4'),
         $panther_menu_activado  = $('#panther-menu-activado');
 
     $panther_tabs.on('click', function(e){
@@ -23,7 +23,8 @@ jQuery(document).ready(function($){
         $this.addClass('active');
 
         // Cambio del titulo de la cabecera automatico
-        $panther_content_title.text($this.find('span').text());
+        //$panther_header_title.text($this.find('span').text());
+        $panther_header_title.html($this.html());
 
 
     });

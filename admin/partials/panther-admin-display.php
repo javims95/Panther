@@ -21,7 +21,7 @@
                             <img src="<?php echo PANTHER_DIR_URI; ?>admin/img/panther.svg" alt="">
                         </div>
                         <div class="panther-header-title">
-                            <h4><i class="fas fa-cog"></i> <span>Opciones</span></h4>
+                            <h4><i class="fas fa-cog"></i><span>Opciones</span></h4>
                         </div>                    
                     </div>
                 </div>
@@ -32,18 +32,48 @@
                 <div class="col-3">
                     <ul class="panther-menu">
                         <li>
-                            <a href="#panther-global" class="active" data-menuActivado="global">
-                            <i class="fas fa-cog"></i><span> Opciones</span>
+                            <a href="#pnt-global" class="active" data-menuActivado="global">
+                            <i class="fas fa-cog"></i><span>Opciones</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#panther-header" class="" data-menuActivado="header">
-                            <i class="fas fa-cog"></i><span> Cabecera</span>
+                            <a href="#pnt-header" class="" data-menuActivado="header">
+                            <i class="fas fa-window-maximize"></i><span>Header</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#panther-menu" class="" data-menuActivado="header">
-                            <i class="fas fa-cog"></i><span> Cabecera</span>
+                            <a href="#pnt-sidebars" class="" data-menuActivado="sidebars">
+                                <i class="fas fa-window-maximize fa-rotate-90"></i><span>Sidebars</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-footer" class="" data-menuActivado="footer">
+                                <i class="fas fa-window-maximize fa-rotate-180"></i><span>Footer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-menu" class="" data-menuActivado="menu">
+                            <i class="fas fa-bars"></i><span>Menú</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-colors" class="" data-menuActivado="fuentes">
+                            <i class="fas fa-paint-brush"></i><span>Colores</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-fonts" class="" data-menuActivado="fuentes">
+                            <i class="fas fa-font"></i><span>Fuentes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-social" class="" data-menuActivado="social">
+                            <i class="fab fa-facebook-square"></i><span>Redes Sociales</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pnt-custom" class="" data-menuActivado="custom">
+                            <i class="fas fa-code"></i><span>Código Personalizado</span>
                             </a>
                         </li>
                     </ul>
@@ -56,9 +86,15 @@
                             <input type="hidden" name="panther[menuActivado]" id="panther-menu-activado">
 
                             <!-- Configuraciones globales -->
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-global.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-header.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-menu.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-colors.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-custom.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-fonts.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-footer.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-global.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-header.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-menu.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-sidebars.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-social.php'; ?>
                         </div>
                     </form>
                 </div>
