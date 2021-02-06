@@ -37,8 +37,13 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#panther-global" data-menuActivado="global">
-                            <i class="fas fa-cog"></i><span> Opciones</span>
+                            <a href="#panther-header" class="" data-menuActivado="header">
+                            <i class="fas fa-cog"></i><span> Cabecera</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#panther-menu" class="" data-menuActivado="header">
+                            <i class="fas fa-cog"></i><span> Cabecera</span>
                             </a>
                         </li>
                     </ul>
@@ -48,10 +53,12 @@
                 <div class="col-9">
                     <form id="panther-form">
                         <div id="panther-form-content">
-                            <input type="hidden" name="panther[menuActivado]" id="menuActivado">
+                            <input type="hidden" name="panther[menuActivado]" id="panther-menu-activado">
 
                             <!-- Configuraciones globales -->
                             <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-global.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-header.php'; ?>
+                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/panther-menu.php'; ?>
                         </div>
                     </form>
                 </div>

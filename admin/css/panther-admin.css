@@ -150,3 +150,7 @@ span.panther-media-remove {
     width: 100%;
     display: block;
 }
+
+.panther-content {
+    display: none;
+}
