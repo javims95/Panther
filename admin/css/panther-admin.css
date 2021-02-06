@@ -93,22 +93,7 @@ ul.panther-menu li a:hover, ul.panther-menu li a.active {
 }
 
 /* Columna derecha - Opciones del tema */
-.panther-sec-title {
-    background: #007eff;
-    padding: 8px 16px;
-    border-left: 6px solid rgba(0, 0, 0, 0.30);
-    border-right: 6px solid rgba(0, 0, 0, 0.30);
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-.panther-sec-title h5 {
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-}
 
 .panther-sec-configs {
     padding: 20px;
@@ -118,4 +103,42 @@ ul.panther-menu li a:hover, ul.panther-menu li a.active {
 
 .form-control {
     border: 1px solid #7e8993;
+}
+
+input#panther-image {
+    width: inherit;
+    flex: 1;
+}
+
+.panther-input-media input {
+    padding-right: 60px;
+}
+
+span.panther-media-remove {
+    position: absolute;
+    right: 12px;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    border-radius: 0px 5px 5px 0px;
+    background: firebrick;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.panther-input-media >* {
+    height: 2.8rem;
+}
+
+.panther-media-preview {
+    margin: 7px 0px 23px 0px;
+    display: none;
+}
+
+.panther-media-preview img {
+    width: 100%;
+    display: block;
 }
