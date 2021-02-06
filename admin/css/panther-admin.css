@@ -77,6 +77,7 @@ ul.panther-menu {
 
 ul.panther-menu li {
     color: #fff;
+    margin-bottom: 0px;
 }
 
 ul.panther-menu li a {
@@ -87,9 +88,16 @@ ul.panther-menu li a {
     border-left: 7px solid transparent;
 }
 
-ul.panther-menu li a:hover, ul.panther-menu li a.active {
+ul.panther-menu li a.active {
+    border-left: 7px solid rgba(255,255,255,0.6);
+    background: #0073aa;
+    text-decoration: none;
+}
+
+ul.panther-menu li a:hover {
     border-left: 7px solid rgba(255,255,255,0.6);
     background: #161e21;
+    text-decoration: none;
 }
 
 /* Columna derecha - Opciones del tema */
