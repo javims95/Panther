@@ -4,7 +4,7 @@
     
 })( typeof window !== 'undefined' ? window : this, jQuery, function( window, $ ) {
         
-    var Panther = (function(){
+    var PNT = (function(){
         
         var core = {
             
@@ -75,7 +75,7 @@
         
     })();
     
-    window.Panther = window.$bc = Panther;
+    window.PNT = window.$bc = PNT;
     
 });
 

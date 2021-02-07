@@ -1,3 +1,3 @@
-<div id="panther-colors" class="panther-content col-12">
+<div id="pnt-colors" class="pnt-content col-12">
     <h2>Colores</h2>
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-class PANTHER_Normalize {
+class PNT_Normalize {
     
     protected $texto='';
     

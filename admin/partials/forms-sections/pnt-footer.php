@@ -1,3 +1,3 @@
-<div id="panther-footer" class="panther-content col-12">
+<div id="pnt-footer" class="pnt-content col-12">
     <h2>Footer</h2>
 </div>

@@ -26,7 +26,7 @@
  * @property string $plugin_name
  * @property string $version
  */
-class PANTHER_Master {
+class PNT_Master {
     
     /**
 	 * El cargador que es responsable de mantener y registrar
@@ -34,7 +34,7 @@ class PANTHER_Master {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      PANTHER_Cargador    $cargador  Mantiene y registra todos los ganchos ( Hooks ) del plugin
+	 * @var      PNT_Cargador    $cargador  Mantiene y registra todos los ganchos ( Hooks ) del plugin
 	 */
     protected $cargador;
     
@@ -86,10 +86,10 @@ class PANTHER_Master {
 	 *
 	 * Incluya los siguientes archivos que componen el plugin:
 	 *
-	 * - PANTHER_Cargador. Itera los ganchos del plugin.
-	 * - PANTHER_i18n. Define la funcionalidad de la internacionalización
-	 * - PANTHER_Admin. Define todos los ganchos del área de administración.
-	 * - PANTHER_Public. Define todos los ganchos del del cliente/público.
+	 * - PNT_Cargador. Itera los ganchos del plugin.
+	 * - PNT_i18n. Define la funcionalidad de la internacionalización
+	 * - PNT_Admin. Define todos los ganchos del área de administración.
+	 * - PNT_Public. Define todos los ganchos del del cliente/público.
 	 *
 	 * @since    1.0.0
 	 * @access   private
@@ -99,44 +99,49 @@ class PANTHER_Master {
         /**
 		 * La clase responsable de iterar las acciones y filtros del núcleo del plugin.
 		 */
-        require_once PANTHER_DIR_PATH . 'includes/class-panther-cargador.php';
+        require_once PNT_DIR_PATH . 'includes/class-pnt-cargador.php';
         
         /**
 		 * La clase responsable de definir la funcionalidad de la
          * internacionalización del plugin
 		 */
-        require_once PANTHER_DIR_PATH . 'includes/class-panther-i18n.php';        
+        require_once PNT_DIR_PATH . 'includes/class-pnt-i18n.php';        
         
         /**
 		 * La clase responsable de registrar menús y submenús
          * en el área de administración
 		 */
-        require_once PANTHER_DIR_PATH . 'includes/class-panther-build-menupage.php';
+        require_once PNT_DIR_PATH . 'includes/class-pnt-build-menupage.php';
         
         /**
 		 * La clase responsable de normalizar acentos, eñes,
          * y caracteres especales
 		 */
-        require_once PANTHER_DIR_PATH . 'includes/class-panther-normalize.php';
+        require_once PNT_DIR_PATH . 'includes/class-pnt-normalize.php';
+        
+		/**
+		 * La clase responsable de construir los elementos de los Tabs        
+		 */
+		require_once PNT_DIR_PATH . 'includes/class-pnt-form-builder.php';
         
         /**
 		 * La clase responsable de definir todas las acciones en el
          * área de administración
 		 */
-        require_once PANTHER_DIR_PATH . 'admin/class-panther-admin.php';
+        require_once PNT_DIR_PATH . 'admin/class-pnt-admin.php';
         
         /**
 		 * La clase responsable de definir todas las acciones en el
          * área del lado del cliente/público
 		 */
-        require_once PANTHER_DIR_PATH . 'public/class-panther-public.php';        
+        require_once PNT_DIR_PATH . 'public/class-pnt-public.php';        
         
     }
     
     /**
 	 * Defina la configuración regional de este plugin para la internacionalización.
      *
-     * Utiliza la clase PANTHER_i18n para establecer el dominio y registrar el gancho
+     * Utiliza la clase PNT_i18n para establecer el dominio y registrar el gancho
      * con WordPress.
 	 *
 	 * @since    1.0.0
@@ -144,8 +149,8 @@ class PANTHER_Master {
 	 */
     private function set_idiomas() {
         
-        $panther_i18n = new PANTHER_i18n();
-        $this->cargador->add_action( 'after_setup_theme', $panther_i18n, 'load_plugin_textdomain' );
+        $pnt_i18n = new PNT_i18n();
+        $this->cargador->add_action( 'after_setup_theme', $pnt_i18n, 'load_plugin_textdomain' );
         
     }
     
@@ -159,9 +164,9 @@ class PANTHER_Master {
     private function cargar_instancias() {
         
         // Cree una instancia del cargador que se utilizará para registrar los ganchos con WordPress.
-        $this->cargador     = new PANTHER_Cargador;
-        $this->panther_admin    = new PANTHER_Admin( $this->get_theme_name(), $this->get_version() );
-        $this->panther_public   = new PANTHER_Public( $this->get_theme_name(), $this->get_version() );
+        $this->cargador     = new PNT_Cargador;
+        $this->pnt_admin    = new PNT_Admin( $this->get_theme_name(), $this->get_version() );
+        $this->pnt_public   = new PNT_Public( $this->get_theme_name(), $this->get_version() );
         
     }
     
@@ -174,10 +179,10 @@ class PANTHER_Master {
 	 */
     private function definir_admin_hooks() {
         
-        $this->cargador->add_action( 'admin_enqueue_scripts', $this->panther_admin, 'enqueue_styles' );
-        $this->cargador->add_action( 'admin_enqueue_scripts', $this->panther_admin, 'enqueue_scripts' );
+        $this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_styles' );
+        $this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_scripts' );
         
-        $this->cargador->add_action( 'admin_menu', $this->panther_admin, 'add_menu' );
+        $this->cargador->add_action( 'admin_menu', $this->pnt_admin, 'add_menu' );
         
     }
     
@@ -190,8 +195,8 @@ class PANTHER_Master {
 	 */
     private function definir_public_hooks() {
         
-        $this->cargador->add_action( 'wp_enqueue_scripts', $this->panther_public, 'enqueue_styles' );
-        $this->cargador->add_action( 'wp_enqueue_scripts', $this->panther_public, 'enqueue_scripts' );
+        $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_styles' );
+        $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_scripts' );
         
     }
     
@@ -222,7 +227,7 @@ class PANTHER_Master {
 	 *
 	 * @since     1.0.0
      * @access    public
-	 * @return    PANTHER_Cargador    Itera los ganchos del plugin.
+	 * @return    PNT_Cargador    Itera los ganchos del plugin.
 	 */
 	public function get_cargador() {
 		return $this->cargador;

@@ -20,7 +20,7 @@
  * @subpackage BC THEME/includes
  * @author     Javier Muñoz 
  */
-class PANTHER_i18n {
+class PNT_i18n {
     
     /**
 	 * Carga el dominio de texto (textdomain) del plugin para la traducción.
@@ -30,12 +30,12 @@ class PANTHER_i18n {
 	 */    
     public function load_theme_textdomain() {
         
-        $textdomain = "panther-opt";
+        $textdomain = "pnt-opt";
         
         load_theme_textdomain(
             $textdomain,
             false,
-            PANTHER_DIR_PATH . 'lang'
+            PNT_DIR_PATH . 'lang'
         );
         
         $locale = apply_filters( 'theme_locale', is_admin() ? get_user_locale() : get_locale(), $textdomain );

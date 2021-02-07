@@ -1,14 +1,14 @@
 <?php
 
-class PANTHER_Activator {
+class PNT_Activator {
 
     public static function activate() {
 
-        $panther = get_option('panther_config');
+        $pnt = get_option('pnt_config');
 
-        if (! $panther){
+        if (! $pnt){
 
-            $panther = [
+            $pnt = [
                 
                 "menuActivado"  => "global",
             
@@ -155,7 +155,7 @@ class PANTHER_Activator {
             
             ];
 
-            add_option('panther_config', $panther);
+            add_option('pnt_config', $pnt);
         }
     }
 }

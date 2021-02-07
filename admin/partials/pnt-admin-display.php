@@ -3,7 +3,7 @@
         <div class="row position-relative mb-0">
 
             <!-- Botón guardar cambios -->
-            <button class="btn btn-success btn-panther"><i class="fas fa-save"></i> Guardar</button>
+            <button class="btn btn-success btn-pnt"><i class="fas fa-save"></i> Guardar</button>
 
                 <div class="col-12 pl-0">                
                     <?php
@@ -16,11 +16,11 @@
                     ";
                     ?>
 
-                    <div class="panther-header pt-4" style="<?php echo $bg_gradient; ?>">
-                        <div class="panther-port">
-                            <img src="<?php echo PANTHER_DIR_URI; ?>admin/img/panther.svg" alt="">
+                    <div class="pnt-header pt-4" style="<?php echo $bg_gradient; ?>">
+                        <div class="pnt-port">
+                            <img src="<?php echo PNT_DIR_URI; ?>admin/img/panther.svg" alt="">
                         </div>
-                        <div class="panther-header-title">
+                        <div class="pnt-header-title">
                             <h4><i class="fas fa-cog"></i><span>Opciones</span></h4>
                         </div>                    
                     </div>
@@ -30,7 +30,7 @@
             <!-- Columna de navegación opciones tema -->
             <div class="row ml-1">
                 <div class="col-3">
-                    <ul class="panther-menu">
+                    <ul class="pnt-menu">
                         <li>
                             <a href="#pnt-global" class="active" data-menuActivado="global">
                             <i class="fas fa-cog"></i><span>Opciones</span>
@@ -81,20 +81,20 @@
 
                 <!-- Contenido de la configuracion -->
                 <div class="col-9">
-                    <form id="panther-form">
-                        <div id="panther-form-content">
-                            <input type="hidden" name="panther[menuActivado]" id="panther-menu-activado">
+                    <form id="pnt-form">
+                        <div id="pnt-form-content">
+                            <input type="hidden" name="pnt[menuActivado]" id="pnt-menu-activado">
 
                             <!-- Configuraciones globales -->
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-colors.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-custom.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-fonts.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-footer.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-global.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-header.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-menu.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-sidebars.php'; ?>
-                            <?php require_once PANTHER_DIR_PATH . 'admin/partials/forms-sections/pnt-social.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-colors.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-custom.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-fonts.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-footer.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-global.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-header.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-menu.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-sidebars.php'; ?>
+                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-social.php'; ?>
                         </div>
                     </form>
                 </div>

@@ -24,7 +24,7 @@
  * @property array $menus
  * @property array $submenus
  */
-class PANTHER_Build_Menupage {
+class PNT_Build_Menupage {
     
     /**
 	 * El array de menús a registrar en WordPress.

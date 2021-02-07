@@ -25,7 +25,7 @@
  * @property array $actions
  * @property array $filters
  */
-class PANTHER_Cargador {
+class PNT_Cargador {
     
     /**
 	 * El array de acciones registradas en WordPress.

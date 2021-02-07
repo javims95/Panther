@@ -2,36 +2,36 @@
 
 global $wpdb;
 
-$panther_dir_path = ( substr( get_template_directory(),     -1 ) === '/' ) ? get_template_directory()     : get_template_directory()     . '/';
-$panther_dir_uri  = ( substr( get_template_directory_uri(), -1 ) === '/' ) ? get_template_directory_uri() : get_template_directory_uri() . '/';
+$pnt_dir_path = ( substr( get_template_directory(),     -1 ) === '/' ) ? get_template_directory()     : get_template_directory()     . '/';
+$pnt_dir_uri  = ( substr( get_template_directory_uri(), -1 ) === '/' ) ? get_template_directory_uri() : get_template_directory_uri() . '/';
 
-define( 'PANTHER_DIR_PATH', $panther_dir_path );
-define( 'PANTHER_DIR_URI',  $panther_dir_uri  );
+define( 'PNT_DIR_PATH', $pnt_dir_path );
+define( 'PNT_DIR_URI',  $pnt_dir_uri  );
 
 /**
  * Funciones para activar/desactivar el tema
  * Carga un archivo de configuración inicial
  */
-function activate_panther() {
-    require_once PANTHER_DIR_PATH. 'includes/class-panther-activator.php';
-    PANTHER_Activator::activate();
+function activate_pnt() {
+    require_once PNT_DIR_PATH. 'includes/class-pnt-activator.php';
+    PNT_Activator::activate();
 }
 
-function deactivate_panther() {
-    require_once PANTHER_DIR_PATH. 'includes/class-panther-deactivator.php';
-    PANTHER_Deactivator::deactivate();
+function deactivate_pnt() {
+    require_once PNT_DIR_PATH. 'includes/class-pnt-deactivator.php';
+    PNT_Deactivator::deactivate();
 }
-add_action('after_switch_theme', 'activate_panther');
-add_action('switch_theme', 'deactivate_panther');
+add_action('after_switch_theme', 'activate_pnt');
+add_action('switch_theme', 'deactivate_pnt');
 
 
-require_once PANTHER_DIR_PATH . 'includes/class-panther-master.php';
+require_once PNT_DIR_PATH . 'includes/class-pnt-master.php';
 
-function run_panther_master() {
+function run_pnt_master() {
     
-    $bcpg_master = new PANTHER_Master;
+    $bcpg_master = new PNT_Master;
     $bcpg_master->run();
     
 }
 
-run_panther_master();
+run_pnt_master();

@@ -22,7 +22,7 @@
  * @property string $theme_name
  * @property string $version
  */
-class PANTHER_Admin {
+class PNT_Admin {
     
     /**
 	 * El identificador único de éste plugin
@@ -47,27 +47,28 @@ class PANTHER_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      object    $build_menupage  Instancia del objeto PANTHER_Build_Menupage
+	 * @var      object    $build_menupage  Instancia del objeto PNT_Build_Menupage
 	 */
     private $build_menupage;
     
     /**
-	 * Objeto PANTHER_Normalize
+	 * Objeto PNT_Normalize
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      object    $normalize Instancia del objeto PANTHER_Normalize
+	 * @var      object    $normalize Instancia del objeto PNT_Normalize
 	 */
     private $normalize;
     
     /**
-	 * Objeto PANTHER_Helpers
+	 * Objeto PNT_Helpers
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      object    $helpers Instancia del objeto PANTHER_Helpers
+	 * @var      object    $helpers Instancia del objeto PNT_Helpers
 	 */
     private $helpers;
+    private $formBuilder;
     
     /**
      * @param string $theme_name nombre o identificador único de éste plugin.
@@ -77,8 +78,9 @@ class PANTHER_Admin {
         
         $this->theme_name = $theme_name;
         $this->version = $version;
-        $this->build_menupage = new PANTHER_Build_Menupage();
-        $this->normalize = new PANTHER_Normalize;
+        $this->build_menupage = new PNT_Build_Menupage();
+        $this->normalize = new PNT_Normalize;
+        $this->formBuilder = new PNT_Form_Builder;
         
     }
     
@@ -94,26 +96,26 @@ class PANTHER_Admin {
         
         /**
          * Una instancia de esta clase debe pasar a la función run()
-         * definido en PANTHER_Cargador como todos los ganchos se definen
+         * definido en PNT_Cargador como todos los ganchos se definen
          * en esa clase particular.
          *
-         * El PANTHER_Cargador creará la relación
+         * El PNT_Cargador creará la relación
          * entre los ganchos definidos y las funciones definidas en este
          * clase.
 		 */
         
         /**
-         * panther-admin.css
+         * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
          */
-		wp_enqueue_style( 'panther_wordpress_icons_css', PANTHER_DIR_URI . 'admin/css/panther-wordpress.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'pnt_wordpress_icons_css', PNT_DIR_URI . 'admin/css/pnt-wordpress.css', array(), $this->version, 'all' );
         
         /**
          * Condicional para controlar la carga de los archivos
          * solamente en la página del plugin
          */
-        if( $hook != 'toplevel_page_panther-opt' ) {
+        if( $hook != 'toplevel_page_pnt-opt' ) {
             return;
         }
 
@@ -121,19 +123,19 @@ class PANTHER_Admin {
          * Framework Bootstrap
          * https://getbootstrap.com/docs/4.6/getting-started/download/
          */	
-        wp_enqueue_style( 'panther_bootstrap_css', PANTHER_DIR_URI.'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
+        wp_enqueue_style( 'pnt_bootstrap_css', PNT_DIR_URI.'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
         
         /**
          * Font Awesome 5.0.6
          */
-        wp_enqueue_style( 'panther_fontawesome_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );        
+        wp_enqueue_style( 'pnt_fontawesome_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );        
 
         /**
-         * panther-admin.css
+         * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
          */		
-		wp_enqueue_style( $this->theme_name, PANTHER_DIR_URI . 'admin/css/panther-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->theme_name, PNT_DIR_URI . 'admin/css/pnt-admin.css', array(), $this->version, 'all' );
         
     }
     
@@ -149,10 +151,10 @@ class PANTHER_Admin {
         
         /**
          * Una instancia de esta clase debe pasar a la función run()
-         * definido en PANTHER_Cargador como todos los ganchos se definen
+         * definido en PNT_Cargador como todos los ganchos se definen
          * en esa clase particular.
          *
-         * El PANTHER_Cargador creará la relación
+         * El PNT_Cargador creará la relación
          * entre los ganchos definidos y las funciones definidas en este
          * clase.
 		 */
@@ -161,7 +163,7 @@ class PANTHER_Admin {
          * Condicional para controlar la carga de los archivos
          * solamente en la página del plugin
          */
-        if( $hook != 'toplevel_page_panther-opt' ) {
+        if( $hook != 'toplevel_page_pnt-opt' ) {
             return;
         }
         
@@ -171,19 +173,19 @@ class PANTHER_Admin {
          * Framework Bootstrap
          * https://getbootstrap.com/docs/4.6/getting-started/download/
          */	               
-        wp_enqueue_script( 'panther_bootstrap_admin_js', PANTHER_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_bootstrap_admin_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
         
         /**
          * Scripts globales         
          */
-        wp_enqueue_script( 'panther-global', PANTHER_DIR_URI . 'admin/js/panther-global.js', [ 'jquery' ], '1.0.0', true );
+        wp_enqueue_script( 'pnt-global', PNT_DIR_URI . 'admin/js/pnt-global.js', [ 'jquery' ], '1.0.0', true );
 
         /**
-         * panther-admin.js
+         * pnt-admin.js
          * Archivo Javascript principal
          * de la administración
          */
-        wp_enqueue_script( $this->theme_name, PANTHER_DIR_URI . 'admin/js/panther-admin.js', [ 'jquery' ], $this->version, true );
+        wp_enqueue_script( $this->theme_name, PNT_DIR_URI . 'admin/js/pnt-admin.js', [ 'jquery' ], $this->version, true );
         
         /**
          * Lozalizando el archivo Javascript
@@ -195,10 +197,10 @@ class PANTHER_Admin {
          */
         wp_localize_script(
             $this->theme_name,
-            'pantherAdmin',
+            'pntAdmin',
             [
                 'url'       => admin_url( 'admin-ajax.php' ),
-                'seguridad' => wp_create_nonce( 'panther_seg' )
+                'seguridad' => wp_create_nonce( 'pnt_seg' )
             ]
         );
         
@@ -214,12 +216,12 @@ class PANTHER_Admin {
     public function add_menu() {
         
         $this->build_menupage->add_menu_page(
-            __( 'Panther Opciones', 'panther-opt' ),
-            __( 'Panther Opciones', 'panther-opt' ),
+            __( 'PNT Opciones', 'pnt-opt' ),
+            __( 'PNT Opciones', 'pnt-opt' ),
             'manage_options',
-            'panther-opt',
+            'pnt-opt',
             [ $this, 'controlador_display_menu' ],
-            'dashicons-panther',
+            'dashicons-pnt',
             22
         );
         
@@ -236,7 +238,7 @@ class PANTHER_Admin {
 	 */
     public function controlador_display_menu() {
         
-        require_once PANTHER_DIR_PATH . 'admin/partials/panther-admin-display.php';
+        require_once PNT_DIR_PATH . 'admin/partials/pnt-admin-display.php';
         
     }
     

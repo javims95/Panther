@@ -23,13 +23,13 @@ body {
 
 
 /* Header */
-.panther-header {
+.pnt-header {
     background-blend-mode: soft-light !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
 }
 
-.panther-header .panther-port {
+.pnt-header .pnt-port {
     display:  -webkit-box;
     display:  -ms-flexbox;
     display:  flex;
@@ -38,29 +38,29 @@ body {
     justify-content:  center;
 }
 
-.panther-header .panther-port img {
+.pnt-header .pnt-port img {
     width:  100px;
     color:  white;
     position:  relative;
 }
 
-.panther-header-title {
+.pnt-header-title {
     background: rgba(0, 0, 0, 0.29);
     text-align:  center;
     padding:  9px 0;
 }
 
-.panther-header-title h4 {
+.pnt-header-title h4 {
     color:  white;
     margin:  0;
 }
 
-.panther-header-title i {
+.pnt-header-title i {
     margin-right: 7px;
 }
 
 /* Boton de guardar, solo si se coloca encima del degradado */
-.btn-panther {
+.btn-pnt {
     border: 0;
     color: white;
     width: auto;
@@ -73,18 +73,18 @@ body {
 }
 
 /* Elementos menu navegacion izquierdo opciones tema */
-ul.panther-menu {
+ul.pnt-menu {
     margin: 0;
     padding: 0;
     background: #293b3f;
 }
 
-ul.panther-menu li {
+ul.pnt-menu li {
     color: #fff;
     margin-bottom: 0px;
 }
 
-ul.panther-menu li a {
+ul.pnt-menu li a {
     color: #fff;
     padding: 12px 11px;
     display: flex;
@@ -92,19 +92,19 @@ ul.panther-menu li a {
     border-left: 7px solid transparent;
 }
 
-ul.panther-menu li a.active {
+ul.pnt-menu li a.active {
     border-left: 7px solid rgba(255,255,255,0.6);
     background: #0073aa;
     text-decoration: none;
 }
 
-ul.panther-menu li a:hover {
+ul.pnt-menu li a:hover {
     border-left: 7px solid rgba(255,255,255,0.6);
     background: #161e21;
     text-decoration: none;
 }
 
-.panther-menu i {
+.pnt-menu i {
     margin-right: .6rem;
     font-size: 1.5rem;
 }
@@ -112,7 +112,7 @@ ul.panther-menu li a:hover {
 /* Columna derecha - Opciones del tema */
 
 
-.panther-sec-configs {
+.pnt-sec-configs {
     padding: 20px;
     border: 1px solid #ababab;
     border-top-width: 4px;
@@ -122,16 +122,16 @@ ul.panther-menu li a:hover {
     border: 1px solid #7e8993;
 }
 
-input#panther-image {
+input#pnt-image {
     width: inherit;
     flex: 1;
 }
 
-.panther-input-media input {
+.pnt-input-media input {
     padding-right: 60px;
 }
 
-span.panther-media-remove {
+span.pnt-media-remove {
     position: absolute;
     right: 12px;
     top: 0;
@@ -146,20 +146,20 @@ span.panther-media-remove {
     align-items: center;
 }
 
-.panther-input-media >* {
+.pnt-input-media >* {
     height: 2.8rem;
 }
 
-.panther-media-preview {
+.pnt-media-preview {
     margin: 7px 0px 23px 0px;
     display: none;
 }
 
-.panther-media-preview img {
+.pnt-media-preview img {
     width: 100%;
     display: block;
 }
 
-.panther-content {
+.pnt-content {
     display: none;
 }

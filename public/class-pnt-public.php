@@ -22,7 +22,7 @@
  * @property string $theme_name
  * @property string $version
  */
-class PANTHER_Public {
+class PNT_Public {
     
     /**
 	 * El identificador único de éste plugin
@@ -43,20 +43,20 @@ class PANTHER_Public {
     private $version;
     
     /**
-	 * Objeto PANTHER_Normalize
+	 * Objeto PNT_Normalize
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      object    $normalize Instancia del objeto PANTHER_Normalize
+	 * @var      object    $normalize Instancia del objeto PNT_Normalize
 	 */
     private $normalize;
     
     /**
-	 * Objeto PANTHER_Helpers
+	 * Objeto PNT_Helpers
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      object    $helpers Instancia del objeto PANTHER_Helpers
+	 * @var      object    $helpers Instancia del objeto PNT_Helpers
 	 */
     private $helpers;
     
@@ -68,7 +68,7 @@ class PANTHER_Public {
         
         $this->theme_name = $theme_name;
         $this->version = $version;
-        $this->normalize = new PANTHER_Normalize;
+        $this->normalize = new PNT_Normalize;
         
     }
     
@@ -84,13 +84,13 @@ class PANTHER_Public {
      * Framework Bootstrap
      * https://getbootstrap.com/docs/4.6/getting-started/download/
      */		
-    wp_enqueue_style( 'panther_bootstrap_public_css', PANTHER_DIR_URI. 'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
+    wp_enqueue_style( 'pnt_bootstrap_public_css', PNT_DIR_URI. 'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
 
     /**
      * Font Awesome 5.0.6
      */
-    wp_enqueue_style( 'panther_fontawesome_public_css', PANTHER_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
-    wp_enqueue_style( $this->theme_name, PANTHER_DIR_URI . 'public/css/panther-public.css', array(), $this->version, 'all' );
+    wp_enqueue_style( 'pnt_fontawesome_public_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( $this->theme_name, PNT_DIR_URI . 'public/css/pnt-public.css', array(), $this->version, 'all' );
         
     }    
     
@@ -106,8 +106,8 @@ class PANTHER_Public {
          * Framework Bootstrap
          * https://getbootstrap.com/docs/4.6/getting-started/download/
          */	               
-        wp_enqueue_script( 'panther_bootstrap_public_js', PANTHER_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( $this->theme_name, PANTHER_DIR_URI . 'public/js/panther-public.js', array( 'jquery' ), $this->version, true );
+        wp_enqueue_script( 'pnt_bootstrap_public_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( $this->theme_name, PNT_DIR_URI . 'public/js/pnt-public.js', array( 'jquery' ), $this->version, true );
         
     }
     
