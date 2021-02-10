@@ -6,8 +6,6 @@
  * @link       https://beziercode.com.co
  * @since      1.0.0
  *
- * @package    BC THEME
- * @subpackage BC THEME/includes
  */
 
 /**
@@ -18,8 +16,6 @@
  * Llame a la función run para ejecutar la lista de acciones y filtros.
  *
  * @since      1.0.0
- * @package    BC THEME
- * @subpackage BC THEME/includes
  * @author     Javier Muñoz 
  * 
  * @property array $actions

@@ -8,16 +8,12 @@
  * @link       https://beziercode.com.co
  * @since      1.0.0
  *
- * @package    BC THEME
- * @subpackage BC THEME/includes
  */
 
 /**
  * Ésta clase define todo lo necesario durante la activación del plugin
  *
  * @since      1.0.0
- * @package    BC THEME
- * @subpackage BC THEME/includes
  * @author     Javier Muñoz 
  */
 class PNT_i18n {

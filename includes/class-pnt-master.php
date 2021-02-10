@@ -9,8 +9,6 @@
  * @link       https://beziercode.com.co
  * @since      1.0.0
  *
- * @package    BC THEME
- * @subpackage BC THEME/includes
  */
 
 /**
@@ -18,8 +16,6 @@
  * así como la versión actual del plugin.
  *
  * @since      1.0.0
- * @package    BC THEME
- * @subpackage BC THEME/includes
  * @author     Javier Muñoz 
  * 
  * @property object $cargador
