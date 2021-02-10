@@ -18,8 +18,21 @@ class PNT_Form_Builder
 
     public function addSection($idConf, $idSect, $titleSect, $elems)
     {
+        /**
+         * Añade una sección única de forma dinámica
+         *
+         * Este método recibe cuatro parámetros, se crea una sección
+         * con sus identificadores y valores recibidos por parámetro.
+         *
+         * @access public
+         * @param string $idSect nombre de la seccion principal
+         * @param string $idConf nombre de la seccion secundaria
+         * @param string $titleSect titulo de la seccion
+         * @param string $elems es un array de elementos que contiene cada sección
+         * @return $output cadena de texto HTML, para crear la seccion
+         */
 
-        $this->idConf           = strtolower($idConf);
+        $this->idConf        = strtolower($idConf);
         $this->idSect        = strtolower($idSect);
         $this->titleSect     = $titleSect;
         $this->elems         = $elems;
@@ -48,6 +61,16 @@ class PNT_Form_Builder
 
     private function processor()
     {
+        /**
+         * Procesa los datos del array de elementos, para crear subsecciones
+         * con las distintas opciones de configuración
+         *
+         * Mediante un foreach se procesa los datos del array de elementos. 
+         * Con un switch se elige el tipo de elemento seleccionado.
+         *
+         * @access private
+         * @return $output cadena de texto HTML, según el tipo de elemento seleccionado.
+         */
 
         $output = "";
 
@@ -89,6 +112,13 @@ class PNT_Form_Builder
 
     private function text()
     {
+        /**
+         * Crea el div y dentro un input de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo texto
+         */
+
         $name = "pnt[{$this->idConf}][{$this->idElem}]";
 
         $output = "
@@ -102,6 +132,12 @@ class PNT_Form_Builder
     
     private function textarea()
     {
+        /**
+         * Crea el div y dentro un textarea de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo textarea
+         */
         
         $name = "pnt[{$this->idConf}][{$this->idElem}]";
     
@@ -117,6 +153,16 @@ class PNT_Form_Builder
 
     private function media()
     {
+        /**
+         * Crea el bloque de código HTML de forma dinámica
+         * 
+         * Mediante una condicion se añaden estilos para mostrar
+         * la miniatura del archivo.
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo media
+         */
+
         if ($this->valueElem != ''){
             
             $dBlock = "display:block;";
