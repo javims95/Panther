@@ -1,4 +1,4 @@
-<div id="pnt-global" class="pnt-content col-12">
+<div id="pnt-global" class="pnt-content col-12 d-block">
     <section id="pnt-global-body" class="my-3">
         <div class="pnt-sec-title btn btn-block text-white mb-3 bg-primary">
             <h5>
@@ -16,7 +16,7 @@
                 <div class="col-md-8">
                     <input class="form-control" type="text" value="" id="">
                 </div>
-            </div>
+            </div >
 
             <!-- Textarea -->
             <div class="row mb-3">
@@ -59,6 +59,11 @@
     $sectionBody = [
         'textLogo' => [
             'type'   => 'text',
+            'title'  => 'Texto',
+            'value'  => ''
+        ],
+        'css' => [
+            'type'   => 'textarea',
             'title'  => 'Texto',
             'value'  => ''
         ]

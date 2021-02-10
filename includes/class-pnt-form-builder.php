@@ -1,32 +1,34 @@
-<?php 
+<?php
 
-class PNT_Form_Builder {
+class PNT_Form_Builder
+{
 
-    private $idConfig;
-    
-    private $section;
-    private $idSection;
-    private $titleSection;
-    
-    private $elements;
+    private $idConf;
 
-    private $idElement;
-    private $typeElement;
-    private $titleElement;
-    private $valueElement;
+    private $sections;
+    private $idSect;
+    private $titleSect;
 
-    public function addSection ($idConfig, $idSection, $titleSection, $elements){
-        
-        $this->idConfig     = strtolower($idConfig);
-        $this->idSection    = strtolower($idSection);
-        $this->titleSection = $titleSection;
-        $this->elements     = $elements;
+    private $elems;
+
+    private $idElem;
+    private $typeElem;
+    private $titleElem;
+    private $valueElem;
+
+    public function addSection($idConf, $idSect, $titleSect, $elems)
+    {
+
+        $this->idConf           = strtolower($idConf);
+        $this->idSect        = strtolower($idSect);
+        $this->titleSect     = $titleSect;
+        $this->elems         = $elems;
 
         $output = "
-        <section id='pnt-{$this->idConfig}-{$this->idSection}' class='my-3'>
+        <section id='pnt-{$this->idConf}-{$this->idSect}' class='my-3'>
             <div class='pnt-sec-title btn btn-block text-white mb-3 bg-primary'>
                 <h5>
-                    <span><strong>{$this->titleSection}</strong></span>
+                    <span><strong>{$this->titleSect}</strong></span>
                 </h5>
             </div>
 
@@ -40,32 +42,115 @@ class PNT_Form_Builder {
         </section>
         ";
 
+        return $output;
+
     }
 
-    private function processor (){
+    private function processor()
+    {
 
         $output = "";
 
-        foreach($this->elems as $idElement => $elem){
+        foreach( $this->elems as $idElem => $elem ){
 
-            $this->idElement = $idElement;
-            $this->typeElement = $elem['type'];
-            $this->titleElement = $elem['title'];
-            $this->valueElement = $elem['value'];
+            $this->idElem        = $idElem;
+            $this->typeElem      = $elem['type'];
+            $this->titleElem     = $elem['title'];
+            $this->valueElem     = $elem['value'];
 
             $output .= "
             <div class='row mb-3'>
                 <div class='col-md-4'>
-                    <h6><strong>Texto</strong></h6>
-                </div>
-                <div class='col-md-8'>
-                    <input class='form-control' type='text' value='' id=''>
-                </div>
-            </div>
-            ";
+                    <h6><strong>{$this->titleElem}</strong></h6>
+                </div>";
+
+            switch ($this->typeElem) {
+
+                case 'text':
+                    $output .= $this->text();
+                    break;
+
+                case 'textarea':
+                    $output .= $this->textarea();
+                    break;
+
+                case 'media':
+                    $output .= $this->media();
+                    break;
+            }
+
+            $output .= "</div>";
 
         }
 
+        return $output;
+
+    }
+
+    private function text()
+    {
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+
+        $output = "
+        <div class='col-md-8'>
+            <input class='form-control' type='text' value='{$this->valueElem}' name='$name'>
+        </div>
+        ";
+
+        return $output;
+    }
+    
+    private function textarea()
+    {
+        
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+    
+        $output = "
+            <div class='col-md-8'>
+                <textarea name='$name' class='form-control'>{$this->valueElem}</textarea>
+            </div>
+        ";
+    
+        return $output;
+
+    }
+
+    private function media()
+    {
+        if ($this->valueElem != ''){
+            
+            $dBlock = "display:block;";
+            $dFlex = "display:flex;";
+
+        } else {
+
+            $dBlock = "";
+            $dFlex = "";
+        }
+
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+
+        $output = "
+            <div class='col-md-8 pnt-input-media d-flex'>
+                <button class='btn btn-secondary' type='button' data-media='pnt-{$this->idElem}'>
+                    <i class='fas fa-image'> Subir archivo</i>
+                </button>
+                <input type='text' id='pnt-{$this->idElem}' name='$name' value='{$this->valueElem}'>
+                <span class='pnt-media-remove' data-media-remove='pnt-{$this->idElem}' style='$dFlex'>
+                    <i class='fas fa-times'></i>
+                </span>
+            </div>
+
+        </div>
+        <div class='row mb-3'>
+            <div class='col-md-4'></div>
+            <div class='col-md-8 pnt-media-preview pnt-{$this->idElem}'>
+                <img class='img-thumbnail' style='width: 200px' src='{$this->valueElem} style='$dBlock'>
+            </div>
+        </div>
+        ";
+
+        return $output;
     }
 
 }
