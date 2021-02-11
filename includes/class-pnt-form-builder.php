@@ -1,7 +1,6 @@
 <?php
 
-class PNT_Form_Builder
-{
+class PNT_Form_Builder {
 
     private $idConf;
 
@@ -16,8 +15,7 @@ class PNT_Form_Builder
     private $titleElem;
     private $valueElem;
 
-    public function addSection($idConf, $idSect, $titleSect, $elems)
-    {
+    public function addSection($idConf, $idSect, $titleSect, $elems) {
         /**
          * Añade una sección única de forma dinámica
          *
@@ -59,8 +57,36 @@ class PNT_Form_Builder
 
     }
 
-    private function processor()
-    {
+    public function addFull ($idConf, $sections) {
+        /**
+         * Método que llama a addSection. Con esta única
+         *  función se crea la sección completa
+         *
+         * Este método recibe dos parámetros, llama a todos 
+         * los métodos necesarios para crear la sección.
+         *
+         * @access public
+         * @param string $idConf nombre de la seccion secundaria
+         * @param string $sections es un array asociativo de arrays que contine todas las secciones
+         * @return $output cadena de texto HTML, para crear la seccion
+         */
+
+        $this->idConf       = strtolower($idConf);
+        $this->sections     = $sections;
+
+        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12 d-block'>";
+
+        foreach($this->sections as $idSect => $sect) {
+
+            $output .= $this->addSection($this->idConf, $idSect, $sect['titleSection'], $sect['elems']);
+        }
+
+        $output .= "</div>";
+
+        return $output;
+    }
+
+    private function processor() {
         /**
          * Procesa los datos del array de elementos, para crear subsecciones
          * con las distintas opciones de configuración
@@ -110,8 +136,7 @@ class PNT_Form_Builder
 
     }
 
-    private function text()
-    {
+    private function text() {
         /**
          * Crea el div y dentro un input de forma dinámica
          *
@@ -130,8 +155,7 @@ class PNT_Form_Builder
         return $output;
     }
     
-    private function textarea()
-    {
+    private function textarea() {
         /**
          * Crea el div y dentro un textarea de forma dinámica
          *
@@ -151,8 +175,7 @@ class PNT_Form_Builder
 
     }
 
-    private function media()
-    {
+    private function media() {
         /**
          * Crea el bloque de código HTML de forma dinámica
          * 
