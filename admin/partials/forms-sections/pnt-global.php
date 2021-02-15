@@ -8,7 +8,6 @@
 
         <div class="pnt-sec-configs">  
 
-            <!-- Input -->
             <div class="row mb-3">
                 <div class="col-md-4">
                     <h6><strong>Texto</strong></h6>
@@ -18,7 +17,6 @@
                 </div>
             </div >
 
-            <!-- Textarea -->
             <div class="row mb-3">
                 <div class="col-md-4">
                     <h6><strong>Texto</strong></h6>
@@ -28,7 +26,6 @@
                 </div>
             </div>
 
-            <!-- Input media -->
             <div class="row mb-3">
                 <div class="col-md-4">
                     <h6><strong>Texto</strong></h6>
@@ -56,18 +53,63 @@
 
     <?php
 
-    $sectionBody = [
-        'textLogo' => [
-            'type'   => 'text',
-            'title'  => 'Texto',
-            'value'  => ''
-        ],
-        'css' => [
-            'type'   => 'textarea',
-            'title'  => 'Texto',
-            'value'  => ''
-        ]
-    ];
-        echo $this->formBuilder->addSection('global', 'body', 'body', $sectionBody );
-    ?>
+// Esto son todos los items de la sección
+$sectionBody = [
+    'textLogo' => [
+        'type' => 'text',
+        'title' => 'Texto',
+        'value' => '',
+    ]
+];
+
+$elemsSectLogo = [
+    'LogoUrl' => [
+        'type' => 'media',
+        'title' => 'Logotipo',
+        'value' => '',
+    ],
+    'textLogo' => [
+        'type' => 'text',
+        'title' => 'Texto del logotipo',
+        'value' => ''
+    ]
+];
+
+$elemsSectAdvanced = [
+    'faviconUrl' => [
+        'type' => 'media',
+        'title' => 'Favicon',
+        'value' => '',
+    ],
+    'apiGMaps' => [
+        'type' => 'text',
+        'title' => 'API para Google Maps',
+        'value' => ''
+    ],
+    'apiGMaps2' => [
+        'type' => 'text',
+        'title' => 'API para Google Maps',
+        'value' => ''
+    ]
+];
+
+// Esta es la seccion completa
+$globalSections = [
+    'body' => [
+        'titleSection' => 'Body',
+        'elems' => $sectionBody,
+    ],
+    'logo' => [
+        'titleSection' => 'Logotipo',
+        'elems' => $elemsSectLogo,
+    ],
+    'advanced' => [
+        'titleSection' => 'Avanzado',
+        'elems' => $elemsSectAdvanced
+    ]
+];
+
+// Esta es la forma de llamar al método que crea las secciones
+echo $this->formBuilder->addFull('global', $globalSections);
+?>
 </div>

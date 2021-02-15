@@ -122,7 +122,7 @@ ul.pnt-menu li a:hover {
     border: 1px solid #7e8993;
 }
 
-input#pnt-image {
+.row.mb-3 .col-md-8.pnt-input-media.d-flex input {
     width: inherit;
     flex: 1;
 }

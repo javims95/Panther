@@ -110,7 +110,7 @@ class PNT_Form_Builder {
             $output .= "
             <div class='row mb-3'>
                 <div class='col-md-4'>
-                    <h6><strong>{$this->titleElem}</strong></h6>
+                    <h6><strong>{$this->titleElem}:</strong></h6>
                 </div>";
 
             switch ($this->typeElem) {
