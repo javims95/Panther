@@ -1,3 +1,9 @@
+<?php 
+echo "<pre>";
+var_dump($this->pnt);
+echo "</pre>";
+?>
+
 <div class="row">
     <div class="col-12 pl-0">
         <div class="row position-relative mb-0">

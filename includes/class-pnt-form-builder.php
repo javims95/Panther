@@ -15,6 +15,8 @@ class PNT_Form_Builder {
     private $titleElem;
     private $valueElem;
 
+    private $optionsRadio;
+
     public function addSection($idConf, $idSect, $titleSect, $elems) {
         /**
          * Añade una sección única de forma dinámica
@@ -127,6 +129,11 @@ class PNT_Form_Builder {
                 case 'media':
                     $output .= $this->media();
                     break;
+
+                case 'radio':
+                    $this->optionsRadio = $elem['optionsRadio'];
+                    $output .= $this->radio();
+                    break;
             }
 
             $output .= "</div>";
@@ -174,6 +181,38 @@ class PNT_Form_Builder {
     
         return $output;
 
+    }
+
+    private function radio () {
+        /**
+         * Crea el div y dentro un conjunto de radio buttons de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo radio
+         */
+        
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+    
+        $output = "
+            <div class='col-md-8'>";
+
+            foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+
+                $idOptRadio = strtolower($idOptRadio);
+
+                $output .= "
+                    <div class='form-check'>
+                        <input class='form-check-input' type='radio' name='$name' id='flexRadioDefault1' value='$idOptRadio' >
+                        <label class='form-check-label' for='flexRadioDefault1'>
+                            $titleOptRadio
+                        </label>
+                    </div>
+                ";
+            }
+            
+            $output .= "</div>";
+    
+        return $output;
     }
 
     private function media() {

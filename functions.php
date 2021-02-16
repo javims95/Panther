@@ -29,8 +29,8 @@ require_once PNT_DIR_PATH . 'includes/class-pnt-master.php';
 
 function run_pnt_master() {
     
-    $bcpg_master = new PNT_Master;
-    $bcpg_master->run();
+    $pnt_master = new PNT_Master;
+    $pnt_master->run();
     
 }
 

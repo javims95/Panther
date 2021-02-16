@@ -1,17 +1,17 @@
 <?php
 
 class PNT_Activator {
-
+    
     public static function activate() {
-
-        $pnt = get_option('pnt_config');
-
-        if (! $pnt){
-
+        
+        $pnt = get_option( 'pnt_config' );
+        
+        if( ! $pnt ) {
+            
             $pnt = [
                 
                 "menuActivado"  => "global",
-            
+
                 "global"        => [
                     "cuerpo"        => "fullancho",
                     "logoUrl"       => "",
@@ -19,27 +19,27 @@ class PNT_Activator {
                     "faviconUrl"    => "",
                     "apiGMaps"      => "",
                 ],
-            
+
                 "header"        => [
                     "estilo"        => "defecto"
                 ],
-            
+
                 "menu"          => [
                     "opciones"      => [ "show-border" => "show-border" ]
                 ],
-            
+
                 "footer"        => [
                     "copyright"     => sprintf(
-                            __( "Todos los derechos reservados. BezierCode Developers. @%d", "bct-opt" ),
+                            __( "Todos los derechos reservados. BezierCode Developers. @%d", "pnt-opt" ),
                             date('Y')
                         ),
                     "posicion"  => "izquierda"
                 ],
-            
+
                 "sidebars"      => [
                     "ancho"         => "20"
                 ],
-            
+
                 "colores"       => [
                     "h1"            => "rgba(0,0,0,0.87)",
                     "h2"            => "rgba(0,0,0,0.87)",
@@ -68,7 +68,7 @@ class PNT_Activator {
                         "copyrightBg"           => "rgba(0,0,0,0.87)"
                     ]
                 ],
-            
+
                 "fuentes"       => [
                     "menu"          => [
                         "family"                => "Lato",
@@ -134,9 +134,9 @@ class PNT_Activator {
                         "lineHeight"            => "14",
                         "letterSpacing"         => "14",
                     ],
-            
+
                 ],
-            
+
                 "social"        => [
                     "behance"       => "",
                     "facebook"      => "",
@@ -147,12 +147,12 @@ class PNT_Activator {
                     "vimeo"         => "",
                     "youtube"       => ""
                 ],
-            
+
                 "cssjs"         => [
                     "css"           => "",
                     "js"            => ""
                 ]
-            
+
             ];
 
             add_option('pnt_config', $pnt);

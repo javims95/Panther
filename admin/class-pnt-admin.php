@@ -68,7 +68,10 @@ class PNT_Admin {
 	 * @var      object    $helpers Instancia del objeto PNT_Helpers
 	 */
     private $helpers;
+
     private $formBuilder;
+
+    private $pnt;
     
     /**
      * @param string $theme_name nombre o identificador único de éste plugin.
@@ -76,11 +79,12 @@ class PNT_Admin {
      */
     public function __construct( $theme_name, $version ) {
         
-        $this->theme_name = $theme_name;
-        $this->version = $version;
-        $this->build_menupage = new PNT_Build_Menupage();
-        $this->normalize = new PNT_Normalize;
-        $this->formBuilder = new PNT_Form_Builder;
+        $this->theme_name       = $theme_name;
+        $this->version          = $version;
+        $this->build_menupage   = new PNT_Build_Menupage();
+        $this->normalize        = new PNT_Normalize;
+        $this->formBuilder      = new PNT_Form_Builder;
+        $this->pnt              = get_option( 'pnt_config' );
         
     }
     
@@ -230,10 +234,9 @@ class PNT_Admin {
     }
     
     /**
-	 * Controla las visualizaciones del menú
+	 * Controla las visualizaciones del menú de opciones
      * en el área de administración
 	 *
-	 * @since    1.0.0
      * @access   public
 	 */
     public function controlador_display_menu() {
