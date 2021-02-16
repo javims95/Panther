@@ -37,14 +37,15 @@ class PNT_Form_Builder {
 
         $output = "
         <section id='pnt-{$this->idConf}-{$this->idSect}' class='my-3'>
-            <div class='pnt-sec-title btn btn-block text-white mb-3 bg-primary'>
-                <h5>
-                    <span><strong>{$this->titleSect}</strong></span>
-                </h5>
-            </div>
+        <div class='pnt-sec-title btn btn-block text-white mb-3 bg-primary'>
+            <h5>
+                <span><strong>{$this->titleSect}</strong></span>
+            </h5>
+        </div>
 
         <div class='pnt-sec-configs'>
         ";
+
 
         $output .= $this->processor();
 
@@ -209,8 +210,7 @@ class PNT_Form_Builder {
                     <i class='fas fa-times'></i>
                 </span>
             </div>
-
-        </div>
+        
         <div class='row mb-3'>
             <div class='col-md-4'></div>
             <div class='col-md-8 pnt-media-preview pnt-{$this->idElem}'>

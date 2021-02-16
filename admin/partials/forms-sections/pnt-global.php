@@ -82,7 +82,7 @@ $elemsSectAdvanced = [
         'value' => '',
     ],
     'apiGMaps' => [
-        'type' => 'text',
+        'type' => 'textarea',
         'title' => 'API para Google Maps',
         'value' => ''
     ],
