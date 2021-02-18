@@ -4,14 +4,14 @@ var_dump($this->pnt);
 echo "</pre>";
 ?>
 
-<div class="row">
-    <div class="col-12 pl-0">
-        <div class="row position-relative mb-0">
+<div class="row m-0">
+    <div class="col-12 px-1 m-0 shadow-lg p-3 mb-5 bg-white rounded">
+        <div class="row position-relative m-0">
 
             <!-- Botón guardar cambios -->
             <button class="btn btn-success btn-pnt"><i class="fas fa-save"></i> Guardar</button>
 
-                <div class="col-12 pl-0">                
+                <div class="col-12 px-0">                
                     <?php
                     $bg_gradient = "
                     background: rgb(42,34,195);

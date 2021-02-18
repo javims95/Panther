@@ -1,17 +1,40 @@
 /* Rules for sizing the icon. */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+
+.material-icons.md-18 {
+    font-size: 18px;
+}
+
+.material-icons.md-24 {
+    font-size: 24px;
+}
+
+.material-icons.md-36 {
+    font-size: 36px;
+}
+
+.material-icons.md-48 {
+    font-size: 48px;
+}
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+.material-icons.md-dark {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+    color: rgba(0, 0, 0, 0.26);
+}
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
 
+.material-icons.md-light {
+    color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+    color: rgba(255, 255, 255, 0.3);
+}
 
 /**=================
 * Estilos Generales
@@ -21,8 +44,8 @@ body {
     background: #eee;
 }
 
-
 /* Header */
+
 .pnt-header {
     background-blend-mode: soft-light !important;
     background-size: cover !important;
@@ -30,29 +53,29 @@ body {
 }
 
 .pnt-header .pnt-port {
-    display:  -webkit-box;
-    display:  -ms-flexbox;
-    display:  flex;
-    -webkit-box-pack:  center;
-    -ms-flex-pack:  center;
-    justify-content:  center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .pnt-header .pnt-port img {
-    width:  100px;
-    color:  white;
-    position:  relative;
+    width: 100px;
+    color: white;
+    position: relative;
 }
 
 .pnt-header-title {
     background: rgba(0, 0, 0, 0.29);
-    text-align:  center;
-    padding:  9px 0;
+    text-align: center;
+    padding: 9px 0;
 }
 
 .pnt-header-title h4 {
-    color:  white;
-    margin:  0;
+    color: white;
+    margin: 0;
 }
 
 .pnt-header-title i {
@@ -60,6 +83,7 @@ body {
 }
 
 /* Boton de guardar, solo si se coloca encima del degradado */
+
 .btn-pnt {
     border: 0;
     color: white;
@@ -73,6 +97,7 @@ body {
 }
 
 /* Elementos menu navegacion izquierdo opciones tema */
+
 ul.pnt-menu {
     margin: 0;
     padding: 0;
@@ -93,13 +118,13 @@ ul.pnt-menu li a {
 }
 
 ul.pnt-menu li a.active {
-    border-left: 7px solid rgba(255,255,255,0.6);
+    border-left: 7px solid rgba(255, 255, 255, 0.6);
     background: #0073aa;
     text-decoration: none;
 }
 
 ul.pnt-menu li a:hover {
-    border-left: 7px solid rgba(255,255,255,0.6);
+    border-left: 7px solid rgba(255, 255, 255, 0.6);
     background: #161e21;
     text-decoration: none;
 }
@@ -110,7 +135,6 @@ ul.pnt-menu li a:hover {
 }
 
 /* Columna derecha - Opciones del tema */
-
 
 .pnt-sec-configs {
     padding: 20px;
@@ -150,7 +174,7 @@ span.pnt-media-remove {
     align-items: center;
 }
 
-.pnt-input-media >* {
+.pnt-input-media>* {
     height: 2.8rem;
 }
 
@@ -165,5 +189,18 @@ span.pnt-media-remove {
 }
 
 .pnt-content {
+    display: none;
+}
+
+.dpy-block {
+    display: block;
+}
+
+#wpcontent, #wpfooter {
+    margin-left: 160px;
+    margin-right: 30px;
+}
+
+div#wpfooter {
     display: none;
 }

@@ -77,7 +77,7 @@ class PNT_Form_Builder {
         $this->idConf       = strtolower($idConf);
         $this->sections     = $sections;
 
-        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12 d-block'>";
+        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12 dpy-block'>";
 
         foreach($this->sections as $idSect => $sect) {
 
@@ -191,19 +191,21 @@ class PNT_Form_Builder {
          * @return $output cadena de texto HTML, tipo radio
          */
         
+        $id = 0;
         $name = "pnt[{$this->idConf}][{$this->idElem}]";
     
         $output = "
             <div class='col-md-8'>";
 
             foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
-
+                
+                $id +=1;
                 $idOptRadio = strtolower($idOptRadio);
 
                 $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='radio' name='$name' id='flexRadioDefault1' value='$idOptRadio' >
-                        <label class='form-check-label' for='flexRadioDefault1'>
+                        <input class='form-check-input' type='radio' name='$name' id='radio$id' value='$idOptRadio' >
+                        <label class='form-check-label' for='radio$id'>
                             $titleOptRadio
                         </label>
                     </div>
