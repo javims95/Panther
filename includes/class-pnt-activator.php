@@ -37,7 +37,7 @@ class PNT_Activator {
                 ],
 
                 "sidebars"      => [
-                    "ancho"         => "20"
+                    "width"         => "20"
                 ],
 
                 "colores"       => [

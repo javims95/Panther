@@ -17,6 +17,10 @@ class PNT_Form_Builder {
     private $valueElem;
 
     private $optionsRadio;
+    
+    private $start;
+    private $min;
+    private $max;
 
     public function addSection($idConf, $idSect, $titleSect, $elems) {
         /**
@@ -146,6 +150,13 @@ class PNT_Form_Builder {
 
                 case 'switch':
                     $output .= $this->switch();
+                    break;
+
+                case 'rangeSlider':
+                    $this->start    = $elem['start'];
+                    $this->min      = $elem['min'];
+                    $this->max      = $elem['max'];
+                    $output .= $this->rangeSlider();
                     break;
             }
 
@@ -312,6 +323,27 @@ class PNT_Form_Builder {
                 </div>
             </div>
         ";        
+
+        return $output;
+    }
+
+    public function rangeSlider() {
+        /**
+         * Crea el bloque de código HTML de forma dinámica
+         * 
+         * Crea un range slider, con un min y un max
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo range slider
+         */
+
+        $output = "
+        <div class='col-md-8'>
+            <div class='pnt-rangeSlider'></div>
+            <p>{$this->min} - {$this->max}</p>
+            <input name='{$this->attr_name_val()}' type='text' id='' value=''>
+        </div>
+        ";
 
         return $output;
     }

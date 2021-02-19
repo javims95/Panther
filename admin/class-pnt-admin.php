@@ -133,7 +133,12 @@ class PNT_Admin {
         /**
          * Font Awesome 5.0.6
          */
-        wp_enqueue_style( 'pnt_fontawesome_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );        
+        wp_enqueue_style( 'pnt_fontawesome_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
+
+        /**
+         * Range Slider 2.3.0
+         */
+        wp_enqueue_style( 'pnt_rangeslider_css', PNT_DIR_URI.'helpers/range-slider/css/rangeslider.css' , array(), '2.3.0', 'all' );
 
         /**
          * pnt-admin.css
@@ -179,6 +184,12 @@ class PNT_Admin {
          * https://getbootstrap.com/docs/4.6/getting-started/download/
          */	               
         wp_enqueue_script( 'pnt_bootstrap_admin_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
+        
+        /**
+         * Range Slider 2.3.0
+         * https://getbootstrap.com/docs/4.6/getting-started/download/
+         */	               
+        wp_enqueue_script( 'pnt_rangeslider_admin_js', PNT_DIR_URI . 'helpers/range-slider/js/rangeslider.min.js', ['jquery'], '2.3.0', true );
         
         /**
          * Scripts globales         
