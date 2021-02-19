@@ -11,6 +11,7 @@ class PNT_Form_Builder {
     private $elems;
 
     private $idElem;
+    private $idsElem;
     private $typeElem;
     private $titleElem;
     private $valueElem;
@@ -60,7 +61,7 @@ class PNT_Form_Builder {
 
     }
 
-    public function addFull ($idConf, $sections) {
+    public function addFull ($idConf, $menuActivated, $sections) {
         /**
          * Método que llama a addSection. Con esta única
          *  función se crea la sección completa
@@ -77,7 +78,9 @@ class PNT_Form_Builder {
         $this->idConf       = strtolower($idConf);
         $this->sections     = $sections;
 
-        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12 dpy-block'>";
+        $dBlock = $menuActivated == $this->idConf ? 'display:block' : '';
+
+        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12' style='$dBlock'>";
 
         foreach($this->sections as $idSect => $sect) {
 
@@ -109,6 +112,7 @@ class PNT_Form_Builder {
             $this->typeElem      = $elem['type'];
             $this->titleElem     = $elem['title'];
             $this->valueElem     = $elem['value'];
+            $this->idsElem     = isset($elem['ids']) ? $elem['ids'] : '' ;
 
             $output .= "
             <div class='row mb-3'>
@@ -134,6 +138,15 @@ class PNT_Form_Builder {
                     $this->optionsRadio = $elem['optionsRadio'];
                     $output .= $this->radio();
                     break;
+
+                case 'checkbox':
+                    $this->optionsRadio = $elem['optionsRadio'];
+                    $output .= $this->checkbox();
+                    break;
+
+                case 'switch':
+                    $output .= $this->switch();
+                    break;
             }
 
             $output .= "</div>";
@@ -152,11 +165,9 @@ class PNT_Form_Builder {
          * @return $output cadena de texto HTML, tipo texto
          */
 
-        $name = "pnt[{$this->idConf}][{$this->idElem}]";
-
         $output = "
         <div class='col-md-8'>
-            <input class='form-control' type='text' value='{$this->valueElem}' name='$name'>
+            <input class='form-control' type='text' value='{$this->valueElem}' name='{$this->attr_name_val()}'>
         </div>
         ";
 
@@ -170,12 +181,10 @@ class PNT_Form_Builder {
          * @access private
          * @return $output cadena de texto HTML, tipo textarea
          */
-        
-        $name = "pnt[{$this->idConf}][{$this->idElem}]";
-    
+            
         $output = "
             <div class='col-md-8'>
-                <textarea name='$name' class='form-control'>{$this->valueElem}</textarea>
+                <textarea name='{$this->attr_name_val()}' class='form-control'>{$this->valueElem}</textarea>
             </div>
         ";
     
@@ -190,22 +199,43 @@ class PNT_Form_Builder {
          * @access private
          * @return $output cadena de texto HTML, tipo radio
          */
-        
-        $id = 0;
-        $name = "pnt[{$this->idConf}][{$this->idElem}]";
-    
+            
         $output = "
             <div class='col-md-8'>";
 
             foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
                 
-                $id +=1;
-                $idOptRadio = strtolower($idOptRadio);
-
                 $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='radio' name='$name' id='radio$id' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
-                        <label class='form-check-label' for='radio$id'>
+                        <input class='form-check-input' type='radio' name='{$this->attr_name_val()}' id='$idOptRadio' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
+                        <label class='form-check-label' for='$idOptRadio'>
+                            $titleOptRadio
+                        </label>
+                    </div>
+                ";
+            }
+            
+            $output .= "</div>";
+    
+        return $output;
+    }
+    private function checkbox () {
+        /**
+         * Crea el div y dentro un conjunto de radio buttons de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo radio
+         */
+            
+        $output = "
+            <div class='col-md-8'>";
+
+            foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+                
+                $output .= "
+                    <div class='form-check'>
+                        <input class='form-check-input' type='checkbox' name='{$this->attr_name_val()}[$idOptRadio]' id='$idOptRadio' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
+                        <label class='form-check-label' for='$idOptRadio'>
                             $titleOptRadio
                         </label>
                     </div>
@@ -239,28 +269,71 @@ class PNT_Form_Builder {
             $dFlex = "";
         }
 
-        $name = "pnt[{$this->idConf}][{$this->idElem}]";
-
         $output = "
-            <div class='col-md-8 pnt-input-media d-flex'>
-                <button class='btn btn-secondary' type='button' data-media='pnt-{$this->idElem}'>
+                <div class='col-md-8 pnt-input-media d-flex'>
+                    <button class='btn btn-secondary' type='button' data-media='pnt-{$this->idElem}'>
                     <i class='fas fa-image'> Subir archivo</i>
-                </button>
-                <input type='text' id='pnt-{$this->idElem}' name='$name' value='{$this->valueElem}'>
-                <span class='pnt-media-remove' data-media-remove='pnt-{$this->idElem}' style='$dFlex'>
+                    </button>
+                    <input type='text' id='pnt-{$this->idElem}' name='{$this->attr_name_val()}' value='{$this->valueElem}'>
+                    <span class='pnt-media-remove' data-media-remove='pnt-{$this->idElem}' style='$dFlex'>
                     <i class='fas fa-times'></i>
-                </span>
+                    </span>
+                </div>
+
             </div>
-        
-        <div class='row mb-3'>
-            <div class='col-md-4'></div>
-            <div class='col-md-8 pnt-media-preview pnt-{$this->idElem}'>
-                <img class='img-thumbnail' style='width: 200px' src='{$this->valueElem} style='$dBlock'>
-            </div>
-        </div>
+            <div class='row mb-3'>
+                <div class='col-md-4'></div>
+                <div class='col-md-8 pnt-media-preview pnt-{$this->idElem}'>
+                    <img class='img-thumbnail' style='width: 200px' src='{$this->valueElem}' style='$dBlock'>
+                </div>
+
         ";
 
         return $output;
+    }
+
+    private function switch() {
+        /**
+         * Crea el bloque de código HTML de forma dinámica
+         * 
+         * Mediante una condicion se añaden estilos para mostrar
+         * un botón de tipo switch
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo switch
+         */
+
+        $output = "
+            <div class='col-md-8'>
+                <div class='custom-control custom-switch'>
+                    <label class='px-5' for='switch'>OFF</label>
+                    <input ".checked( $this->valueElem, 'on' )." name='{$this->attr_name_val()}' type='checkbox' class='custom-control-input' id='switch'>
+                    <label class='custom-control-label' for='switch'>ON</label>
+                </div>
+            </div>
+        ";        
+
+        return $output;
+    }
+
+    private function attr_name_val (){
+
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+
+        if ($this->idsElem != '' ){
+
+            $idsElem = explode(',', $this->idsElem);
+            $idName = "";
+
+            foreach ($idsElem as $id) {
+
+                $idName .= "[$id]";
+            }
+
+            $name .= $idName;
+        }
+
+        return $name;
     }
 
 }

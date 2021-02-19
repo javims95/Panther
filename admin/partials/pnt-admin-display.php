@@ -59,7 +59,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-colors" class="" data-menuActivado="fuentes">
+                            <a href="#pnt-colors" class="" data-menuActivado="colores">
                             <i class="fas fa-paint-brush"></i><span>Colores</span>
                             </a>
                         </li>
@@ -85,7 +85,8 @@
                 <div class="col-9">
                     <form id="pnt-form">
                         <div id="pnt-form-content">
-                            <input type="hidden" name="pnt[menuActivado]" id="pnt-menu-activado">
+
+                            <input type="hidden" name="pnt[menuActivado]" id="pnt-menu-activado" value="<?php echo $pnt_menuActivado; ?>">
 
                             <!-- Configuraciones globales -->
                             <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-colors.php'; ?>

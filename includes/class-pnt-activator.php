@@ -13,19 +13,19 @@ class PNT_Activator {
                 "menuActivado"  => "global",
 
                 "global"        => [
-                    "cuerpo"        => "fullancho",
+                    "cuerpo"        => "fullwidth",
                     "logoUrl"       => "",
                     "textLogo"      => "",
                     "faviconUrl"    => "",
                     "apiGMaps"      => "",
                 ],
 
-                "header"        => [
-                    "estilo"        => "defecto"
+                "header"    => [
+                    "style"     => "default"
                 ],
 
-                "menu"          => [
-                    "opciones"      => [ "show-border" => "show-border" ]
+                "menu"      => [
+                    "options"      => [ "show-border" => "show-border" ]
                 ],
 
                 "footer"        => [

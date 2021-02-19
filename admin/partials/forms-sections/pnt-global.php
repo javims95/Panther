@@ -1,12 +1,8 @@
 <?php
 
-echo '<pre>';
-var_dump($pnt_global);
-echo '</pre>';
-
 // Esto son todos los items de la sección
-$sectionBody = [
-    'textLogo' => [
+$elemsSectBody = [
+    'cuerpo' => [
         'type'          => 'radio',
         'title'         => 'Texto',
         'value'         => $pnt_global['cuerpo'],
@@ -47,7 +43,7 @@ $elemsSectAdvanced = [
 $globalSections = [
     'body' => [
         'titleSection' => 'Body',
-        'elems' => $sectionBody,
+        'elems' => $elemsSectBody,
     ],
     'logo' => [
         'titleSection' => 'Logotipo',
@@ -60,6 +56,7 @@ $globalSections = [
 ];
 
 // Esta es la forma de llamar al método que crea las secciones
-echo $this->formBuilder->addFull('global', $globalSections);
+echo $this->formBuilder->addFull('global', $pnt_menuActivado, $globalSections);
 ?>
+
 </div>
