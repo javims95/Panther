@@ -204,7 +204,7 @@ class PNT_Form_Builder {
 
                 $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='radio' name='$name' id='radio$id' value='$idOptRadio' >
+                        <input class='form-check-input' type='radio' name='$name' id='radio$id' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
                         <label class='form-check-label' for='radio$id'>
                             $titleOptRadio
                         </label>

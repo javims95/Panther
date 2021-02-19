@@ -88,6 +88,7 @@ class PNT_Admin {
         
     }
     
+    
     /**
 	 * Registra los archivos de hojas de estilos del área de administración
 	 *

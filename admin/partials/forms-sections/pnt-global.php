@@ -1,11 +1,15 @@
 <?php
 
+echo '<pre>';
+var_dump($pnt_global);
+echo '</pre>';
+
 // Esto son todos los items de la sección
 $sectionBody = [
     'textLogo' => [
         'type'          => 'radio',
         'title'         => 'Texto',
-        'value'         => '',
+        'value'         => $pnt_global['cuerpo'],
         'optionsRadio'  => [
             'fullwidth'     => 'Ancho completo',
             'box'           => 'Diseño de caja'
@@ -17,12 +21,12 @@ $elemsSectLogo = [
     'LogoUrl' => [
         'type' => 'media',
         'title' => 'Logotipo',
-        'value' => '',
+        'value' => $pnt_global['logoUrl'],
     ],
     'textLogo' => [
         'type' => 'text',
         'title' => 'Texto del logotipo',
-        'value' => ''
+        'value' => $pnt_global['textLogo']
     ]
 ];
 
@@ -30,12 +34,12 @@ $elemsSectAdvanced = [
     'faviconUrl' => [
         'type' => 'media',
         'title' => 'Favicon',
-        'value' => '',
+        'value' => $pnt_global['faviconUrl'],
     ],
     'apiGMaps' => [
         'type' => 'text',
         'title' => 'API para Google Maps',
-        'value' => ''
+        'value' => $pnt_global['apiGMaps']
     ]
 ];
 
