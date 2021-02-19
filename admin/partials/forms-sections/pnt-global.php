@@ -2,10 +2,10 @@
 
 // Esto son todos los items de la sección
 $elemsSectBody = [
-    'cuerpo' => [
+    'body' => [
         'type'          => 'radio',
         'title'         => 'Texto',
-        'value'         => $pnt_global['cuerpo'],
+        'value'         => $pnt_global['body'],
         'optionsRadio'  => [
             'fullwidth'     => 'Ancho completo',
             'box'           => 'Diseño de caja'
@@ -42,7 +42,7 @@ $elemsSectAdvanced = [
 // Esta es la seccion completa
 $globalSections = [
     'body' => [
-        'titleSection' => 'Body',
+        'titleSection' => 'Diseño de página',
         'elems' => $elemsSectBody,
     ],
     'logo' => [

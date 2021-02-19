@@ -1,9 +1,5 @@
 <?php 
 
-echo "<pre>";
-var_dump( $pnt_menu);
-echo "</pre>";
-
 $elemsSectMenu = [
     'options' => [
         'type'          => 'checkbox',
@@ -22,7 +18,6 @@ $menuSections = [
     ]
 ];
 
-// Esta es la forma de llamar al método que crea las secciones
 echo $this->formBuilder->addFull('menu', $pnt_menuActivado, $menuSections);
 
 ?>

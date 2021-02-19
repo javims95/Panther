@@ -13,7 +13,7 @@ class PNT_Activator {
                 "menuActivado"  => "global",
 
                 "global"        => [
-                    "cuerpo"        => "fullwidth",
+                    "body"        => "fullwidth",
                     "logoUrl"       => "",
                     "textLogo"      => "",
                     "faviconUrl"    => "",
@@ -30,10 +30,10 @@ class PNT_Activator {
 
                 "footer"        => [
                     "copyright"     => sprintf(
-                            __( "Todos los derechos reservados. BezierCode Developers. @%d", "pnt-opt" ),
+                            __( "Copyright © 2020-%d | Todos los derechos reservados | Jamusa.es", "pnt-opt" ),
                             date('Y')
                         ),
-                    "posicion"  => "izquierda"
+                    "position"  => "center"
                 ],
 
                 "sidebars"      => [
