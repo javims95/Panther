@@ -136,9 +136,9 @@ class PNT_Admin {
         wp_enqueue_style( 'pnt_fontawesome_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
 
         /**
-         * Range Slider 2.3.0
+         * NoUiSlider 14.6.3
          */
-        wp_enqueue_style( 'pnt_rangeslider_css', PNT_DIR_URI.'helpers/range-slider/css/rangeslider.css' , array(), '2.3.0', 'all' );
+        wp_enqueue_style( 'pnt_noUiSlider_css', PNT_DIR_URI.'helpers/noUiSlider/css/nouislider.min.css' , array(), '14.6.3', 'all' );
 
         /**
          * pnt-admin.css
@@ -186,10 +186,10 @@ class PNT_Admin {
         wp_enqueue_script( 'pnt_bootstrap_admin_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
         
         /**
-         * Range Slider 2.3.0
-         * https://getbootstrap.com/docs/4.6/getting-started/download/
+         * NoUiSlider 14.6.3
+         * https://refreshless.com/nouislider/
          */	               
-        wp_enqueue_script( 'pnt_rangeslider_admin_js', PNT_DIR_URI . 'helpers/range-slider/js/rangeslider.min.js', ['jquery'], '2.3.0', true );
+        wp_enqueue_script( 'pnt_noUiSlider_admin_js', PNT_DIR_URI . 'helpers/noUiSlider/js/nouislider.min.js', ['jquery'], '14.6.3', true );
         
         /**
          * Scripts globales         

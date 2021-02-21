@@ -205,4 +205,37 @@ div#wpfooter {
     display: none;
 }
 
+/* Range Slider */
 
+.range-wrap {
+    position: relative;
+   
+}
+
+.range {
+    width: 100%;
+}
+
+.bubble {
+    background: red;
+    color: white;
+    padding: 4px 12px;
+    position: relative;
+    border-radius: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bubble::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 5px;
+    background: red;
+    top: -5px;
+    left: 50%;
+}
+
+body {
+    margin: 2rem;
+}

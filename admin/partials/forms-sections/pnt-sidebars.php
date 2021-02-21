@@ -6,7 +6,7 @@ echo "</pre>";
 
 $elemsSectSidebars = [
     'width' => [
-        'type'          => 'rangeSlider',
+        'type'          => 'noUiSlider',
         'title'         => 'Ancho',
         'value'         => '',
         'start'         => '23',
