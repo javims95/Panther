@@ -150,16 +150,17 @@ ul.pnt-menu li a:hover {
     position: relative;
 }
 
-.row.mb-3 .col-md-8.pnt-input-media.d-flex input {
+/* Media */
+.row.mb-3 .col-md-8.pnt-input-media.d-flex input, .row.mb-3 .col-md-8.pnt-listSidebar.d-flex input  {
     width: inherit;
     flex: 1;
 }
 
-.pnt-input-media input {
+.pnt-input-media input, .pnt-listSidebar input {
     padding-right: 60px;
 }
 
-span.pnt-media-remove {
+span.pnt-media-remove{
     position: absolute;
     right: 12px;
     top: 0;
@@ -174,7 +175,25 @@ span.pnt-media-remove {
     align-items: center;
 }
 
-.pnt-input-media>* {
+.col-md-8.pnt-input-media input {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.col-md-8.pnt-input-media button {
+    border-radius: 5px 0px 0px 5px;
+}
+
+/* Fin media */
+
+input#bct-sidebars-custom {
+    border-radius: 5px 0px 0px 5px;
+}
+
+.pnt-listSidebar button {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.pnt-input-media>*, .pnt-listSidebar>* {
     height: 2.8rem;
 }
 
@@ -205,37 +224,37 @@ div#wpfooter {
     display: none;
 }
 
-/* Range Slider */
+ul.pnt-listSidebar-items {
+    margin:0;
+    margin-top: 1rem;
+}
 
-.range-wrap {
+ul.pnt-listSidebar-items li {
+    background: #a291ad;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
     position: relative;
-   
+    width: 400px;
 }
 
-.range {
-    width: 100%;
-}
-
-.bubble {
-    background: red;
-    color: white;
-    padding: 4px 12px;
-    position: relative;
-    border-radius: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.bubble::after {
-    content: "";
+ul.pnt-listSidebar-items li span.pnt-remove-listSidebar {
     position: absolute;
-    width: 2px;
-    height: 5px;
-    background: red;
-    top: -5px;
-    left: 50%;
+    left: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    background: rgba(0, 0, 0, 0.32);
+    color: #fff;
+    cursor: pointer;
 }
 
-body {
-    margin: 2rem;
+ul.pnt-listSidebar-items li span.texto {
+    color: #fff;
+    margin-left: 30px;
+    font-size: 17px;
 }

@@ -96,25 +96,18 @@ jQuery(document).ready(function ($) {
   /*
    * Range Slider
    */
-  const allRanges = document.querySelectorAll('.range-wrap')
-  allRanges.forEach((wrap) => {
-    const range = wrap.querySelector('.range')
-    const bubble = wrap.querySelector('.output')
 
-    range.addEventListener('input', () => {
-      setBubble(range, bubble)
-    })
-    setBubble(range, bubble)
+  /* Al cargar la página se mostrará en el input el valor del range */
+  // $('#output').val($('#rangeSlider').val())
+
+  /*Cada vez que el range cambie de valor, se cambiará el valor del input */
+  $('#rangeSlider').on('change', function (e) {
+    $('#output').val($(this).val())
   })
 
-  function setBubble(range, bubble) {
-    const val = range.value
-    const min = range.min ? range.min : 0
-    const max = range.max ? range.max : 100
-    const newVal = Number(((val - min) * 100) / (max - min))
-    bubble.innerHTML = val
+  /*Cada vez que el input cambie de valor, se cambiará el valor del range */
+  $('#output').on('change', function (e) {
+    $('#rangeSlider').val($(this).val())
+  })
 
-    // Sorta magic numbers based on size of the native UI thumb
-    bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`
-  }
 })

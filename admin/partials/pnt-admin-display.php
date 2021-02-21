@@ -1,13 +1,13 @@
 <?php extract($this->pnt, EXTR_PREFIX_ALL, 'pnt'); ?>
 
 <div class="row m-0">
-    <div class="col-12 px-1 m-0 shadow-lg p-3 mb-5 bg-white rounded">
+    <div class="col-md-12 px-1 m-0 shadow-lg p-3 mb-5 bg-white rounded">
         <div class="row position-relative m-0">
 
             <!-- Botón guardar cambios -->
             <button class="btn btn-success btn-pnt"><i class="fas fa-save"></i> Guardar</button>
 
-                <div class="col-12 px-0">                
+                <div class="col-md-12 px-0">                
                     <?php
                     $bg_gradient = "
                     background: rgb(42,34,195);
@@ -31,7 +31,7 @@
 
             <!-- Columna de navegación opciones tema -->
             <div class="row ml-1">
-                <div class="col-3">
+                <div class="col-md-3">
                     <ul class="pnt-menu">
                         <li>
                             <a href="#pnt-global" class="active" data-menuActivado="global">
@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- Contenido de la configuracion -->
-                <div class="col-9">
+                <div class="col-md-9">
                     <form id="pnt-form">
                         <div id="pnt-form-content">
 

@@ -1,6 +1,7 @@
 <?php
 
-class PNT_Form_Builder {
+class PNT_Form_Builder
+{
 
     private $idConf;
 
@@ -17,12 +18,13 @@ class PNT_Form_Builder {
     private $valueElem;
 
     private $optionsRadio;
-    
+
     private $start;
     private $min;
     private $max;
 
-    public function addSection($idConf, $idSect, $titleSect, $elems) {
+    public function addSection($idConf, $idSect, $titleSect, $elems)
+    {
         /**
          * Añade una sección única de forma dinámica
          *
@@ -37,10 +39,10 @@ class PNT_Form_Builder {
          * @return $output cadena de texto HTML, para crear la seccion
          */
 
-        $this->idConf        = strtolower($idConf);
-        $this->idSect        = strtolower($idSect);
-        $this->titleSect     = $titleSect;
-        $this->elems         = $elems;
+        $this->idConf = strtolower($idConf);
+        $this->idSect = strtolower($idSect);
+        $this->titleSect = $titleSect;
+        $this->elems = $elems;
 
         $output = "
         <section id='pnt-{$this->idConf}-{$this->idSect}' class='my-3'>
@@ -53,7 +55,6 @@ class PNT_Form_Builder {
         <div class='pnt-sec-configs'>
         ";
 
-
         $output .= $this->processor();
 
         $output .= "
@@ -65,12 +66,13 @@ class PNT_Form_Builder {
 
     }
 
-    public function addFull ($idConf, $menuActivated, $sections) {
+    public function addFull($idConf, $menuActivated, $sections)
+    {
         /**
          * Método que llama a addSection. Con esta única
          *  función se crea la sección completa
          *
-         * Este método recibe dos parámetros, llama a todos 
+         * Este método recibe dos parámetros, llama a todos
          * los métodos necesarios para crear la sección.
          *
          * @access public
@@ -79,14 +81,14 @@ class PNT_Form_Builder {
          * @return $output cadena de texto HTML, para crear la seccion
          */
 
-        $this->idConf       = strtolower($idConf);
-        $this->sections     = $sections;
+        $this->idConf = strtolower($idConf);
+        $this->sections = $sections;
 
         $dBlock = $menuActivated == $this->idConf ? 'display:block' : '';
 
-        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-12' style='$dBlock'>";
+        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-md-12' style='$dBlock'>";
 
-        foreach($this->sections as $idSect => $sect) {
+        foreach ($this->sections as $idSect => $sect) {
 
             $output .= $this->addSection($this->idConf, $idSect, $sect['titleSection'], $sect['elems']);
         }
@@ -96,12 +98,13 @@ class PNT_Form_Builder {
         return $output;
     }
 
-    private function processor() {
+    private function processor()
+    {
         /**
          * Procesa los datos del array de elementos, para crear subsecciones
          * con las distintas opciones de configuración
          *
-         * Mediante un foreach se procesa los datos del array de elementos. 
+         * Mediante un foreach se procesa los datos del array de elementos.
          * Con un switch se elige el tipo de elemento seleccionado.
          *
          * @access private
@@ -110,13 +113,13 @@ class PNT_Form_Builder {
 
         $output = "";
 
-        foreach( $this->elems as $idElem => $elem ){
+        foreach ($this->elems as $idElem => $elem) {
 
-            $this->idElem        = $idElem;
-            $this->typeElem      = $elem['type'];
-            $this->titleElem     = $elem['title'];
-            $this->valueElem     = $elem['value'];
-            $this->idsElem     = isset($elem['ids']) ? $elem['ids'] : '' ;
+            $this->idElem = $idElem;
+            $this->typeElem = $elem['type'];
+            $this->titleElem = $elem['title'];
+            $this->valueElem = $elem['value'];
+            $this->idsElem = isset($elem['ids']) ? $elem['ids'] : '';
 
             $output .= "
             <div class='row mb-3'>
@@ -153,10 +156,14 @@ class PNT_Form_Builder {
                     break;
 
                 case 'noUiSlider':
-                    $this->start    = $elem['start'];
-                    $this->min      = $elem['min'];
-                    $this->max      = $elem['max'];
+                    $this->start = $elem['start'];
+                    $this->min = $elem['min'];
+                    $this->max = $elem['max'];
                     $output .= $this->noUiSlider();
+                    break;
+
+                case 'listSidebar':
+                    $output .= $this->listSidebar();
                     break;
             }
 
@@ -168,7 +175,8 @@ class PNT_Form_Builder {
 
     }
 
-    private function text() {
+    private function text()
+    {
         /**
          * Crea el div y dentro un input de forma dinámica
          *
@@ -184,84 +192,88 @@ class PNT_Form_Builder {
 
         return $output;
     }
-    
-    private function textarea() {
+
+    private function textarea()
+    {
         /**
          * Crea el div y dentro un textarea de forma dinámica
          *
          * @access private
          * @return $output cadena de texto HTML, tipo textarea
          */
-            
+
         $output = "
             <div class='col-md-8'>
                 <textarea name='{$this->attr_name_val()}' class='form-control'>{$this->valueElem}</textarea>
             </div>
         ";
-    
+
         return $output;
 
     }
 
-    private function radio () {
+    private function radio()
+    {
         /**
          * Crea el div y dentro un conjunto de radio buttons de forma dinámica
          *
          * @access private
          * @return $output cadena de texto HTML, tipo radio
          */
-            
+
         $output = "
             <div class='col-md-8'>";
 
-            foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
-                
-                $output .= "
+        foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+
+            $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='radio' name='{$this->attr_name_val()}' id='$idOptRadio' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
+                        <input class='form-check-input' type='radio' name='{$this->attr_name_val()}' id='$idOptRadio' value='$idOptRadio' " . checked($this->valueElem, $idOptRadio, false) . " >
                         <label class='form-check-label' for='$idOptRadio'>
                             $titleOptRadio
                         </label>
                     </div>
                 ";
-            }
-            
-            $output .= "</div>";
-    
+        }
+
+        $output .= "</div>";
+
         return $output;
     }
-    private function checkbox () {
+    private function checkbox()
+    {
         /**
          * Crea el div y dentro un conjunto de radio buttons de forma dinámica
          *
          * @access private
          * @return $output cadena de texto HTML, tipo radio
          */
-            
+
         $output = "
             <div class='col-md-8'>";
 
-            foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
-                
-                $output .= "
+        foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+
+            $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='checkbox' name='{$this->attr_name_val()}[$idOptRadio]' id='$idOptRadio' value='$idOptRadio' ".checked($this->valueElem, $idOptRadio, false)." >
+                        <input class='form-check-input' type='checkbox' name='{$this->attr_name_val()}[$idOptRadio]' id='$idOptRadio' value='$idOptRadio' " . checked($this->valueElem, $idOptRadio, false) . " >
                         <label class='form-check-label' for='$idOptRadio'>
                             $titleOptRadio
                         </label>
                     </div>
                 ";
-            }
-            
-            $output .= "</div>";
-    
+        }
+
+        $output .= "</div>";
+
         return $output;
     }
 
-    private function media() {
+    private function media()
+    {
         /**
          * Crea el bloque de código HTML de forma dinámica
-         * 
+         *
          * Mediante una condicion se añaden estilos para mostrar
          * la miniatura del archivo.
          *
@@ -269,8 +281,8 @@ class PNT_Form_Builder {
          * @return $output cadena de texto HTML, tipo media
          */
 
-        if ($this->valueElem != ''){
-            
+        if ($this->valueElem != '') {
+
             $dBlock = "display:block;";
             $dFlex = "display:flex;";
 
@@ -303,64 +315,118 @@ class PNT_Form_Builder {
         return $output;
     }
 
-    private function switch() {
-        /**
-         * Crea el bloque de código HTML de forma dinámica
-         * 
-         * Mediante una condicion se añaden estilos para mostrar
-         * un botón de tipo switch
-         *
-         * @access private
-         * @return $output cadena de texto HTML, tipo switch
-         */
+    function switch () {
+            /**
+             * Crea el bloque de código HTML de forma dinámica
+             *
+             * Mediante una condicion se añaden estilos para mostrar
+             * un botón de tipo switch
+             *
+             * @access private
+             * @return $output cadena de texto HTML, tipo switch
+             */
 
-        $output = "
+            $output = "
             <div class='col-md-8'>
                 <div class='custom-control custom-switch'>
                     <label class='px-5' for='switch'>OFF</label>
-                    <input ".checked( $this->valueElem, 'on' )." name='{$this->attr_name_val()}' type='checkbox' class='custom-control-input' id='switch'>
+                    <input " . checked($this->valueElem, 'on') . " name='{$this->attr_name_val()}' type='checkbox' class='custom-control-input' id='switch'>
                     <label class='custom-control-label' for='switch'>ON</label>
                 </div>
             </div>
-        ";        
+        ";
 
-        return $output;
+            return $output;
     }
 
-    public function noUiSlider() {
+    public function noUiSlider()
+    {
         /**
          * Crea el bloque de código HTML de forma dinámica
-         * 
+         *
          * Crea un range slider, con un min y un max
          *
-         * @access private
+         * @access public
          * @return $output cadena de texto HTML, tipo range slider
          */
 
         $output = "
         <div class='col-md-8'>
-            <div class='range-wrap'>
-                <div class='row'>
-                    <div class='col-md-10'>
-                        <input type='range' class='range'>                  
-                    </div>
-                    <div class='col-md-2'>
-                        <span class='output'>50</span>
-                    </div>
+            <div class='form-row'>
+                <div class='form-group col-md-10 align-self-center'>
+                    <input style='width:100%' type='range' class='form-range' id='rangeSlider' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
+                </div>
+                <div class='form-group col-md-2'>
+                    <input type='number' name='{$this->attr_name_val()}' class='form-control'
+                    id='output' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
                 </div>
             </div>
-            <input name='{$this->attr_name_val()}' type='text' id='' value=''>
         </div>
         ";
 
         return $output;
     }
 
-    private function attr_name_val (){
+    private function listSidebar()
+    {
+        /**
+         * Crea el bloque de código HTML de forma dinámica
+         *
+         * Crea una lista de los sidebars
+         *
+         * @access public
+         * @return $output cadena de texto HTML, tipo listSidebar
+         */
+
+        if ($this->valueElem != '' && is_array($this->valueElem)) {
+
+            $output_list_custom = "";
+
+            foreach ($this->valueElem as $key => $list) {
+
+                $id = ++$key;
+                $lowerName = strtolower($list);
+                $ucFirstName = ucfirst($lowerName);
+
+                $output_list_custom .= "
+                    <li>
+                        <input id ='{$this->attr_id_val()}-$id' type='hidden' name='{$this->attr_name_val()}[]'>
+                        <span class='texto'>$ucFirstName</span>
+                        <span class='pnt-remove-listSidebar' data-id='{$this->attr_id_val()}'>
+                            <i class='fas fa-times'></i>
+                        </span>
+                    </li>
+                ";
+            }
+        } else {
+
+            $output_list_custom = '';
+        }
+
+        $output = "
+        <div class='col-md-8 pnt-listSidebar d-flex'>
+            <input type='text' id='{$this->attr_id_val()}' name='' value=''>
+            <button class='btn btn-secondary' type='button' data-id='{$this->attr_id_val()}'>
+            <i class='fas fa-plus'> Agregar Sidebar</i>
+            </button>
+        </div>
+
+        <div class='col-sm-12 col-md-6 offset-md-4'>
+            <ul class='pnt-listSidebar-items {$this->attr_class_val()}'>
+                $output_list_custom
+            </ul>
+        </div>
+        ";
+
+        return $output;
+    }
+
+    private function attr_name_val()
+    {
 
         $name = "pnt[{$this->idConf}][{$this->idElem}]";
 
-        if ($this->idsElem != '' ){
+        if ($this->idsElem != '') {
 
             $idsElem = explode(',', $this->idsElem);
             $idName = "";
@@ -374,6 +440,18 @@ class PNT_Form_Builder {
         }
 
         return $name;
+    }
+
+    private function attr_id_val()
+    {
+        $id = "bct-{$this->idConf}-{$this->idElem}";
+        return esc_attr($id);
+    }
+
+    private function attr_class_val()
+    {
+        $class = "bct-{$this->idConf}-{$this->idElem}";
+        return esc_attr($class);
     }
 
 }
