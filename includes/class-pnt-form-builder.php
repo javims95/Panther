@@ -23,6 +23,9 @@ class PNT_Form_Builder
     private $min;
     private $max;
 
+    private $tag;
+    private $preview;
+
     public function addSection($idConf, $idSect, $titleSect, $elems)
     {
         /**
@@ -63,7 +66,6 @@ class PNT_Form_Builder
         ";
 
         return $output;
-
     }
 
     public function addFull($idConf, $menuActivated, $sections)
@@ -115,11 +117,14 @@ class PNT_Form_Builder
 
         foreach ($this->elems as $idElem => $elem) {
 
-            $this->idElem = $idElem;
-            $this->typeElem = $elem['type'];
-            $this->titleElem = $elem['title'];
-            $this->valueElem = $elem['value'];
-            $this->idsElem = isset($elem['ids']) ? $elem['ids'] : '';
+            $this->idElem       = $idElem;
+            $this->typeElem     = $elem['type'];
+            $this->titleElem    = $elem['title'];
+            $this->valueElem    = $elem['value'];
+
+            $this->idsElem      = isset($elem['ids']) ? $elem['ids'] : '';
+            $this->tag          = isset($elem['tag']) ? $elem['tag'] : '';
+            $this->preview      = isset($elem['preview']) ? $elem['preview'] : '';
 
             $output .= "
             <div class='row mb-3'>
@@ -165,14 +170,16 @@ class PNT_Form_Builder
                 case 'listSidebar':
                     $output .= $this->listSidebar();
                     break;
+
+                case 'colorpicker':
+                    $output .= $this->colorpicker();
+                    break;
             }
 
             $output .= "</div>";
-
         }
 
         return $output;
-
     }
 
     private function text()
@@ -209,7 +216,6 @@ class PNT_Form_Builder
         ";
 
         return $output;
-
     }
 
     private function radio()
@@ -285,7 +291,6 @@ class PNT_Form_Builder
 
             $dBlock = "display:block;";
             $dFlex = "display:flex;";
-
         } else {
 
             $dBlock = "";
@@ -315,18 +320,19 @@ class PNT_Form_Builder
         return $output;
     }
 
-    function switch () {
-            /**
-             * Crea el bloque de código HTML de forma dinámica
-             *
-             * Mediante una condicion se añaden estilos para mostrar
-             * un botón de tipo switch
-             *
-             * @access private
-             * @return $output cadena de texto HTML, tipo switch
-             */
+    function switch()
+    {
+        /**
+         * Crea el bloque de código HTML de forma dinámica
+         *
+         * Mediante una condicion se añaden estilos para mostrar
+         * un botón de tipo switch
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo switch
+         */
 
-            $output = "
+        $output = "
             <div class='col-md-8'>
                 <div class='custom-control custom-switch'>
                     <label class='px-5' for='switch'>OFF</label>
@@ -336,7 +342,7 @@ class PNT_Form_Builder
             </div>
         ";
 
-            return $output;
+        return $output;
     }
 
     public function noUiSlider()
@@ -398,7 +404,6 @@ class PNT_Form_Builder
                     </li>
                 ";
             }
-
         } else {
 
             $output_list_custom = '';
@@ -417,6 +422,48 @@ class PNT_Form_Builder
                 $output_list_custom
             </ul>
         </div>
+        ";
+
+        return $output;
+    }
+
+    private function colorpicker()
+    {
+
+        
+        if ($this->preview != '') {
+            
+            $tag = "data-tag='{$this->tag}'";
+            $preview = "<div class='col-sm-12 col-md-6 offset-md-4'";
+
+            if ($this->preview == 'text') {
+
+                $preview .= "
+                    <{$this->tag} class='pnt-preview-color-{$this->tag}' style='background-color: {$this->valueElem};'>
+                        " . get_bloginfo('name') . "
+                    </{$this->tag}>
+                ";
+            } elseif ($this->preview == 'bg') {
+            }
+
+            $preview .= "</div>";
+        } else {
+
+            $tag = "";
+            $preview = "";
+        }
+
+
+        $output = "
+            <div class='col-md-8 d-flex'>
+                <div class='pnt-select-color file-field' $tag>
+                    <div class='pntBtnColor btn' style='background-color: {$this->valueElem};'></div>
+                    <div class='file-path-wrapper'>
+                        <input type='text' name='{$this->attr_name_val()}' class='col-sm-12' />
+                    </div>
+                </div>
+            </div>
+            $preview
         ";
 
         return $output;
@@ -454,5 +501,4 @@ class PNT_Form_Builder
         $class = "pnt-{$this->idConf}-{$this->idElem}";
         return esc_attr($class);
     }
-
 }

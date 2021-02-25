@@ -141,6 +141,11 @@ class PNT_Admin {
         wp_enqueue_style( 'pnt_noUiSlider_css', PNT_DIR_URI.'helpers/noUiSlider/css/nouislider.min.css' , array(), '14.6.3', 'all' );
 
         /**
+         * Color-picker 1.0
+         */
+        wp_enqueue_style( 'pnt_colorpicker_css', PNT_DIR_URI.'helpers/color-picker/css/colorpicker.min.css' , array(), '1.0', 'all' );
+
+        /**
          * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
@@ -190,6 +195,12 @@ class PNT_Admin {
          * https://refreshless.com/nouislider/
          */	               
         wp_enqueue_script( 'pnt_noUiSlider_admin_js', PNT_DIR_URI . 'helpers/noUiSlider/js/nouislider.min.js', ['jquery'], '14.6.3', true );
+
+        /**
+         * Color-picker 1.0
+         * http://wittsparks.com/materialize-colorpicker/
+         */	               
+        wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/color-picker/js/colorpicker.min.js', ['jquery'], '1.0', true );
         
         /**
          * Scripts globales         

@@ -1,15 +1,11 @@
 <?php 
 
-echo "<pre>";
-var_dump($pnt_sidebars);
-echo "</pre>";
-
 $elemsSectSidebars = [
     'width' => [
         'type'          => 'noUiSlider',
         'title'         => 'Ancho',
         'value'         => '',
-        'start'         => $pnt_sidebars['ancho'],
+        'start'         => $pnt_sidebars['width'],
         'min'           => '15',
         'max'           => '30',
     ]

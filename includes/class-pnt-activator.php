@@ -40,7 +40,7 @@ class PNT_Activator {
                     "width"         => "20"
                 ],
 
-                "colores"       => [
+                "colors"       => [
                     "h1"            => "rgba(0,0,0,0.87)",
                     "h2"            => "rgba(0,0,0,0.87)",
                     "h3"            => "rgba(0,0,0,0.87)",
