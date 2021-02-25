@@ -398,6 +398,7 @@ class PNT_Form_Builder
                     </li>
                 ";
             }
+
         } else {
 
             $output_list_custom = '';
@@ -444,13 +445,13 @@ class PNT_Form_Builder
 
     private function attr_id_val()
     {
-        $id = "bct-{$this->idConf}-{$this->idElem}";
+        $id = "pnt-{$this->idConf}-{$this->idElem}";
         return esc_attr($id);
     }
 
     private function attr_class_val()
     {
-        $class = "bct-{$this->idConf}-{$this->idElem}";
+        $class = "pnt-{$this->idConf}-{$this->idElem}";
         return esc_attr($class);
     }
 

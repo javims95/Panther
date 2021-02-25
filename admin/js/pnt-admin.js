@@ -97,9 +97,6 @@ jQuery(document).ready(function ($) {
    * Range Slider
    */
 
-  /* Al cargar la página se mostrará en el input el valor del range */
-  // $('#output').val($('#rangeSlider').val())
-
   /*Cada vez que el range cambie de valor, se cambiará el valor del input */
   $('#rangeSlider').on('change', function (e) {
     $('#output').val($(this).val())
@@ -109,5 +106,59 @@ jQuery(document).ready(function ($) {
   $('#output').on('change', function (e) {
     $('#rangeSlider').val($(this).val())
   })
+
+  /*
+   * Sidebars
+   */
+  function templateListSidebar(text, id, dataID) {
+
+    var name = '',
+      arrID = dataID.split('-');
+
+    for (var i = 0, l = arrID.length; i < l; i++) {
+
+      name += arrID[i] == 'pnt' ? 'pnt' : '[' + arrID[i] + ']';
+
+    }
+
+    var output = '<li>' +
+                    '<input id="' + dataID + '-' + id + '" type="hidden" name="' + name + '[]" value="' + text.toLowerCase() + '">' +
+                    '<span class="texto">' + text.capitalize() + '</span>' +
+                    '<span class="pnt-remove-listSidebar">' +
+                      '<i class="fas fa-times"></i>' +
+                    '</span>' +
+                  '</li>';
+
+    return output;
+
+  }
+
+  var $bctListValBtn = $('.pnt-listSidebar button');
+
+  $bctListValBtn.on('click', function () {
+
+    var $this = $(this),
+      dataID = $this.attr('data-id'),
+      $input = $('input#' + dataID),
+      inputVal = $input.val(),
+      $ulList = $('ul.' + dataID),
+      countItems = $ulList.find('li').length;
+
+    if (inputVal != '') {
+
+      $ulList.append(templateListSidebar(inputVal, countItems + 1, dataID));
+      $input.val('');
+
+    }
+
+  });
+
+  /* Eliminar Sidebars */
+  $(document).on('click', '.pnt-remove-listSidebar', function () {
+
+    var $this = $(this);
+    $this.parent().remove();
+
+  });
 
 })
