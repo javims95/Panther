@@ -161,4 +161,10 @@ jQuery(document).ready(function ($) {
 
   });
 
+  $(function() {
+    $('.pnt-select-color').colorpicker({
+      component: '.btn'
+    });
+  });
+
 })

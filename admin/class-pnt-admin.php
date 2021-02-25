@@ -144,6 +144,7 @@ class PNT_Admin {
          * Color-picker 1.0
          */
         wp_enqueue_style( 'pnt_colorpicker_css', PNT_DIR_URI.'helpers/color-picker/css/colorpicker.min.css' , array(), '1.0', 'all' );
+        wp_enqueue_style( 'pnt_materialize_css', PNT_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0', 'all' );
 
         /**
          * pnt-admin.css
@@ -201,6 +202,7 @@ class PNT_Admin {
          * http://wittsparks.com/materialize-colorpicker/
          */	               
         wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/color-picker/js/colorpicker.min.js', ['jquery'], '1.0', true );
+        wp_enqueue_script( 'pnt_materialize_admin_js', PNT_DIR_URI . 'helpers/materialize/js/materialize.min.js', ['jquery'], '1.0', true );
         
         /**
          * Scripts globales         
