@@ -141,12 +141,6 @@ class PNT_Admin {
         wp_enqueue_style( 'pnt_noUiSlider_css', PNT_DIR_URI.'helpers/noUiSlider/css/nouislider.min.css' , array(), '14.6.3', 'all' );
 
         /**
-         * Color-picker 1.0
-         */
-        wp_enqueue_style( 'pnt_colorpicker_css', PNT_DIR_URI.'helpers/color-picker/css/colorpicker.min.css' , array(), '1.0', 'all' );
-        wp_enqueue_style( 'pnt_materialize_css', PNT_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0', 'all' );
-
-        /**
          * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
@@ -198,11 +192,10 @@ class PNT_Admin {
         wp_enqueue_script( 'pnt_noUiSlider_admin_js', PNT_DIR_URI . 'helpers/noUiSlider/js/nouislider.min.js', ['jquery'], '14.6.3', true );
 
         /**
-         * Color-picker 1.0
-         * http://wittsparks.com/materialize-colorpicker/
+         * Color-picker 2.4.5
+         * https://jscolor.com/
          */	               
-        wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/color-picker/js/colorpicker.min.js', ['jquery'], '1.0', true );
-        wp_enqueue_script( 'pnt_materialize_admin_js', PNT_DIR_URI . 'helpers/materialize/js/materialize.min.js', ['jquery'], '1.0', true );
+        wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/jscolor/js/jscolor.min.js', ['jquery'], '2.4.5', true );
         
         /**
          * Scripts globales         
@@ -217,7 +210,7 @@ class PNT_Admin {
         wp_enqueue_script( $this->theme_name, PNT_DIR_URI . 'admin/js/pnt-admin.js', [ 'jquery' ], $this->version, true );
         
         /**
-         * Lozalizando el archivo Javascript
+         * Localizando el archivo Javascript
          * principal del área de administración
          * para pasarle el objeto "bcpg" con los parámetros:
          * 

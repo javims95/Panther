@@ -1,14 +1,14 @@
 <?php 
 
 echo "<pre>";
-var_dump($pnt_colors);
+// var_dump($pnt_colors);
 echo "</pre>";
 
 $elemsSectColors = [
     'h1' => [
         'type'          => 'colorpicker',
         'title'         => 'H1',
-        'value'         => '',
+        'value'         => '#ff0000',
         'preview'       => 'text',
         'tag'           => 'h1'
     ],
@@ -18,7 +18,7 @@ $elemsSectColors = [
         'value'         => '',
         'preview'       => 'text',
         'tag'           => 'h2'
-    ],
+    ]
 ];
 
 $colorsSections = [

@@ -161,10 +161,24 @@ jQuery(document).ready(function ($) {
 
   });
 
-  $(function() {
-    $('.pnt-select-color').colorpicker({
-      component: '.btn'
-    });
-  });
+   
+
+
+  $('.pnt-select-color').on('change', function(e){
+
+      var $this = $(this),
+        dataTag = $this.attr('data-tag'),
+        $tagSelect = $('.pnt-preview-color-' + dataTag),
+        colorHex = $('.pnt-select-color input').attr('data-current-color'),
+        colorRGBa = hexToRGBa(colorHex);
+
+      $tagSelect.css('color', colorHex);
+
+      // El selector del H2 no funciona correctamente
+
+        
+
+        
+    })
 
 })
