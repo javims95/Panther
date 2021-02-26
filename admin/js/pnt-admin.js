@@ -161,12 +161,16 @@ jQuery(document).ready(function ($) {
 
   });
 
+  /*
+   * Colorpicker
+   */
   function pntColorToRGBa(objColor) {
 
     return 'rgba(' + objColor.r + ',' + objColor.g + ',' + objColor.b + ',' + objColor.a + ')';
 
   }
 
+  /* Bucle para obtener los id del color picker e inicializarlos de forma dinámica */
   $(".file-field").each(function () {
     id = $(this).attr("id");
 

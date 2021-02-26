@@ -5,6 +5,7 @@ echo "<pre>";
 echo "</pre>";
 
 $elemsSectColors = [
+    
     'h1' => [
         'type'          => 'colorpicker',
         'title'         => 'H1',
@@ -28,7 +29,24 @@ $elemsSectColors = [
     ],
 ];
 
-$colorsSections = [
+$alertInfoSectColors = [
+    
+    'alert' => [
+        'type'              => 'alertDismissible',
+        'title'             => 'H3',
+        'value'             => '',
+        'alertTitle'        => 'text',
+        'alertContent'      => 'h3',
+        'alertFooter'       => 'h3',
+        'alertClassColor'   => 'danger'
+    ],
+];
+
+$colorsSections = [    
+    'alertInfo' => [
+        'titleSection' => '',
+        'elems' => $alertInfoSectColors,
+    ],
     'head' => [
         'titleSection' => 'Cabeceras',
         'elems' => $elemsSectColors,

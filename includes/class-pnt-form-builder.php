@@ -25,6 +25,10 @@ class PNT_Form_Builder
 
     private $tag;
     private $preview;
+    
+    private $alertTitle;
+    private $alertContent;
+    private $alertFooter;
 
     public function addSection($idConf, $idSect, $titleSect, $elems)
     {
@@ -117,14 +121,22 @@ class PNT_Form_Builder
 
         foreach ($this->elems as $idElem => $elem) {
 
-            $this->idElem       = $idElem;
-            $this->typeElem     = $elem['type'];
-            $this->titleElem    = $elem['title'];
-            $this->valueElem    = $elem['value'];
+            $this->idElem           = $idElem;
+            $this->typeElem         = $elem['type'];
+            $this->titleElem        = $elem['title'];
+            $this->valueElem        = $elem['value'];        
+            
+            // colorPicker
+            $this->idsElem          = isset($elem['ids']) ? $elem['ids'] : '';
+            $this->tag              = isset($elem['tag']) ? $elem['tag'] : '';
+            $this->preview          = isset($elem['preview']) ? $elem['preview'] : '';
+            
+            // alertInfo
+            $this->alertTitle       = isset($elem['alertTitle']) ? $elem['alertTitle'] : '';
+            $this->alertContent     = isset($elem['alertContent']) ? $elem['alertContent'] : '';
+            $this->alertFooter      = isset($elem['alertFooter']) ? $elem['alertFooter'] : '';
+            $this->alertClassColor  = isset($elem['alertClassColor']) ? $elem['alertClassColor'] : '';
 
-            $this->idsElem      = isset($elem['ids']) ? $elem['ids'] : '';
-            $this->tag          = isset($elem['tag']) ? $elem['tag'] : '';
-            $this->preview      = isset($elem['preview']) ? $elem['preview'] : '';
 
             $output .= "
             <div class='row mb-3'>
@@ -173,6 +185,10 @@ class PNT_Form_Builder
 
                 case 'colorpicker':
                     $output .= $this->colorpicker();
+                    break;
+
+                case 'alertDismissible':
+                    $output = $this->alert_dismissible();
                     break;
             }
 
@@ -438,7 +454,7 @@ class PNT_Form_Builder
             if( $this->preview == 'text' ) {
 
                 $preview .= "
-                <{$this->tag} class='pnt-preview-color-{$this->tag} my-2' style='color:{$this->valueElem};'>
+                <{$this->tag} class='pnt-preview-color-{$this->tag} my-3' style='color:{$this->valueElem};'>
                     " . get_bloginfo( 'name' ) . "
                 </{$this->tag}>
                 ";
@@ -459,9 +475,9 @@ class PNT_Form_Builder
         $output = "
         <div class='pnt-input col-md-8'>
             <div id='{$this->attr_class_val()}' class='file-field' $tag>
-                <div class='btn' style='color:{$this->valueElem};'></div>
+                <div class='btn btnSelectColor' style='color:{$this->valueElem};'></div>
                 <div class='file-path-wrapper'>
-                    <input type='text' name='{$this->attr_name_val()}' />
+                    <input class='form-control' type='text' name='{$this->attr_name_val()}' />
                 </div>
             </div>
         </div>
@@ -470,6 +486,35 @@ class PNT_Form_Builder
 
         return $output;
     }
+
+    private function alert_dismissible () {
+
+        /**
+         * Crea el div y dentro un alert de información de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo alert
+         */
+
+        $output = "        
+        <div class='alert alert-{$this->alertClassColor}' role='alert'>
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+            <h4 class='alert-heading'>{$this->alertTitle}</h4>
+            <p>{$this->alertContent}</p>
+            <hr>
+            <p class='mb-0'>{$this->alertFooter}</p>
+        </div>
+        ";
+
+        return $output;
+    }
+
+            // $this->alertTitle       = $elem['title'];
+            // $this->alertContent     = $elem['content'];
+            // $this->alertFooter      = $elem['footer'];
+            // $this->alertClassColor  = $elem['classColor'];
 
     private function attr_name_val()
     {

@@ -185,7 +185,7 @@ span.pnt-media-remove{
 
 /* Fin media */
 
-input#bct-sidebars-custom {
+input#pnt-sidebars-custom {
     border-radius: 5px 0px 0px 5px;
 }
 
@@ -257,4 +257,52 @@ ul.pnt-listSidebar-items li span.texto {
     color: #fff;
     margin-left: 30px;
     font-size: 17px;
+}
+
+/*
+ * Colorpicker 1.0
+ */
+
+ .pnt-select-color {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.btnSelectColor {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #dac4e9;
+    cursor: pointer;
+    float: left;
+}
+
+.pnt-colorpicker .colorpicker-saturation {
+width: 200px;
+height: 200px;
+}
+.pnt-colorpicker .colorpicker-hue,
+.pnt-colorpicker .colorpicker-alpha {
+width: 30px;
+height: 200px;
+}
+.pnt-colorpicker .colorpicker-color,
+.pnt-colorpicker .colorpicker-color div{
+height: 30px;
+}
+
+/*
+ * AlertInfo
+ */
+section#pnt-colors-alertinfo .pnt-sec-title.btn.btn-block.text-white.mb-3.bg-primary {
+    display: none;
+}
+
+section#pnt-colors-alertinfo .pnt-sec-configs {
+    border: none;
+    padding: 0;
 }
