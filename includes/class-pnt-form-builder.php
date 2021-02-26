@@ -428,14 +428,14 @@ class PNT_Form_Builder
     }
 
     private function colorpicker()
-    {
-        
-        if ($this->preview != '') {          
+    {       
 
+        if( $this->preview != '' ) {
+            
             $tag = "data-tag='{$this->tag}'";
             $preview = "<div class='col-sm-12 col-md-6 offset-md-4'>";
-
-            if( $this->preview != '' ) {
+            
+            if( $this->preview == 'text' ) {
 
                 $preview .= "
                 <{$this->tag} class='pnt-preview-color-{$this->tag} my-2' style='color:{$this->valueElem};'>
@@ -446,28 +446,26 @@ class PNT_Form_Builder
             } elseif( $this->preview == 'bg' ) {
 
             }
-
+            
             $preview .= "</div>";
+            
         } else {
             
             $tag = "";
-            $preview = "";            
+            $preview = "";
+            
         }
-       
+
         $output = "
-        <div class='bct-input col-md-8'>
-            <div class='pnt-select-color file-field' $tag>
-                <div class='pntBtnColor' style='background-color:{$this->valueElem};'></div>
-                <div class='row'>
-                    <div class='col-md-6'>
-                        <input name='{$this->attr_name_val()}' data-jscolor='{}' class='form-control'>                    
-                    </div>
-                    <div class='col-md-6'>
-                        $preview
-                    </div>
+        <div class='pnt-input col-md-8'>
+            <div id='{$this->attr_class_val()}' class='file-field' $tag>
+                <div class='btn' style='color:{$this->valueElem};'></div>
+                <div class='file-path-wrapper'>
+                    <input type='text' name='{$this->attr_name_val()}' />
                 </div>
             </div>
-        </div>        
+        </div>
+        $preview
         ";
 
         return $output;

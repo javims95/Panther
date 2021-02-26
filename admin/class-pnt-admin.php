@@ -141,6 +141,12 @@ class PNT_Admin {
         wp_enqueue_style( 'pnt_noUiSlider_css', PNT_DIR_URI.'helpers/noUiSlider/css/nouislider.min.css' , array(), '14.6.3', 'all' );
 
         /**
+         * Materialize 1.0
+         */
+        wp_enqueue_style( 'pnt_materialize_css', PNT_DIR_URI.'helpers/materialize/css/materialize.min.css' , array(), '1.0', 'all' );
+        wp_enqueue_style( 'pnt_colorpicker_css', PNT_DIR_URI.'helpers/materialize/extras/colorpicker/colorpicker.min.css' , array(), '1.0', 'all' );
+
+        /**
          * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
@@ -192,10 +198,11 @@ class PNT_Admin {
         wp_enqueue_script( 'pnt_noUiSlider_admin_js', PNT_DIR_URI . 'helpers/noUiSlider/js/nouislider.min.js', ['jquery'], '14.6.3', true );
 
         /**
-         * Color-picker 2.4.5
-         * https://jscolor.com/
+         * Materialize 1.0
+         * https://materializecss.com/
          */	               
-        wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/jscolor/js/jscolor.min.js', ['jquery'], '2.4.5', true );
+        wp_enqueue_script( 'pnt_materialize_admin_js', PNT_DIR_URI . 'helpers/materialize/js/materialize.min.js', ['jquery'], '1.0', true );
+        wp_enqueue_script( 'pnt_colorpicker_admin_js', PNT_DIR_URI . 'helpers/materialize/extras/colorpicker/colorpicker.min.js', ['jquery'], '1.0', true );
         
         /**
          * Scripts globales         

@@ -122,12 +122,12 @@ jQuery(document).ready(function ($) {
     }
 
     var output = '<li>' +
-                    '<input id="' + dataID + '-' + id + '" type="hidden" name="' + name + '[]" value="' + text.toLowerCase() + '">' +
-                    '<span class="texto">' + text.capitalize() + '</span>' +
-                    '<span class="pnt-remove-listSidebar">' +
-                      '<i class="fas fa-times"></i>' +
-                    '</span>' +
-                  '</li>';
+      '<input id="' + dataID + '-' + id + '" type="hidden" name="' + name + '[]" value="' + text.toLowerCase() + '">' +
+      '<span class="texto">' + text.capitalize() + '</span>' +
+      '<span class="pnt-remove-listSidebar">' +
+      '<i class="fas fa-times"></i>' +
+      '</span>' +
+      '</li>';
 
     return output;
 
@@ -161,24 +161,53 @@ jQuery(document).ready(function ($) {
 
   });
 
-   
+  function pntColorToRGBa(objColor) {
 
+    return 'rgba(' + objColor.r + ',' + objColor.g + ',' + objColor.b + ',' + objColor.a + ')';
 
-  $('.pnt-select-color').on('change', function(e){
+  }
+
+  $(".file-field").each(function () {
+    id = $(this).attr("id");
+
+    $('#'+id).colorpicker({
+      component: '.btn',
+      customClass: 'pnt-colorpicker',
+      sliders: {
+        saturation: {
+          maxLeft: 200,
+          maxTop: 200
+        },
+        hue: {
+          maxTop: 200
+        },
+        alpha: {
+          maxTop: 200
+        }
+      }
+    }).on('changeColor.colorpicker', function (e) {
 
       var $this = $(this),
         dataTag = $this.attr('data-tag'),
         $tagSelect = $('.pnt-preview-color-' + dataTag),
-        colorHex = $('.pnt-select-color input').attr('data-current-color'),
-        colorRGBa = hexToRGBa(colorHex);
+        eColorFormat = e.color.origFormat,
+        colorHex = e.color.toHex(),
+        colorRGBa = e.color.toRGB();
 
-      $tagSelect.css('color', colorHex);
+      console.log(colorHex);
+      console.log(colorRGBa);
 
-      // El selector del H2 no funciona correctamente
+      if (eColorFormat == 'rgb' || eColorFormat == 'rgba') {
 
-        
+        var color = pntColorToRGBa(colorRGBa);
+        $tagSelect.css('color', color);
 
-        
-    })
+      } else {
 
+        $tagSelect.css('color', colorHex);
+
+      }
+
+    });
+  });
 })
