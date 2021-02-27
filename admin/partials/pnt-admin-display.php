@@ -30,9 +30,9 @@
             </div>
 
             <!-- Columna de navegación opciones tema -->
-            <div class="row ml-1">
-                <div class="col-md-3 pl-0">
-                    <ul class="pnt-menu">
+            <div class="row ml-0 justify-content-center">
+                <div class="col-12 pl-0">
+                    <ul class="pnt-menu nav">
                         <li>
                             <a href="#pnt-global" class="active" data-menuActivado="global">
                             <i class="fas fa-cog"></i><span>Opciones</span>
@@ -82,7 +82,7 @@
                 </div>
 
                 <!-- Contenido de la configuracion -->
-                <div class="col-md-9">
+                <div class="col-12 pl-0">
                     <form id="pnt-form">
                         <div id="pnt-form-content">
 

@@ -2,7 +2,7 @@
 
 $elemsSectFooter = [
     'copyright' => [
-        'type'          => 'text',
+        'type'          => 'textarea',
         'title'         => 'Copyright',
         'value'         => $pnt_footer['copyright']
     ],

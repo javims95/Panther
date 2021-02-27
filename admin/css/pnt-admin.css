@@ -96,7 +96,7 @@ body {
     z-index: 99;
 }
 
-/* Elementos menu navegacion izquierdo opciones tema */
+/* Elementos menu navegacion opciones tema */
 
 ul.pnt-menu {
     margin: 0;
@@ -118,13 +118,11 @@ ul.pnt-menu li a {
 }
 
 ul.pnt-menu li a.active {
-    border-left: 7px solid rgba(255, 255, 255, 0.6);
     background: #0073aa;
     text-decoration: none;
 }
 
 ul.pnt-menu li a:hover {
-    border-left: 7px solid rgba(255, 255, 255, 0.6);
     background: #161e21;
     text-decoration: none;
 }
@@ -132,6 +130,19 @@ ul.pnt-menu li a:hover {
 .pnt-menu i {
     margin-right: .6rem;
     font-size: 1.5rem;
+}
+
+/* Menú responsive */
+@media (min-width: 993px) {
+    ul.pnt-menu {
+        display: flex;
+    }
+}
+
+@media (max-width: 992px) {
+    ul.pnt-menu {
+        display: block;
+    }
 }
 
 /* Columna derecha - Opciones del tema */

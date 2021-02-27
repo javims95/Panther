@@ -92,7 +92,7 @@ class PNT_Form_Builder
 
         $dBlock = $menuActivated == $this->idConf ? 'display:block' : '';
 
-        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-md-12' style='$dBlock'>";
+        $output = "<div id='pnt-{$this->idConf}' class='pnt-content col-md-12 px-0' style='$dBlock'>";
 
         foreach ($this->sections as $idSect => $sect) {
 
@@ -379,10 +379,10 @@ class PNT_Form_Builder
         $output = "
         <div class='col-md-8'>
             <div class='form-row'>
-                <div class='form-group col-md-10 align-self-center'>
+                <div class='form-group col-md-9 align-self-center'>
                     <input style='width:100%' type='range' class='form-range' id='rangeSlider' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
                 </div>
-                <div class='form-group col-md-2'>
+                <div class='form-group col-md-3'>
                     <input type='number' name='{$this->attr_name_val()}' class='form-control'
                     id='output' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
                 </div>
@@ -433,7 +433,7 @@ class PNT_Form_Builder
         <div class='col-md-8 pnt-listSidebar d-flex'>
             <input type='text' id='{$this->attr_id_val()}' name='' value=''>
             <button class='btn btn-secondary' type='button' data-id='{$this->attr_id_val()}'>
-            <i class='fas fa-plus'> Agregar Sidebar</i>
+            <i class='fas fa-plus'> Agregar</i>
             </button>
         </div>
 
