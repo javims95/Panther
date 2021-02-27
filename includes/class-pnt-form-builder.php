@@ -350,10 +350,13 @@ class PNT_Form_Builder
 
         $output = "
             <div class='col-md-8'>
-                <div class='custom-control custom-switch'>
-                    <label class='px-5' for='switch'>OFF</label>
-                    <input " . checked($this->valueElem, 'on') . " name='{$this->attr_name_val()}' type='checkbox' class='custom-control-input' id='switch'>
-                    <label class='custom-control-label' for='switch'>ON</label>
+                <div class='switch'>
+                    <label>
+                    Off
+                    <input " . checked($this->valueElem, 'on') . " type='checkbox' name='{$this->attr_name_val()}'>
+                    <span class='lever'></span>
+                    On
+                    </label>
                 </div>
             </div>
         ";
