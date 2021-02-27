@@ -15,7 +15,7 @@ $elemsSectSidebarsAdvanced = [
     'custom' => [
         'type'          => 'listSidebar',
         'title'         => 'Sidebars',
-        'value'         => ['uno', 'dos', 'tres', 'cuatro']
+        'value'         => isset($pnt_sidebars['custom']) ? $pnt_sidebars['custom'] : ''
     ]
 ];
 

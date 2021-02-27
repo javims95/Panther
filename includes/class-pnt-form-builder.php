@@ -318,7 +318,7 @@ class PNT_Form_Builder
                     <button class='btn btn-secondary' type='button' data-media='pnt-{$this->idElem}'>
                     <i class='fas fa-image'> Subir archivo</i>
                     </button>
-                    <input type='text' id='pnt-{$this->idElem}' name='{$this->attr_name_val()}' value='{$this->valueElem}'>
+                    <input class='form-control' type='text' id='pnt-{$this->idElem}' name='{$this->attr_name_val()}' value='{$this->valueElem}'>
                     <span class='pnt-media-remove' data-media-remove='pnt-{$this->idElem}' style='$dFlex'>
                     <i class='fas fa-times'></i>
                     </span>
@@ -454,7 +454,7 @@ class PNT_Form_Builder
             if( $this->preview == 'text' ) {
 
                 $preview .= "
-                <{$this->tag} class='pnt-preview-color-{$this->tag} my-3' style='color:{$this->valueElem};'>
+                <{$this->tag} class='pnt-preview-color-{$this->tag} mt-3 mb-4' style='color:{$this->valueElem};'>
                     " . get_bloginfo( 'name' ) . "
                 </{$this->tag}>
                 ";
@@ -505,7 +505,6 @@ class PNT_Form_Builder
             <p>{$this->alertContent}</p>
             <hr>
             <p class='mb-0'>{$this->alertFooter}</p>
-        </div>
         ";
 
         return $output;

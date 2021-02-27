@@ -198,9 +198,6 @@ jQuery(document).ready(function ($) {
         colorHex = e.color.toHex(),
         colorRGBa = e.color.toRGB();
 
-      console.log(colorHex);
-      console.log(colorRGBa);
-
       if (eColorFormat == 'rgb' || eColorFormat == 'rgba') {
 
         var color = pntColorToRGBa(colorRGBa);

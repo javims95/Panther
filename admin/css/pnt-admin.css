@@ -306,3 +306,11 @@ section#pnt-colors-alertinfo .pnt-sec-configs {
     border: none;
     padding: 0;
 }
+
+.pnt-sec-configs .alert h4 {
+    font-size: 2rem;
+}
+
+.pnt-sec-configs .alert p {
+    font-size: 1rem;
+}
