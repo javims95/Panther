@@ -31,7 +31,7 @@
 
             <!-- Columna de navegación opciones tema -->
             <div class="row ml-1">
-                <div class="col-md-3">
+                <div class="col-md-3 pl-0">
                     <ul class="pnt-menu">
                         <li>
                             <a href="#pnt-global" class="active" data-menuActivado="global">

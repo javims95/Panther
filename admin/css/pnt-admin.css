@@ -276,7 +276,6 @@ ul.pnt-listSidebar-items li span.texto {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #dac4e9;
     cursor: pointer;
     float: left;
 }
@@ -313,4 +312,15 @@ section#pnt-colors-alertinfo .pnt-sec-configs {
 
 .pnt-sec-configs .alert p {
     font-size: 1rem;
+}
+
+/*
+ * Headers Sections (border-bottom)
+ */
+section#pnt-colors-headers .row {
+    border-bottom: 1px dashed #007bff;
+}
+
+section#pnt-colors-headers .row:last-child {
+    border-bottom: none;
 }

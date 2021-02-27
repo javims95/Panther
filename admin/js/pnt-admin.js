@@ -107,6 +107,8 @@ jQuery(document).ready(function ($) {
     $('#rangeSlider').val($(this).val())
   })
 
+  
+
   /*
    * Sidebars
    */

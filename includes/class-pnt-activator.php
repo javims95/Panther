@@ -41,31 +41,31 @@ class PNT_Activator {
                 ],
 
                 "colors"       => [
-                    "h1"            => "rgba(0,0,0,0.87)",
+                    "h1"            => "#f00",
                     "h2"            => "rgba(0,0,0,0.87)",
                     "h3"            => "rgba(0,0,0,0.87)",
                     "h4"            => "rgba(0,0,0,0.87)",
                     "h5"            => "rgba(0,0,0,0.87)",
                     "h6"            => "rgba(0,0,0,0.87)",
                     "menu"          => [
-                        "ativoColorEnlace"      => "rgba(0,0,0,0.87)",
                         "bg"                    => "rgba(0,0,0,0.87)",
-                        "bgActivoColorEnlace"   => "rgba(0,0,0,0.87)",
-                        "bgHoverColorEnlace"    => "rgba(0,0,0,0.87)",
-                        "colorEnlace"           => "rgba(0,0,0,0.87)",
-                        "hoverColorEnlace"      => "rgba(0,0,0,0.87)",
+                        "link"                  => "rgba(0,0,0,0.87)",
+                        "activeLink"            => "rgba(0,0,0,0.87)",
+                        "bgActiveLink"          => "rgba(0,0,0,0.87)",
+                        "hoverLink"             => "rgba(0,0,0,0.87)",
+                        "bgHoverLink"           => "rgba(0,0,0,0.87)",
                     ],
-                    "contenido"     => [
-                        "bgBoton"               => "rgba(0,0,0,0.87)",
+                    "content"     => [
+                        "bgButton"              => "rgba(0,0,0,0.87)",
                         "bgHoverBoton"          => "rgba(0,0,0,0.87)",
-                        "colorEnlace"           => "rgba(0,0,0,0.87)",
-                        "colorHoverTextoBoton"  => "rgba(0,0,0,0.87)",
-                        "colorTextoBoton"       => "rgba(0,0,0,0.87)",
-                        "hoverColorEnlace"      => "rgba(0,0,0,0.87)"
+                        "colorLink"             => "rgba(0,0,0,0.87)",
+                        "colorLinkHover"        => "rgba(0,0,0,0.87)",
+                        "textColorButton"       => "rgba(0,0,0,0.87)",
+                        "textColorButtonHover"  => "rgba(0,0,0,0.87)"
                     ],
                     'footer'        => [
-                        "bg"                    => "rgba(0,0,0,0.87)",
-                        "copyrightBg"           => "rgba(0,0,0,0.87)"
+                        "bgFooter"                    => "rgba(0,0,0,0.87)",
+                        "bgCopyright"           => "rgba(0,0,0,0.87)"
                     ]
                 ],
 

@@ -25,7 +25,7 @@ class PNT_Form_Builder
 
     private $tag;
     private $preview;
-    
+
     private $alertTitle;
     private $alertContent;
     private $alertFooter;
@@ -124,13 +124,13 @@ class PNT_Form_Builder
             $this->idElem           = $idElem;
             $this->typeElem         = $elem['type'];
             $this->titleElem        = $elem['title'];
-            $this->valueElem        = $elem['value'];        
-            
+            $this->valueElem        = $elem['value'];
+
             // colorPicker
             $this->idsElem          = isset($elem['ids']) ? $elem['ids'] : '';
             $this->tag              = isset($elem['tag']) ? $elem['tag'] : '';
             $this->preview          = isset($elem['preview']) ? $elem['preview'] : '';
-            
+
             // alertInfo
             $this->alertTitle       = isset($elem['alertTitle']) ? $elem['alertTitle'] : '';
             $this->alertContent     = isset($elem['alertContent']) ? $elem['alertContent'] : '';
@@ -142,7 +142,8 @@ class PNT_Form_Builder
             <div class='row mb-3'>
                 <div class='col-md-4'>
                     <h6><strong>{$this->titleElem}:</strong></h6>
-                </div>";
+                </div>
+            ";
 
             switch ($this->typeElem) {
 
@@ -447,40 +448,36 @@ class PNT_Form_Builder
     }
 
     private function colorpicker()
-    {       
+    {
 
-        if( $this->preview != '' ) {
-            
+        if ($this->preview != '') {
+
             $tag = "data-tag='{$this->tag}'";
             $preview = "<div class='col-sm-12 col-md-6 offset-md-4'>";
-            
-            if( $this->preview == 'text' ) {
+
+            if ($this->preview == 'text') {
 
                 $preview .= "
-                <{$this->tag} class='pnt-preview-color-{$this->tag} mt-3 mb-4' style='color:{$this->valueElem};'>
-                    " . get_bloginfo( 'name' ) . "
+                <{$this->tag} class='pnt-preview-color-{$this->tag} my-3' style='color:{$this->valueElem};'>
+                    " . get_bloginfo('name') . "
                 </{$this->tag}>
                 ";
-
-            } elseif( $this->preview == 'bg' ) {
-
+            } elseif ($this->preview == 'bg') {
             }
-            
+
             $preview .= "</div>";
-            
         } else {
-            
+
             $tag = "";
             $preview = "";
-            
         }
 
         $output = "
         <div class='pnt-input col-md-8'>
             <div id='{$this->attr_class_val()}' class='file-field' $tag>
-                <div class='btn btnSelectColor' style='color:{$this->valueElem};'></div>
+                <div class='btn btnSelectColor' style='background-color:{$this->valueElem};'></div>
                 <div class='file-path-wrapper'>
-                    <input class='form-control' type='text' name='{$this->attr_name_val()}' />
+                    <input class='form-control' style='width: auto' type='text' name='{$this->attr_name_val()}' />
                 </div>
             </div>
         </div>
@@ -490,7 +487,8 @@ class PNT_Form_Builder
         return $output;
     }
 
-    private function alert_dismissible () {
+    private function alert_dismissible()
+    {
 
         /**
          * Crea el div y dentro un alert de información de forma dinámica
@@ -513,15 +511,10 @@ class PNT_Form_Builder
         return $output;
     }
 
-            // $this->alertTitle       = $elem['title'];
-            // $this->alertContent     = $elem['content'];
-            // $this->alertFooter      = $elem['footer'];
-            // $this->alertClassColor  = $elem['classColor'];
-
     private function attr_name_val()
     {
 
-        $name = "pnt[{$this->idConf}][{$this->idElem}]";
+        $name = "pnt[{$this->idConf}]";
 
         if ($this->idsElem != '') {
 
@@ -536,7 +529,7 @@ class PNT_Form_Builder
             $name .= $idName;
         }
 
-        return $name;
+        return "{$name}[{$this->idElem}]";
     }
 
     private function attr_id_val()
