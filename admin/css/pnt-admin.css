@@ -42,6 +42,7 @@
 
 body {
     background: #eee;
+    overflow-y: scroll !important;
 }
 
 /* Header */
@@ -319,11 +320,11 @@ button.btn.dropdown-toggle.btn-light {
 /*
  * AlertInfo
  */
-section#pnt-colors-alertinfo .pnt-sec-title.btn.btn-block.text-white.mb-3.bg-primary {
+section#pnt-colors-alertinfo .pnt-sec-title.btn.btn-block.text-white.mb-3.bg-primary, section#pnt-fonts-alertinfo .pnt-sec-title.btn.btn-block.text-white.mb-3.bg-primary  {
     display: none;
 }
 
-section#pnt-colors-alertinfo .pnt-sec-configs {
+section#pnt-colors-alertinfo .pnt-sec-configs, section#pnt-fonts-alertinfo .pnt-sec-configs {
     border: none;
     padding: 0;
 }

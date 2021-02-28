@@ -1,5 +1,17 @@
 <?php
 
+$elemsSectFontsAlert = [
+    'alert' => [
+        'type' => 'alertDismissible',
+        'title' => '',
+        'value' => '',
+        'alertTitle' => 'Aviso',
+        'alertContent' =>
+            'Para un rendimiento óptimo recomendamos seleccionar solo las variaciones de las fuentes que desee utilizar en la web.',
+        'alertClassColor' => 'warning',
+    ]
+];
+
 $optGroupsFont = [
     'system'    => [
             'title'     => 'Fuentes del sitema',
@@ -16,7 +28,7 @@ $elemsSectFonts = [
         'ids'           => 'family',
         'type'          => 'select',
         'title'         => 'Menú',
-        'customClass'   => '',
+        'customClass'   => 'pnt-options-fonts',
         'value'         => $pnt_fonts['menu']['family'],
         'options'  => [
             'type'          => 'font',
@@ -32,7 +44,7 @@ $elemsSectFonts = [
         'ids'           => 'family',
         'type'          => 'select',
         'title'         => 'Contenido',
-        'customClass'   => '',
+        'customClass'   => 'pnt-options-fonts',
         'value'         => $pnt_fonts['content']['family'],
         'options'  => [
             'type'          => 'font',
@@ -44,9 +56,45 @@ $elemsSectFonts = [
             ]
         ]
     ],
+    'headerPrimary' => [
+        'ids'           => 'family',
+        'type'          => 'select',
+        'title'         => 'Cabeceras principales (H1, H2, H3)',
+        'customClass'   => 'pnt-options-fonts',
+        'value'         => $pnt_fonts['headerPrimary']['family'],
+        'options'  => [
+            'type'          => 'font',
+            'fontType'      => $pnt_fonts['headerPrimary']['fontType'],
+            'optgroup'      => $optGroupsFont,
+            'variants'      => [
+                'googlefonts'   => $this->get_googlefonts(),
+                'selection'     => isset($pnt_fonts['headerPrimary']['variants']) ? $pnt_fonts['headerPrimary']['variants'] : ''
+            ]
+        ]
+    ],
+    'headerSecondary' => [
+        'ids'           => 'family',
+        'type'          => 'select',
+        'title'         => 'Cabeceras secundarias (H4, H5, H6)',
+        'customClass'   => 'pnt-options-fonts',
+        'value'         => $pnt_fonts['headerSecondary']['family'],
+        'options'  => [
+            'type'          => 'font',
+            'fontType'      => $pnt_fonts['headerSecondary']['fontType'],
+            'optgroup'      => $optGroupsFont,
+            'variants'      => [
+                'googlefonts'   => $this->get_googlefonts(),
+                'selection'     => isset($pnt_fonts['headerSecondary']['variants']) ? $pnt_fonts['headerSecondary']['variants'] : ''
+            ]
+        ]
+    ],
 ];
 
 $fontSections = [
+    'alertInfo' => [
+        'titleSection' => '',
+        'elems' => $elemsSectFontsAlert,
+    ],
     'menu' => [
         'titleSection'  => 'Fuentes',
         'elems'         => $elemsSectFonts,

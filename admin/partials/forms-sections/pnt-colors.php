@@ -15,7 +15,7 @@ $elemsSectColorsAlert = [
         'alertFooter' =>
             'También puedes ingresar un valor directamente en el input, <b>acepta valores Hexadecimales, RGB, RGBA y HSL</b>.',
         'alertClassColor' => 'info',
-    ],
+    ]
 ];
 
 $elemsSectColorsHeaders = [

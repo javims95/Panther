@@ -88,12 +88,12 @@ class PNT_Activator {
                         "fontType"              => "googlefonts",
                         "variants"              => "300,400i,700"
                     ],
-                    "cabeceras-p"   => [
+                    "headerPrimary"   => [
                         "family"                => "Roboto",
                         "fontType"              => "googlefonts",
                         "variants"              => "300,300i,500,500i,700,900i"
                     ],
-                    "cabeceras-s"   => [
+                    "headerSecondary"   => [
                         "family"                => "Lato",
                         "fontType"              => "googlefonts",
                         "variants"              => "100i,300,400,700,700i,900,900i"

@@ -107,7 +107,7 @@ jQuery(document).ready(function ($) {
     $('#rangeSlider').val($(this).val())
   })
 
-  
+
 
   /*
    * Sidebars
@@ -135,9 +135,9 @@ jQuery(document).ready(function ($) {
 
   }
 
-  var $bctListValBtn = $('.pnt-listSidebar button');
+  var $pntListValBtn = $('.pnt-listSidebar button');
 
-  $bctListValBtn.on('click', function () {
+  $pntListValBtn.on('click', function () {
 
     var $this = $(this),
       dataID = $this.attr('data-id'),
@@ -176,7 +176,7 @@ jQuery(document).ready(function ($) {
   $(".file-field").each(function () {
     id = $(this).attr("id");
 
-    $('#'+id).colorpicker({
+    $('#' + id).colorpicker({
       component: '.btn',
       customClass: 'pnt-colorpicker',
       sliders: {
@@ -212,5 +212,52 @@ jQuery(document).ready(function ($) {
       }
 
     });
+  });
+
+  /*
+   * Recuperar valor de las variantes de las Fuentes
+   */
+
+  function templateInlineVariants(variants, fontSelect) {
+
+    var output_var = '',
+      arrVariants = variants.split(',');
+
+    for (var i = 0; i < arrVariants.length; i++) {
+
+      var varID = 'pnt-fonts' + fontSelect + '-variants' + arrVariants[i];
+
+      output_var +=
+        '<label for="' + varID + '">' +
+          '<input id="' + varID + '" name="pnt[fonts][' + fontSelect + '][variants][]" type="checkbox" class="filled-in" value="' + arrVariants[i] + '">' +
+          '<span>' + arrVariants[i] + '</span>' +
+        '</label>';
+    }
+
+    return output_var;
+  }
+
+  var $pntOptionsFonts = $('select.pnt-options-fonts');
+
+  $pntOptionsFonts.on('change', function () {
+
+    var $this = $(this),
+      value = $this.val(),
+      $selected = $this.find(':selected'),
+      fontSelect = $this.attr('data-fontselect'),
+      fontType = $selected.attr('data-fontType'),
+      variants = $selected.attr('data-variants'),
+      $pntOptVariants = $('.pnt-options-variants-' + fontSelect);
+
+    if (fontType != 'googlefonts') {
+
+      $pntOptVariants.find('p').html('');
+
+    } else {
+
+      var variantsHTML = templateInlineVariants(variants, fontSelect);
+      $pntOptVariants.find('p').html(variantsHTML);
+
+    }
   });
 })

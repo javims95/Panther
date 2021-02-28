@@ -129,7 +129,7 @@ class PNT_Form_Builder
 
             // colorPicker
             $this->idsElem          = isset($elem['ids']) ? $elem['ids'] : '';
-            $this->customClass           = isset($elem['customClass']) ? $elem['customClass'] : '';
+            $this->customClass      = isset($elem['customClass']) ? $elem['customClass'] : '';
             $this->tag              = isset($elem['tag']) ? $elem['tag'] : '';
             $this->preview          = isset($elem['preview']) ? $elem['preview'] : '';
 
@@ -587,10 +587,16 @@ class PNT_Form_Builder
                 <span aria-hidden='true'>&times;</span>
             </button>
             <h4 class='alert-heading'>{$this->alertTitle}</h4>
-            <p>{$this->alertContent}</p>
+            <p>{$this->alertContent}</p>            
+        ";
+
+        if($this->alertFooter != ''){
+
+            $output .= "
             <hr>
             <p class='mb-0'>{$this->alertFooter}</p>
-        ";
+            ";
+        }
 
         return $output;
     }
