@@ -1,17 +1,6 @@
 <?php
 
-$elemsSectFontsAlert = [
-    'alert' => [
-        'type' => 'alertDismissible',
-        'title' => '',
-        'value' => '',
-        'alertTitle' => 'Aviso',
-        'alertContent' =>
-            'Para un rendimiento óptimo recomendamos seleccionar solo las variaciones de las fuentes que desee utilizar en la web.',
-        'alertClassColor' => 'warning',
-    ]
-];
-
+// Option Group (agrupaciones para el select)
 $optGroupsFont = [
     'system'    => [
             'title'     => 'Fuentes del sitema',
@@ -21,6 +10,38 @@ $optGroupsFont = [
             'title'     => 'Fuentes de Google',
             'opts'      => $this->get_googlefonts()
     ],
+];
+
+// Opciones para select múltiple
+$optionsSizeStyle = [
+    'size'   => [
+        'type'       => 'number',
+        'title'      => 'Tamaño de la fuente'
+    ],
+    'weight'   => [
+        'type'       => 'select',
+        'title'      => 'Peso de la fuente'
+    ],
+    'lineHeight' => [
+        'type'       => 'number',
+        'title'      => 'Altura de línea'
+    ],
+    'letterSpacing'=> [
+        'type'       => 'number',
+        'title'      => 'Espaciado de las letras'
+    ],
+];
+
+$elemsSectFontsAlert = [
+    'alert'     => [
+        'type'                  => 'alertDismissible',
+        'title'                 => '',
+        'value'                 => '',
+        'alertTitle'            => 'Aviso',
+        'alertClassColor'       => 'warning',
+        'alertContent'          => 'Para un rendimiento óptimo recomendamos seleccionar solo las 
+                                    variaciones de las fuentes que desee utilizar en la web.',
+    ]
 ];
 
 $elemsSectFonts = [
@@ -90,6 +111,15 @@ $elemsSectFonts = [
     ],
 ];
 
+$elemsSectSizeStyle = [
+    'h1'    => [ // idElem
+            'type'     => 'multi', // idOpt
+            'title'     => 'H1',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+];
+
 $fontSections = [
     'alertInfo' => [
         'titleSection' => '',
@@ -98,6 +128,10 @@ $fontSections = [
     'menu' => [
         'titleSection'  => 'Fuentes',
         'elems'         => $elemsSectFonts,
+    ],
+    'sizeStyle' => [
+        'titleSection'  => 'Tamaños y estilos',
+        'elems'         => $elemsSectSizeStyle,
     ]
 ];
 

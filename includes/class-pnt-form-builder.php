@@ -195,6 +195,10 @@ class PNT_Form_Builder
                 case 'alertDismissible':
                     $output = $this->alert_dismissible();
                     break;
+
+                case 'multi':
+                    $output .= $this->multi();
+                    break;
             }
 
             $output .= "</div>";
@@ -601,6 +605,55 @@ class PNT_Form_Builder
         return $output;
     }
 
+    private function multi () {
+
+        $output = "
+        <div class='col-md-8'>
+            <div class='row'>
+        ";
+
+        foreach($this->options as $idOpt => $opt){
+
+            $output .= "<div class='col-12 col-md-3'>";
+            $type = $opt['type'];
+            $title = $opt['title'];
+            $id = "pnt-input-{$this->idConf}-{$this->idElem}-$type-$idOpt";
+
+            switch($type){
+
+                case 'number':
+                    $output .= "
+                    <div class='pnt-input-$type'>
+                        <label for='$id'>$title</label>
+                        <input name='{$this->attr_name_val()}[$idOpt]' id='$id' type='number' value='{$this->valueElem[$this->idElem][$idOpt]}' style='width:5rem'>
+                        <span class='pnt-measure'>px</span>
+                    </div>
+                    ";
+                    break;
+
+                case 'select':
+                    $output .= "
+                    <div class='pnt-input-$type'>
+                        <label for='$id'>$title</label>
+                        <select name='{$this->attr_name_val()}[$idOpt]}' id='$id'>
+                            {$this->selected_weight_style($this->valueElem[$this->idElem][$idOpt])}
+                        </select>
+                    </div>
+                    ";
+                    break;
+            }
+
+            $output .= "</div>";
+        }
+
+        $output .= "
+            </div>
+        </div>
+        ";
+
+        return $output;
+    }
+
     private function attr_name_val()
     {
 
@@ -679,5 +732,69 @@ class PNT_Form_Builder
         }
 
         return $output;
+    }
+
+    private function selected_weight_style( $weightStyle ) {
+        
+        $fonts = $this->valueElem;
+        $output  = "";
+        
+        switch( $this->idElem ) {
+                
+            case 'h1':
+            case 'h2':
+            case 'h3':
+                $tipo   = $fonts[ 'headerPrimary' ];
+                break;
+
+            case 'h4':
+            case 'h5':
+            case 'h6':
+                $tipo   = $fonts[ 'headerSecondary' ];
+                break;
+
+            default:
+                $tipo   = $fonts[ $this->idElem ];
+                break;
+                
+        }
+        
+        if( $tipo[ 'fontType' ] == 'googlefonts' ) {
+            
+            $variants = $tipo[ 'variants' ];
+            $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
+            
+            if( ! empty( $variants ) ) {
+                
+                foreach( $variants as $weight ){
+                    
+                    $output .= "<option " . selected( $weightStyle, $weight, false ) . " 
+                                    data-fontType='{$tipo[ 'fontType' ]}' 
+                                    value='$weight'>$weight</option>
+                    ";
+                    
+                }
+                
+            }
+            
+        } elseif( $tipo[ 'fontType' ] == 'sistema' ) {
+            
+            for( $i=1; $i<9; $i++ ) {
+                
+                $output .= "
+                <option " . selected( $weightStyle, "{$i}00,normal", false ) . " 
+                    data-fontType='{$tipo[ 'fontType' ]}' 
+                    value='{$i}00,normal'>{$i}00 Regular</option>
+                <option " . selected( $weightStyle, "{$i}00,italic", false ) . " 
+                    data-fontType='{$tipo[ 'fontType' ]}' 
+                    value='{$i}00,italic'>{$i}00 Italic</option>
+                ";
+                
+            }
+            
+        }
+        
+        return $output;
+        
     }
 }
