@@ -323,6 +323,12 @@ class PNT_Form_Builder
             case 'font':
                 $extra = "
                 <input type='hidden' name='pnt[{$this->idConf}][{$this->idElem}][fontType]' value='{$this->options['fontType']}' >
+
+                <div class='pnt-options-variants-{$this->idElem}'>
+                    <p class='pnt-checkbox-inline mt-4'>
+                        {$this->selected_variants_font()}
+                    </p>
+                </div>
                 ";
                 $dataAttr = "data-fontselect='{$this->idElem}'";
                 break;
@@ -333,8 +339,9 @@ class PNT_Form_Builder
                 <select name='{$this->attr_name_val()}' $dataAttr class='selectpicker form-control {$this->attr_class_val()}' data-live-search='true'>
                     $optsSelect
                 </select>
-
+            
                 $extra
+            </div>
         ";
 
         return $output;
@@ -635,5 +642,36 @@ class PNT_Form_Builder
         if ($this->customClass != '') $class .= " {$this->customClass}";
 
         return esc_attr($class);
+    }
+
+    private function selected_variants_font () {
+
+        $optVariants    = $this->options['variants'];
+        $output         = "";
+
+        if($optVariants['selection'] != ''){
+
+            if($this->options['fontType'] == 'googlefonts') {
+
+                $variantsFont = explode(',', $optVariants['googlefonts'][$this->valueElem]['variants']);
+                $variantsSelection = explode(',', $optVariants['selection']);
+
+                foreach($variantsFont as $weight){
+
+                    $variantID = "pnt-{$this->idConf}-{$this->idElem}-variants-$weight";
+                    $variantsSelect = in_array($weight, $variantsSelection) ? $weight : '';
+
+                    $output .= "
+                        <label for='$variantID'>
+                            <input type='checkbox' id='$variantID' name='pnt[{$this->idConf}][{$this->idElem}][variants][]' 
+                            class='filled-in' value='$weight'" . checked($variantsSelect, $weight, false) . ">
+                            <span>$weight</span>
+                        </label>
+                    ";
+                }
+            }
+        }
+
+        return $output;
     }
 }

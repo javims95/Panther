@@ -79,7 +79,7 @@ class PNT_Activator {
                         "fontType"              => "googlefonts",
                         "variants"              => "100,100i,300,400,700,700i"
                     ],
-                    "contenido"     => [
+                    "content"     => [
                         "family"                => "Roboto",
                         "tamano"                => "14",
                         "weightStyle"           => "400",

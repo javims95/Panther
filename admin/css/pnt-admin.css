@@ -337,6 +337,17 @@ section#pnt-colors-alertinfo .pnt-sec-configs {
 }
 
 /*
+ * Checkbox Inline
+ */
+.pnt-checkbox-inline{
+    padding: 0 9px 8px 8px
+}
+
+.pnt-checkbox-inline label{
+    margin-right: 15px;
+}
+
+/*
  * Headers Sections (border-bottom)
  */
 section#pnt-colors-headers .row {

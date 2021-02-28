@@ -284,6 +284,8 @@ class PNT_Admin
     public function get_googlefonts()
     {
 
+        // delete_transient('pnt_googlefonts');
+
         $pnt_googlefonts =  get_transient('pnt_googlefonts');
 
         if (false === $pnt_googlefonts) {
@@ -309,7 +311,7 @@ class PNT_Admin
                     if ($v == 'regular') $v = "400";
                     if ($v == 'italic') $v = "400i";
 
-                    $variants .= $v;
+                    $variants .= str_replace('talic', '', $v);
                 }
 
                 $pnt_googlefonts[$l['family']] = [
