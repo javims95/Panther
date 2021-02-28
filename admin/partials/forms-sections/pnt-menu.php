@@ -5,7 +5,7 @@ $elemsSectMenu = [
         'type'          => 'checkbox',
         'title'         => 'Opciones',
         'value'         => isset($pnt_menu['options']['show-border']) ? $pnt_menu['options']['show-border'] : '',
-        'optionsRadio'  => [
+        'options'  => [
             'show-border'       => 'Mostrar bordes entre los items'
         ]
     ]

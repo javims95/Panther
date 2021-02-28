@@ -4,9 +4,9 @@
 $elemsSectBody = [
     'body' => [
         'type'          => 'radio',
-        'title'         => 'Texto',
+        'title'         => 'Texto',        
         'value'         => $pnt_global['body'],
-        'optionsRadio'  => [
+        'options'  => [
             'fullwidth'     => 'Ancho completo',
             'box'           => 'Diseño de caja'
         ]

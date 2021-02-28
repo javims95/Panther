@@ -5,7 +5,7 @@ $elemsSectDesign = [
         'type'          => 'radio',
         'title'         => 'Estilo',
         'value'         => $pnt_header['style'],
-        'optionsRadio'  => [
+        'options'  => [
             'default'           => 'Defecto',
             'centeredLogo'      => 'Logo centrado'
         ]

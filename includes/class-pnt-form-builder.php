@@ -17,7 +17,7 @@ class PNT_Form_Builder
     private $titleElem;
     private $valueElem;
 
-    private $optionsRadio;
+    private $options;
 
     private $start;
     private $min;
@@ -125,9 +125,11 @@ class PNT_Form_Builder
             $this->typeElem         = $elem['type'];
             $this->titleElem        = $elem['title'];
             $this->valueElem        = $elem['value'];
+            $this->options          = isset($elem['options']) ? $elem['options'] : '';
 
             // colorPicker
             $this->idsElem          = isset($elem['ids']) ? $elem['ids'] : '';
+            $this->customClass           = isset($elem['customClass']) ? $elem['customClass'] : '';
             $this->tag              = isset($elem['tag']) ? $elem['tag'] : '';
             $this->preview          = isset($elem['preview']) ? $elem['preview'] : '';
 
@@ -159,13 +161,15 @@ class PNT_Form_Builder
                     $output .= $this->media();
                     break;
 
+                case 'select':
+                    $output .= $this->select();
+                    break;
+
                 case 'radio':
-                    $this->optionsRadio = $elem['optionsRadio'];
                     $output .= $this->radio();
                     break;
 
                 case 'checkbox':
-                    $this->optionsRadio = $elem['optionsRadio'];
                     $output .= $this->checkbox();
                     break;
 
@@ -247,22 +251,95 @@ class PNT_Form_Builder
         $output = "
             <div class='col-md-8'>";
 
-        foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+        foreach ($this->options as $valOpt => $titleOpt) {
 
             $output .= "
-                    <div class='form-check'>
-                        <input class='form-check-input' type='radio' name='{$this->attr_name_val()}' id='$idOptRadio' value='$idOptRadio' " . checked($this->valueElem, $idOptRadio, false) . " >
-                        <label class='form-check-label' for='$idOptRadio'>
-                            $titleOptRadio
-                        </label>
-                    </div>
-                ";
+                <div class='form-check'>
+                    <input class='form-check-input' type='radio' name='{$this->attr_name_val()}' id='$valOpt' value='$valOpt' " . checked($this->valueElem, $valOpt, false) . " >
+                    <label class='form-check-label' for='$valOpt'>
+                        $titleOpt
+                    </label>
+                </div>
+            ";
         }
 
         $output .= "</div>";
 
         return $output;
     }
+
+    private function select()
+    {
+        /**
+         * Crea el div y dentro un conjunto de selects de forma dinámica
+         *
+         * @access private
+         * @return $output cadena de texto HTML, tipo selec
+         */
+
+        $output     = "";
+        $optsSelect = "";
+
+        if( isset( $this->options[ 'optgroup' ] ) ) {
+            
+            $optgroup = $this->options[ 'optgroup' ];
+            
+            foreach( $optgroup as $fontType => $opts ){
+                
+                $optsSelect .= "<optgroup label='{$opts[ 'title' ]}'>";
+                
+                foreach( $opts[ 'opts' ] as $valOpt => $titleOpt ){
+                    
+                    if( $fontType == 'googlefonts' ) {
+                        
+                        $family     = $valOpt;
+                        $variants   = $titleOpt['variants'];
+                        $familyVal  = str_replace(' ', '+', $family);
+
+                        $optsSelect .= "<option value='$familyVal' data-fontType='$fontType' data-variants='$variants' " 
+                        . selected( $this->valueElem, $valOpt, false ) . ">$family</option>";
+
+                        continue 1;
+                    }
+                    
+                    $optsSelect .= "<option value='$valOpt' data-fontType='$fontType' " . selected( $this->valueElem, $valOpt, false ) . ">$titleOpt</option>";
+                    
+                }                
+            }
+            
+        } else {
+
+            foreach ($this->options as $valOpt => $titleOpt) {
+
+                $optsSelect .= "<option value='$valOpt' " . selected($this->valueElem, $valOpt, false) . ">$titleOpt</option>";
+            }
+        }
+
+        $extra      = "";
+        $dataAttr   = "";
+
+        switch($this->options['type']){
+
+            case 'font':
+                $extra = "
+                <input type='hidden' name='pnt[{$this->idConf}][{$this->idElem}][fontType]' value='{$this->options['fontType']}' >
+                ";
+                $dataAttr = "data-fontselect='{$this->idElem}'";
+                break;
+        }
+
+        $output = "
+            <div class='col-md-8'>
+                <select name='{$this->attr_name_val()}' $dataAttr class='selectpicker form-control {$this->attr_class_val()}' data-live-search='true'>
+                    $optsSelect
+                </select>
+
+                $extra
+        ";
+
+        return $output;
+    }
+
     private function checkbox()
     {
         /**
@@ -275,13 +352,13 @@ class PNT_Form_Builder
         $output = "
             <div class='col-md-8'>";
 
-        foreach ($this->optionsRadio as $idOptRadio => $titleOptRadio) {
+        foreach ($this->options as $valOpt => $titleOpt) {
 
             $output .= "
                     <div class='form-check'>
-                        <input class='form-check-input' type='checkbox' name='{$this->attr_name_val()}[$idOptRadio]' id='$idOptRadio' value='$idOptRadio' " . checked($this->valueElem, $idOptRadio, false) . " >
-                        <label class='form-check-label' for='$idOptRadio'>
-                            $titleOptRadio
+                        <input class='form-check-input' type='checkbox' name='{$this->attr_name_val()}[$valOpt]' id='$valOpt' value='$valOpt' " . checked($this->valueElem, $valOpt, false) . " >
+                        <label class='form-check-label' for='$valOpt'>
+                            $titleOpt
                         </label>
                     </div>
                 ";
@@ -514,7 +591,7 @@ class PNT_Form_Builder
     private function attr_name_val()
     {
 
-        $name = "pnt[{$this->idConf}]";
+        $name = "pnt[{$this->idConf}][{$this->idElem}]";
 
         if ($this->idsElem != '') {
 
@@ -529,7 +606,7 @@ class PNT_Form_Builder
             $name .= $idName;
         }
 
-        return "{$name}[{$this->idElem}]";
+        return $name;
     }
 
     private function attr_id_val()
@@ -541,6 +618,22 @@ class PNT_Form_Builder
     private function attr_class_val()
     {
         $class = "pnt-{$this->idConf}-{$this->idElem}";
+
+        if ($this->idsElem != '') {
+
+            $idsElem = explode(',', $this->idsElem);
+            $idName = "";
+
+            foreach ($idsElem as $id) {
+
+                $idName .= "-$id";
+            }
+
+            $class .= $idName;
+        }
+
+        if ($this->customClass != '') $class .= " {$this->customClass}";
+
         return esc_attr($class);
     }
 }

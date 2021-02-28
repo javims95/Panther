@@ -73,7 +73,6 @@ class PNT_Admin
     private $formBuilder;
 
     private $pnt;
-    private $googlefonts;
 
     /**
      * @param string $theme_name nombre o identificador único de éste plugin.
@@ -88,8 +87,6 @@ class PNT_Admin
         $this->normalize        = new PNT_Normalize;
         $this->formBuilder      = new PNT_Form_Builder;
         $this->pnt              = get_option('pnt_config');
-
-        $this->googlefonts     = $this->get_google_fonts();
     }
 
 
@@ -131,9 +128,13 @@ class PNT_Admin
 
         /**
          * Framework Bootstrap
-         * https://getbootstrap.com/docs/4.6/getting-started/download/
          */
         wp_enqueue_style('pnt_bootstrap_css', PNT_DIR_URI . 'helpers/bootstrap/css/bootstrap.min.css', array(), '4.6.0', 'all');
+        
+        /**
+         * Bootstrap select 1.13.14
+         */
+        wp_enqueue_style('pnt_select_css', PNT_DIR_URI . 'helpers/bootstrap/extras/bootstrap-select/css/bootstrap-select.min.css', array(), '1.13.14', 'all');
 
         /**
          * Font Awesome 5.0.6
@@ -191,10 +192,16 @@ class PNT_Admin
         wp_enqueue_media();
 
         /**
-         * Framework Bootstrap
+         * Framework Bootstrap 4.6.0
          * https://getbootstrap.com/docs/4.6/getting-started/download/
          */
         wp_enqueue_script('pnt_bootstrap_admin_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true);
+
+        /**
+         * Bootstrap select 1.13.14
+         * https://developer.snapappointments.com/bootstrap-select/
+         */
+        wp_enqueue_script('pnt_select_admin_js', PNT_DIR_URI . 'helpers/bootstrap/extras/bootstrap-select/js/bootstrap-select.min.js', ['jquery'], '1.13.14', true);
 
         /**
          * NoUiSlider 14.6.3
@@ -274,7 +281,7 @@ class PNT_Admin
         require_once PNT_DIR_PATH . 'admin/partials/pnt-admin-display.php';
     }
 
-    public function get_google_fonts()
+    public function get_googlefonts()
     {
 
         $pnt_googlefonts =  get_transient('pnt_googlefonts');
@@ -314,5 +321,18 @@ class PNT_Admin
         }
 
         return $pnt_googlefonts;
+
+    }
+
+    private function get_fontsystem() {
+            
+        return [
+            'Arial'         => 'Arial',
+            'Georgia'       => 'Georgia',
+            'Taoma'         => 'Taoma',
+            'Times'         => 'Times',
+            'Trebuchet'     => 'Trebuchet',
+            'Verdana'       => 'Verdana',
+        ];
     }
 }

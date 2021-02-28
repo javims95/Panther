@@ -69,7 +69,7 @@ class PNT_Activator {
                     ]
                 ],
 
-                "fuentes"       => [
+                "fonts"       => [
                     "menu"          => [
                         "family"                => "Lato",
                         "tamano"                => "14",
