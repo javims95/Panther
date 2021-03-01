@@ -138,17 +138,15 @@ class PNT_Activator {
                 ],
 
                 "social"        => [
-                    "behance"       => "",
                     "facebook"      => "",
-                    "googleplus"    => "",
-                    "instagram"     => "",
-                    "linkedin"      => "",
                     "twitter"       => "",
-                    "vimeo"         => "",
-                    "youtube"       => ""
+                    "instagram"     => "",
+                    "youtube"       => "",
+                    "googleplus"    => "",
+                    "linkedin"      => "",
                 ],
 
-                "cssjs"         => [
+                "customCode"         => [
                     "css"           => "",
                     "js"            => ""
                 ]

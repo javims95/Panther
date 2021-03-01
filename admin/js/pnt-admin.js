@@ -229,8 +229,8 @@ jQuery(document).ready(function ($) {
 
       output_var +=
         '<label for="' + varID + '">' +
-          '<input id="' + varID + '" name="pnt[fonts][' + fontSelect + '][variants][]" type="checkbox" class="filled-in" value="' + arrVariants[i] + '">' +
-          '<span>' + arrVariants[i] + '</span>' +
+        '<input id="' + varID + '" name="pnt[fonts][' + fontSelect + '][variants][]" type="checkbox" class="filled-in" value="' + arrVariants[i] + '">' +
+        '<span>' + arrVariants[i] + '</span>' +
         '</label>';
     }
 
@@ -260,4 +260,38 @@ jQuery(document).ready(function ($) {
 
     }
   });
+
+  /*
+   * Textarea auto-height
+   */
+  function setTextareaHeight(textareas) {
+    textareas.each(function () {
+      var textarea = $(this);
+
+      if (!textarea.hasClass('autoHeightDone')) {
+        textarea.addClass('autoHeightDone');
+
+        var extraHeight = parseInt(textarea.css('padding-top')) + parseInt(textarea.css('padding-bottom')), // to set total height - padding size
+          h = textarea[0].scrollHeight - extraHeight;
+
+        // init height
+        textarea.height('auto').height(h);
+
+        textarea.bind('keyup', function () {
+
+          textarea.removeAttr('style');
+
+          h = textarea.get(0).scrollHeight - extraHeight;
+
+          textarea.height(h + 'px'); // set new height
+        });
+      }
+    })
+  }
+
+  /* Llamada a la funcion setTextareaHeight */
+  $(function(){
+    setTextareaHeight($('textarea'));
+  })
+
 })

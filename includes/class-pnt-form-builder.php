@@ -218,7 +218,7 @@ class PNT_Form_Builder
 
         $output = "
         <div class='col-md-8'>
-            <input class='form-control' type='text' value='{$this->valueElem}' name='{$this->attr_name_val()}'>
+            <input class='form-control' type='text' value='{$this->valueElem}' name='{$this->attr_name_val()}' spellcheck='false'>
         </div>
         ";
 
@@ -236,7 +236,7 @@ class PNT_Form_Builder
 
         $output = "
             <div class='col-md-8'>
-                <textarea name='{$this->attr_name_val()}' class='form-control'>{$this->valueElem}</textarea>
+                <textarea name='{$this->attr_name_val()}' class='form-control' spellcheck='false'>{$this->valueElem}</textarea>
             </div>
         ";
 

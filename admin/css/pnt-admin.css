@@ -402,3 +402,10 @@ section#pnt-social-links i.fab.fa-google-plus-square {
 section#pnt-social-links i.fab.fa-linkedin {
     color: #0270AD;
 }
+
+/*
+ * Textarea
+ */
+textarea.form-control {
+    min-height: 62px;
+}
