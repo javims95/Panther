@@ -336,22 +336,71 @@ jQuery(document).ready(function ($) {
 
     var dataExtra = {
       'nonce': pntAdmin.seguridad,
-      'action': 'pnt-save-config'
+      'action': 'pnt_save_config'
     }
 
     postData = $.extend({}, postData, dataExtra);
 
     console.log(postData);
-    
+
     /* Sweet Alert */
-    
     swal({
-      title   : 'Guardando',
-      'type'  : 'info',
-      onOpen  : () => {
+      title: 'Guardando',
+      'type': 'info',
+      onOpen: () => {
         swal.showLoading();
       }
     })
+
+    $.ajax({
+      url         : pntAdmin.url,
+      type        : 'POST',
+      dataType    :'json',
+      cache       : false,
+      data        : postData,
+      success     : function( data ) {        
+
+        if (data.result) {
+
+          setTimeout(function () {
+            swal({
+              title : 'Guardado',
+              text  : 'Los cambios se han guardado correctamente',
+              type  : 'success',
+              timer : 4000
+            });
+          }, 1000);
+
+        } else {
+
+          setTimeout(function(){
+            swal({
+              title   : 'Aviso',
+              text    : 'No hay cambios que guardar.',
+              type    : 'warning',
+              timer   : 4000
+            });
+          }, 1000);
+
+        }
+
+      },
+      error : function( d, x, v ) {
+                
+        console.log(d);
+        console.log(x);
+        console.log(v);
+
+        setTimeout(function () {
+          swal({
+            title: 'Error',
+            text: 'Hubo un error al guardar la configuración. Si el problema persiste contacte con su desarrollador.',
+            type: 'error',
+            timer: 4000
+          });
+        }, 1000);
+      }
+    });
   })
 
 })

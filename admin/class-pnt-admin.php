@@ -347,5 +347,23 @@ class PNT_Admin
             'Trebuchet'     => 'Trebuchet',
             'Verdana'       => 'Verdana',
         ];
+    }   
+
+    public function save_config() {
+        
+        check_ajax_referer( 'pnt_seg', 'nonce' );
+        
+        if( current_user_can( 'manage_options' ) ) {
+            
+            $result = update_option( 'pnt_config', $_POST[ 'pnt' ] );
+            $json   = json_encode([
+                'result'    => $result
+            ]);
+            
+            echo $json;
+            wp_die();
+            
+        }
+        
     }
 }

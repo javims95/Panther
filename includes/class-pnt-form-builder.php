@@ -722,7 +722,7 @@ class PNT_Form_Builder
             if ($this->options['fontType'] == 'googlefonts') {
 
                 $variantsFont = explode(',', $optVariants['googlefonts'][$this->valueElem]['variants']);
-                $variantsSelection = explode(',', $optVariants['selection']);
+                $variantsSelection = is_array($optVariants['selection']) ? $optVariants['selection'] : explode(',', $optVariants['selection']);
 
                 foreach ($variantsFont as $weight) {
 

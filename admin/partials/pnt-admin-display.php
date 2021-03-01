@@ -1,4 +1,8 @@
-<?php extract($this->pnt, EXTR_PREFIX_ALL, 'pnt'); ?>
+<?php extract($this->pnt, EXTR_PREFIX_ALL, 'pnt'); 
+// echo '<pre>';
+// var_dump($this->pnt);
+// echo '</pre>';
+?>
 
 <div class="row m-0">
     <div class="col-md-12 px-1 m-0 shadow-lg p-3 mb-5 bg-white rounded">

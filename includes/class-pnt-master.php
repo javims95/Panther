@@ -180,6 +180,8 @@ class PNT_Master {
         
         $this->cargador->add_action( 'admin_menu', $this->pnt_admin, 'add_menu' );
         
+		$this->cargador->add_action( 'wp_ajax_pnt_save_config', $this->pnt_admin, 'save_config' );
+        
     }
     
     /**
