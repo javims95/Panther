@@ -369,3 +369,36 @@ section#pnt-colors-headers .row:last-child {
 section#pnt-fonts-size-style .row:last-child {
     border-bottom: none;
 }
+
+/*
+ * Social
+ */
+section#pnt-social-links i {
+    font-size: 2.4rem;
+    vertical-align: middle;
+    margin-right: .4rem;
+}
+
+section#pnt-social-links i.fab.fa-facebook-square {
+    color: #4064AC;
+}
+
+section#pnt-social-links i.fab.fa-twitter-square {
+    color: #00A2F3;
+}
+
+section#pnt-social-links i.fab.fa-instagram {
+    color: #A40BAF;
+}
+
+section#pnt-social-links i.fab.fa-youtube {
+    color: #f00;
+}
+
+section#pnt-social-links i.fab.fa-google-plus-square {
+    color: #D6473B;
+}
+
+section#pnt-social-links i.fab.fa-linkedin {
+    color: #0270AD;
+}

@@ -70,7 +70,7 @@
                         </li>
                         <li>
                             <a href="#pnt-social" class="" data-menuActivado="social">
-                            <i class="fab fa-facebook-square"></i><span>Redes Sociales</span>
+                            <i class="fas fa-share-alt"></i><span>Redes Sociales</span>
                             </a>
                         </li>
                         <li>

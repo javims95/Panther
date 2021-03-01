@@ -284,33 +284,31 @@ class PNT_Form_Builder
         $output     = "";
         $optsSelect = "";
 
-        if( isset( $this->options[ 'optgroup' ] ) ) {
-            
-            $optgroup = $this->options[ 'optgroup' ];
-            
-            foreach( $optgroup as $fontType => $opts ){
-                
-                $optsSelect .= "<optgroup label='{$opts[ 'title' ]}'>";
-                
-                foreach( $opts[ 'opts' ] as $valOpt => $titleOpt ){
-                    
-                    if( $fontType == 'googlefonts' ) {
-                        
+        if (isset($this->options['optgroup'])) {
+
+            $optgroup = $this->options['optgroup'];
+
+            foreach ($optgroup as $fontType => $opts) {
+
+                $optsSelect .= "<optgroup label='{$opts['title']}'>";
+
+                foreach ($opts['opts'] as $valOpt => $titleOpt) {
+
+                    if ($fontType == 'googlefonts') {
+
                         $family     = $valOpt;
                         $variants   = $titleOpt['variants'];
                         $familyVal  = str_replace(' ', '+', $family);
 
-                        $optsSelect .= "<option value='$familyVal' data-fontType='$fontType' data-variants='$variants' " 
-                        . selected( $this->valueElem, $valOpt, false ) . ">$family</option>";
+                        $optsSelect .= "<option value='$familyVal' data-fontType='$fontType' data-variants='$variants' "
+                            . selected($this->valueElem, $valOpt, false) . ">$family</option>";
 
                         continue 1;
                     }
-                    
-                    $optsSelect .= "<option value='$valOpt' data-fontType='$fontType' " . selected( $this->valueElem, $valOpt, false ) . ">$titleOpt</option>";
-                    
-                }                
+
+                    $optsSelect .= "<option value='$valOpt' data-fontType='$fontType' " . selected($this->valueElem, $valOpt, false) . ">$titleOpt</option>";
+                }
             }
-            
         } else {
 
             foreach ($this->options as $valOpt => $titleOpt) {
@@ -322,7 +320,7 @@ class PNT_Form_Builder
         $extra      = "";
         $dataAttr   = "";
 
-        switch($this->options['type']){
+        switch ($this->options['type']) {
 
             case 'font':
                 $extra = "
@@ -437,14 +435,23 @@ class PNT_Form_Builder
          * @return $output cadena de texto HTML, tipo switch
          */
 
+        $on     = 'On';
+        $off    = 'Off';
+
+         if ($this->options != '' && is_array($this->options)){
+
+            $on     = $this->options['on'];
+            $off    = $this->options['off'];
+         }
+
         $output = "
             <div class='col-md-8'>
                 <div class='switch'>
                     <label>
-                    Off
+                    $off
                     <input " . checked($this->valueElem, 'on') . " type='checkbox' name='{$this->attr_name_val()}'>
                     <span class='lever'></span>
-                    On
+                    $on
                     </label>
                 </div>
             </div>
@@ -594,7 +601,7 @@ class PNT_Form_Builder
             <p>{$this->alertContent}</p>            
         ";
 
-        if($this->alertFooter != ''){
+        if ($this->alertFooter != '') {
 
             $output .= "
             <hr>
@@ -605,21 +612,22 @@ class PNT_Form_Builder
         return $output;
     }
 
-    private function multi () {
+    private function multi()
+    {
 
         $output = "
         <div class='col-md-8'>
             <div class='form-row'>
         ";
 
-        foreach($this->options as $idOpt => $opt){
+        foreach ($this->options as $idOpt => $opt) {
 
             $output .= "<div class='col mb-3 col-sm-12 col-md-6 col-xl-3'>";
             $type = $opt['type'];
             $title = $opt['title'];
             $id = "pnt-input-{$this->idConf}-{$this->idElem}-$type-$idOpt";
 
-            switch($type){
+            switch ($type) {
 
                 case 'number':
                     $output .= "
@@ -636,7 +644,7 @@ class PNT_Form_Builder
                     <div class='pnt-input-$type'>
                         <label for='$id'>$title</label>
                         <select name='{$this->attr_name_val()}[$idOpt]' id='$id' class='form-control' style='width: 12rem;'>
-                            {$this->selected_weight_style( $this->valueElem[ $this->idElem ][ $idOpt ] )}
+                            {$this->selected_weight_style($this->valueElem[$this->idElem][$idOpt])}
                         </select>
                     </div>
                     ";
@@ -703,19 +711,20 @@ class PNT_Form_Builder
         return esc_attr($class);
     }
 
-    private function selected_variants_font () {
+    private function selected_variants_font()
+    {
 
         $optVariants    = $this->options['variants'];
         $output         = "";
 
-        if($optVariants['selection'] != ''){
+        if ($optVariants['selection'] != '') {
 
-            if($this->options['fontType'] == 'googlefonts') {
+            if ($this->options['fontType'] == 'googlefonts') {
 
                 $variantsFont = explode(',', $optVariants['googlefonts'][$this->valueElem]['variants']);
                 $variantsSelection = explode(',', $optVariants['selection']);
 
-                foreach($variantsFont as $weight){
+                foreach ($variantsFont as $weight) {
 
                     $variantID = "pnt-{$this->idConf}-{$this->idElem}-variants-$weight";
                     $variantsSelect = in_array($weight, $variantsSelection) ? $weight : '';
@@ -734,67 +743,61 @@ class PNT_Form_Builder
         return $output;
     }
 
-    private function selected_weight_style( $weightStyle ) {
-        
+    private function selected_weight_style($weightStyle)
+    {
+
         $fonts = $this->valueElem;
         $output  = "";
-        
-        switch( $this->idElem ) {
-                
+
+        switch ($this->idElem) {
+
             case 'h1':
             case 'h2':
             case 'h3':
-                $tipo   = $fonts[ 'headerPrimary' ];
+                $tipo   = $fonts['headerPrimary'];
                 break;
 
             case 'h4':
             case 'h5':
             case 'h6':
-                $tipo   = $fonts[ 'headerSecondary' ];
+                $tipo   = $fonts['headerSecondary'];
                 break;
 
             default:
-                $tipo   = $fonts[ $this->idElem ];
+                $tipo   = $fonts[$this->idElem];
                 break;
-                
         }
-        
-        if( $tipo[ 'fontType' ] == 'googlefonts' ) {
-            
-            $variants = $tipo[ 'variants' ];
-            $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
-            
-            if( ! empty( $variants ) ) {
-                
-                foreach( $variants as $weight ){
-                    
-                    $output .= "<option " . selected( $weightStyle, $weight, false ) . " 
-                                    data-fontType='{$tipo[ 'fontType' ]}' 
+
+        if ($tipo['fontType'] == 'googlefonts') {
+
+            $variants = $tipo['variants'];
+            $variants = is_array($variants) ? $variants : explode(',', $variants);
+
+            if (!empty($variants)) {
+
+                foreach ($variants as $weight) {
+
+                    $output .= "<option " . selected($weightStyle, $weight, false) . " 
+                                    data-fontType='{$tipo['fontType']}' 
                                     value='$weight'>$weight</option>
                     ";
-                    
                 }
-                
             }
-            
-        } elseif( $tipo[ 'fontType' ] == 'system' ) {
-            
-            for( $i=1; $i<9; $i++ ) {
-                
+        } elseif ($tipo['fontType'] == 'system') {
+
+            for ($i = 1; $i < 9; $i++) {
+
                 $output .= "
-                <option " . selected( $weightStyle, "{$i}00,normal", false ) . " 
-                    data-fontType='{$tipo[ 'fontType' ]}' 
+                <option " . selected($weightStyle, "{$i}00,normal", false) . " 
+                    data-fontType='{$tipo['fontType']}' 
                     value='{$i}00,normal'>{$i}00 Regular</option>
-                <option " . selected( $weightStyle, "{$i}00,italic", false ) . " 
-                    data-fontType='{$tipo[ 'fontType' ]}' 
+                <option " . selected($weightStyle, "{$i}00,italic", false) . " 
+                    data-fontType='{$tipo['fontType']}' 
                     value='{$i}00,italic'>{$i}00 Italic</option>
                 ";
-                
             }
-            
-        }        
-        
+        }
+
         return $output;
-        
     }
 }
