@@ -5,7 +5,7 @@
         <div class="row position-relative m-0">
 
             <!-- Botón guardar cambios -->
-            <button class="btn btn-success btn-pnt"><i class="fas fa-save"></i> Guardar</button>
+            <button id="pnt-save" class="btn btn-success btn-pnt"><i class="fas fa-save"></i> Guardar</button>
 
                 <div class="col-md-12 px-0">                
                     <?php

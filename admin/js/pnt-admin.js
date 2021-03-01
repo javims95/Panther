@@ -1,4 +1,30 @@
 jQuery(document).ready(function ($) {
+
+  'use strict';
+
+  /*
+   * Funcion para serializar objetos
+   */
+  $.fn.serializeObject = function () {
+
+    var o = {};
+    var a = this.serializeArray();
+
+    $.each(a, function () {
+      if (o[this.name]) {
+        if (!o[this.name].push) {
+          o[this.name] = [o[this.name]];
+        }
+        o[this.name].push(this.value || '');
+      } else {
+        o[this.name] = this.value || '';
+      }
+    });
+
+    return o;
+
+  };
+
   /*
    * PNT tabs menu de la configuración
    */
@@ -174,7 +200,7 @@ jQuery(document).ready(function ($) {
 
   /* Bucle para obtener los id del color picker e inicializarlos de forma dinámica */
   $(".file-field").each(function () {
-    id = $(this).attr("id");
+    var id = $(this).attr("id");
 
     $('#' + id).colorpicker({
       component: '.btn',
@@ -247,7 +273,10 @@ jQuery(document).ready(function ($) {
       fontSelect = $this.attr('data-fontselect'),
       fontType = $selected.attr('data-fontType'),
       variants = $selected.attr('data-variants'),
-      $pntOptVariants = $('.pnt-options-variants-' + fontSelect);
+      $pntOptVariants = $('.pnt-options-variants-' + fontSelect),
+      $inputFontType = $('#pnt-fonts-' + fontSelect + '-fontType');
+
+    $inputFontType.val(fontType);
 
     if (fontType != 'googlefonts') {
 
@@ -290,8 +319,39 @@ jQuery(document).ready(function ($) {
   }
 
   /* Llamada a la funcion setTextareaHeight */
-  $(function(){
+  $(function () {
     setTextareaHeight($('textarea'));
+  })
+
+  /*
+   * Boton guardar
+   */
+
+  var $pntSave = $('#pnt-save');
+
+  $pntSave.on('click', function () {
+
+    var $pntForm = $('form#pnt-form'),
+      postData = $pntForm.serializeObject();
+
+    var dataExtra = {
+      'nonce': pntAdmin.seguridad,
+      'action': 'pnt-save-config'
+    }
+
+    postData = $.extend({}, postData, dataExtra);
+
+    console.log(postData);
+    
+    /* Sweet Alert */
+    
+    swal({
+      title   : 'Guardando',
+      'type'  : 'info',
+      onOpen  : () => {
+        swal.showLoading();
+      }
+    })
   })
 
 })

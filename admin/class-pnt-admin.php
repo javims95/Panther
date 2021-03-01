@@ -127,6 +127,11 @@ class PNT_Admin
         }
 
         /**
+         * Animate 3.6.0
+         */
+        wp_enqueue_style('pnt_animate_css', PNT_DIR_URI . 'helpers/animatecss/animate.css', array(), '3.6.0', 'all');
+
+        /**
          * Framework Bootstrap
          */
         wp_enqueue_style('pnt_bootstrap_css', PNT_DIR_URI . 'helpers/bootstrap/css/bootstrap.min.css', array(), '4.6.0', 'all');
@@ -221,6 +226,12 @@ class PNT_Admin
          */
         wp_enqueue_script('pnt-global', PNT_DIR_URI . 'admin/js/pnt-global.js', ['jquery'], '1.0.0', true);
 
+        /**
+         * Sweetalert 7.12.11
+         * https://sweetalert2.github.io/
+         */
+        wp_enqueue_script('pnt_sweetalert2_js', PNT_DIR_URI . 'helpers/sweetalert/sweetalert2.all.js', ['jquery'], '7.12.11');
+        
         /**
          * pnt-admin.js
          * Archivo Javascript principal

@@ -91,9 +91,9 @@ body {
     width: auto;
     height: 41px;
     padding: 0 14px 0 17px;
-    position: absolute;
-    top: 8px;
-    right: 20px;
+    position: fixed;
+    top: 62px;
+    right: 57px;
     z-index: 99;
 }
 

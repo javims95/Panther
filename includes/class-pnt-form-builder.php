@@ -324,7 +324,7 @@ class PNT_Form_Builder
 
             case 'font':
                 $extra = "
-                <input type='hidden' name='pnt[{$this->idConf}][{$this->idElem}][fontType]' value='{$this->options['fontType']}' >
+                <input id='pnt-{$this->idConf}-{$this->idElem}-fontType' type='hidden' name='pnt[{$this->idConf}][{$this->idElem}][fontType]' value='{$this->options['fontType']}' >
 
                 <div class='pnt-options-variants-{$this->idElem}'>
                     <p class='pnt-checkbox-inline mt-4'>
