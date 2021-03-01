@@ -609,12 +609,12 @@ class PNT_Form_Builder
 
         $output = "
         <div class='col-md-8'>
-            <div class='row'>
+            <div class='form-row'>
         ";
 
         foreach($this->options as $idOpt => $opt){
 
-            $output .= "<div class='col-12 col-md-3'>";
+            $output .= "<div class='col mb-3 col-sm-12 col-md-6 col-xl-3'>";
             $type = $opt['type'];
             $title = $opt['title'];
             $id = "pnt-input-{$this->idConf}-{$this->idElem}-$type-$idOpt";
@@ -624,8 +624,8 @@ class PNT_Form_Builder
                 case 'number':
                     $output .= "
                     <div class='pnt-input-$type'>
-                        <label for='$id'>$title</label>
-                        <input name='{$this->attr_name_val()}[$idOpt]' id='$id' type='number' value='{$this->valueElem[$this->idElem][$idOpt]}' style='width:5rem'>
+                        <label for='$id'>$title</label><br>
+                        <input name='{$this->attr_name_val()}[$idOpt]' id='$id' type='number' value='{$this->valueElem[$this->idElem][$idOpt]}' >
                         <span class='pnt-measure'>px</span>
                     </div>
                     ";
@@ -635,8 +635,8 @@ class PNT_Form_Builder
                     $output .= "
                     <div class='pnt-input-$type'>
                         <label for='$id'>$title</label>
-                        <select name='{$this->attr_name_val()}[$idOpt]}' id='$id'>
-                            {$this->selected_weight_style($this->valueElem[$this->idElem][$idOpt])}
+                        <select name='{$this->attr_name_val()}[$idOpt]' id='$id' class='form-control' style='width: 12rem;'>
+                            {$this->selected_weight_style( $this->valueElem[ $this->idElem ][ $idOpt ] )}
                         </select>
                     </div>
                     ";
@@ -777,7 +777,7 @@ class PNT_Form_Builder
                 
             }
             
-        } elseif( $tipo[ 'fontType' ] == 'sistema' ) {
+        } elseif( $tipo[ 'fontType' ] == 'system' ) {
             
             for( $i=1; $i<9; $i++ ) {
                 
@@ -792,7 +792,7 @@ class PNT_Form_Builder
                 
             }
             
-        }
+        }        
         
         return $output;
         

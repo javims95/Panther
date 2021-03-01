@@ -118,6 +118,48 @@ $elemsSectSizeStyle = [
             'value'      => $pnt_fonts,
             'options'      => $optionsSizeStyle
     ],    
+    'h2'    => [
+            'type'     => 'multi',
+            'title'     => 'H2',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'h3'    => [
+            'type'     => 'multi',
+            'title'     => 'H3',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'h4'    => [
+            'type'     => 'multi',
+            'title'     => 'H4',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'h5'    => [
+            'type'     => 'multi',
+            'title'     => 'H5',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'h6'    => [
+            'type'     => 'multi',
+            'title'     => 'H6',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'content'    => [
+            'type'     => 'multi',
+            'title'     => 'Contenido',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
+    'menu'    => [
+            'type'     => 'multi',
+            'title'     => 'Menú',
+            'value'      => $pnt_fonts,
+            'options'      => $optionsSizeStyle
+    ],    
 ];
 
 $fontSections = [
@@ -129,7 +171,7 @@ $fontSections = [
         'titleSection'  => 'Fuentes',
         'elems'         => $elemsSectFonts,
     ],
-    'sizeStyle' => [
+    'size-style' => [
         'titleSection'  => 'Tamaños y estilos',
         'elems'         => $elemsSectSizeStyle,
     ]

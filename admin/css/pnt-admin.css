@@ -358,3 +358,14 @@ section#pnt-colors-headers .row {
 section#pnt-colors-headers .row:last-child {
     border-bottom: none;
 }
+
+/*
+ * Multi Sections (border-bottom)
+ */
+ section#pnt-fonts-size-style .row {
+    border-bottom: 1px dashed #007bff;
+}
+
+section#pnt-fonts-size-style .row:last-child {
+    border-bottom: none;
+}
