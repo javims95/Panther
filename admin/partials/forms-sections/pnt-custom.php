@@ -4,17 +4,17 @@ $elemsSectCustomCode = [
     'css' => [
         'type'          => 'textarea',
         'title'         => 'CSS personalizado',
-        'value'         => stripslashes($pnt_customCode['css']),
+        'value'         => stripslashes($pnt_custom['css']),
     ],
     'js' => [
         'type'          => 'textarea',
         'title'         => 'JavaScript personalizado',
-        'value'         => stripslashes($pnt_customCode['js']),
+        'value'         => stripslashes($pnt_custom['js']),
     ],
 ];
 
 $customCodeSections = [
-    'customCode' => [
+    'custom' => [
         'titleSection' => 'Avanzado',
         'elems' => $elemsSectCustomCode,
     ]

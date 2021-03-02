@@ -14,7 +14,7 @@ $elemsSectBody = [
 ];
 
 $elemsSectLogo = [
-    'LogoUrl' => [
+    'logoUrl' => [
         'type' => 'media',
         'title' => 'Logotipo',
         'value' => $pnt_global['logoUrl'],

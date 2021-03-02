@@ -13,6 +13,7 @@ class PNT_Form_Builder
 
     private $idElem;
     private $idsElem;
+    private $idsInvested;
     private $typeElem;
     private $titleElem;
     private $valueElem;
@@ -129,6 +130,7 @@ class PNT_Form_Builder
 
             // colorPicker
             $this->idsElem          = isset($elem['ids']) ? $elem['ids'] : '';
+            $this->idsInvested      = isset($elem['idsInvested']) ? $elem['idsInvested'] : '';
             $this->customClass      = isset($elem['customClass']) ? $elem['customClass'] : '';
             $this->tag              = isset($elem['tag']) ? $elem['tag'] : '';
             $this->preview          = isset($elem['preview']) ? $elem['preview'] : '';
@@ -288,6 +290,8 @@ class PNT_Form_Builder
 
             $optgroup = $this->options['optgroup'];
 
+            if($this->options['type'] == 'font') $this->valueElem = str_replace('+', ' ', $this->valueElem);
+
             foreach ($optgroup as $fontType => $opts) {
 
                 $optsSelect .= "<optgroup label='{$opts['title']}'>";
@@ -323,6 +327,7 @@ class PNT_Form_Builder
         switch ($this->options['type']) {
 
             case 'font':
+
                 $extra = "
                 <input id='pnt-{$this->idConf}-{$this->idElem}-fontType' type='hidden' name='pnt[{$this->idConf}][{$this->idElem}][fontType]' value='{$this->options['fontType']}' >
 
@@ -419,6 +424,7 @@ class PNT_Form_Builder
                 </div>
 
         ";
+        echo $this->valueElem;
 
         return $output;
     }
@@ -449,7 +455,7 @@ class PNT_Form_Builder
                 <div class='switch'>
                     <label>
                     $off
-                    <input " . checked($this->valueElem, 'on') . " type='checkbox' name='{$this->attr_name_val()}'>
+                    <input " . checked($this->valueElem, 'on', false) . " type='checkbox' name='{$this->attr_name_val()}'>
                     <span class='lever'></span>
                     $on
                     </label>
@@ -633,7 +639,7 @@ class PNT_Form_Builder
                     $output .= "
                     <div class='pnt-input-$type'>
                         <label for='$id'>$title</label><br>
-                        <input name='{$this->attr_name_val()}[$idOpt]' id='$id' type='number' value='{$this->valueElem[$this->idElem][$idOpt]}' >
+                        <input name='{$this->attr_name_val()}[$idOpt]' id='$id' type='number' value='{$this->valueElem[ $this->idElem ][ $idOpt ]}'>
                         <span class='pnt-measure'>px</span>
                     </div>
                     ";
@@ -672,12 +678,16 @@ class PNT_Form_Builder
             $idsElem = explode(',', $this->idsElem);
             $idName = "";
 
+            if($this->idsInvested) $name = "pnt[{$this->idConf}]";
+
             foreach ($idsElem as $id) {
 
                 $idName .= "[$id]";
             }
 
             $name .= $idName;
+
+            if($this->idsInvested) $name .= "[{$this->idElem}]";
         }
 
         return $name;
@@ -717,7 +727,6 @@ class PNT_Form_Builder
         $optVariants    = $this->options['variants'];
         $output         = "";
 
-        if ($optVariants['selection'] != '') {
 
             if ($this->options['fontType'] == 'googlefonts') {
 
@@ -738,7 +747,6 @@ class PNT_Form_Builder
                     ";
                 }
             }
-        }
 
         return $output;
     }
@@ -768,21 +776,30 @@ class PNT_Form_Builder
                 break;
         }
 
-        if ($tipo['fontType'] == 'googlefonts') {
-
-            $variants = $tipo['variants'];
-            $variants = is_array($variants) ? $variants : explode(',', $variants);
-
-            if (!empty($variants)) {
-
-                foreach ($variants as $weight) {
-
-                    $output .= "<option " . selected($weightStyle, $weight, false) . " 
-                                    data-fontType='{$tipo['fontType']}' 
+        if( $tipo[ 'fontType' ] == 'googlefonts' ) {
+            
+            $variants = isset( $tipo[ 'variants' ] ) ? $tipo[ 'variants' ] : [];
+            $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
+            
+            if( ! empty( $variants ) ) {
+                
+                foreach( $variants as $weight ){
+                    
+                    $output .= "<option " . selected( $weightStyle, $weight, false ) . " 
+                                    data-fontType='{$tipo[ 'fontType' ]}' 
                                     value='$weight'>$weight</option>
                     ";
+                    
                 }
+                
+            } else {
+                
+                $output .= "<option selected data-fontType='{$tipo[ 'fontType' ]}' 
+                                    value='400'>400</option>
+                    ";
+                
             }
+            
         } elseif ($tipo['fontType'] == 'system') {
 
             for ($i = 1; $i < 9; $i++) {

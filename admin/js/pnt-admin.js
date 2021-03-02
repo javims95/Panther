@@ -44,12 +44,21 @@ jQuery(document).ready(function ($) {
     $pnt_content.hide()
     $(id).show()
     $pnt_tabs.removeClass('active')
-    $this.addClass('active')
+    $this.addClass('active')    
 
     // Cambio del titulo de la cabecera automatico
     //$pnt_header_title.text($this.find('span').text());
     $pnt_header_title.html($this.html())
-  })
+  }) 
+
+  /* Mostrar miniatura (prueba) */
+  var media = $('.pnt-media-preview img'),
+      url   = media.attr(src);
+      console.log(url);
+
+  if(pntMediaPreview != ''){
+    console.log('hola');
+  }
 
   /*
    * PNT input media
@@ -63,11 +72,10 @@ jQuery(document).ready(function ($) {
       $pntMediaInput = $('.pnt-input-media #' + dataMedia),
       $pntMediaPreview = $('.pnt-media-preview.' + dataMedia),
       $pntMediaPreviewImg = $('.pnt-media-preview.' + dataMedia + ' img'),
-      $pntRemoveMediaThis = $(
-        '.pnt-media-remove[data-media-remove="' + dataMedia + '"',
+      $pntRemoveMediaThis = $('.pnt-media-remove[data-media-remove="' + dataMedia + '"',
       )
 
-    $pntMediaPreview.hide()
+    $pntMediaPreview.hide()    
 
     var marcoMedia
 
@@ -98,7 +106,7 @@ jQuery(document).ready(function ($) {
       setTimeout(function () {
         $pntMediaPreview.slideDown()
       }, 500)
-    })
+    })    
 
     marcoMedia.open()
   })
@@ -367,7 +375,7 @@ jQuery(document).ready(function ($) {
               title : 'Guardado',
               text  : 'Los cambios se han guardado correctamente',
               type  : 'success',
-              timer : 4000
+              timer : 15000
             });
           }, 1000);
 

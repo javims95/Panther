@@ -64,7 +64,7 @@ class PNT_Activator {
                         "textColorButtonHover"  => "rgba(0,0,0,0.87)"
                     ],
                     'footer'        => [
-                        "bgFooter"                    => "rgba(0,0,0,0.87)",
+                        "bgFooter"              => "rgba(0,0,0,0.87)",
                         "bgCopyright"           => "rgba(0,0,0,0.87)"
                     ]
                 ],
@@ -72,14 +72,14 @@ class PNT_Activator {
                 "fonts"       => [
                     "menu"          => [
                         "family"                => "Lato",
-                        "size"                => "14",
+                        "size"                  => "14",
                         "weight"                => "400",
                         "lineHeight"            => "14",
                         "letterSpacing"         => "14",
                         "fontType"              => "googlefonts",
                         "variants"              => "100,100i,300,400,700,700i"
                     ],
-                    "content"     => [
+                    "contentFont"     => [
                         "family"                => "Roboto",
                         "size"                  => "14",
                         "weight"                => "400",
@@ -146,7 +146,7 @@ class PNT_Activator {
                     "linkedin"      => "",
                 ],
 
-                "customCode"         => [
+                "custom"         => [
                     "css"           => "",
                     "js"            => ""
                 ]

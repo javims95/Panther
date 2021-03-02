@@ -61,19 +61,19 @@ $elemsSectFonts = [
             ]
         ]
     ],
-    'content' => [
+    'contentFont' => [
         'ids'           => 'family',
         'type'          => 'select',
         'title'         => 'Contenido',
         'customClass'   => 'pnt-options-fonts',
-        'value'         => $pnt_fonts['content']['family'],
+        'value'         => $pnt_fonts['contentFont']['family'],
         'options'  => [
             'type'          => 'font',
-            'fontType'      => $pnt_fonts['content']['fontType'],
+            'fontType'      => $pnt_fonts['contentFont']['fontType'],
             'optgroup'      => $optGroupsFont,
             'variants'      => [
                 'googlefonts'   => $this->get_googlefonts(),
-                'selection'     => isset($pnt_fonts['content']['variants']) ? $pnt_fonts['content']['variants'] : ''
+                'selection'     => isset($pnt_fonts['contentFont']['variants']) ? $pnt_fonts['contentFont']['variants'] : ''
             ]
         ]
     ],
@@ -148,7 +148,7 @@ $elemsSectSizeStyle = [
             'value'      => $pnt_fonts,
             'options'      => $optionsSizeStyle
     ],    
-    'content'    => [
+    'contentFont'    => [
             'type'     => 'multi',
             'title'     => 'Contenido',
             'value'      => $pnt_fonts,

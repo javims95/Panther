@@ -1,7 +1,48 @@
 <?php extract($this->pnt, EXTR_PREFIX_ALL, 'pnt'); 
-// echo '<pre>';
-// var_dump($this->pnt);
-// echo '</pre>';
+
+
+function translate_name_menu($pnt_menuActivado) {
+    /**
+     * Controla las traducciones de las tabs del menú
+     */
+
+    $result = '';
+
+    switch ($pnt_menuActivado){
+
+        case 'global': 
+            $result = 'General';
+            break;
+
+        case 'menu': 
+            $result = 'Menú';
+            break;
+
+        case 'colors': 
+            $result = 'Colores';
+            break;
+
+        case 'fonts': 
+            $result = 'Fuentes';
+            break;
+
+        case 'social': 
+            $result = 'Redes Sociales';
+            break;
+
+        case 'custom': 
+            $result = 'Código Personalizado';
+            break;
+
+        default:
+            $result = ucfirst($pnt_menuActivado);
+            break;
+    }
+
+    return $result;
+
+}
+
 ?>
 
 <div class="row m-0">
@@ -27,7 +68,7 @@
                             <img src="<?php echo PNT_DIR_URI; ?>admin/img/panther.svg" alt="">
                         </div>
                         <div class="pnt-header-title">
-                            <h4><i class="fas fa-cog"></i><span>Opciones</span></h4>
+                            <h4><i class="fas fa-cog"></i><span><?php echo translate_name_menu($pnt_menuActivado); ?></span></h4>
                         </div>                    
                     </div>
                 </div>
@@ -37,48 +78,48 @@
             <div class="row ml-0 justify-content-center">
                 <div class="col-12 pl-0">
                     <ul class="pnt-menu nav">
-                        <li>
-                            <a href="#pnt-global" class="active" data-menuActivado="global">
-                            <i class="fas fa-cog"></i><span>Opciones</span>
+                        <li>                            <!-- Guardamos la ultima pestaña usada, al actualizar -->
+                            <a href="#pnt-global" class="<?php echo $pnt_menuActivado == 'global' ? 'active' : ''; ?>" data-menuActivado="global">
+                            <i class="fas fa-cog"></i><span>General</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-header" class="" data-menuActivado="header">
+                            <a href="#pnt-header" class="<?php echo $pnt_menuActivado == 'header' ? 'active' : ''; ?>" data-menuActivado="header">
                             <i class="fas fa-window-maximize"></i><span>Header</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-sidebars" class="" data-menuActivado="sidebars">
+                            <a href="#pnt-sidebars" class="<?php echo $pnt_menuActivado == 'sidebars' ? 'active' : ''; ?>" data-menuActivado="sidebars">
                                 <i class="fas fa-window-maximize fa-rotate-90"></i><span>Sidebars</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-footer" class="" data-menuActivado="footer">
+                            <a href="#pnt-footer" class="<?php echo $pnt_menuActivado == 'footer' ? 'active' : ''; ?>" data-menuActivado="footer">
                                 <i class="fas fa-window-maximize fa-rotate-180"></i><span>Footer</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-menu" class="" data-menuActivado="menu">
+                            <a href="#pnt-menu" class="<?php echo $pnt_menuActivado == 'menu' ? 'active' : ''; ?>" data-menuActivado="menu">
                             <i class="fas fa-bars"></i><span>Menú</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-colors" class="" data-menuActivado="colores">
+                            <a href="#pnt-colors" class="<?php echo $pnt_menuActivado == 'colors' ? 'active' : ''; ?>" data-menuActivado="colors">
                             <i class="fas fa-paint-brush"></i><span>Colores</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-fonts" class="" data-menuActivado="fuentes">
+                            <a href="#pnt-fonts" class="<?php echo $pnt_menuActivado == 'fonts' ? 'active' : ''; ?>" data-menuActivado="fonts">
                             <i class="fas fa-font"></i><span>Fuentes</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-social" class="" data-menuActivado="social">
+                            <a href="#pnt-social" class="<?php echo $pnt_menuActivado == 'social' ? 'active' : ''; ?>" data-menuActivado="social">
                             <i class="fas fa-share-alt"></i><span>Redes Sociales</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#pnt-custom" class="" data-menuActivado="custom">
+                            <a href="#pnt-custom" class="<?php echo $pnt_menuActivado == 'custom' ? 'active' : ''; ?>" data-menuActivado="custom">
                             <i class="fas fa-code"></i><span>Código Personalizado</span>
                             </a>
                         </li>
