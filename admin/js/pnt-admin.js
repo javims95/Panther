@@ -28,17 +28,17 @@ jQuery(document).ready(function ($) {
   /*
    * PNT tabs menu de la configuración
    */
-  var $pnt_tabs = $('.pnt-menu li a'),
-    $pnt_content = $('.pnt-content'),
-    $pnt_header_title = $('.pnt-header-title h4'),
-    $pnt_menu_activado = $('#pnt-menu-activado')
+  var $pnt_tabs         = $('.pnt-menu li a'),
+    $pnt_content        = $('.pnt-content'),
+    $pnt_header_title   = $('.pnt-header-title h4'),
+    $pnt_menu_activado  = $('#pnt-menu-activado')
 
   $pnt_tabs.on('click', function (e) {
     e.preventDefault()
 
-    var $this = $(this),
-      id = $this.attr('href'),
-      menu_activado = $this.attr('data-menuActivado')
+    var $this         = $(this),
+      id              = $this.attr('href'),
+      menu_activado   = $this.attr('data-menuActivado')
 
     $pnt_menu_activado.val(menu_activado)
     $pnt_content.hide()
@@ -55,15 +55,15 @@ jQuery(document).ready(function ($) {
    * PNT input media
    */
   var $pntMediaInputBtn = $('.pnt-input-media button'),
-    $pntRemoveMedia = $('.pnt-media-remove')
+    $pntRemoveMedia     = $('.pnt-media-remove')
 
   $pntMediaInputBtn.on('click', function () {
-    var $this = $(this),
-      dataMedia = $this.attr('data-media'),
-      $pntMediaInput = $('.pnt-input-media #' + dataMedia),
-      $pntMediaPreview = $('.pnt-media-preview.' + dataMedia),
-      $pntMediaPreviewImg = $('.pnt-media-preview.' + dataMedia + ' img'),
-      $pntRemoveMediaThis = $('.pnt-media-remove[data-media-remove="' + dataMedia + '"',
+    var $this               = $(this),
+      dataMedia             = $this.attr('data-media'),
+      $pntMediaInput        = $('.pnt-input-media #' + dataMedia),
+      $pntMediaPreview      = $('.pnt-media-preview.' + dataMedia),
+      $pntMediaPreviewImg   = $('.pnt-media-preview.' + dataMedia + ' img'),
+      $pntRemoveMediaThis   = $('.pnt-media-remove[data-media-remove="' + dataMedia + '"',
       )
 
     $pntMediaPreview.hide()    
@@ -87,8 +87,8 @@ jQuery(document).ready(function ($) {
     })
 
     marcoMedia.on('select', function () {
-      var attach = marcoMedia.state().get('selection').first().toJSON(),
-        url = PNT.limpiarEnlace(attach.url)
+      var attach  = marcoMedia.state().get('selection').first().toJSON(),
+        url       = PNT.limpiarEnlace(attach.url)
 
       $pntMediaInput.val(url)
       $pntMediaPreviewImg.attr('src', url)
@@ -106,11 +106,11 @@ jQuery(document).ready(function ($) {
    * Remove media
    */
   $pntRemoveMedia.on('click', function () {
-    var $this = $(this),
-      dataMedia = $this.attr('data-media-remove'),
-      $pntMediaInput = $('.pnt-input-media #' + dataMedia),
-      $pntMediaPreview = $('.pnt-media-preview.' + dataMedia),
-      $pntMediaPreviewImg = $('.pnt-media-preview.' + dataMedia + ' img')
+    var $this               = $(this),
+      dataMedia             = $this.attr('data-media-remove'),
+      $pntMediaInput        = $('.pnt-input-media #' + dataMedia),
+      $pntMediaPreview      = $('.pnt-media-preview.' + dataMedia),
+      $pntMediaPreviewImg   = $('.pnt-media-preview.' + dataMedia + ' img')
 
     $pntMediaInput.val('')
     $pntMediaPreview.hide()
@@ -139,8 +139,8 @@ jQuery(document).ready(function ($) {
    */
   function templateListSidebar(text, id, dataID) {
 
-    var name = '',
-      arrID = dataID.split('-');
+    var name  = '',
+      arrID   = dataID.split('-');
 
     for (var i = 0, l = arrID.length; i < l; i++) {
 
@@ -164,12 +164,12 @@ jQuery(document).ready(function ($) {
 
   $pntListValBtn.on('click', function () {
 
-    var $this = $(this),
-      dataID = $this.attr('data-id'),
-      $input = $('input#' + dataID),
-      inputVal = $input.val(),
-      $ulList = $('ul.' + dataID),
-      countItems = $ulList.find('li').length;
+    var $this     = $(this),
+      dataID      = $this.attr('data-id'),
+      $input      = $('input#' + dataID),
+      inputVal    = $input.val(),
+      $ulList     = $('ul.' + dataID),
+      countItems  = $ulList.find('li').length;
 
     if (inputVal != '') {
 
@@ -218,12 +218,12 @@ jQuery(document).ready(function ($) {
       }
     }).on('changeColor.colorpicker', function (e) {
 
-      var $this = $(this),
-        dataTag = $this.attr('data-tag'),
-        $tagSelect = $('.pnt-preview-color-' + dataTag),
-        eColorFormat = e.color.origFormat,
-        colorHex = e.color.toHex(),
-        colorRGBa = e.color.toRGB();
+      var $this       = $(this),
+        dataTag       = $this.attr('data-tag'),
+        $tagSelect    = $('.pnt-preview-color-' + dataTag),
+        eColorFormat  = e.color.origFormat,
+        colorHex      = e.color.toHex(),
+        colorRGBa     = e.color.toRGB();
 
       if (eColorFormat == 'rgb' || eColorFormat == 'rgba') {
 
@@ -245,8 +245,8 @@ jQuery(document).ready(function ($) {
 
   function templateInlineVariants(variants, fontSelect) {
 
-    var output_var = '',
-      arrVariants = variants.split(',');
+    var output_var  = '',
+      arrVariants   = variants.split(',');
 
     for (var i = 0; i < arrVariants.length; i++) {
 
@@ -266,14 +266,14 @@ jQuery(document).ready(function ($) {
 
   $pntOptionsFonts.on('change', function () {
 
-    var $this = $(this),
-      value = $this.val(),
-      $selected = $this.find(':selected'),
-      fontSelect = $this.attr('data-fontselect'),
-      fontType = $selected.attr('data-fontType'),
-      variants = $selected.attr('data-variants'),
+    var $this         = $(this),
+      value           = $this.val(),
+      $selected       = $this.find(':selected'),
+      fontSelect      = $this.attr('data-fontselect'),
+      fontType        = $selected.attr('data-fontType'),
+      variants        = $selected.attr('data-variants'),
       $pntOptVariants = $('.pnt-options-variants-' + fontSelect),
-      $inputFontType = $('#pnt-fonts-' + fontSelect + '-fontType');
+      $inputFontType  = $('#pnt-fonts-' + fontSelect + '-fontType');
 
     $inputFontType.val(fontType);
 
@@ -330,12 +330,12 @@ jQuery(document).ready(function ($) {
 
   $pntSave.on('click', function () {
 
-    var $pntForm = $('form#pnt-form'),
-      postData = $pntForm.serializeObject();
+    var $pntForm  = $('form#pnt-form'),
+      postData    = $pntForm.serializeObject();
 
     var dataExtra = {
-      'nonce': pntAdmin.seguridad,
-      'action': 'pnt_save_config'
+      'nonce'   : pntAdmin.seguridad,
+      'action'  : 'pnt_save_config'
     }
 
     postData = $.extend({}, postData, dataExtra);
@@ -344,9 +344,9 @@ jQuery(document).ready(function ($) {
 
     /* Sweet Alert */
     swal({
-      title: 'Guardando',
-      'type': 'info',
-      onOpen: () => {
+      title   : 'Guardando',
+      'type'  : 'info',
+      onOpen  : () => {
         swal.showLoading();
       }
     })
@@ -386,16 +386,16 @@ jQuery(document).ready(function ($) {
       },
       error : function( d, x, v ) {
                 
-        console.log(d);
-        console.log(x);
-        console.log(v);
+        // console.log(d);
+        // console.log(x);
+        // console.log(v);
 
         setTimeout(function () {
           swal({
-            title: 'Error',
-            text: 'Hubo un error al guardar la configuración. Si el problema persiste contacte con su desarrollador.',
-            type: 'error',
-            timer: 4000
+            title   : 'Error',
+            text    : 'Hubo un error al guardar la configuración. Si el problema persiste contacte con su desarrollador.',
+            type    : 'error',
+            timer   : 4000
           });
         }, 1000);
       }

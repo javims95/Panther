@@ -723,24 +723,24 @@ class PNT_Form_Builder
     private function selected_variants_font()
     {
 
-        $optVariants    = $this->options['variants'];
-        $output         = "";
+        $optVariants  = $this->options['variants'];
+        $output       = "";
 
 
             if ($this->options['fontType'] == 'googlefonts') {
 
-                $variantsFont = explode(',', $optVariants['googlefonts'][$this->valueElem]['variants']);
-                $variantsSelection = is_array($optVariants['selection']) ? $optVariants['selection'] : explode(',', $optVariants['selection']);
+                $variantsFont       = explode(',', $optVariants['googlefonts'][$this->valueElem]['variants']);
+                $variantsSelection  = is_array($optVariants['selection']) ? $optVariants['selection'] : explode(',', $optVariants['selection']);
 
                 foreach ($variantsFont as $weight) {
 
-                    $variantID = "pnt-{$this->idConf}-{$this->idElem}-variants-$weight";
+                    $variantID      = "pnt-{$this->idConf}-{$this->idElem}-variants-$weight";
                     $variantsSelect = in_array($weight, $variantsSelection) ? $weight : '';
 
                     $output .= "
                         <label for='$variantID'>
                             <input type='checkbox' id='$variantID' name='pnt[{$this->idConf}][{$this->idElem}][variants][]' 
-                            class='filled-in' value='$weight'" . checked($variantsSelect, $weight, false) . ">
+                                class='filled-in' value='$weight'" . checked($variantsSelect, $weight, false) . ">
                             <span>$weight</span>
                         </label>
                     ";
@@ -775,7 +775,7 @@ class PNT_Form_Builder
                 break;
         }
 
-        if( $tipo[ 'fontType' ] == 'googlefonts' ) {
+        if( $tipo[ 'fontType' ] == 'goooglefonts' ) {
             
             $variants = isset( $tipo[ 'variants' ] ) ? $tipo[ 'variants' ] : [];
             $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
@@ -800,17 +800,19 @@ class PNT_Form_Builder
             }
             
         } elseif ($tipo['fontType'] == 'system') {
-
+            
             for ($i = 1; $i < 9; $i++) {
+                
 
                 $output .= "
-                <option " . selected($weightStyle, "{$i}00,normal", false) . " 
-                    data-fontType='{$tipo['fontType']}' 
+                <option " . selected( $weightStyle, "{$i}00,normal", false ) . " 
+                    data-fontType='{$tipo[ 'fontType' ]}' 
                     value='{$i}00,normal'>{$i}00 Regular</option>
-                <option " . selected($weightStyle, "{$i}00,italic", false) . " 
-                    data-fontType='{$tipo['fontType']}' 
+                <option " . selected( $weightStyle, "{$i}00,italic", false ) . " 
+                    data-fontType='{$tipo[ 'fontType' ]}' 
                     value='{$i}00,italic'>{$i}00 Italic</option>
                 ";
+                echo 'si';
             }
         }
 
