@@ -51,15 +51,6 @@ jQuery(document).ready(function ($) {
     $pnt_header_title.html($this.html())
   }) 
 
-  /* Mostrar miniatura (prueba) */
-  var media = $('.pnt-media-preview img'),
-      url   = media.attr(src);
-      console.log(url);
-
-  if(pntMediaPreview != ''){
-    console.log('hola');
-  }
-
   /*
    * PNT input media
    */

@@ -1,9 +1,5 @@
 <?php
 
-echo '<pre>';
-// var_dump($pnt_colors);
-echo '</pre>';
-
 $elemsSectColorsAlert = [
     'alert' => [
         'type'              => 'alertDismissible',

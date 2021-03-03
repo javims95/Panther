@@ -195,6 +195,11 @@ span.pnt-media-remove{
     border-radius: 5px 0px 0px 5px;
 }
 
+/* Oculta la imagen si está vacía la url */
+.pnt-media-preview img[src=""] {
+    display: none;
+}
+
 /* Fin media */
 
 input#pnt-sidebars-custom {
@@ -211,7 +216,7 @@ input#pnt-sidebars-custom {
 
 .pnt-media-preview {
     margin: 7px 0px 23px 0px;
-    display: none;
+    /* display: none; */
 }
 
 .pnt-media-preview img {

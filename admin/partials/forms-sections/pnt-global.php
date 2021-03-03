@@ -59,4 +59,4 @@ $globalSections = [
 echo $this->formBuilder->addFull('global', $pnt_menuActivado, $globalSections);
 ?>
 
-</div>
+<!-- </div> -->

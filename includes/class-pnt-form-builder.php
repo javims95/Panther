@@ -424,7 +424,6 @@ class PNT_Form_Builder
                 </div>
 
         ";
-        echo $this->valueElem;
 
         return $output;
     }
