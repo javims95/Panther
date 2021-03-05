@@ -29,7 +29,7 @@ $optionsSizeStyle = [
     'letterSpacing'=> [
         'type'       => 'number',
         'title'      => 'Espaciado de las letras'
-    ],
+    ]
 ];
 
 $elemsSectFontsAlert = [

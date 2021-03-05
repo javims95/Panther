@@ -28,6 +28,9 @@ add_action('switch_theme', 'deactivate_pnt');
 require_once PNT_DIR_PATH . 'includes/class-pnt-master.php';
 
 function run_pnt_master() {
+
+    global $pnt_master, $pnt;
+    $pnt    = get_option('pnt_config');
     
     $pnt_master = new PNT_Master;
     $pnt_master->run();

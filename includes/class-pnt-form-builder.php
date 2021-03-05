@@ -775,7 +775,7 @@ class PNT_Form_Builder
                 break;
         }
 
-        if( $tipo[ 'fontType' ] == 'goooglefonts' ) {
+        if( $tipo[ 'fontType' ] == 'googlefonts' ) {
             
             $variants = isset( $tipo[ 'variants' ] ) ? $tipo[ 'variants' ] : [];
             $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
@@ -792,18 +792,15 @@ class PNT_Form_Builder
                 }
                 
             } else {
-                
-                $output .= "<option selected data-fontType='{$tipo[ 'fontType' ]}' 
-                                    value='400'>400</option>
-                    ";
-                
+
+                $output .= "<option selected data-fontType='{$tipo[ 'fontType' ]}' value='400'>400</option>";
+
             }
             
-        } elseif ($tipo['fontType'] == 'system') {
+        } elseif( $tipo[ 'fontType' ] == 'system' ) {
             
-            for ($i = 1; $i < 9; $i++) {
+            for( $i=1; $i<9; $i++ ) {
                 
-
                 $output .= "
                 <option " . selected( $weightStyle, "{$i}00,normal", false ) . " 
                     data-fontType='{$tipo[ 'fontType' ]}' 
@@ -812,10 +809,77 @@ class PNT_Form_Builder
                     data-fontType='{$tipo[ 'fontType' ]}' 
                     value='{$i}00,italic'>{$i}00 Italic</option>
                 ";
-                echo 'si';
+                
             }
+            
         }
 
         return $output;
     }
+    // private function selected_weight_style($weightStyle)
+    // {
+
+    //     $fonts = $this->valueElem;
+    //     $output  = "";
+
+    //     switch ($this->idElem) {
+
+    //         case 'h1':
+    //         case 'h2':
+    //         case 'h3':
+    //             $tipo   = $fonts['headerPrimary'];
+    //             break;
+
+    //         case 'h4':
+    //         case 'h5':
+    //         case 'h6':
+    //             $tipo   = $fonts['headerSecondary'];
+    //             break;
+
+    //         default:
+    //             $tipo   = $fonts[$this->idElem];
+    //             break;
+    //     }
+
+    //     if( $tipo[ 'fontType' ] == 'goooglefonts' ) {
+            
+    //         $variants = isset( $tipo[ 'variants' ] ) ? $tipo[ 'variants' ] : [];
+    //         $variants = is_array( $variants ) ? $variants : explode( ',', $variants );
+            
+    //         if( ! empty( $variants ) ) {
+                
+    //             foreach( $variants as $weight ){
+                    
+    //                 $output .= "<option " . selected( $weightStyle, $weight, false ) . " 
+    //                                 data-fontType='{$tipo[ 'fontType' ]}' 
+    //                                 value='$weight'>$weight</option>
+    //                 ";
+                    
+    //             }
+                
+    //         } else {
+                
+    //             $output .= "<option selected data-fontType='{$tipo[ 'fontType' ]}' 
+    //                                 value='400'>400</option>
+    //                 ";
+                
+    //         }
+            
+    //     } elseif ($tipo['fontType'] == 'system') {
+            
+    //         for ($i = 1; $i < 9; $i++) {                
+
+    //             $output .= "
+    //             <option " . selected( $weightStyle, "{$i}00,normal", false ) . " 
+    //                 data-fontType='{$tipo[ 'fontType' ]}' 
+    //                 value='{$i}00,normal'>{$i}00 Regular</option>
+    //             <option " . selected( $weightStyle, "{$i}00,italic", false ) . " 
+    //                 data-fontType='{$tipo[ 'fontType' ]}' 
+    //                 value='{$i}00,italic'>{$i}00 Italic</option>
+    //             ";
+    //         }
+    //     }
+
+    //     return $output;
+    // }
 }

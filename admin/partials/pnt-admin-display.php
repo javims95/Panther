@@ -1,5 +1,9 @@
 <?php extract($this->pnt, EXTR_PREFIX_ALL, 'pnt'); 
 
+// echo '<pre>';
+// var_dump($this->pnt['fonts']);
+// echo '</pre>';
+
 
 function translate_name_menu($pnt_menuActivado) {
     /**
