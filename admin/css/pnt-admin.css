@@ -162,7 +162,9 @@ ul.pnt-menu li a:hover {
     position: relative;
 }
 
-/* Media */
+/*
+ * Media
+ */
 .row.mb-3 .col-md-8.pnt-input-media.d-flex input, .row.mb-3 .col-md-8.pnt-listSidebar.d-flex input  {
     width: inherit;
     flex: 1;
@@ -198,9 +200,7 @@ span.pnt-media-remove{
 /* Oculta la imagen si está vacía la url */
 .pnt-media-preview img[src=""] {
     display: none;
-}
-
-/* Fin media */
+} /* .fin media */
 
 input#pnt-sidebars-custom {
     border-radius: 5px 0px 0px 5px;

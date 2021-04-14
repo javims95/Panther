@@ -183,7 +183,9 @@ class PNT_Master {
 	 */
     private function definir_admin_hooks() {
         
-        $this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_styles' );
+        $this->cargador->add_action( 'after_setup_theme', $this->pnt_admin, 'init_setup' );
+        
+		$this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_styles' );
         $this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_scripts' );
         
         $this->cargador->add_action( 'admin_menu', $this->pnt_admin, 'add_menu' );

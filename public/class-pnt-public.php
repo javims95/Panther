@@ -90,6 +90,7 @@ class PNT_Public {
      * Font Awesome 5.0.6
      */
     wp_enqueue_style( 'pnt_fontawesome_public_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
+    
     wp_enqueue_style( $this->theme_name, PNT_DIR_URI . 'public/css/pnt-public.css', array(), $this->version, 'all' );
         
     }    

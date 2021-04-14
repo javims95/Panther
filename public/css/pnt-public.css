@@ -1,0 +1,88 @@
+/*
+ * Menú
+ */
+
+/* Mega-Menú */
+
+@media all and (min-width: 992px) {
+	.navbar {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.navbar .has-megamenu {
+		position: static!important;
+	}
+	.navbar .megamenu {
+		left: 0;
+		right: 0;
+		width: 100%;
+		padding: 20px;
+	}
+	.navbar .menu-item {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+}
+
+@media all and (max-width: 768px) {
+	.col-megamenu {
+		margin-bottom: 1rem;
+	}
+
+	a.navbar-brand.fixed.ml-auto {
+		position: fixed;
+		top: 2rem;
+		right: 0;
+		z-index: 1030;
+	}
+}
+
+@media screen and ( min-width: 993px) and (max-width: 1024px ) {
+	#navbar-primary ul li a {
+		font-size: 12px;
+	}
+}
+
+.dropdown-menu.megamenu.show {
+	padding: 1rem;
+}
+
+/* Logo */
+
+a.navbar-brand img {
+	width: 3rem;
+}
+
+/* Color menú */
+
+#navbar-primary ul li a {
+	color: #fff;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div#main_nav ul li a:hover {
+	text-decoration: none;
+}
+
+
+/* Menú centrado responsive */
+@media screen and ( max-width: 992px ) {
+	a.navbar-brand.inside-nav {
+		display: none;
+	}
+
+	li.menu-item {
+		padding-top: 4px;
+	}
+}
+
+@media screen and ( min-width: 993px ) {
+	a.navbar-brand.outside-nav {
+		display: none;
+	}
+
+	#centered_nav {
+		justify-content: center !important;
+	}
+}

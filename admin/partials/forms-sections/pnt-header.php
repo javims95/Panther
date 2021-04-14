@@ -3,11 +3,11 @@
 $elemsSectDesign = [
     'style' => [
         'type'          => 'radio',
-        'title'         => 'Estilo',
+        'title'         => 'Posición del logotipo',
         'value'         => $pnt_header['style'],
         'options'  => [
-            'default'           => 'Defecto',
-            'centeredLogo'      => 'Logo centrado'
+            'logoLeft'        => 'Predeterminado (izquierda)',
+            'logoCentered'    => 'Logo centrado'
         ]
     ]
 ];

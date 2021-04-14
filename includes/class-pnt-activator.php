@@ -21,7 +21,7 @@ class PNT_Activator {
                 ],
 
                 "header"    => [
-                    "style"     => "default"
+                    "style"     => "logoLeft"
                 ],
 
                 "menu"      => [
