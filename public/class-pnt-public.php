@@ -87,6 +87,22 @@ class PNT_Public {
     wp_enqueue_style( 'pnt_bootstrap_public_css', PNT_DIR_URI. 'helpers/bootstrap/css/bootstrap.min.css' , array(), '4.6.0', 'all' );
 
     /**
+     * CSS
+     */
+    wp_enqueue_style( 'public_css_styles', PNT_DIR_URI.'helpers/css/style.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( 'public_css_responsive', PNT_DIR_URI.'helpers/css/responsive.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( 'public_css_colors1', PNT_DIR_URI.'helpers/css/colors1.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( 'public_css_custom', PNT_DIR_URI.'helpers/css/custom.css' , array(), '5.0.6', 'all' );
+
+    wp_enqueue_style( 'public_css_wow', PNT_DIR_URI.'helpers/css/animate.css' , array(), '5.0.6', 'all' );
+    
+    // revolution slider css
+    wp_enqueue_style( 'public_css_revolution_settings', PNT_DIR_URI.'helpers/revolution/css/settings.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( 'public_css_revolution_layers', PNT_DIR_URI.'helpers/revolution/css/layers.css' , array(), '5.0.6', 'all' );
+    wp_enqueue_style( 'public_css_revolution_navigation', PNT_DIR_URI.'helpers/revolution/css/navigation.css' , array(), '5.0.6', 'all' );
+
+    
+    /**
      * Font Awesome 5.0.6
      */
     wp_enqueue_style( 'pnt_fontawesome_public_css', PNT_DIR_URI.'helpers/fontawesome/css/fontawesome-all.min.css' , array(), '5.0.6', 'all' );
@@ -110,6 +126,21 @@ class PNT_Public {
         wp_enqueue_script( 'pnt_bootstrap_public_js', PNT_DIR_URI . 'helpers/bootstrap/js/bootstrap.bundle.min.js', ['jquery'], '4.6.0', true );
         wp_enqueue_script( $this->theme_name, PNT_DIR_URI . 'public/js/pnt-public.js', array( 'jquery' ), $this->version, true );
         
+        wp_enqueue_script( 'pnt_menumaker_public_js', PNT_DIR_URI . 'helpers/js/menumaker.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_wow_public_js', PNT_DIR_URI . 'helpers/js/wow.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_custom_public_js', PNT_DIR_URI . 'helpers/js/custom.js', ['jquery'], '4.6.0', true );
+
+        wp_enqueue_script( 'pnt_revolution1_public_js', PNT_DIR_URI . 'helpers/revolution/js/jquery.themepunch.tools.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution2_public_js', PNT_DIR_URI . 'helpers/revolution/js/jquery.themepunch.revolution.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution3_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.actions.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution4_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.carousel.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution5_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.kenburn.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution6_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.layeranimation.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution7_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.migration.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution8_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.navigation.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution9_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.parallax.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution10_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.slideanims.min.js', ['jquery'], '4.6.0', true );
+        wp_enqueue_script( 'pnt_revolution11_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.video.min.js', ['jquery'], '4.6.0', true );
     }
     
 }
