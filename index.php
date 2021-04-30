@@ -1,132 +1,11 @@
 <?php get_header(); ?>
+<?php 
+// Imágenes slider
+$slider1 = PNT_DIR_URI . 'public/img/it_service/slide1.jpg';
+$slider2 = PNT_DIR_URI . 'public/img/it_service/slide2.jpg';
+$slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
+?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- mobile metas -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="viewport" content="initial-scale=1, maximum-scale=1">
-<!-- site metas -->
-<title>It.Next - IT Service Responsive Html Theme</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- site icons -->
-<link rel="icon" href="images/fevicon/fevicon.png" type="image/gif" />
-
-</head>
-<body id="default_theme" class="it_service">
-<!-- loader -->
-<div class="bg_load"> <img class="loader_animation" src="images/loaders/loader_1.png" alt="#" /> </div>
-<!-- end loader -->
-<!-- header -->
-<header id="default_header" class="header_style_1">
-  <!-- header top -->
-  <div class="header_top">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8">
-          <div class="full">
-            <div class="topbar-left">
-              <ul class="list-inline">
-                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Calle Marqués de Larios 25, 29003, Málaga</span> </li>
-                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@panther.es</a></span> </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 right_section_header_top">
-          <div class="float-left">
-            <div class="social_icon">
-              <ul class="list-inline">
-                <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
-                <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
-                <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
-                <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
-                <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="float-right">
-            <div class="make_appo"> <a class="btn white_btn" href="make_appointment.html">Concertar una cita</a> </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end header top -->
-  <!-- header bottom -->
-  <div class="header_bottom">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-          <!-- logo start -->
-          <div class="logo"> <a href="it_home.html"><img src="images/logos/it_logo.png" alt="logo" /></a> </div>
-          <!-- logo end -->
-        </div>
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-          <!-- menu start -->
-          <div class="menu_side">
-            <div id="navbar_menu">
-              <ul class="first-ul">
-                <li> <a class="active" href="it_home.html">Inicio</a>
-                </li>
-                <li><a href="it_about.html">Sobre Nosotros</a></li>
-                <li> <a href="it_service.html">Servicios</a>
-                  <ul>
-                    <li><a href="it_service_list.html">Servicio 1</a></li>
-                    <li><a href="it_service_detail.html">Services 2</a></li>
-                  </ul>
-                </li>
-                <li> <a href="it_blog.html">Blog</a>
-                  <ul>
-                    <li><a href="it_blog.html">Blog List</a></li>
-                    <li><a href="it_blog_grid.html">Blog Grid</a></li>
-                    <li><a href="it_blog_detail.html">Blog Detail</a></li>
-                  </ul>
-                </li>
-                <li> <a href="#">Páginas</a>
-                  <ul>
-                    <li><a href="it_career.html">Career</a></li>
-                    <li><a href="it_price.html">Pricing</a></li>
-                    <li><a href="it_faq.html">Faq</a></li>
-                    <li><a href="it_privacy_policy.html">Privacy Policy</a></li>
-                    <li><a href="it_error.html">Error 404</a></li>
-                  </ul>
-                </li>
-                <li> <a href="it_shop.html">Tienda</a>
-                  <ul>
-                    <li><a href="it_shop.html">Shop List</a></li>
-                    <li><a href="it_shop_detail.html">Shop Detail</a></li>
-                    <li><a href="it_cart.html">Shopping Cart</a></li>
-                    <li><a href="it_checkout.html">Checkout</a></li>
-                  </ul>
-                </li>
-                <li> <a href="it_contact.html">Contacto</a>
-                  <ul>
-                    <li><a href="it_contact.html">Contact Page 1</a></li>
-                    <li><a href="it_contact_2.html">Contact Page 2</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-            <div class="search_icon">
-              <ul>
-                <li><a href="#" data-toggle="modal" data-target="#search_bar"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- menu end -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- header bottom end -->
-</header>
-<!-- end header -->
 <!-- section -->
 <div id="slider" class="section main_slider">
   <div class="container-fuild">
@@ -135,9 +14,9 @@
         <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
           <ul>
-            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide1.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Computer Services" data-description="">
+            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider1; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Computer Services" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide1.jpg"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="<?php echo $slider1; ?>"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
@@ -211,9 +90,9 @@
                               data-responsive_offset="on" 
                               style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
             </li>
-            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide2.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
+            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider2; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide2.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="<?php echo $slider2; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
@@ -287,9 +166,9 @@
                               data-responsive_offset="on" 
                               style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
             </li>
-            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="images/it_service/slide3.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
+            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider3; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
               <!-- MAIN IMAGE -->
-              <img src="images/it_service/slide3.jpg"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+              <img src="<?php echo $slider3; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
               <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
