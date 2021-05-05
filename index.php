@@ -4,6 +4,21 @@
 $slider1 = PNT_DIR_URI . 'public/img/it_service/slide1.jpg';
 $slider2 = PNT_DIR_URI . 'public/img/it_service/slide2.jpg';
 $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
+
+// Iconos "por qué elegirnos"
+$icon1 = PNT_DIR_URI . 'public/img/it_service/i1.png';
+$icon2 = PNT_DIR_URI . 'public/img/it_service/i2.png';
+$icon3 = PNT_DIR_URI . 'public/img/it_service/i3.png';
+$icon4 = PNT_DIR_URI . 'public/img/it_service/i4.png';
+
+// Iconos "Proceso del servicio"
+$service1 = PNT_DIR_URI . 'public/img/it_service/si1.png';
+$service2 = PNT_DIR_URI . 'public/img/it_service/si2.png';
+$service3 = PNT_DIR_URI . 'public/img/it_service/si3.png';
+$service4 = PNT_DIR_URI . 'public/img/it_service/si4.png';
+$service5 = PNT_DIR_URI . 'public/img/it_service/si5.png';
+$service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
+
 ?>
 
 <!-- section -->
@@ -14,7 +29,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
         <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
           <ul>
-            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider1; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Computer Services" data-description="">
+            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider1; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Servicios Informáticos" data-description="">
               <!-- MAIN IMAGE -->
               <img src="<?php echo $slider1; ?>"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
@@ -70,7 +85,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitout="none" 
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">Computer Services </div>
+                              style="z-index: 6; white-space: nowrap;">Servicios informáticos </div>
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-412" 
@@ -88,9 +103,9 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitin="none" 
                               data-splitout="none" 
                               data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
+                              style="z-index: 7; white-space: nowrap;">Reparaciones en 24h</div>
             </li>
-            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider2; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Easy To Use & Customize" data-description="">
+            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider2; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Fácil de usar y personalizable" data-description="">
               <!-- MAIN IMAGE -->
               <img src="<?php echo $slider2; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
@@ -146,7 +161,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitout="none" 
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">Fast & Affordable </div>
+                              style="z-index: 6; white-space: nowrap;">Rápido y Profesional </div>
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-41" 
@@ -164,9 +179,9 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitin="none" 
                               data-splitout="none" 
                               data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
+                              style="z-index: 7; white-space: nowrap;">Disponible en Next</div>
             </li>
-            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider3; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectly Responsive" data-description="">
+            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider3; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectamente responsive" data-description="">
               <!-- MAIN IMAGE -->
               <img src="<?php echo $slider3; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
               <!-- LAYERS -->
@@ -222,7 +237,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitout="none" 
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">We Will Fix It </div>
+                              style="z-index: 6; white-space: nowrap;">Déjanos ayudarte </div>
               <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-4" 
@@ -240,7 +255,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
                               data-splitin="none" 
                               data-splitout="none" 
                               data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Available On It.Next </div>
+                              style="z-index: 7; white-space: nowrap;">Mejor tienda online Expo 2020 </div>
             </li>
           </ul>
           <div class="tp-static-layers"></div>
@@ -257,8 +272,8 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>Why Choose Us</h2>
-            <p class="large">Fastest repair service with best price!</p>
+            <h2>Porqué elegirnos</h2>
+            <p class="large">El mejor servicio de reparaciones al mejor precio</p>
           </div>
         </div>
       </div>
@@ -267,37 +282,37 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i1.png" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo $icon1; ?>" alt="#" /> </div>
           </div>
-          <h4 class="theme_color">Data recovery</h4>
-          <p>Perspiciatis eos quos totam cum minima aut!</p>
+          <h4 class="theme_color">Recuperación de datos</h4>
+          <p>Recuperamos los datos que hayas extraviado de tu PC, pendrive, discos duros...</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i2.png" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo $icon2; ?>" alt="#" /> </div>
           </div>
-          <h4 class="theme_color">Computer repair</h4>
-          <p>Perspiciatis eos quos totam cum minima aut!</p>
+          <h4 class="theme_color">Reparaciones de Ordenadores</h4>
+          <p>Ordenadores, portátiles, discos duros, monitores...</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i3.png" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo $icon3; ?>" alt="#" /> </div>
           </div>
-          <h4 class="theme_color">Mobile service</h4>
-          <p>Perspiciatis eos quos totam cum minima aut!</p>
+          <h4 class="theme_color">Servicio Móvil</h4>
+          <p>También reparamos tu smartphone, cambios de pantalla, baterías, actualización de software.</p>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30 margin_0">
           <div class="center">
-            <div class="icon"> <img src="images/it_service/i4.png" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo $icon4; ?>" alt="#" /> </div>
           </div>
-          <h4 class="theme_color">Network solutions</h4>
-          <p>Perspiciatis eos quos totam cum minima aut!</p>
+          <h4 class="theme_color">Soluciones de red</h4>
+          <p>Ofrecemos soluciones de conectividad y de cableado estructurado voz-datos para redes de comunicaciones.</p>
         </div>
       </div>
     </div>
@@ -391,7 +406,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si1.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service1; ?>" alt="#" /></div>
                 <h4 class="service-heading">Fast service</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
@@ -400,7 +415,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si2.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service2; ?>" alt="#" /></div>
                 <h4 class="service-heading">Secure payments</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
@@ -409,7 +424,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si3.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service3; ?>" alt="#" /></div>
                 <h4 class="service-heading">Expert team</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
@@ -418,7 +433,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si4.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service4; ?>" alt="#" /></div>
                 <h4 class="service-heading">Affordable services</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
@@ -427,7 +442,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si5.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service5; ?>" alt="#" /></div>
                 <h4 class="service-heading">90 Days warranty</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
@@ -436,7 +451,7 @@ $slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="images/it_service/si6.png" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo $service6; ?>" alt="#" /></div>
                 <h4 class="service-heading">Award winning</h4>
                 <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
               </div>
