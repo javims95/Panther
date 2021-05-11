@@ -1,9 +1,12 @@
 <?php
 
+// De esta forma tenemos acceso a todas las variables del JSON
 global $pnt, $pnt_master;
-
-
 extract($pnt, EXTR_PREFIX_ALL, 'pnt');
+
+// Menú Secundario
+$address  = $pnt_menu['address'] == '' ? 'Calle Marqués de Larios 25, 29003, Málaga' : $pnt_menu['address'];
+$mail     = $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'];
 
 // Logo y favicon
 $logoUrl    = $pnt_global['logoUrl'] == '' ? PNT_DIR_URI . 'public/img/logos/it_logo.png' : $pnt_global['logoUrl'];
@@ -12,10 +15,6 @@ $faviconUrl = $pnt_global['faviconUrl'] == '' ? PNT_DIR_URI . 'public/img/fevico
 // Loader
 $loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
 
-// echo '<pre>';
-// var_dump($logoUrl);
-// var_dump($faviconUrl);
-// echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +47,8 @@ $loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
           <div class="full">
             <div class="topbar-left">
               <ul class="list-inline">
-                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight">Calle Marqués de Larios 25, 29003, Málaga</span> </li>
-                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com">info@panther.es</a></span> </li>
+                <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight"><?php echo $address; ?></span> </li>
+                <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:info@yourdomain.com"><?php echo $mail; ?></a></span> </li>
               </ul>
             </div>
           </div>

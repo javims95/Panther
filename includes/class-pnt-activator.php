@@ -25,7 +25,9 @@ class PNT_Activator {
                 ],
 
                 "menu"      => [
-                    "options"      => [ "show-border" => "show-border" ]
+                    "options"        => [ "show-border" => "show-border" ],
+                    "address"        => "Calle Marqués de Larios 25, 29003, Málaga",
+                    "mail"           => "info@panther.es",
                 ],
 
                 "footer"        => [

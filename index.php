@@ -1,5 +1,9 @@
-<?php get_header(); ?>
-<?php 
+<?php get_header();
+
+// De esta forma tenemos acceso a todas las variables del JSON
+global $pnt, $pnt_master;
+extract($pnt, EXTR_PREFIX_ALL, 'pnt');
+
 // Imágenes slider
 $slider1 = PNT_DIR_URI . 'public/img/it_service/slide1.jpg';
 $slider2 = PNT_DIR_URI . 'public/img/it_service/slide2.jpg';
@@ -21,19 +25,15 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
 
 ?>
 
-<!-- section -->
-<div id="slider" class="section main_slider">
+<!-- carrousel -->
+<!-- <div id="slider" class="section main_slider">
   <div class="container-fuild">
     <div class="row">
       <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-        <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
         <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
           <ul>
             <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider1; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Servicios Informáticos" data-description="">
-              <!-- MAIN IMAGE -->
               <img src="<?php echo $slider1; ?>"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <!-- LAYERS -->
-              <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
                               id="slide-270-layer-1012" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -49,7 +49,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-responsive="off"
                               style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 1 -->
               <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-912" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -65,7 +64,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-start="2000" 
                               data-responsive_offset="on" 
                               style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-112" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -86,7 +84,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
                               style="z-index: 6; white-space: nowrap;">Servicios informáticos </div>
-              <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-412" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -106,10 +103,7 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               style="z-index: 7; white-space: nowrap;">Reparaciones en 24h</div>
             </li>
             <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider2; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Fácil de usar y personalizable" data-description="">
-              <!-- MAIN IMAGE -->
               <img src="<?php echo $slider2; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <!-- LAYERS -->
-              <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
                               id="slide-270-layer-101" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -125,7 +119,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-responsive="off"
                               style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 1 -->
               <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-91" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -141,7 +134,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-start="2000" 
                               data-responsive_offset="on" 
                               style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-11" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -162,7 +154,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
                               style="z-index: 6; white-space: nowrap;">Rápido y Profesional </div>
-              <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-41" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -182,10 +173,7 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               style="z-index: 7; white-space: nowrap;">Disponible en Next</div>
             </li>
             <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider3; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectamente responsive" data-description="">
-              <!-- MAIN IMAGE -->
               <img src="<?php echo $slider3; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <!-- LAYERS -->
-              <!-- LAYER NR. BG -->
               <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
                               id="slide-270-layer-10" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -201,7 +189,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-responsive="off"
                               style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 1 -->
               <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-9" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -217,7 +204,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-start="2000" 
                               data-responsive_offset="on" 
                               style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <!-- LAYER NR. 2 -->
               <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-1" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -238,7 +224,6 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                               data-responsive_offset="on" 
                               data-elementdelay="0.05" 
                               style="z-index: 6; white-space: nowrap;">Déjanos ayudarte </div>
-              <!-- LAYER NR. 3 -->
               <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
                               id="slide-18-layer-4" 
                               data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
@@ -263,8 +248,96 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
       </div>
     </div>
   </div>
+</div> -->
+
+<!--
+    ####################################################
+    C A R O U S E L
+    ####################################################
+    -->
+    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <a href="https://bootstrapcreative.com/">                    
+                     <picture>
+                      <source srcset="<?php echo $slider1; ?>" media="(min-width: 1400px)">
+                      <source srcset="<?php echo $slider1; ?>" media="(min-width: 769px)">
+                       <source srcset="<?php echo $slider1; ?>" media="(min-width: 577px)">
+                      <img srcset="<?php echo $slider1; ?>" alt="responsive image" class="d-block img-fluid">
+                    </picture>
+
+                    <div class="carousel-caption">
+                        <div>
+                            <h2>Digital Craftsmanship</h2>
+                            <p>We meticously build each site to get results</p>
+                            <span class="btn btn-sm btn-outline-secondary">Learn More</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <a href="https://bootstrapcreative.com/">
+                     <picture>
+                      <source srcset="<?php echo $slider2; ?>" media="(min-width: 1400px)">
+                      <source srcset="<?php echo $slider2; ?>" media="(min-width: 769px)">
+                       <source srcset="<?php echo $slider2; ?>" media="(min-width: 577px)">
+                      <img srcset="<?php echo $slider2; ?>" alt="responsive image" class="d-block img-fluid">
+                    </picture>
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>Every project begins with a sketch</h2>
+                            <p>We work as an extension of your business to explore solutions</p>
+                            <span class="btn btn-sm btn-outline-secondary">Our Process</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+            <div class="carousel-item">
+                <a href="https://bootstrapcreative.com/">
+                     <picture>
+                      <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)">
+                      <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)">
+                       <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)">
+                      <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
+                    </picture>
+
+                    <div class="carousel-caption justify-content-center align-items-center">
+                        <div>
+                            <h2>Performance Optimization</h2>
+                            <p>We monitor and optimize your site's long-term performance</p>
+                            <span class="btn btn-sm btn-secondary">Learn How</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- /.carousel-item -->
+        </div>
+        <!-- /.carousel-inner -->
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- /.carousel -->
+
+
+<div class="container-fluid text-center">
+    <p>Full width carousel with a maximum height and art direction. Resize window to see image change based on the size of the window.</p>
 </div>
-<!-- end section -->
+<!-- /.container -->
+
 <!-- section -->
 <div class="section padding_layout_1">
   <div class="container">
@@ -901,9 +974,9 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
           <div class="col-lg-8 col-md-8 col-sm-8 offset-lg-2 offset-md-2 offset-sm-2 col-xs-10 col-xs-offset-1">
             <div class="navbar-search">
               <form action="#" method="get" id="search-global-form" class="search-global">
-                <input type="text" placeholder="Type to search" autocomplete="off" name="s" id="search" value="" class="search-global__input">
+                <input type="text" placeholder="Escribe algo para buscar" autocomplete="off" name="s" id="search" value="" class="search-global__input">
                 <button class="search-global__btn"><i class="fa fa-search"></i></button>
-                <div class="search-global__note">Begin typing your search above and press return to search.</div>
+                <div class="search-global__note">Comience a escribir su búsqueda arriba y presione enter para buscar.</div>
               </form>
             </div>
           </div>
