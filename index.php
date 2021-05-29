@@ -26,317 +26,33 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
 ?>
 
 <!-- carrousel -->
-<!-- <div id="slider" class="section main_slider">
-  <div class="container-fuild">
-    <div class="row">
-      <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
-        <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
-          <ul>
-            <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider1; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Servicios Informáticos" data-description="">
-              <img src="<?php echo $slider1; ?>"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                              id="slide-270-layer-1012" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-width="full"
-                              data-height="full"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                              data-transform_out="s:300;s:300;" 
-                              data-start="750" 
-                              data-basealign="slide" 
-                              data-responsive_offset="on" 
-                              data-responsive="off"
-                              style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-912" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                              data-width="500"
-                              data-height="140"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;" 
-                              data-mask_out="x:inherit;y:inherit;" 
-                              data-start="2000" 
-                              data-responsive_offset="on" 
-                              style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-112" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-fontsize="['70','70','70','35']"
-                              data-lineheight="['70','70','70','50']"
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1000" 
-                              data-splitin="chars" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">Servicios informáticos </div>
-              <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-412" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1500" 
-                              data-splitin="none" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Reparaciones en 24h</div>
-            </li>
-            <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider2; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Fácil de usar y personalizable" data-description="">
-              <img src="<?php echo $slider2; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                              id="slide-270-layer-101" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-width="full"
-                              data-height="full"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                              data-transform_out="s:300;s:300;" 
-                              data-start="750" 
-                              data-basealign="slide" 
-                              data-responsive_offset="on" 
-                              data-responsive="off"
-                              style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-91" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                              data-width="500"
-                              data-height="140"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;" 
-                              data-mask_out="x:inherit;y:inherit;" 
-                              data-start="2000" 
-                              data-responsive_offset="on" 
-                              style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-11" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-fontsize="['70','70','70','35']"
-                              data-lineheight="['70','70','70','50']"
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1000" 
-                              data-splitin="chars" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">Rápido y Profesional </div>
-              <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-41" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1500" 
-                              data-splitin="none" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Disponible en Next</div>
-            </li>
-            <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="<?php echo $slider3; ?>"  data-rotate="0"  data-saveperformance="off"  data-title="Perfectamente responsive" data-description="">
-              <img src="<?php echo $slider3; ?>"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-              <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                              id="slide-270-layer-10" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-width="full"
-                              data-height="full"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                              data-transform_out="s:300;s:300;" 
-                              data-start="750" 
-                              data-basealign="slide" 
-                              data-responsive_offset="on" 
-                              data-responsive="off"
-                              style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-9" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                              data-width="500"
-                              data-height="140"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;" 
-                              data-mask_out="x:inherit;y:inherit;" 
-                              data-start="2000" 
-                              data-responsive_offset="on" 
-                              style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div>
-              <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-1" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                              data-fontsize="['70','70','70','35']"
-                              data-lineheight="['70','70','70','50']"
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1000" 
-                              data-splitin="chars" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              data-elementdelay="0.05" 
-                              style="z-index: 6; white-space: nowrap;">Déjanos ayudarte </div>
-              <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                              id="slide-18-layer-4" 
-                              data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                              data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                              data-width="none"
-                              data-height="none"
-                              data-whitespace="nowrap"
-                              data-transform_idle="o:1;"
-                              data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                              data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                              data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                              data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                              data-start="1500" 
-                              data-splitin="none" 
-                              data-splitout="none" 
-                              data-responsive_offset="on" 
-                              style="z-index: 7; white-space: nowrap;">Mejor tienda online Expo 2020 </div>
-            </li>
-          </ul>
-          <div class="tp-static-layers"></div>
-        </div>
-      </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="<?php echo $slider1 ?>" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?php echo $slider2 ?>" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="<?php echo $slider3 ?>" alt="Third slide">
     </div>
   </div>
-</div> -->
-
-<!--
-    ####################################################
-    C A R O U S E L
-    ####################################################
-    -->
-    <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <a href="https://bootstrapcreative.com/">                    
-                     <picture>
-                      <source srcset="<?php echo $slider1; ?>" media="(min-width: 1400px)">
-                      <source srcset="<?php echo $slider1; ?>" media="(min-width: 769px)">
-                       <source srcset="<?php echo $slider1; ?>" media="(min-width: 577px)">
-                      <img srcset="<?php echo $slider1; ?>" alt="responsive image" class="d-block img-fluid">
-                    </picture>
-
-                    <div class="carousel-caption">
-                        <div>
-                            <h2>Digital Craftsmanship</h2>
-                            <p>We meticously build each site to get results</p>
-                            <span class="btn btn-sm btn-outline-secondary">Learn More</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- /.carousel-item -->
-            <div class="carousel-item">
-                <a href="https://bootstrapcreative.com/">
-                     <picture>
-                      <source srcset="<?php echo $slider2; ?>" media="(min-width: 1400px)">
-                      <source srcset="<?php echo $slider2; ?>" media="(min-width: 769px)">
-                       <source srcset="<?php echo $slider2; ?>" media="(min-width: 577px)">
-                      <img srcset="<?php echo $slider2; ?>" alt="responsive image" class="d-block img-fluid">
-                    </picture>
-
-                    <div class="carousel-caption justify-content-center align-items-center">
-                        <div>
-                            <h2>Every project begins with a sketch</h2>
-                            <p>We work as an extension of your business to explore solutions</p>
-                            <span class="btn btn-sm btn-outline-secondary">Our Process</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- /.carousel-item -->
-            <div class="carousel-item">
-                <a href="https://bootstrapcreative.com/">
-                     <picture>
-                      <source srcset="https://dummyimage.com/2000x500/007aeb/4196e5" media="(min-width: 1400px)">
-                      <source srcset="https://dummyimage.com/1400x500/007aeb/4196e5" media="(min-width: 769px)">
-                       <source srcset="https://dummyimage.com/800x500/007aeb/4196e5" media="(min-width: 577px)">
-                      <img srcset="https://dummyimage.com/600x500/007aeb/4196e5" alt="responsive image" class="d-block img-fluid">
-                    </picture>
-
-                    <div class="carousel-caption justify-content-center align-items-center">
-                        <div>
-                            <h2>Performance Optimization</h2>
-                            <p>We monitor and optimize your site's long-term performance</p>
-                            <span class="btn btn-sm btn-secondary">Learn How</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- /.carousel-item -->
-        </div>
-        <!-- /.carousel-inner -->
-        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-    <!-- /.carousel -->
-
-
-<div class="container-fluid text-center">
-    <p>Full width carousel with a maximum height and art direction. Resize window to see image change based on the size of the window.</p>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-<!-- /.container -->
+<!-- /.carousel -->
 
 <!-- section -->
 <div class="section padding_layout_1">
@@ -401,8 +117,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it 
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, 
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
+                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
                         consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
                     </div>
                   </div>
@@ -413,8 +129,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                   </div>
                   <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it 
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, 
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
+                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
                         consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
                     </div>
                   </div>
@@ -425,8 +141,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it 
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, 
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
+                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
                         consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
                     </div>
                   </div>
@@ -437,8 +153,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it 
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, 
+                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
+                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
                         consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
                     </div>
                   </div>
@@ -451,7 +167,7 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
       <div class="col-md-4">
         <div class="full" style="margin-top: 35px;">
           <h3>Need file recovery?</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et 
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
             quasi architecto beatae vitae dicta sunt explicabo.. </p>
           <p><a class="btn main_bt" href="#">Read More</a></p>
         </div>
@@ -883,32 +599,35 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
+                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
                     I am really satisfied with my first laptop service. </div>
                   <div class="testimonial-photo"> <img src="images/it_service/client1.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
                     <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span> </div>
+                    <span class="testimonial-position">CFO, Tech NY</span>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
+                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
                     I am really satisfied with my first laptop service. </div>
                   <div class="testimonial-photo"> <img src="images/it_service/client2.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
                     <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span> </div>
+                    <span class="testimonial-position">CFO, Tech NY</span>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first. 
+                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
                     I am really satisfied with my first laptop service. </div>
                   <div class="testimonial-photo"> <img src="images/it_service/client3.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
                     <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span> </div>
+                    <span class="testimonial-position">CFO, Tech NY</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1036,14 +755,15 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             </div>
             <p>123 Second Street Fifth Avenue,<br>
               Manhattan, New York<br>
-              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span></p>
+              <span style="font-size:18px;"><a href="tel:+9876543210">+987 654 3210</a></span>
+            </p>
             <div class="footer_mail-section">
               <form>
                 <fieldset>
-                <div class="field">
-                  <input placeholder="Email" type="text">
-                  <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-                </div>
+                  <div class="field">
+                    <input placeholder="Email" type="text">
+                    <button class="button_custom"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                  </div>
                 </fieldset>
               </form>
             </div>
@@ -1060,114 +780,156 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
 
 
 <script>
-         // This example adds a marker to indicate the position of Bondi Beach in Sydney,
-         // Australia.
-         function initMap() {
-           var map = new google.maps.Map(document.getElementById('map'), {
-             zoom: 11,
-             center: {lat: 40.645037, lng: -73.880224},
-         styles: [
-                  {
-                    elementType: 'geometry',
-                    stylers: [{color: '#fefefe'}]
-                  },
-                  {
-                    elementType: 'labels.icon',
-                    stylers: [{visibility: 'off'}]
-                  },
-                  {
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#616161'}]
-                  },
-                  {
-                    elementType: 'labels.text.stroke',
-                    stylers: [{color: '#f5f5f5'}]
-                  },
-                  {
-                    featureType: 'administrative.land_parcel',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#bdbdbd'}]
-                  },
-                  {
-                    featureType: 'poi',
-                    elementType: 'geometry',
-                    stylers: [{color: '#eeeeee'}]
-                  },
-                  {
-                    featureType: 'poi',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#757575'}]
-                  },
-                  {
-                    featureType: 'poi.park',
-                    elementType: 'geometry',
-                    stylers: [{color: '#e5e5e5'}]
-                  },
-                  {
-                    featureType: 'poi.park',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#9e9e9e'}]
-                  },
-                  {
-                    featureType: 'road',
-                    elementType: 'geometry',
-                    stylers: [{color: '#eee'}]
-                  },
-                  {
-                    featureType: 'road.arterial',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#3d3523'}]
-                  },
-                  {
-                    featureType: 'road.highway',
-                    elementType: 'geometry',
-                    stylers: [{color: '#eee'}]
-                  },
-                  {
-                    featureType: 'road.highway',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#616161'}]
-                  },
-                  {
-                    featureType: 'road.local',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#9e9e9e'}]
-                  },
-                  {
-                    featureType: 'transit.line',
-                    elementType: 'geometry',
-                    stylers: [{color: '#e5e5e5'}]
-                  },
-                  {
-                    featureType: 'transit.station',
-                    elementType: 'geometry',
-                    stylers: [{color: '#000'}]
-                  },
-                  {
-                    featureType: 'water',
-                    elementType: 'geometry',
-                    stylers: [{color: '#c8d7d4'}]
-                  },
-                  {
-                    featureType: 'water',
-                    elementType: 'labels.text.fill',
-                    stylers: [{color: '#b1a481'}]
-                  }
-                ]
-         });
-         
-           var image = 'images/it_service/location_icon_map_cont.png';
-           var beachMarker = new google.maps.Marker({
-             position: {lat: 40.645037, lng: -73.880224},
-             map: map,
-             icon: image
-           });
-         }
-      </script>
+  // This example adds a marker to indicate the position of Bondi Beach in Sydney,
+  // Australia.
+  function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 11,
+      center: {
+        lat: 40.645037,
+        lng: -73.880224
+      },
+      styles: [{
+          elementType: 'geometry',
+          stylers: [{
+            color: '#fefefe'
+          }]
+        },
+        {
+          elementType: 'labels.icon',
+          stylers: [{
+            visibility: 'off'
+          }]
+        },
+        {
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#616161'
+          }]
+        },
+        {
+          elementType: 'labels.text.stroke',
+          stylers: [{
+            color: '#f5f5f5'
+          }]
+        },
+        {
+          featureType: 'administrative.land_parcel',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#bdbdbd'
+          }]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#eeeeee'
+          }]
+        },
+        {
+          featureType: 'poi',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#757575'
+          }]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#e5e5e5'
+          }]
+        },
+        {
+          featureType: 'poi.park',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#9e9e9e'
+          }]
+        },
+        {
+          featureType: 'road',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#eee'
+          }]
+        },
+        {
+          featureType: 'road.arterial',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#3d3523'
+          }]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#eee'
+          }]
+        },
+        {
+          featureType: 'road.highway',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#616161'
+          }]
+        },
+        {
+          featureType: 'road.local',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#9e9e9e'
+          }]
+        },
+        {
+          featureType: 'transit.line',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#e5e5e5'
+          }]
+        },
+        {
+          featureType: 'transit.station',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#000'
+          }]
+        },
+        {
+          featureType: 'water',
+          elementType: 'geometry',
+          stylers: [{
+            color: '#c8d7d4'
+          }]
+        },
+        {
+          featureType: 'water',
+          elementType: 'labels.text.fill',
+          stylers: [{
+            color: '#b1a481'
+          }]
+        }
+      ]
+    });
+
+    var image = 'images/it_service/location_icon_map_cont.png';
+    var beachMarker = new google.maps.Marker({
+      position: {
+        lat: 40.645037,
+        lng: -73.880224
+      },
+      map: map,
+      icon: image
+    });
+  }
+</script>
 <!-- google map js -->
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script> -->
 <!-- end google map js -->
 </body>
+
 </html>
 
 
