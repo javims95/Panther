@@ -23,6 +23,20 @@ $service4 = PNT_DIR_URI . 'public/img/it_service/si4.png';
 $service5 = PNT_DIR_URI . 'public/img/it_service/si5.png';
 $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
 
+// Productos
+$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
+$product2 = PNT_DIR_URI . 'public/img/it_service/2.jpg';
+$product3 = PNT_DIR_URI . 'public/img/it_service/3.jpg';
+$product4 = PNT_DIR_URI . 'public/img/it_service/4.jpg';
+$product5 = PNT_DIR_URI . 'public/img/it_service/5.jpg';
+$product6 = PNT_DIR_URI . 'public/img/it_service/6.jpg';
+$product7 = PNT_DIR_URI . 'public/img/it_service/7.jpg';
+$product8 = PNT_DIR_URI . 'public/img/it_service/8.jpg';
+$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
+$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
+$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
+$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
+
 ?>
 
 <!-- carrousel -->
@@ -105,6 +119,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
         </div>
       </div>
     </div>
+
+    <!-- Acordeón -->
     <div class="row" style="margin-top: 35px">
       <div class="col-md-8">
         <div class="full margin_bottom_30">
@@ -113,49 +129,41 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
               <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Recovery from Local & External Drive<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><i class="fas fa-save" aria-hidden="true"></i> Recuperación completa de discos duros<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+                      <p>Disponemos de la más alta tecnología y la más extensa experiencia. Los primeros discos duros que empezamos a recuperar en 1989 tenían capacidades de entre 10Mb y 40Mb, la centésima parte de la capacidad de un DVD. En los últimos años hemos recuperado sistemas obsoletos desconocidos para la mayoría de los laboratorios que actualmente existen en Europa. A día de hoy disponemos de planes de I+D que nos permiten recuperar los dispositivos de última generación a los que la mayoría no tiene acceso. </p>
                     </div>
                   </div>
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fa fa-plane"></i> Recovery Photo, Image, Video and Audio<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><i class="fas fa-images"></i> Foto, imagen, video y audio de recuperación<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseTwo" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+                      <p>Para la recuperacion de datos la elección correcta de una compañía profesional es la decisión más importante. Cuando ocurre una pérdida de datos, sea cual sea la causa: soporte formateado, disco dañado, borrado de archivos, sabotaje, incendios, inundaciones, fallo mecánico, bloqueo del sistema, particiones perdidas, picos de tensión o golpes, es muy importante para recuperar datos, que nunca deje sus discos en manos inexpertas ya que la recuperación de un archivo o fichero exige personal altamente cualificado y materiales específicos.</p>
                     </div>
                   </div>
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fa fa-star"></i> Mobile Phone Recovery<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><i class="fas fa-mobile-alt"></i> Recuperación en dispositivos móviles<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseThree" class="panel-collapse collapse">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+                      <p>Ofrecemos un servicio de diagnóstico gratuito profesional de recuperacion de datos para su soporte en un plazo máximo de 24 horas. Para solicitarlo utilice la solicitud de diagnóstico gratuito que aparece a la derecha de esta página. La elaboración de un diagnóstico supone el esfuerzo de todo un equipo de profesionales, por ello, solo las compañías de recuperacion de disco duro pueden ofrecérselo con las mejores garantías; desconfíe de supuestos profesionales, con ello solo conseguirá que especulen con el valor de su información.</p>
                     </div>
                   </div>
                 </div>
                 <div class="panel panel-default">
                   <div class="panel-heading">
-                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><i class="fa fa-bar-chart" aria-hidden="true"></i> Complete Recovery from Local & External Drive<i class="fa fa-angle-down"></i></a> </p>
+                    <p class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><i class="fab fa-usb" aria-hidden="true"></i> Recuperación de USB, tarjetas de memorias, CD, disquetes...<i class="fa fa-angle-down"></i></a> </p>
                   </div>
                   <div id="collapseFour" class="panel-collapse collapse in">
                     <div class="panel-body">
-                      <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                        over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-                        consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p>
+                      <p>Hemos adquirido una gran experiencia en la recuperacion de datos de Sistemas RAID. Nuestro ratio para recuperar datos perdidos en este tipo de sistemas alcanza el 94% de éxito de los casos en los que intervenimos. Este ratio de éxito de recuperacion de datos alcanza el 87% para el caso de discos duros individuales.</p>
                     </div>
                   </div>
                 </div>
@@ -166,25 +174,24 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
       </div>
       <div class="col-md-4">
         <div class="full" style="margin-top: 35px;">
-          <h3>Need file recovery?</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-            quasi architecto beatae vitae dicta sunt explicabo.. </p>
-          <p><a class="btn main_bt" href="#">Read More</a></p>
+          <h3>¿Necesita recuperar archivos?</h3>
+          <p>Somos especialistas en la recuperacion de datos de discos duros y en la recuperación de datos de Sistemas RAID. Podemos recuperar datos de cualquier dispositivo de almacenamiento digital que presente fallos de lógica, hardware o ambos.</p>
+          <p><a class="btn main_bt" href="#">Leer más</a></p>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Proceso del servicio -->
 <div class="section padding_layout_1 light_silver gross_layout">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_left">
-            <h2>Service Process</h2>
-            <p class="large">Easy and effective way to get your device repaired.</p>
+            <h2>Proceso del servicio</h2>
+            <p class="large">Manera fácil y eficaz de reparar su dispositivo.</p>
           </div>
         </div>
       </div>
@@ -196,8 +203,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service1; ?>" alt="#" /></div>
-                <h4 class="service-heading">Fast service</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">Servicio rápido</h4>
+                <p>El tiempo aproximado de reparación son 24/48h desde que recibimos el dispositivo.</p>
               </div>
             </div>
           </div>
@@ -205,8 +212,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service2; ?>" alt="#" /></div>
-                <h4 class="service-heading">Secure payments</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">Pago seguro</h4>
+                <p>Toda nuestra web y nuestros pagos están protegidos por certificados SSL.</p>
               </div>
             </div>
           </div>
@@ -214,8 +221,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service3; ?>" alt="#" /></div>
-                <h4 class="service-heading">Expert team</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">Equipo de expertos</h4>
+                <p>Está en las mejores manos, nuestro quipo de profesionales le asesorará en todo momento.</p>
               </div>
             </div>
           </div>
@@ -223,8 +230,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service4; ?>" alt="#" /></div>
-                <h4 class="service-heading">Affordable services</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">Servicios asequibles</h4>
+                <p>Precios más baratos de Andalucía en 2021. Todo en nuestra tienda online.</p>
               </div>
             </div>
           </div>
@@ -232,8 +239,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service5; ?>" alt="#" /></div>
-                <h4 class="service-heading">90 Days warranty</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">90 días de garantía</h4>
+                <p>Todas las reparaciones incluyen una garantía de 90 días desde el momento de la entrega.</p>
               </div>
             </div>
           </div>
@@ -241,8 +248,8 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
             <div class="full">
               <div class="service_blog_inner">
                 <div class="icon text_align_left"><img src="<?php echo $service6; ?>" alt="#" /></div>
-                <h4 class="service-heading">Award winning</h4>
-                <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.</p>
+                <h4 class="service-heading">ISO 9001</h4>
+                <p>Galardonada en 2020 con la ISO 9001, por nuestro sistema de gestión de calidad.</p>
               </div>
             </div>
           </div>
@@ -251,16 +258,16 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Productos -->
 <div class="section padding_layout_1">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>Our Products</h2>
-            <p class="large">We package the products with best services to make you a happy customer.</p>
+            <h2>Nuestros productos</h2>
+            <p class="large">Empaquetamos los productos con los mejores servicios para que sea un cliente satisfecho.</p>
           </div>
         </div>
       </div>
@@ -268,192 +275,192 @@ $service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/1.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product1 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Pendrive 3.0 - 32GB</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">25.00€</span> – <span class="new_price">19.50€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/2.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product2 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Mini teclado inalambrico</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
+              <p><span class="old_price">24.99€</span><span class="new_price"> 12.49€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/3.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product3 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
+              <h4><a href="it_shop_detail.html">Multiplicador jack 1.5</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
+              <p><span class="old_price">15.99€</span><span class="new_price"> 9.99€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/4.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product4 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Altavoces logitech 2000W</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">205.00€</span> – <span class="new_price">125.00€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/5.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product5 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Soporte para cables</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">12.00€</span> – <span class="new_price">7.90€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/6.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product6 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Amplificador de señal</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
+              <p><span class="old_price">38.65€</span><span class="new_price"> 25.82€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/7.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product7 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
+              <h4><a href="it_shop_detail.html">Router 600mHz</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
+              <p><span class="old_price">101.05€</span><span class="new_price"> 65.10€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/8.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product8 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Ratón + PDA</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">309.24€</span> – <span class="new_price">142.00€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/1.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product3 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Multiplicador jack 1.5</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">15.99€</span><span class="new_price"> 9.99€</span></p>
+            </div>
+          </div>
+        </div>
+      </div>            
+      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
+        <div class="product_list">
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product1 ?>" alt=""> </div>
+          <div class="product_detail_btm">
+            <div class="center">
+              <h4><a href="it_shop_detail.html">Pendrive 3.0 - 32GB</a></h4>
+            </div>
+            <div class="starratin">
+              <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
+            </div>
+            <div class="product_price">
+              <p><span class="old_price">25.00€</span> – <span class="new_price">19.50€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/2.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product4 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Kaspersky Internet Security</a></h4>
+              <h4><a href="it_shop_detail.html">Altavoces logitech 2000W</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
+              <p><span class="old_price">205.00€</span> – <span class="new_price">125.00€</span></p>
             </div>
           </div>
         </div>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/3.jpg" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo $product2 ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Mcafee Livesafe Antivirus</a></h4>
+              <h4><a href="it_shop_detail.html">Mini teclado inalambrico</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
             </div>
             <div class="product_price">
-              <p><span class="old_price">$24.99</span><span class="new_price"> $12.49</span></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
-        <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="images/it_service/4.jpg" alt=""> </div>
-          <div class="product_detail_btm">
-            <div class="center">
-              <h4><a href="it_shop_detail.html">Norton Internet Security</a></h4>
-            </div>
-            <div class="starratin">
-              <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
-            </div>
-            <div class="product_price">
-              <p><span class="old_price">$15.00</span> – <span class="new_price">$25.00</span></p>
+              <p><span class="old_price">24.99€</span><span class="new_price"> 12.49€</span></p>
             </div>
           </div>
         </div>

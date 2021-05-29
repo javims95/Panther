@@ -130,17 +130,11 @@ class PNT_Public {
         wp_enqueue_script( 'pnt_wow_public_js', PNT_DIR_URI . 'helpers/js/wow.js', ['jquery'], '4.6.0', true );
         wp_enqueue_script( 'pnt_custom_public_js', PNT_DIR_URI . 'helpers/js/custom.js', ['jquery'], '4.6.0', true );
 
-        wp_enqueue_script( 'pnt_revolution1_public_js', PNT_DIR_URI . 'helpers/revolution/js/jquery.themepunch.tools.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution2_public_js', PNT_DIR_URI . 'helpers/revolution/js/jquery.themepunch.revolution.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution3_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.actions.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution4_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.carousel.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution5_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.kenburn.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution6_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.layeranimation.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution7_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.migration.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution8_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.navigation.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution9_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.parallax.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution10_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.slideanims.min.js', ['jquery'], '4.6.0', true );
-        wp_enqueue_script( 'pnt_revolution11_public_js', PNT_DIR_URI . 'helpers/revolution/js/extensions/revolution.extension.video.min.js', ['jquery'], '4.6.0', true );
+    }
+
+    public function get_instance_navwalker() {
+
+        return new PNT_Nav_Walker;
     }
     
 }

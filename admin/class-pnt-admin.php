@@ -371,8 +371,8 @@ class PNT_Admin
 
         $menuNav = [
             'pnt_menu_default'  => 'Menú principal',
-            'pnt_menu_left'     => 'Menú izquierdo',
-            'pnt_menu_right'    => 'Menú derecho'
+            // 'pnt_menu_left'     => 'Menú izquierdo',
+            // 'pnt_menu_right'    => 'Menú derecho'
         ];
 
         register_nav_menus($menuNav);

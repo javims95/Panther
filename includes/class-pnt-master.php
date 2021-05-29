@@ -121,6 +121,7 @@ class PNT_Master {
          * y caracteres especales
 		 */
         require_once PNT_DIR_PATH . 'includes/class-pnt-normalize.php';
+        require_once PNT_DIR_PATH . 'includes/class-pnt-navwalker.php';
         
 		/**
 		 * La clase responsable de construir los elementos de los Tabs        
