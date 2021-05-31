@@ -37,9 +37,25 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
 $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
 $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
 
+// Testimonios de clientes
+$client1 = PNT_DIR_URI . 'public/img/it_service/client1.jpg';
+$client2 = PNT_DIR_URI . 'public/img/it_service/client2.jpg';
+$client3 = PNT_DIR_URI . 'public/img/it_service/client3.jpg';
+
+// Contacto
+$phoneIcon = PNT_DIR_URI . 'public/img/it_service/phone_icon.png';
+$mail     = $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'];
+
+// Marcas
+$brand1 = PNT_DIR_URI . 'public/img/it_service/brand_icon1.png';
+$brand2 = PNT_DIR_URI . 'public/img/it_service/brand_icon2.png';
+$brand3 = PNT_DIR_URI . 'public/img/it_service/brand_icon3.png';
+$brand4 = PNT_DIR_URI . 'public/img/it_service/brand_icon4.png';
+$brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
+
 ?>
 
-<!-- carrousel -->
+<!-- Carrousel -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -68,14 +84,14 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
 </div>
 <!-- /.carousel -->
 
-<!-- section -->
+<!-- Por qué elegirnos -->
 <div class="section padding_layout_1">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_center">
-            <h2>Porqué elegirnos</h2>
+            <h2>Por qué elegirnos</h2>
             <p class="large">El mejor servicio de reparaciones al mejor precio</p>
           </div>
         </div>
@@ -416,7 +432,7 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
             </div>
           </div>
         </div>
-      </div>            
+      </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
           <div class="product_img"> <img class="img-responsive" src="<?php echo $product1 ?>" alt=""> </div>
@@ -468,16 +484,16 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Nuestras opiniones -->
 <div class="section padding_layout_1 light_silver gross_layout right_gross_layout">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_right">
-            <h2>Our Feedback</h2>
-            <p class="large">Easy and effective way to get your device repaired.</p>
+            <h2>Nuestros comentarios</h2>
+            <p class="large">Manera fácil y eficaz de reparar su dispositivo.</p>
           </div>
         </div>
       </div>
@@ -487,30 +503,30 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
       <div class="col-md-8">
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-            <div class="text_align_right"><i class="fa fa-smile-o"></i></div>
-            <div class="text_align_right">
-              <p class="counter-heading text_align_right">Happy Customers</p>
+            <div class="text_align_center"><i class="fa fa-smile-o"></i></div>
+            <div class="text_align_center">
+              <p class="counter-heading text_align_center">Clientes satisfechos</p>
             </div>
             <h5 class="counter-count">2150</h5>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-            <div class="text_align_right"><i class="fa fa-laptop"></i></div>
-            <div class="text_align_right">
-              <p class="counter-heading text_align_right">Laptop Repaired</p>
+            <div class="text_align_center"><i class="fa fa-laptop"></i></div>
+            <div class="text_align_center">
+              <p class="counter-heading text_align_center">Portátiles reparados</p>
             </div>
             <h5 class="counter-count">1280</h5>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-            <div class="text_align_right"><i class="fa fa-desktop"></i></div>
-            <div class="text_align_right">
-              <p class="counter-heading">Computer Repaired</p>
+            <div class="text_align_center"><i class="fa fa-desktop"></i></div>
+            <div class="text_align_center">
+              <p class="counter-heading">Ordenadores reparados</p>
             </div>
             <h5 class="counter-count">848</h5>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 margin_bottom_50">
-            <div class="text_align_right"><i class="fa fa-windows"></i></div>
-            <div class="text_align_right">
-              <p class="counter-heading">OS Installed</p>
+            <div class="text_align_center"><i class="fab fa-windows"></i></div>
+            <div class="text_align_center">
+              <p class="counter-heading">Sistema operativo instalado</p>
             </div>
             <h5 class="counter-count">450</h5>
           </div>
@@ -519,75 +535,70 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Blog -->
 <div class="section padding_layout_1">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_left">
-            <h2>Latest from Our Blog</h2>
+            <h2>Lo último de nuestro blog</h2>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="images/it_service/post-03.jpg" alt="#" /> </div>
-          <div class="post_time">
-            <p><i class="fa fa-clock-o"></i> April 16, 2018 ( In Maintenance )</p>
+      <?php 
+
+      global $wp_query;
+      $args = array_merge( $wp_query->query_vars, ['posts_per_page' => 3 ] );
+      query_posts( $args );
+      
+      if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+          <div class="col-md-4">
+            <div class="full blog_colum">
+              <div class="blog_feature_img">
+                <a href="<?php the_permalink(); ?>">
+                <?php
+                  if (has_post_thumbnail()) {
+                    the_post_thumbnail('post-thumbnails', array(
+                      'class' => 'img-fluid',
+                    ));
+                  }
+                  ?>
+                </a>
+              </div>
+              <div class="post_time">
+                <p style="float: left;"><i class="fa fa-clock-o"></i> <?php the_time('j F Y'); ?></p>
+                <p style="float: right;"><i class="fas fa-tags"></i> <?php the_category(' / '); ?></p>
+                <br>
+              </div>
+              <div class="blog_feature_head">
+                <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+              </div>
+              <div class="blog_feature_cont">
+                <p><?php the_excerpt(); ?></p>
+              </div>
+            </div>
           </div>
-          <div class="blog_feature_head">
-            <h4>Why Your Computer Hates You</h4>
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="images/it_service/post-04.jpg" alt="#" /> </div>
-          <div class="post_time">
-            <p><i class="fa fa-clock-o"></i> April 16, 2018 ( In Maintenance )</p>
-          </div>
-          <div class="blog_feature_head">
-            <h4>Easy Tips To Computer Repair</h4>
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="full blog_colum">
-          <div class="blog_feature_img"> <img src="images/it_service/post-06.jpg" alt="#" /> </div>
-          <div class="post_time">
-            <p><i class="fa fa-clock-o"></i> April 16, 2018 ( In Maintenance )</p>
-          </div>
-          <div class="blog_feature_head">
-            <h4>Computer Maintenance 2018</h4>
-          </div>
-          <div class="blog_feature_cont">
-            <p>Lorem ipsum dolor sit amet, consectetur quam justo, pretium adipiscing elit. Vestibulum quam justo, pretium eu tempus ut, ...</p>
-          </div>
-        </div>
-      </div>
+      <?php endwhile;
+      endif; ?>
+
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Reseñas de los clientes -->
 <div class="section padding_layout_1 testmonial_section white_fonts">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="main_heading text_align_left">
-            <h2 style="text-transform: none;">What Clients Say?</h2>
-            <p class="large">Here are testimonials from clients..</p>
+            <h2 style="text-transform: none;">¿Qué dicen nuestros clientes?</h2>
+            <p class="large">Algunas reseñas de nuestros clientes</p>
           </div>
         </div>
       </div>
@@ -595,7 +606,7 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
     <div class="row">
       <div class="col-sm-7">
         <div class="full">
-          <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+          <div id="testimonial_slider" class="carousel slide bg-transparent" data-ride="carousel">
             <!-- Indicators -->
             <ul class="carousel-indicators">
               <li data-target="#testimonial_slider" data-slide-to="0" class="active"></li>
@@ -606,34 +617,31 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
-                    I am really satisfied with my first laptop service. </div>
-                  <div class="testimonial-photo"> <img src="images/it_service/client1.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-content"> ¡Ustedes molan! ¡Gracias por hacerlo indoloro, agradable y, sobre todo, sin complicaciones! Ojalá lo hubiera pensado primero. Estoy realmente satisfecho con mi primer servicio de computadora portátil.</div>
+                  <div class="testimonial-photo"> <img src="<?php echo $client1 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
-                    <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span>
+                    <h4>Maria Castro</h4>
+                    <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Sevilla</span>
                   </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
-                    I am really satisfied with my first laptop service. </div>
-                  <div class="testimonial-photo"> <img src="images/it_service/client2.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-content"> En tan solo 48h tengo mi ordenador en casa, con la pantalla nueva. A un precio increible. Muchas gracias, sois unos profesionales. </div>
+                  <div class="testimonial-photo"> <img src="<?php echo $client2 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
-                    <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span>
+                    <h4>Julia Curbelo</h4>
+                    <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Málaga</span>
                   </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="testimonial-container">
-                  <div class="testimonial-content"> You guys rock! Thank you for making it painless, pleasant and most of all hassle free! I wish I would have thought of it first.
-                    I am really satisfied with my first laptop service. </div>
-                  <div class="testimonial-photo"> <img src="images/it_service/client3.jpg" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-content"> ¡Sois increibles! Creí que no podría recuperar los datos de mi disco duro. Os lo envíe sin ninguna esperanza... Pero habéis restaurado todos los datos que había perdido. </div>
+                  <div class="testimonial-photo"> <img src="<?php echo $client3 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
-                    <h4>Maria Anderson</h4>
-                    <span class="testimonial-position">CFO, Tech NY</span>
+                    <h4>Paula Macías</h4>
+                    <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Madrid</span>
                   </div>
                 </div>
               </div>
@@ -647,50 +655,50 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Contacto -->
 <div class="section">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <div class="contact_us_section">
-            <div class="call_icon"> <img src="images/it_service/phone_icon.png" alt="#" /> </div>
+            <div class="call_icon"> <img src="<?php echo $phoneIcon ?>" alt="#" /> </div>
             <div class="inner_cont">
-              <h2>REQUEST A FREE QUOTE</h2>
-              <p>Get answers and advice from people you want it from.</p>
+              <h2>Solicite una cita gratuita</h2>
+              <p>Obtenga respuestas y consejos de las personas que desea.</p>
             </div>
-            <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="it_contact.html">Contact us</a> </div>
+            <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="mailto:<?php echo $mail ?>">Contactenos</a> </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- end section -->
-<!-- section -->
+
+<!-- Marcas -->
 <div class="section padding_layout_1" style="padding: 50px 0;">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="full">
           <ul class="brand_list">
-            <li><img src="images/it_service/brand_icon1.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon2.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon3.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon4.png" alt="#" /></li>
-            <li><img src="images/it_service/brand_icon5.png" alt="#" /></li>
+            <li><img src="<?php echo $brand1 ?>" alt="#" /></li>
+            <li><img src="<?php echo $brand2 ?>" alt="#" /></li>
+            <li><img src="<?php echo $brand3 ?>" alt="#" /></li>
+            <li><img src="<?php echo $brand4 ?>" alt="#" /></li>
+            <li><img src="<?php echo $brand5 ?>" alt="#" /></li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- end section -->
+
 <!-- Modal -->
 <div class="modal fade" id="search_bar" role="dialog">
   <div class="modal-dialog">
-    <!-- Modal content-->
+    <!-- Contenido del modal-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><i class="fa fa-close"></i></button>
@@ -711,8 +719,8 @@ $product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
     </div>
   </div>
 </div>
-<!-- End Model search bar -->
-<!-- footer -->
+
+<!-- Footer -->
 <footer class="footer_style_2">
   <div class="container-fuild">
     <div class="row">

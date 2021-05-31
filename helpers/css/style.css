@@ -1795,7 +1795,6 @@ section.dottad_star_bg {
 #testimonial_slider .carousel-indicators {
 	position: absolute;
 	right: 0;
-	bottom: -45px;
 	left: 0;
 	z-index: 15;
 	display: -webkit-box;
@@ -2152,7 +2151,7 @@ section.dottad_star_bg {
 	margin: 0;
 	width: 100%;
 	padding: 0;
-	text-align: right;
+	text-align: center;
 	font-size: 40px;
 	color: #000;
 	font-weight: 600;
@@ -3205,15 +3204,20 @@ span.skill {
 	-------------------------------------------------------------------*/
 
 .testmonial_section {
-	background-image: url('../images/it_service/test_bg.png');
+	background-image: url('../../public/img/it_service/test_bg.png');
+	background-size: cover;
+	/* padding-bottom: 185px; */
+}
+
+.cleaning .testmonial_section {
+	background-image: url('../../public/img/it_service/test_bg.png');
 	background-size: cover;
 	padding-bottom: 185px;
 }
 
-.cleaning .testmonial_section {
-	background-image: url('../images/cleaning_service/test_bg.png');
-	background-size: cover;
-	padding-bottom: 185px;
+.bg-transparent {
+	max-height: 25vh;
+	background: transparent !important;
 }
 
 
@@ -3478,7 +3482,7 @@ footer ul.social_icons {
 
 .gross_layout::after {
 	position: absolute;
-	background: url(../images/it_service/dark_bg_img.png);
+	background: url(../../public/img/it_service/dark_bg_img.png);
 	width: 35%;
 	height: 100%;
 	right: 0;
@@ -3503,7 +3507,7 @@ footer ul.social_icons {
 
 .gross_layout.right_gross_layout::after {
 	position: absolute;
-	background: url(../images/it_service/dark_bg_img2.png);
+	background: url(../../public/img/it_service/dark_bg_img2.png);
 	width: 35%;
 	height: 100%;
 	left: 0;

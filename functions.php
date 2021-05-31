@@ -36,5 +36,16 @@ function run_pnt_master() {
     $pnt_master->run();
     
 }
-
 run_pnt_master();
+
+function pnt_setup()
+{
+
+    // Soporte imagenes destacadas
+    if (function_exists('add_theme_support')) {
+        add_theme_support('post-thumbnails');
+    }
+
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'pnt_setup');

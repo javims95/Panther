@@ -78,7 +78,7 @@ jQuery(document).ready(function ($) {
 
     function myMap() {
         var mapProp = {
-            center: new google.maps.LatLng(40.712775, -74.005973),
+            center: new google.maps.LatLng(36.71970947781213, -4.42157500150179),
             zoom: 18,
         };
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
