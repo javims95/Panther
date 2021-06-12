@@ -170,12 +170,7 @@ h5 {
 	font-size: 14px
 }
 
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
+h4 a {
 	color: #212121;
 	text-decoration: none!important;
 	opacity: 1
@@ -3419,7 +3414,7 @@ footer ul.social_icons {
 	font-size: 14px;
 	font-weight: 500;
 	max-width: 215px;
-	width: 100%;
+	/* width: 100%; */
 }
 
 .footer_mail-section .field button.button_custom {
@@ -3428,7 +3423,7 @@ footer ul.social_icons {
 	font-size: 14px;
 	padding: 8px 8px;
 	border: none;
-	float: left;
+	float: right;
 	color: #fff;
 }
 
@@ -3478,6 +3473,7 @@ footer ul.social_icons {
 
 .gross_layout {
 	position: relative;
+	z-index: -1;
 }
 
 .gross_layout::after {

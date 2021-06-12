@@ -575,7 +575,7 @@ class PNT_Form_Builder
         $output = "
         <div class='pnt-input col-md-8'>
             <div id='{$this->attr_class_val()}' class='file-field' $tag>
-                <div class='btn btnSelectColor' style='background-color:{$this->valueElem};'></div>
+                <div class='btn btnSelectColor shadow-sm' style='background-color:{$this->valueElem};'></div>
                 <div class='file-path-wrapper'>
                     <input class='form-control' style='width: auto' type='text' name='{$this->attr_name_val()}' />
                 </div>

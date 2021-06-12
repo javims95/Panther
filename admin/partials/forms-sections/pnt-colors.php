@@ -148,6 +148,20 @@ $elemsSectColorsContent = [
 ];
 
 $elemsSectColorsFooter = [
+    'h2' => [
+        'ids'           => 'footer',
+        'idsInvested'   => true,
+        'type'          => 'colorpicker',
+        'title'         => 'Color para H2 del footer',
+        'value'         => $pnt_colors['footer']['h2'],
+    ],
+    'text' => [
+        'ids'           => 'footer',
+        'idsInvested'   => true,
+        'type'          => 'colorpicker',
+        'title'         => 'Color para parrafos, textos y listas',
+        'value'         => $pnt_colors['footer']['text'],
+    ],
     'bgFooter' => [
         'ids'           => 'footer',
         'idsInvested'   => true,
@@ -159,7 +173,7 @@ $elemsSectColorsFooter = [
         'ids'           => 'footer',
         'idsInvested'   => true,
         'type'          => 'colorpicker',
-        'title'         => 'Color de fondo para el footer (copyright)',
+        'title'         => 'Color de fondo para el segundo footer (copyright)',
         'value'         => $pnt_colors['footer']['bgCopyright'],
     ]
 ];

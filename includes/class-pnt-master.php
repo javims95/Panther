@@ -209,6 +209,10 @@ class PNT_Master {
         
         $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_styles' );
         $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_scripts' );
+
+        $this->cargador->add_action( 'wp_head', $this->pnt_public, 'print_others_style_head' );
+        
+		$this->cargador->add_action( 'wp_head', $this->pnt_public, 'print_style_colors_head' );
         
     }
     

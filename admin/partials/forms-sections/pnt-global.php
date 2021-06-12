@@ -4,7 +4,7 @@
 $elemsSectBody = [
     'body' => [
         'type'          => 'radio',
-        'title'         => 'Texto',        
+        'title'         => 'Cuerpo de la página',        
         'value'         => $pnt_global['body'],
         'options'  => [
             'fullwidth'     => 'Ancho completo',
@@ -32,10 +32,10 @@ $elemsSectAdvanced = [
         'title' => 'Favicon',
         'value' => $pnt_global['faviconUrl'],
     ],
-    'apiGMaps' => [
+    'urlGoogleMaps' => [
         'type' => 'text',
-        'title' => 'API para Google Maps',
-        'value' => $pnt_global['apiGMaps']
+        'title' => 'URL para Google Maps',
+        'value' => $pnt_global['urlGoogleMaps']
     ]
 ];
 
