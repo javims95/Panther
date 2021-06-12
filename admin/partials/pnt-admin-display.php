@@ -91,12 +91,7 @@ function translate_name_menu($pnt_menuActivado) {
                             <a href="#pnt-header" class="<?php echo $pnt_menuActivado == 'header' ? 'active' : ''; ?>" data-menuActivado="header">
                             <i class="fas fa-window-maximize"></i><span>Header</span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="#pnt-sidebars" class="<?php echo $pnt_menuActivado == 'sidebars' ? 'active' : ''; ?>" data-menuActivado="sidebars">
-                                <i class="fas fa-window-maximize fa-rotate-90"></i><span>Sidebars</span>
-                            </a>
-                        </li>
+                        </li>                       
                         <li>
                             <a href="#pnt-footer" class="<?php echo $pnt_menuActivado == 'footer' ? 'active' : ''; ?>" data-menuActivado="footer">
                                 <i class="fas fa-window-maximize fa-rotate-180"></i><span>Footer</span>
@@ -145,7 +140,6 @@ function translate_name_menu($pnt_menuActivado) {
                             <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-global.php'; ?>
                             <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-header.php'; ?>
                             <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-menu.php'; ?>
-                            <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-sidebars.php'; ?>
                             <?php require_once PNT_DIR_PATH . 'admin/partials/forms-sections/pnt-social.php'; ?>
                         </div>
                     </form>

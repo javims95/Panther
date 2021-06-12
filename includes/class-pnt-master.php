@@ -51,7 +51,6 @@ class PNT_Master {
 	 * @var      string    $version  La versión actual del plugin
 	 */
     protected $version;
-    protected $metaboxes;
     
     /**
      * Constructor
@@ -110,12 +109,6 @@ class PNT_Master {
 		 */
         require_once PNT_DIR_PATH . 'includes/class-pnt-build-menupage.php';
         
-        /**
-		 * La clase responsable de mostrar los sidebars en 
-		 * la edición de las entradas
-		 */
-        require_once PNT_DIR_PATH . 'includes/class-pnt-metaboxes.php';
-        
 		/**
 		 * La clase responsable de normalizar acentos, eñes,
          * y caracteres especales
@@ -171,7 +164,6 @@ class PNT_Master {
         $this->cargador     = new PNT_Cargador;
         $this->pnt_admin    = new PNT_Admin( $this->get_theme_name(), $this->get_version() );
         $this->pnt_public   = new PNT_Public( $this->get_theme_name(), $this->get_version() );
-        $this->metaboxes   	= new PNT_Metaboxes;
         
     }
     
@@ -190,9 +182,6 @@ class PNT_Master {
         $this->cargador->add_action( 'admin_enqueue_scripts', $this->pnt_admin, 'enqueue_scripts' );
         
         $this->cargador->add_action( 'admin_menu', $this->pnt_admin, 'add_menu' );
-
-        $this->cargador->add_action( 'add_meta_boxes', $this->metaboxes, 'add' );
-        $this->cargador->add_action( 'save_post', $this->metaboxes, 'save' );
         
 		$this->cargador->add_action( 'wp_ajax_pnt_save_config', $this->pnt_admin, 'save_config' );
         
@@ -209,6 +198,10 @@ class PNT_Master {
         
         $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_styles' );
         $this->cargador->add_action( 'wp_enqueue_scripts', $this->pnt_public, 'enqueue_scripts' );
+
+        $this->cargador->add_action( 'wp_head', $this->pnt_public, 'print_others_style_head' );
+        
+		$this->cargador->add_action( 'wp_head', $this->pnt_public, 'print_style_colors_head' );
         
     }
     

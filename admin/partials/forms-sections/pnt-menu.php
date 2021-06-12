@@ -6,7 +6,7 @@ $elemsSectMenu = [
         'title'         => 'Opciones',
         'value'         => isset($pnt_menu['options']['show-border']) ? $pnt_menu['options']['show-border'] : '',
         'options'  => [
-            'show-border'       => 'Mostrar bordes entre los items'
+            'show-border'       => 'Mostrar separador entre los items'
         ]
     ]
 ];

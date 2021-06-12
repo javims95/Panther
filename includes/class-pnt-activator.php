@@ -13,11 +13,11 @@ class PNT_Activator {
                 "menuActivado"  => "global",
 
                 "global"        => [
-                    "body"        => "fullwidth",
-                    "logoUrl"       => "",
-                    "textLogo"      => "",
-                    "faviconUrl"    => "",
-                    "apiGMaps"      => "",
+                    "body"              => "fullwidth",
+                    "logoUrl"           => "",
+                    "textLogo"          => "",
+                    "faviconUrl"        => "",
+                    "urlGoogleMaps"     => "",
                 ],
 
                 "header"    => [
@@ -31,11 +31,8 @@ class PNT_Activator {
                 ],
 
                 "footer"        => [
-                    "copyright"     => sprintf(
-                            __( "Copyright © 2020-%d | Todos los derechos reservados | Jamusa.es", "pnt-opt" ),
-                            date('Y')
-                        ),
-                    "position"  => "center"
+                    "copyright"     => '',
+                    "phone"  => ""
                 ],
 
                 "sidebars"      => [
@@ -43,31 +40,33 @@ class PNT_Activator {
                 ],
 
                 "colors"       => [
-                    "h1"            => "#f00",
-                    "h2"            => "rgba(0,0,0,0.87)",
-                    "h3"            => "rgba(0,0,0,0.87)",
-                    "h4"            => "rgba(0,0,0,0.87)",
-                    "h5"            => "rgba(0,0,0,0.87)",
-                    "h6"            => "rgba(0,0,0,0.87)",
+                    "h1"            => "#000000",
+                    "h2"            => "#000000",
+                    "h3"            => "#000000",
+                    "h4"            => "#000000",
+                    "h5"            => "#000000",
+                    "h6"            => "#000000",
                     "menu"          => [
-                        "bg"                    => "rgba(0,0,0,0.87)",
-                        "link"                  => "rgba(0,0,0,0.87)",
-                        "activeLink"            => "rgba(0,0,0,0.87)",
-                        "bgActiveLink"          => "rgba(0,0,0,0.87)",
-                        "hoverLink"             => "rgba(0,0,0,0.87)",
-                        "bgHoverLink"           => "rgba(0,0,0,0.87)",
+                        "bg"                    => "#ffffff",
+                        "link"                  => "#000000",
+                        "activeLink"            => "#039ee3",
+                        "bgActiveLink"          => "#ffffff",
+                        "hoverLink"             => "#039ee3",
+                        "bgHoverLink"           => "#ffffff",
                     ],
                     "content"     => [
-                        "bgButton"              => "rgba(0,0,0,0.87)",
-                        "bgHoverBoton"          => "rgba(0,0,0,0.87)",
-                        "colorLink"             => "rgba(0,0,0,0.87)",
-                        "colorLinkHover"        => "rgba(0,0,0,0.87)",
-                        "textColorButton"       => "rgba(0,0,0,0.87)",
-                        "textColorButtonHover"  => "rgba(0,0,0,0.87)"
+                        "bgButton"              => "#17a5e9",
+                        "bgHoverBoton"          => "#25d8ed",
+                        "colorLink"             => "#000000",
+                        "colorLinkHover"        => "#039ee3",
+                        "textColorButton"       => "#ffffff",
+                        "textColorButtonHover"  => "#ffffff"
                     ],
                     'footer'        => [
-                        "bgFooter"              => "rgba(0,0,0,0.87)",
-                        "bgCopyright"           => "rgba(0,0,0,0.87)"
+                        "h2"                    => "#ffffff",
+                        "text"                  => "#666666",
+                        "bgFooter"              => "#111111",
+                        "bgCopyright"           => "#039ee3"
                     ]
                 ],
 

@@ -6,15 +6,10 @@ $elemsSectFooter = [
         'title'         => 'Copyright',
         'value'         => $pnt_footer['copyright']
     ],
-    'position' => [
-        'type'          => 'radio',
-        'title'         => 'Posición',
-        'value'         => $pnt_footer['position'],
-        'options'  => [
-            'left'          => 'Izquierda',
-            'center'        => 'Centrado (defecto)',
-            'right'         => 'Derecha'
-        ]
+    'phone' => [
+        'type'          => 'text',
+        'title'         => 'Número de teléfono',
+        'value'         => $pnt_footer['phone']        
     ]
 ];
 

@@ -48,7 +48,7 @@ $loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
               <div class="topbar-left">
                 <ul class="list-inline">
                   <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight"><?php echo $address; ?></span> </li>
-                  <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:<?php echo $mail ?>"><?php echo $mail; ?></a></span> </li>
+                  <li> <span class="topbar-label"><i class="fas fa-envelope"></i></span> <span class="topbar-hightlight"><a href="mailto:<?php echo $mail ?>"><?php echo $mail; ?></a></span> </li>
                 </ul>
               </div>
             </div>
