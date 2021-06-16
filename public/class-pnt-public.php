@@ -474,4 +474,13 @@ class PNT_Public
 
         return $urlGoogleFonts . $output_googlefonts;
     }
+
+    public function custom_css() {
+
+        echo "
+            <style>
+                {$this->pnt['custom']['css']}
+            </style>
+        ";
+    }
 }
