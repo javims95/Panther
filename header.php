@@ -94,7 +94,7 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="./index.php"><img src="<?php echo $logoUrl; ?>" alt="logo" /></a> </div>
+            <div class="logo"> <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo $logoUrl; ?>" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">

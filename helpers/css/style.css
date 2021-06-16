@@ -646,27 +646,27 @@ a:focus {
 /** icon **/
 
 .iconsmind-Over-Time2::before {
-	content: "\eb2e";
+	content: "/eb2e";
 }
 
 .iconsmind-Money-2::before {
-	content: "\eac6";
+	content: "/eac6";
 }
 
 .iconsmind-People-onCloud::before {
-	content: "\eb52";
+	content: "/eb52";
 }
 
 .iconsmind-Wallet-2::before {
-	content: "\ede5";
+	content: "/ede5";
 }
 
 .iconsmind-Shield::before {
-	content: "\ec4f";
+	content: "/ec4f";
 }
 
 .iconsmind-Ribbon-2::before {
-	content: "\ebf5";
+	content: "/ebf5";
 }
 
 
@@ -3611,14 +3611,14 @@ footer ul.social_icons {
 }
 
 .inner_banner_section {
-	background: url('../images/it_service/inner_page_banner.jpg');
+	background: url('../../public/img/it_service/inner_page_banner.jpg');
 	min-height: 245px;
 	background-size: cover;
 	background-position: center center;
 }
 
 .cleaning .inner_banner_section {
-	background: url('../images/cleaning_service/inner_page_banner.jpg');
+	background: url('../../public/img/it_service/inner_page_banner.jpg');
 	min-height: 245px;
 	background-size: cover;
 	background-position: top center;
@@ -3646,7 +3646,7 @@ footer ul.social_icons {
 
 .breadcrumb>li+li::before {
 	position: relative;
-	content: '\203A';
+	content: '/';
 	margin: 0 10px;
 	font-size: 18px;
 	color: inherit;
