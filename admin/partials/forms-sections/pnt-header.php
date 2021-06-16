@@ -1,17 +1,5 @@
 <?php 
 
-$elemsSectDesign = [
-    'style' => [
-        'type'          => 'radio',
-        'title'         => 'Posición del logotipo',
-        'value'         => $pnt_header['style'],
-        'options'  => [
-            'logoLeft'        => 'Predeterminado (izquierda)',
-            'logoCentered'    => 'Logo centrado'
-        ]
-    ]
-];
-
 $elemsSectHeaderAdvanced = [
     'sticky' => [
         'type'          => 'switch',
@@ -21,10 +9,6 @@ $elemsSectHeaderAdvanced = [
 ];
 
 $headerSections = [
-    'style' => [
-        'titleSection' => 'Diseño',
-        'elems' => $elemsSectDesign,
-    ],
     'advanced' => [
         'titleSection' => 'Avanzado',
         'elems' => $elemsSectHeaderAdvanced ,

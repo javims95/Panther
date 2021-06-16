@@ -1,7 +1,7 @@
 <?php
 
 /**
- * La funcionalidad específica de administración del plugin.
+ * La funcionalidad específica del cliente del plugin.
  *
  * @link       https://beziercode.com.co
  * @since      1.0.0
@@ -12,7 +12,7 @@
 
 /**
  * Define el nombre del plugin, la versión y dos métodos para
- * Encolar la hoja de estilos específica de administración y JavaScript.
+ * Encolar la hoja de estilos específica del cliente y JavaScript.
  * 
  * @since      1.0.0
  * @package    BC THEME
@@ -73,17 +73,29 @@ class PNT_Public
         $this->version      = $version;
         // $this->normalize = new PNT_Normalize;
 
-        $this->pnt          = get_option('pnt_config');
+        $this->pnt = get_option('pnt_config');
+        // echo "<pre>";
+        // var_dump( $this->get_font_style( $this->pnt['fonts'],'menu'));
+        // echo "</pre>";
     }
 
     /**
-     * Registra los archivos de hojas de estilos del área de administración
+     * Registra los archivos de hojas de estilos del área del cliente
      *
      * @since    1.0.0
      * @access   public
      */
     public function enqueue_styles()
     {
+
+        /**
+         * Fuentes de Google
+         * https://fonts.google.com/
+         */
+        if ($this->have_googlefonts()) {
+
+            wp_enqueue_style('pnt_googlefonts', $this->get_google_fonts_enqueue(), array(), $this->version, 'all');
+        }
 
         /**
          * Framework Bootstrap
@@ -116,7 +128,7 @@ class PNT_Public
     }
 
     /**
-     * Registra los archivos Javascript del área de administración
+     * Registra los archivos Javascript del área del cliente
      *
      * @since    1.0.0
      * @access   public
@@ -179,9 +191,10 @@ class PNT_Public
         echo $outputStyle;
     }
 
-    public function print_style_colors_head () {
+    public function print_style_colors_head()
+    {
 
-        extract( $this->pnt, EXTR_PREFIX_ALL, 'pnt');
+        extract($this->pnt, EXTR_PREFIX_ALL, 'pnt');
 
         $outputStyle = "
         <!-- Estilos de colores del tema -->
@@ -260,5 +273,213 @@ class PNT_Public
 
         $outputStyle .= "</style>";
         echo $outputStyle;
+    }
+
+    public function print_fonts_style()
+    {
+
+        extract($this->pnt, EXTR_PREFIX_ALL, 'pnt');
+
+        $outputStyle = "
+            <!-- Estilos fuentes del tema -->
+            <style>
+
+                html {
+                    {$this->get_font_style($pnt_fonts, 'contentFont')};
+                }
+
+                #navbar_menu>ul>li>a {
+                    {$this->get_font_style($pnt_fonts, 'menu')};
+                }
+
+                h1, h2, h3, h4 {
+                    {$this->get_font_style($pnt_fonts, 'headerPrimary')};
+                }
+                
+                h5, h6 {
+                    {$this->get_font_style($pnt_fonts, 'headerSecondary')};
+                }
+
+                h1 {
+                    {$this->get_font_style($pnt_fonts, 'h1')};
+                }
+                
+                h2 {
+                    {$this->get_font_style($pnt_fonts, 'h2')};
+                }
+
+                h3 {
+                    {$this->get_font_style($pnt_fonts, 'h3')};
+                }
+
+                h4 {
+                    {$this->get_font_style($pnt_fonts, 'h4')};
+                }
+
+                h5 {
+                    {$this->get_font_style($pnt_fonts, 'h5')};
+                }
+
+                h6 {
+                    {$this->get_font_style($pnt_fonts, 'h6')};
+                }
+
+
+            </style>
+        ";
+
+        echo $outputStyle;
+    }
+
+    public function get_font_style($fuentes, $tipo)
+    {
+
+        $tipo_font = $fuentes[$tipo];
+
+        $outputFontStyle = "";
+
+        if ($tipo != 'headerPrimary' && $tipo != 'headerSecondary') {
+
+            
+            if (isset($tipo_font['family']) && ! empty($tipo_font['family'])) {
+
+                
+                $outputFontStyle .= "font-family: '" . str_replace('+', ' ', $tipo_font['family']) . "', serif;";
+            }
+            
+            $outputFontStyle .= "
+            font-size: {$tipo_font['size']}px;
+            line-height: {$tipo_font['lineHeight']}px;
+            letter-spacing: {$tipo_font['letterSpacing']}px;
+            ";
+            
+        } else {
+            
+            if( isset( $tipo_font['family']) && ! empty($tipo_font['family'])) {
+
+                $outputFontStyle .= "font-family: '" . str_replace('+', ' ', $tipo_font['family']) . "', serif;";
+            }
+        }
+
+        if( isset( $tipo_font['weight'])) {
+
+            if( array_key_exists( 'fontType', $tipo_font)) {
+
+                if( $tipo_font['fontType'] == 'system') {
+
+                    $weightStyle = explode( ',', $tipo_font['weight']);
+
+                    $outputFontStyle .= "
+                        font-style: {$weightStyle[1]};
+                        font-weight: {$weightStyle[0]};
+                    ";
+
+                } elseif ( $tipo_font['fontType'] == 'googlefonts' ) {
+
+                    $outputFontStyle .= stristr( $tipo_font['weight'], 'i') !== false ? 'font-style: italic' : '';
+                    $outputFontStyle .= "font-weight: " . str_replace( 'i', '', $tipo_font['weight']) . ";";
+                }
+
+            } else {
+
+                $outputFontStyle .= stristr( $tipo_font['weight'], 'i') !== false ? 'font-style: italic' : '';
+                $outputFontStyle .= "font-weight: " . str_replace( 'i', '', $tipo_font['weight']) . ";";
+            }
+        }
+
+        return $outputFontStyle;
+    }
+
+    public function have_googlefonts()
+    {
+
+        foreach ($this->pnt['fonts'] as $val) {
+
+            if (array_key_exists('fontType', $val)) {
+
+                if ($val['fontType'] == 'googlefonts') return true;
+            }
+        }
+
+        return false;
+    }
+
+    public function get_google_fonts_enqueue()
+    {
+
+        $urlGoogleFonts = "https://fonts.googleapis.com/css?family=";
+
+        $families = [];
+
+        // Nuevos valores de las fuentes
+        foreach ($this->pnt['fonts'] as $elem => $val) {
+
+            if (array_key_exists('family', $val)) {
+
+                if ($val['fontType'] == 'googlefonts') {
+
+                    if (array_key_exists('variants', $val)) {
+
+                        $families[] = [
+                            'family'    => $val['family'],
+                            'variants'  => is_array($val['variants']) ? $val['variants'] : explode(',', $val['variants'])
+                        ];
+                    } else {
+
+                        $families[] = [
+                            'family'    => $val['family']
+                        ];
+                    }
+                }
+            }
+        }
+
+        // Combinando las fuentes repetidas y sus variantes
+        $famFinal = [];
+
+        foreach ($families as $family) {
+
+
+            if (!array_key_exists($family['family'], $famFinal)) {
+
+                if (isset($family['variants'])) {
+                    $famFinal[$family['family']] = $family['variants'];
+                } else {
+                    $famFinal[$family['family']] = [];
+                }
+            } else {
+
+                if (isset($family['variants'])) {
+                    $famFinal[$family['family']] = array_unique(array_merge($famFinal[$family['family']], $family['variants']));
+                }
+            }
+        }
+
+        foreach ($famFinal as $k => $v) {
+            sort($famFinal[$k]);
+        }
+
+        ksort($famFinal);
+
+        $output_googlefonts = "";
+        $c = 0;
+        $fontCount = count($famFinal);
+
+        foreach ($famFinal as $family => $variants) {
+
+            $c++;
+
+            if (!empty($variants)) {
+
+                $output_googlefonts .= "$family:" . join(',', $variants);
+            } else {
+
+                $output_googlefonts .= $family;
+            }
+
+            $output_googlefonts .= $fontCount != $c ? "|" : "";
+        }
+
+        return $urlGoogleFonts . $output_googlefonts;
     }
 }

@@ -72,68 +72,68 @@ class PNT_Activator {
 
                 "fonts"       => [
                     "menu"          => [
-                        "family"                => "Lato",
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "100,100i,300,400,700,700i"
+                        "family"                => "",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "contentFont"     => [
-                        "family"                => "Roboto",
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "300,400i,700"
+                        "family"                => "",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "headerPrimary"   => [
-                        "family"                => "Roboto",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "300,300i,500,500i,700,900i"
+                        "family"                => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "headerSecondary"   => [
-                        "family"                => "Lato",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "100i,300,400,700,700i,900,900i"
+                        "family"                => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "h1"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
                     "h2"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
                     "h3"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
                     "h4"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
                     "h5"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
                     "h6"            => [
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
                     ],
 
                 ],
