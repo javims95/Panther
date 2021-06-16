@@ -206,6 +206,7 @@ class PNT_Master {
 		$this->cargador->add_action( 'wp_head', $this->pnt_public, 'print_fonts_style' );
 
 		$this->cargador->add_action( 'wp_head', $this->pnt_public, 'custom_css' );
+		$this->cargador->add_action( 'wp_head', $this->pnt_public, 'custom_js' );
         
     }
     

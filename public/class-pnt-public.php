@@ -478,9 +478,18 @@ class PNT_Public
     public function custom_css() {
 
         echo "
-            <style>
+            <s>
                 {$this->pnt['custom']['css']}
             </style>
+        ";
+    }
+
+    public function custom_js() {
+
+        echo "
+            <script>
+                " . stripslashes($this->pnt['custom']['js']) ."
+            </script>
         ";
     }
 }
