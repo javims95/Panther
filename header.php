@@ -15,6 +15,14 @@ $faviconUrl = $pnt_global['faviconUrl'] == '' ? PNT_DIR_URI . 'public/img/fevico
 // Loader
 $loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
 
+// Social
+$facebook   = $pnt_social['facebook'] == '' ? 'https://www.facebook.com/' : $pnt_social['facebook'];
+$twitter    = $pnt_social['twitter'] == '' ? 'https://www.twitter.com/' : $pnt_social['twitter'];
+$instagram  = $pnt_social['instagram'] == '' ? 'https://www.instagram.com/' : $pnt_social['instagram'];
+$youtube    = $pnt_social['youtube'] == '' ? 'https://www.youtube.com/' : $pnt_social['youtube'];
+$googleplus = $pnt_social['googleplus'] == '' ? 'https://plus.google.com/' : $pnt_social['googleplus'];
+$linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_social['linkedin'];
+
 ?>
 
 <!DOCTYPE html>
@@ -54,20 +62,27 @@ $loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
             </div>
           </div>
           <div class="col-md-4 right_section_header_top">
-            <div class="float-left">
-              <div class="social_icon">
-                <ul class="list-inline">
-                  <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
-                  <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
-                  <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
-                  <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
-                  <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
-                </ul>
-              </div>
+            
+            <?php if( isset($pnt_social['show'] )) { ?>
+
+            <div class="float-right social_icon">
+              <ul class="list-inline">
+                <li><a class="fab fa-facebook-square fa-2x" href="<?php echo $facebook ?>" title="Facebook" target="_blank"></a></li>
+                <li><a class="fab fa-twitter-square fa-2x" href="<?php echo $twitter ?>" title="Twitter" target="_blank"></a></li>
+                <li><a class="fab fa-instagram fa-2x" href="<?php echo $instagram ?>" title="Instagram" target="_blank"></a></li>
+                <li><a class="fab fa-youtube fa-2x" href="<?php echo $youtube ?>" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fab fa-google-plus-square fa-2x" href="<?php echo $googleplus ?>" title="Instagram" target="_blank"></a></li>
+                <li><a class="fab fa-linkedin fa-2x" href="<?php echo $linkedin ?>" title="Instagram" target="_blank"></a></li>
+              </ul>
             </div>
+
+            <?php } else { ?>
+
             <div class="float-right">
               <div class="make_appo"> <a class="btn white_btn" href="mailto:<?php echo $mail ?>">Concertar una cita</a> </div>
             </div>
+
+            <?php } ?>
           </div>
         </div>
       </div>

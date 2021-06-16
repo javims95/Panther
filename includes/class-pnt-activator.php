@@ -72,32 +72,32 @@ class PNT_Activator {
 
                 "fonts"       => [
                     "menu"          => [
-                        "family"                => "Lato",
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "100,100i,300,400,700,700i"
+                        "family"                => "default",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "contentFont"     => [
-                        "family"                => "Roboto",
-                        "size"                  => "14",
-                        "weight"                => "400",
-                        "lineHeight"            => "14",
-                        "letterSpacing"         => "14",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "300,400i,700"
+                        "family"                => "default",
+                        "size"                  => "",
+                        "weight"                => "",
+                        "lineHeight"            => "",
+                        "letterSpacing"         => "",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "headerPrimary"   => [
-                        "family"                => "Roboto",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "300,300i,500,500i,700,900i"
+                        "family"                => "default",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "headerSecondary"   => [
-                        "family"                => "Lato",
-                        "fontType"              => "googlefonts",
-                        "variants"              => "100i,300,400,700,700i,900,900i"
+                        "family"                => "default",
+                        "fontType"              => "",
+                        "variants"              => ""
                     ],
                     "h1"            => [
                         "size"                  => "14",
