@@ -1,16 +1,6 @@
 <?php
 
 /**
- * La funcionalidad específica de administración del plugin.
- *
- * @link       https://beziercode.com.co
- * @since      1.0.0
- *
- * @package    theme_name
- * @subpackage theme_name/admin
- */
-
-/**
  * Define el nombre del plugin, la versión y dos métodos para
  * Encolar la hoja de estilos específica de administración y JavaScript.
  * 

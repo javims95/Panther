@@ -1,22 +1,12 @@
 <?php
 
 /**
- * La funcionalidad específica de administración del plugin.
- *
- * @link       https://beziercode.com.co
- * @since      1.0.0
- *
- * @package    Beziercode_blank
- * @subpackage Beziercode_blank/admin
- */
-
-/**
  * Define el nombre del plugin, la versión y dos métodos para
  * Encolar la hoja de estilos específica de administración y JavaScript.
  * 
  * @since      1.0.0
- * @package    BC THEME
- * @subpackage BC THEME/admin
+ * @package    PANTHER THEME
+ * @subpackage PANTHER THEME/admin
  * @author     Javier Muñoz 
  * 
  * @property string $theme_name
@@ -102,16 +92,6 @@ class PNT_Admin
     {
 
         /**
-         * Una instancia de esta clase debe pasar a la función run()
-         * definido en PNT_Cargador como todos los ganchos se definen
-         * en esa clase particular.
-         *
-         * El PNT_Cargador creará la relación
-         * entre los ganchos definidos y las funciones definidas en este
-         * clase.
-         */
-
-        /**
          * pnt-admin.css
          * Archivo de hojas de estilos principales
          * de la administración
@@ -144,12 +124,7 @@ class PNT_Admin
         /**
          * Font Awesome 5.0.6
          */
-        wp_enqueue_style('pnt_fontawesome_css', PNT_DIR_URI . 'helpers/fontawesome/css/fontawesome-all.min.css', array(), '5.0.6', 'all');
-
-        /**
-         * NoUiSlider 14.6.3
-         */
-        wp_enqueue_style('pnt_noUiSlider_css', PNT_DIR_URI . 'helpers/noUiSlider/css/nouislider.min.css', array(), '14.6.3', 'all');
+        wp_enqueue_style('pnt_fontawesome_css', PNT_DIR_URI . 'helpers/fontawesome/css/fontawesome-all.min.css', array(), '5.0.6', 'all');        
 
         /**
          * Materialize 1.0
@@ -207,13 +182,7 @@ class PNT_Admin
          * https://developer.snapappointments.com/bootstrap-select/
          */
         wp_enqueue_script('pnt_select_admin_js', PNT_DIR_URI . 'helpers/bootstrap/extras/bootstrap-select/js/bootstrap-select.min.js', ['jquery'], '1.13.14', true);
-
-        /**
-         * NoUiSlider 14.6.3
-         * https://refreshless.com/nouislider/
-         */
-        wp_enqueue_script('pnt_noUiSlider_admin_js', PNT_DIR_URI . 'helpers/noUiSlider/js/nouislider.min.js', ['jquery'], '14.6.3', true);
-
+        
         /**
          * Materialize 1.0
          * https://materializecss.com/
@@ -268,13 +237,13 @@ class PNT_Admin
     {
 
         $this->build_menupage->add_menu_page(
-            __('PNT Opciones', 'pnt-opt'),
-            __('PNT Opciones', 'pnt-opt'),
+            __('Panther', 'pnt-opt'),
+            __('Panther', 'pnt-opt'),
             'manage_options',
             'pnt-opt',
             [$this, 'controlador_display_menu'],
             'dashicons-pnt',
-            22
+            100
         );
 
         $this->build_menupage->run();
@@ -371,8 +340,6 @@ class PNT_Admin
 
         $menuNav = [
             'pnt_menu_default'  => 'Menú principal',
-            // 'pnt_menu_left'     => 'Menú izquierdo',
-            // 'pnt_menu_right'    => 'Menú derecho'
         ];
 
         register_nav_menus($menuNav);

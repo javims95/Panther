@@ -179,13 +179,6 @@ class PNT_Form_Builder
                     $output .= $this->switch();
                     break;
 
-                case 'noUiSlider':
-                    $this->start = $elem['start'];
-                    $this->min = $elem['min'];
-                    $this->max = $elem['max'];
-                    $output .= $this->noUiSlider();
-                    break;
-
                 case 'listSidebar':
                     $output .= $this->listSidebar();
                     break;
@@ -460,34 +453,6 @@ class PNT_Form_Builder
                     </label>
                 </div>
             </div>
-        ";
-
-        return $output;
-    }
-
-    public function noUiSlider()
-    {
-        /**
-         * Crea el bloque de código HTML de forma dinámica
-         *
-         * Crea un range slider, con un min y un max
-         *
-         * @access public
-         * @return $output cadena de texto HTML, tipo range slider
-         */
-
-        $output = "
-        <div class='col-md-8'>
-            <div class='form-row'>
-                <div class='form-group col-md-9 align-self-center'>
-                    <input style='width:100%' type='range' class='form-range' id='rangeSlider' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
-                </div>
-                <div class='form-group col-md-3'>
-                    <input type='number' name='{$this->attr_name_val()}' class='form-control'
-                    id='output' value='{$this->start}' min='{$this->min}' max='{$this->max}'>
-                </div>
-            </div>
-        </div>
         ";
 
         return $output;
