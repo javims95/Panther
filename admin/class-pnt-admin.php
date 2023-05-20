@@ -239,7 +239,7 @@ class PNT_Admin
         $this->build_menupage->add_menu_page(
             __('Panther', 'pnt-opt'),
             __('Panther', 'pnt-opt'),
-            'manage_options',
+            'read',
             'pnt-opt',
             [$this, 'controlador_display_menu'],
             'dashicons-pnt',
@@ -322,7 +322,7 @@ class PNT_Admin
         
         check_ajax_referer( 'pnt_seg', 'nonce' );
         
-        if( current_user_can( 'manage_options' ) ) {
+        if( current_user_can( 'read' ) ) {
             
             $result = update_option( 'pnt_config', $_POST[ 'pnt' ] );
             $json   = json_encode([
