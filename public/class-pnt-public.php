@@ -87,21 +87,13 @@ class PNT_Public
         wp_enqueue_style('public_css_styles', PNT_DIR_URI . 'helpers/css/style.css', array(), '5.0.6', 'all');
         wp_enqueue_style('public_css_responsive', PNT_DIR_URI . 'helpers/css/responsive.css', array(), '5.0.6', 'all');
         wp_enqueue_style('public_css_colors1', PNT_DIR_URI . 'helpers/css/colors1.css', array(), '5.0.6', 'all');
-        wp_enqueue_style('public_css_custom', PNT_DIR_URI . 'helpers/css/custom.css', array(), '5.0.6', 'all');
 
         wp_enqueue_style('public_css_wow', PNT_DIR_URI . 'helpers/css/animate.css', array(), '5.0.6', 'all');
-
-        // revolution slider css
-        wp_enqueue_style('public_css_revolution_settings', PNT_DIR_URI . 'helpers/revolution/css/settings.css', array(), '5.0.6', 'all');
-        wp_enqueue_style('public_css_revolution_layers', PNT_DIR_URI . 'helpers/revolution/css/layers.css', array(), '5.0.6', 'all');
-        wp_enqueue_style('public_css_revolution_navigation', PNT_DIR_URI . 'helpers/revolution/css/navigation.css', array(), '5.0.6', 'all');
-
 
         /**
          * Font Awesome 5.0.6
          */
         wp_enqueue_style('pnt_fontawesome_public_css', PNT_DIR_URI . 'helpers/fontawesome/css/fontawesome-all.min.css', array(), '5.0.6', 'all');
-
         wp_enqueue_style($this->theme_name, PNT_DIR_URI . 'public/css/pnt-public.css', array(), $this->version, 'all');
     }
 
@@ -326,11 +318,10 @@ class PNT_Public
                 }
             }
             
-            $outputFontStyle .= "
-            font-size: {$tipo_font['size']}px;
-            line-height: {$tipo_font['lineHeight']}px;
-            letter-spacing: {$tipo_font['letterSpacing']}px;
-            ";
+            $outputFontStyle .= !empty($tipo_font['size']) ? "font-size: {$tipo_font['size']}px;" : '';
+            $outputFontStyle .= !empty($tipo_font['lineHeight']) ? "line-height: {$tipo_font['lineHeight']}px;" : '';
+            $outputFontStyle .= !empty($tipo_font['letterSpacing']) ? "letter-spacing: {$tipo_font['letterSpacing']}px;" : '';
+
             
         } else {
             
@@ -468,7 +459,7 @@ class PNT_Public
     public function custom_css() {
 
         echo "
-            <s>
+            <style>
                 {$this->pnt['custom']['css']}
             </style>
         ";

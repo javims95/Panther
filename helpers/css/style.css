@@ -75,11 +75,6 @@ body {
 	font-family: 'Raleway', sans-serif;
 	line-height: normal;
 	font-weight: 400;
-	overflow-x: hidden;
-}
-
-body {
-	overflow-x: hidden;
 }
 
 body.demos .section {
@@ -1132,9 +1127,6 @@ header .right_bt .btn {
 	color: #666 !important;
 }
 
-#navbar_menu ul ul li:last-child>a,
-#navbar_menu ul ul li.last-item>a {}
-
 #navbar_menu ul ul li:hover>a,
 #navbar_menu ul ul li a:hover {
 	color: #ffffff;
@@ -1971,8 +1963,7 @@ section.dottad_star_bg {
 .contact_information {
 	float: left;
 	width: 100%;
-	border-top: solid #e1e1e1 1px;
-	border-bottom: solid #e1e1e1 1px;
+	border: solid #e1e1e1 1px;
 	padding-top: 50px;
 	padding-bottom: 60px;
 	margin-top: 15px;
@@ -2150,6 +2141,7 @@ section.dottad_star_bg {
 	font-size: 40px;
 	color: #000;
 	font-weight: 600;
+	margin-top: 15px;
 }
 
 .counter-heading {
@@ -3199,13 +3191,13 @@ span.skill {
 	-------------------------------------------------------------------*/
 
 .testmonial_section {
-	background-image: url('../../public/img/it_service/test_bg.png');
+	background-image: url('../../public/img/services/test_bg.png');
 	background-size: cover;
 	/* padding-bottom: 185px; */
 }
 
 .cleaning .testmonial_section {
-	background-image: url('../../public/img/it_service/test_bg.png');
+	background-image: url('../../public/img/services/test_bg.png');
 	background-size: cover;
 	padding-bottom: 185px;
 }
@@ -3414,7 +3406,6 @@ footer ul.social_icons {
 	font-size: 14px;
 	font-weight: 500;
 	max-width: 215px;
-	/* width: 100%; */
 }
 
 .footer_mail-section .field button.button_custom {
@@ -3440,7 +3431,6 @@ footer ul.social_icons {
 	height: auto;
 	left: 0;
 	padding: 18px 0;
-	padding-left: 35%;
 }
 
 .cprt p {
@@ -3478,7 +3468,7 @@ footer ul.social_icons {
 
 .gross_layout::after {
 	position: absolute;
-	background: url(../../public/img/it_service/dark_bg_img.png);
+	background: url(../../public/img/services/dark_bg_img.png);
 	width: 35%;
 	height: 100%;
 	right: 0;
@@ -3503,7 +3493,7 @@ footer ul.social_icons {
 
 .gross_layout.right_gross_layout::after {
 	position: absolute;
-	background: url(../../public/img/it_service/dark_bg_img2.png);
+	background: url(../../public/img/services/dark_bg_img2.png);
 	width: 35%;
 	height: 100%;
 	left: 0;
@@ -3611,14 +3601,14 @@ footer ul.social_icons {
 }
 
 .inner_banner_section {
-	background: url('../../public/img/it_service/inner_page_banner.jpg');
+	background: url('../../public/img/services/inner_page_banner.jpg');
 	min-height: 245px;
 	background-size: cover;
 	background-position: center center;
 }
 
 .cleaning .inner_banner_section {
-	background: url('../../public/img/it_service/inner_page_banner.jpg');
+	background: url('../../public/img/services/inner_page_banner.jpg');
 	min-height: 245px;
 	background-size: cover;
 	background-position: top center;

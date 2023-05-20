@@ -45,7 +45,7 @@ global $pnt, $pnt_master;
                 <h2>Contactenos</h2>
               </div>
             </div>
-            <div class="contact_information">
+            <div class="row contact_information justify-content-center align-items-center">
               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 adress_cont">
                 <div class="information_bottom text_align_center">
                   <div class="icon_bottom"> <i class="fas fa-map-marker-alt" aria-hidden="true"></i> </div>

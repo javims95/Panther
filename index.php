@@ -1,71 +1,26 @@
-<?php get_header();
+<?php
+/*
+Template Name: Inicio
+ */
+
+get_header();
 
 // De esta forma tenemos acceso a todas las variables del JSON
 global $pnt, $pnt_master;
 extract($pnt, EXTR_PREFIX_ALL, 'pnt');
-
-// Imágenes slider
-$slider1 = PNT_DIR_URI . 'public/img/it_service/slide1.jpg';
-$slider2 = PNT_DIR_URI . 'public/img/it_service/slide2.jpg';
-$slider3 = PNT_DIR_URI . 'public/img/it_service/slide3.jpg';
-
-// Iconos "por qué elegirnos"
-$icon1 = PNT_DIR_URI . 'public/img/it_service/i1.png';
-$icon2 = PNT_DIR_URI . 'public/img/it_service/i2.png';
-$icon3 = PNT_DIR_URI . 'public/img/it_service/i3.png';
-$icon4 = PNT_DIR_URI . 'public/img/it_service/i4.png';
-
-// Iconos "Proceso del servicio"
-$service1 = PNT_DIR_URI . 'public/img/it_service/si1.png';
-$service2 = PNT_DIR_URI . 'public/img/it_service/si2.png';
-$service3 = PNT_DIR_URI . 'public/img/it_service/si3.png';
-$service4 = PNT_DIR_URI . 'public/img/it_service/si4.png';
-$service5 = PNT_DIR_URI . 'public/img/it_service/si5.png';
-$service6 = PNT_DIR_URI . 'public/img/it_service/si6.png';
-
-// Productos
-$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
-$product2 = PNT_DIR_URI . 'public/img/it_service/2.jpg';
-$product3 = PNT_DIR_URI . 'public/img/it_service/3.jpg';
-$product4 = PNT_DIR_URI . 'public/img/it_service/4.jpg';
-$product5 = PNT_DIR_URI . 'public/img/it_service/5.jpg';
-$product6 = PNT_DIR_URI . 'public/img/it_service/6.jpg';
-$product7 = PNT_DIR_URI . 'public/img/it_service/7.jpg';
-$product8 = PNT_DIR_URI . 'public/img/it_service/8.jpg';
-$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
-$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
-$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
-$product1 = PNT_DIR_URI . 'public/img/it_service/1.jpg';
-
-// Testimonios de clientes
-$client1 = PNT_DIR_URI . 'public/img/it_service/client1.jpg';
-$client2 = PNT_DIR_URI . 'public/img/it_service/client2.jpg';
-$client3 = PNT_DIR_URI . 'public/img/it_service/client3.jpg';
-
-// Contacto
-$phoneIcon = PNT_DIR_URI . 'public/img/it_service/phone_icon.png';
-$mail     = $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'];
-
-// Marcas
-$brand1 = PNT_DIR_URI . 'public/img/it_service/brand_icon1.png';
-$brand2 = PNT_DIR_URI . 'public/img/it_service/brand_icon2.png';
-$brand3 = PNT_DIR_URI . 'public/img/it_service/brand_icon3.png';
-$brand4 = PNT_DIR_URI . 'public/img/it_service/brand_icon4.png';
-$brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
-
 ?>
 
 <!-- Carrousel -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="<?php echo $slider1 ?>" alt="First slide">
+      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide1.jpg' ?>" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo $slider2 ?>" alt="Second slide">
+      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide2.jpg' ?>" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo $slider3 ?>" alt="Third slide">
+      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide3.jpg' ?>" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -99,7 +54,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="<?php echo $icon1; ?>" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/i1.png'; ?>" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Recuperación de datos</h4>
           <p>Recuperamos los datos que hayas extraviado de tu PC, pendrive, discos duros...</p>
@@ -108,7 +63,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="<?php echo $icon2; ?>" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/i2.png'; ?>" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Reparaciones de Ordenadores</h4>
           <p>Ordenadores, portátiles, discos duros, monitores...</p>
@@ -117,7 +72,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30">
           <div class="center">
-            <div class="icon"> <img src="<?php echo $icon3; ?>" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/i3.png'; ?>" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Servicio Móvil</h4>
           <p>También reparamos tu smartphone, cambios de pantalla, baterías, actualización de software.</p>
@@ -126,7 +81,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
         <div class="full text_align_center margin_bottom_30 margin_0">
           <div class="center">
-            <div class="icon"> <img src="<?php echo $icon4; ?>" alt="#" /> </div>
+            <div class="icon"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/i4.png'; ?>" alt="#" /> </div>
           </div>
           <h4 class="theme_color">Soluciones de red</h4>
           <p>Ofrecemos soluciones de conectividad y de cableado estructurado voz-datos para redes de comunicaciones.</p>
@@ -216,7 +171,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service1; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si1.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">Servicio rápido</h4>
                 <p>El tiempo aproximado de reparación son 24/48h desde que recibimos el dispositivo.</p>
               </div>
@@ -225,7 +180,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service2; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si2.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">Pago seguro</h4>
                 <p>Toda nuestra web y nuestros pagos están protegidos por certificados SSL.</p>
               </div>
@@ -234,7 +189,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service3; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si3.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">Equipo de expertos</h4>
                 <p>Está en las mejores manos, nuestro quipo de profesionales le asesorará en todo momento.</p>
               </div>
@@ -243,7 +198,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service4; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si4.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">Servicios asequibles</h4>
                 <p>Precios más baratos de Andalucía en 2021. Todo en nuestra tienda online.</p>
               </div>
@@ -252,7 +207,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service5; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si5.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">90 días de garantía</h4>
                 <p>Todas las reparaciones incluyen una garantía de 90 días desde el momento de la entrega.</p>
               </div>
@@ -261,7 +216,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
           <div class="col-md-4">
             <div class="full">
               <div class="service_blog_inner">
-                <div class="icon text_align_left"><img src="<?php echo $service6; ?>" alt="#" /></div>
+                <div class="icon text_align_left"><img src="<?php echo PNT_DIR_URI . 'public/img/services/si6.png'; ?>" alt="#" /></div>
                 <h4 class="service-heading">ISO 9001</h4>
                 <p>Galardonada en 2020 con la ISO 9001, por nuestro sistema de gestión de calidad.</p>
               </div>
@@ -289,10 +244,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product1 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/1.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Pendrive 3.0 - 32GB</a></h4>
+              <h4><a>Pendrive 3.0 - 32GB</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -305,10 +260,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product2 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/2.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Mini teclado inalambrico</a></h4>
+              <h4><a>Mini teclado inalambrico</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -321,10 +276,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product3 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/3.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Multiplicador jack 1.5</a></h4>
+              <h4><a>Multiplicador jack 1.5</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -337,10 +292,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product4 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/4.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Altavoces logitech 2000W</a></h4>
+              <h4><a>Altavoces logitech 2000W</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -353,10 +308,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product5 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/5.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Soporte para cables</a></h4>
+              <h4><a>Soporte para cables</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -369,10 +324,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product6 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/6.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Amplificador de señal</a></h4>
+              <h4><a>Amplificador de señal</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -385,10 +340,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product7 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/7.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Router 600mHz</a></h4>
+              <h4><a>Router 600mHz</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -401,10 +356,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product8 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/8.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Ratón + PDA</a></h4>
+              <h4><a>Ratón + PDA</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -417,10 +372,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product3 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/3.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Multiplicador jack 1.5</a></h4>
+              <h4><a>Multiplicador jack 1.5</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -433,10 +388,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product1 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/1.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Pendrive 3.0 - 32GB</a></h4>
+              <h4><a>Pendrive 3.0 - 32GB</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -449,10 +404,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product4 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/4.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Altavoces logitech 2000W</a></h4>
+              <h4><a>Altavoces logitech 2000W</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -465,10 +420,10 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       </div>
       <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 margin_bottom_30_all">
         <div class="product_list">
-          <div class="product_img"> <img class="img-responsive" src="<?php echo $product2 ?>" alt=""> </div>
+          <div class="product_img"> <img class="img-responsive" src="<?php echo PNT_DIR_URI . 'public/img/services/2.jpg' ?>" alt=""> </div>
           <div class="product_detail_btm">
             <div class="center">
-              <h4><a href="it_shop_detail.html">Mini teclado inalambrico</a></h4>
+              <h4><a>Mini teclado inalambrico</a></h4>
             </div>
             <div class="starratin">
               <div class="center"> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star" aria-hidden="true"></i> <i class="fa fa-star-o" aria-hidden="true"></i> </div>
@@ -616,7 +571,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
               <div class="carousel-item active">
                 <div class="testimonial-container">
                   <div class="testimonial-content"> ¡Ustedes molan! ¡Gracias por hacerlo indoloro, agradable y, sobre todo, sin complicaciones! Ojalá lo hubiera pensado primero. Estoy realmente satisfecho con mi primer servicio de computadora portátil.</div>
-                  <div class="testimonial-photo"> <img src="<?php echo $client1 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-photo"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/client1.jpg' ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
                     <h4>Maria Castro</h4>
                     <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Sevilla</span>
@@ -626,7 +581,7 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
               <div class="carousel-item">
                 <div class="testimonial-container">
                   <div class="testimonial-content"> En tan solo 48h tengo mi ordenador en casa, con la pantalla nueva. A un precio increible. Muchas gracias, sois unos profesionales. </div>
-                  <div class="testimonial-photo"> <img src="<?php echo $client2 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-photo"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/client2.jpg' ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
                     <h4>Julia Curbelo</h4>
                     <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Málaga</span>
@@ -636,9 +591,9 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
               <div class="carousel-item">
                 <div class="testimonial-container">
                   <div class="testimonial-content"> ¡Sois increibles! Creí que no podría recuperar los datos de mi disco duro. Os lo envíe sin ninguna esperanza... Pero habéis restaurado todos los datos que había perdido. </div>
-                  <div class="testimonial-photo"> <img src="<?php echo $client3 ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
+                  <div class="testimonial-photo"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/client3.jpg' ?>" class="img-responsive" alt="#" width="150" height="150"> </div>
                   <div class="testimonial-meta">
-                    <h4>Paula Macías</h4>
+                    <h4>Paula García</h4>
                     <span class="testimonial-position"><i class="fas fa-map-marker-alt"></i> Madrid</span>
                   </div>
                 </div>
@@ -661,12 +616,14 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-md-12">
         <div class="full">
           <div class="contact_us_section">
-            <div class="call_icon"> <img src="<?php echo $phoneIcon ?>" alt="#" /> </div>
+            <div class="call_icon"> <img src="<?php echo PNT_DIR_URI . 'public/img/services/phone_icon.png' ?>" alt="#" /> </div>
             <div class="inner_cont">
               <h2>Solicite una cita gratuita</h2>
               <p>Obtenga respuestas y consejos de las personas que desea.</p>
             </div>
-            <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="mailto:<?php echo $mail ?>">Contactenos</a> </div>
+            <div class="button_Section_cont"> 
+              <a class="btn dark_gray_bt" href="mailto:<?php echo $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'] ?>">Contactenos</a> 
+            </div>
           </div>
         </div>
       </div>
@@ -681,11 +638,11 @@ $brand5 = PNT_DIR_URI . 'public/img/it_service/brand_icon5.png';
       <div class="col-md-12">
         <div class="full">
           <ul class="brand_list">
-            <li><img src="<?php echo $brand1 ?>" alt="#" /></li>
-            <li><img src="<?php echo $brand2 ?>" alt="#" /></li>
-            <li><img src="<?php echo $brand3 ?>" alt="#" /></li>
-            <li><img src="<?php echo $brand4 ?>" alt="#" /></li>
-            <li><img src="<?php echo $brand5 ?>" alt="#" /></li>
+            <li><img src="<?php echo PNT_DIR_URI . 'public/img/services/brand_icon1.png' ?>" alt="#" /></li>
+            <li><img src="<?php echo PNT_DIR_URI . 'public/img/services/brand_icon2.png' ?>" alt="#" /></li>
+            <li><img src="<?php echo PNT_DIR_URI . 'public/img/services/brand_icon3.png' ?>" alt="#" /></li>
+            <li><img src="<?php echo PNT_DIR_URI . 'public/img/services/brand_icon4.png' ?>" alt="#" /></li>
+            <li><img src="<?php echo PNT_DIR_URI . 'public/img/services/brand_icon5.png' ?>" alt="#" /></li>
           </ul>
         </div>
       </div>

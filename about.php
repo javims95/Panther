@@ -8,12 +8,12 @@ Template Name: Sobre Nosotros
 get_header(); 
 global $pnt, $pnt_master;
 
-$img = PNT_DIR_URI . 'public/img/it_service/post-06.jpg';
+$img = PNT_DIR_URI . 'public/img/services/post-06.jpg';
 
-$team1 = PNT_DIR_URI . 'public/img/it_service/team-member-1.jpg';
-$team2 = PNT_DIR_URI . 'public/img/it_service/team-member-2.jpg';
-$team3 = PNT_DIR_URI . 'public/img/it_service/team-member-3.jpg';
-$team4 = PNT_DIR_URI . 'public/img/it_service/team-member-4.jpg';
+$team1 = PNT_DIR_URI . 'public/img/services/team-member-1.jpg';
+$team2 = PNT_DIR_URI . 'public/img/services/team-member-2.jpg';
+$team3 = PNT_DIR_URI . 'public/img/services/team-member-3.jpg';
+$team4 = PNT_DIR_URI . 'public/img/services/team-member-4.jpg';
 ?>
 
 <!-- inner page banner -->

@@ -2,6 +2,16 @@
 
 Este proyecto consiste en un tema personalizado para WordPress llamado "Panther". Proporciona una amplia gama de configuraciones y opciones para personalizar la apariencia y el funcionamiento de tu sitio web.
 
+## Ver Demo en vivo
+
+- Aquí puedes ver el front el tema: [Panther](https://panther.jamusa.es/)
+- Para ver la configuración del tema:
+    1. Accede a la [zona de administración](https://panther.jamusa.es/wp-login.php)
+    2. Introduce las siguientes credenciales:
+        - Usuario: `test`
+        - Contraseña: `1234`
+    3. Accede al [menú Panther](https://panther.jamusa.es/wp-admin/admin.php?page=pnt-opt)
+
 ## Instalación y Activación
 
 1. Descarga el archivo ZIP del tema desde el repositorio o enlace proporcionado.

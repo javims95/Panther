@@ -8,14 +8,14 @@ Template Name: Servicios
 get_header(); 
 global $pnt, $pnt_master;
 
-$service1 = PNT_DIR_URI . 'public/img/it_service/post-01.jpg';
-$service2 = PNT_DIR_URI . 'public/img/it_service/post-02.jpg';
-$service3 = PNT_DIR_URI . 'public/img/it_service/post-03.jpg';
-$service4 = PNT_DIR_URI . 'public/img/it_service/post-04.jpg';
-$service5 = PNT_DIR_URI . 'public/img/it_service/post-05.jpg';
-$service6 = PNT_DIR_URI . 'public/img/it_service/post-06.jpg';
-$service7 = PNT_DIR_URI . 'public/img/it_service/post-07.jpg';
-$service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
+$service1 = PNT_DIR_URI . 'public/img/services/post-01.jpg';
+$service2 = PNT_DIR_URI . 'public/img/services/post-02.jpg';
+$service3 = PNT_DIR_URI . 'public/img/services/post-03.jpg';
+$service4 = PNT_DIR_URI . 'public/img/services/post-04.jpg';
+$service5 = PNT_DIR_URI . 'public/img/services/post-05.jpg';
+$service6 = PNT_DIR_URI . 'public/img/services/post-06.jpg';
+$service7 = PNT_DIR_URI . 'public/img/services/post-07.jpg';
+$service8 = PNT_DIR_URI . 'public/img/services/post-08.jpg';
 ?>
 
 <!-- inner page banner -->
@@ -50,7 +50,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Recuperación de datos</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Reparación de portátiles</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Soluciones de web</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Reparación de hardware</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Soluciones de red</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Desarrollo web</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Recuperación de datos</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Reparación de ordenadores</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@ $service8 = PNT_DIR_URI . 'public/img/it_service/post-08.jpg';
           <div class="service_cont">
             <h3 class="service_head">Programación web</h3>
             <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-            <div class="bt_cont"> <a class="btn sqaure_bt" href="it_service_detail.html">View Service</a> </div>
+            <div class="bt_cont"> <a class="btn sqaure_bt" href="services_detail.html">Ver Servicio</a> </div>
           </div>
         </div>
       </div>

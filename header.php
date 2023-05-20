@@ -3,26 +3,6 @@
 // De esta forma tenemos acceso a todas las variables del JSON
 global $pnt, $pnt_master;
 extract($pnt, EXTR_PREFIX_ALL, 'pnt');
-
-// Menú Secundario
-$address  = $pnt_menu['address'] == '' ? 'Calle Marqués de Larios 25, 29003, Málaga' : $pnt_menu['address'];
-$mail     = $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'];
-
-// Logo y favicon
-$logoUrl    = $pnt_global['logoUrl'] == '' ? PNT_DIR_URI . 'public/img/logos/it_logo.png' : $pnt_global['logoUrl'];
-$faviconUrl = $pnt_global['faviconUrl'] == '' ? PNT_DIR_URI . 'public/img/fevicon/fevicon.png' : $pnt_global['faviconUrl'];
-
-// Loader
-$loader = PNT_DIR_URI . 'public/img/loaders/loader.png';
-
-// Social
-$facebook   = $pnt_social['facebook'] == '' ? 'https://www.facebook.com/' : $pnt_social['facebook'];
-$twitter    = $pnt_social['twitter'] == '' ? 'https://www.twitter.com/' : $pnt_social['twitter'];
-$instagram  = $pnt_social['instagram'] == '' ? 'https://www.instagram.com/' : $pnt_social['instagram'];
-$youtube    = $pnt_social['youtube'] == '' ? 'https://www.youtube.com/' : $pnt_social['youtube'];
-$googleplus = $pnt_social['googleplus'] == '' ? 'https://plus.google.com/' : $pnt_social['googleplus'];
-$linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_social['linkedin'];
-
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +14,8 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="profile" href="http://gmpg.org/xfn/11">
-  <link rel="short icon" href="<?php echo $faviconUrl; ?>">
-  <link rel="icon" href="<?php echo $faviconUrl; ?>">
+  <link rel="short icon" href="<?php echo $pnt_global['faviconUrl'] == '' ? PNT_DIR_URI . 'public/img/favicon/favicon.png' : $pnt_global['faviconUrl']; ?>">
+  <link rel="icon" href="<?php echo $pnt_global['faviconUrl'] == '' ? PNT_DIR_URI . 'public/img/favicon/favicon.png' : $pnt_global['faviconUrl']; ?>">
 
   <?php wp_head(); ?>
   <title>Document</title>
@@ -43,7 +23,7 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
 
 <body id="default_theme" <?php body_class(); ?> class="it_service">
   <!-- loader -->
-  <div class="bg_load"> <img class="loader_animation" src="<?php echo $loader; ?>" alt="#" /> </div>
+  <div class="bg_load"> <img class="loader_animation" src="<?php echo PNT_DIR_URI . 'public/img/loaders/letter-panther.png'; ?>" alt="#" /> </div>
   <!-- end loader -->
   <!-- header -->
   <header id="default_header" class="header_style_1">
@@ -55,8 +35,12 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
             <div class="full">
               <div class="topbar-left">
                 <ul class="list-inline">
-                  <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> <span class="topbar-hightlight"><?php echo $address; ?></span> </li>
-                  <li> <span class="topbar-label"><i class="fas fa-envelope"></i></span> <span class="topbar-hightlight"><a href="mailto:<?php echo $mail ?>"><?php echo $mail; ?></a></span> </li>
+                  <li> <span class="topbar-label"><i class="fa  fa-home"></i></span> 
+                  <span class="topbar-hightlight"><?php echo $pnt_menu['address'] == '' 
+                    ? 'Calle Marqués de Larios 25, 29003, Málaga' 
+                    : $pnt_menu['address']; ?>
+                  </span> 
+                  </li>                  <li> <span class="topbar-label"><i class="fas fa-envelope"></i></span> <span class="topbar-hightlight"><a href="mailto:<?php echo $pnt_menu['mail'] == '' ? 'info@panther.es' : $pnt_menu['mail'] ?>"><?php echo $mail; ?></a></span> </li>
                 </ul>
               </div>
             </div>
@@ -67,12 +51,12 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
 
             <div class="float-right social_icon">
               <ul class="list-inline">
-                <li><a class="fab fa-facebook-square fa-2x" href="<?php echo $facebook ?>" title="Facebook" target="_blank"></a></li>
-                <li><a class="fab fa-twitter-square fa-2x" href="<?php echo $twitter ?>" title="Twitter" target="_blank"></a></li>
-                <li><a class="fab fa-instagram fa-2x" href="<?php echo $instagram ?>" title="Instagram" target="_blank"></a></li>
-                <li><a class="fab fa-youtube fa-2x" href="<?php echo $youtube ?>" title="LinkedIn" target="_blank"></a></li>
-                <li><a class="fab fa-google-plus-square fa-2x" href="<?php echo $googleplus ?>" title="Instagram" target="_blank"></a></li>
-                <li><a class="fab fa-linkedin fa-2x" href="<?php echo $linkedin ?>" title="Instagram" target="_blank"></a></li>
+                <li><a class="fab fa-facebook-square fa-2x" href="<?php echo $pnt_social['facebook'] == '' ? 'https://www.facebook.com/' : $pnt_social['facebook'] ?>" title="Facebook" target="_blank"></a></li>
+                <li><a class="fab fa-twitter-square fa-2x" href="<?php echo $pnt_social['twitter'] == '' ? 'https://www.twitter.com/' : $pnt_social['twitter'] ?>" title="Twitter" target="_blank"></a></li>
+                <li><a class="fab fa-instagram fa-2x" href="<?php echo $pnt_social['instagram'] == '' ? 'https://www.instagram.com/' : $pnt_social['instagram'] ?>" title="Instagram" target="_blank"></a></li>
+                <li><a class="fab fa-youtube fa-2x" href="<?php echo $pnt_social['youtube'] == '' ? 'https://www.youtube.com/' : $pnt_social['youtube'] ?>" title="LinkedIn" target="_blank"></a></li>
+                <li><a class="fab fa-google-plus-square fa-2x" href="<?php echo $pnt_social['googleplus'] == '' ? 'https://plus.google.com/' : $pnt_social['googleplus'] ?>" title="Instagram" target="_blank"></a></li>
+                <li><a class="fab fa-linkedin fa-2x" href="<?php echo $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_social['linkedin'] ?>" title="Instagram" target="_blank"></a></li>
               </ul>
             </div>
 
@@ -94,7 +78,7 @@ $linkedin   = $pnt_social['linkedin'] == '' ? 'https://es.linkedin.com/' : $pnt_
         <div class="row">
           <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <!-- logo start -->
-            <div class="logo"> <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo $logoUrl; ?>" alt="logo" /></a> </div>
+            <div class="logo"> <a href="<?php echo esc_url(home_url('/')); ?>"><img src="<?php echo $pnt_global['logoUrl'] == '' ? PNT_DIR_URI . 'public/img/logos/letter-panther.svg' : $pnt_global['logoUrl']; ?>" alt="logo" /></a> </div>
             <!-- logo end -->
           </div>
           <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
