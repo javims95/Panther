@@ -5,6 +5,7 @@ Este proyecto consiste en un tema personalizado para WordPress llamado "Panther"
 ## Ver Demo en vivo
 
 Aquí puedes ver el front el tema: [Panther](https://panther.jamusa.es/)
+
 Para ver la configuración del tema:
 1. Accede a la [zona de administración](https://panther.jamusa.es/wp-login.php)
 2. Introduce las siguientes credenciales:
