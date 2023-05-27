@@ -11,32 +11,35 @@ extract($pnt, EXTR_PREFIX_ALL, 'pnt');
 ?>
 
 <!-- Carrousel -->
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide1.jpg' ?>" alt="First slide">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<?php echo PNT_DIR_URI . 'public/img/services/slide1.jpg' ?>" alt="Imagen 1" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="<?php echo PNT_DIR_URI . 'public/img/services/slide2.jpg' ?>" alt="Imagen 2" class="d-block w-100">
+      </div>
+      <div class="carousel-item">
+        <img src="<?php echo PNT_DIR_URI . 'public/img/services/slide3.jpg' ?>" alt="Imagen 3" class="d-block w-100">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide2.jpg' ?>" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo PNT_DIR_URI . 'public/img/services/slide3.jpg' ?>" alt="Third slide">
-    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Siguiente</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-<!-- /.carousel -->
 
-<!-- Apertura div body -->
 <div id="body">
-
+    
 <!-- Por qué elegirnos -->
 <div class="section padding_layout_1">
   <div class="container">
@@ -145,7 +148,7 @@ extract($pnt, EXTR_PREFIX_ALL, 'pnt');
         <div class="full" style="margin-top: 35px;">
           <h3>¿Necesita recuperar archivos?</h3>
           <p>Somos especialistas en la recuperacion de datos de discos duros y en la recuperación de datos de Sistemas RAID. Podemos recuperar datos de cualquier dispositivo de almacenamiento digital que presente fallos de lógica, hardware o ambos.</p>
-          <p><a class="btn main_bt" href="#">Leer más</a></p>
+          <p><a class="btn main_bt" href="<?php echo trailingslashit(get_home_url()) . 'servicios'?>">Leer más</a></p>
         </div>
       </div>
     </div>

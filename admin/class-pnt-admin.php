@@ -268,9 +268,14 @@ class PNT_Admin
 
         $pnt_googlefonts =  get_transient('pnt_googlefonts');
 
-        if (false === $pnt_googlefonts) {
-
-            $APIKey = "AIzaSyDY_qXp0g_oscsPVDolF9S7iMWVsi05ig8";
+        if ($pnt_googlefonts) {
+            if(!is_array($pnt_googlefonts) || !isset($lista_googlefonts['items'])) {
+                delete_transient('pnt_googlefonts');
+                return $this->get_googlefonts();
+            }
+            
+        } else {
+            $APIKey = "AIzaSyCQgkF6o2Iaax69vJ6pIkmBBn-6oQn-E4Q";
             $url = "https://www.googleapis.com/webfonts/v1/webfonts?sort=popularity&fields=items(family,variants)&key=$APIKey";
 
             $response = wp_remote_get($url);
@@ -302,6 +307,7 @@ class PNT_Admin
             set_transient('pnt_googlefonts', $pnt_googlefonts, 3 * MONTH_IN_SECONDS);
         }
 
+        // echo json_encode($pnt_googlefonts);
         return $pnt_googlefonts;
 
     }
